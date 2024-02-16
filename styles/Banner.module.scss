@@ -38,7 +38,7 @@ a {
 $codeBackground: #fff; // Same color as Laurie Crean text for consistency
 $codeLineColor: #f16529; // A color from the rainbow grid
 
-.blue-card {
+.blueCard {
   position: absolute;
   top: 0px; // Slightly offset to show behind the profile card
   left: 19%; // More offset to allow space for a third card
@@ -53,7 +53,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   z-index: 0; // Behind the profile card
 }
 
-.blue-card {
+.blueCard {
   // ... existing styles
 
   color: #039be5;
@@ -63,27 +63,27 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   align-items: center; // Center the items vertically
 }
 
-.yellow-squares {
+.yellowSquares {
   display: grid;
   grid-template-rows: repeat(12, 1fr); // 12 rows for the squares
   gap: 5px;
 }
 
-.yellow-square {
+.yellowSquare {
   background-color: $yellowSquare;
   width: 18px;
   height: 18px; // Fixed height for the squares
   margin: 5px;
 }
 
-.vertical-line {
+.verticalLine {
   background-color: $yellowSquare;
   width: 5px; // Full width of the column
   height: 100%; // Full height of the card
   margin-left: 0px;
 }
 
-.code-lines-art {
+.codeLinesArt {
   display: grid;
   grid-auto-rows: minmax(10px, auto); // Set a minimum height for each code line
   gap: 5px;
@@ -91,7 +91,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   padding-left: 10px; // Padding to simulate indentation
 }
 
-.code-line {
+.codeLine {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -121,7 +121,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
 
 // Use the colors defined in the $colors list for the code lines
 @for $i from 1 through length($colors) {
-  .code-color-#{$i} {
+  .codeColor-#{$i} {
     height: 8px;
     width: 38px;
     margin: auto 3px;
@@ -129,13 +129,13 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   }
 }
 
-.code-icon {
+.codeIcon {
   margin-top: 0px;
   align-self: top;
   color: white;
 }
 // profile card and text
-.profile-card {
+.profileCard {
   background-color: $lightgrey;
   border-radius: 20px 0 0 20px;
   padding: 42px;
@@ -147,7 +147,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative; // Added to position the top banner absolutely at the top
 
-  .top-banner {
+  .topBanner {
     position: absolute;
     top: 0;
     left: 0; // Align to the left edge of profile-card
@@ -173,7 +173,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     margin-bottom: 0.5em;
   }
 
-  .github-link {
+  .githubLink {
     color: $grey;
     text-decoration: none;
     font-size: 28px;
@@ -184,7 +184,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
 }
 
 // top banner
-.top-banner {
+.topBanner {
   // Use a 4-column layout to accommodate the traffic lights, control buttons, search bar, and stacked dots
   display: grid;
   grid-template-columns: auto auto 1fr auto; // Define four columns
@@ -199,11 +199,11 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   border-radius: 20px 20px 0 0;
   z-index: 1; // Ensure the z-index is high enough
 
-  .traffic-lights {
+  .trafficLights {
     display: flex;
     gap: 4px;
 
-    .traffic-dot {
+    .trafficDot {
       height: 12px;
       width: 12px;
       border-radius: 50%;
@@ -220,7 +220,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     }
   }
 
-  .search-bar {
+  .searchBar {
     display: flex;
     align-items: center;
     background-color: #eee;
@@ -242,11 +242,11 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     }
   }
 
-  .control-buttons {
+  .controlButtons {
     display: flex;
     gap: 4px;
 
-    .control-btn {
+    .controlBtn {
       background-color: white;
       border: 1px solid #ddd;
       border-radius: 50%;
@@ -257,7 +257,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
       align-items: center;
     }
   }
-  .stacked-dots {
+  .stackedDots {
     display: grid; // Change to grid layout for proper alignment
     grid-template-rows: repeat(3, 1fr); // Create three rows for the dots
     gap: 4px;
@@ -290,11 +290,11 @@ $colors: (
 );
 
 // Function to lighten the color
-@function lighten-color($color, $amount) {
+@function lightenColor($color, $amount) {
   @return mix(white, $color, $amount);
 }
 
-.rainbow-grid {
+.rainbowGrid {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
   grid-gap: 10px;
@@ -303,7 +303,7 @@ $colors: (
   margin: 20px 0px auto auto;
   background-color: $lightgrey;
 
-  .grid-square {
+  .gridSquare {
     min-height: 50px;
     width: 50px;
     border-radius: 5px;
@@ -313,12 +313,12 @@ $colors: (
   @for $i from 0 through 38 {
     $color: nth($colors, ($i % 13) + 1); // get color from list
     $row: floor($i / 13) + 1; // determine row number
-    $lighten-amount: ($row - 1) * 25%; // amount to lighten by row
+    $lightenAmount: ($row - 1) * 25%; // amount to lighten by row
 
-    .grid-square:nth-child(#{$i + 1}) {
+    .gridSquare:nth-child(#{$i + 1}) {
       height: 20px;
       border-radius: 5px;
-      background-color: lighten-color($color, $lighten-amount);
+      background-color: lightenColor($color, $lightenAmount);
     }
   }
 }
