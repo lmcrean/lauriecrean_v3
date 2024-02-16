@@ -87,14 +87,14 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   display: grid;
   grid-auto-rows: minmax(10px, auto); // Set a minimum height for each code line
   gap: 5px;
-  align-items: start;
+  align-items: flex-start;
   padding-left: 10px; // Padding to simulate indentation
 }
 
 .codeLine {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 2px;
 
   // Indentation classes
