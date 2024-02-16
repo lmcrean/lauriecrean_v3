@@ -21,9 +21,9 @@ $colors: (
 
 @import url("https://fonts.cdnfonts.com/css/hussar-4");
 
-h1,
-h2,
-a {
+.name,
+.title,
+.githubLink {
   font-family: "Hussar", sans-serif;
 }
 
