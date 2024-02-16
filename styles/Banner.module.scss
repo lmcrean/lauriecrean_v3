@@ -1,0 +1,326 @@
+// Color palette
+
+$blue: #039be5;
+$orange: #f16529;
+$grey: #737373;
+$lightgrey: #e4e1e3;
+$yellowSquare: #f1e240; // One of the colors from the rainbow grid
+
+$colors: (
+  #f1e240,
+  // Yellow
+  #68b3a5,
+  // Custom Teal
+  #ff605c,
+  // Red
+  #ffbd44,
+  // Orange
+  #00ca4e,
+  // Green
+);
+
+@import url("https://fonts.cdnfonts.com/css/hussar-4");
+
+h1,
+h2,
+a {
+  font-family: "Hussar", sans-serif;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  background-color: darkblue;
+}
+
+// Blue card colors from the rainbow grid
+$codeBackground: #fff; // Same color as Laurie Crean text for consistency
+$codeLineColor: #f16529; // A color from the rainbow grid
+
+.blue-card {
+  position: absolute;
+  top: 0px; // Slightly offset to show behind the profile card
+  left: 19%; // More offset to allow space for a third card
+  width: calc(100% - 60px); // Width slightly less than the profile card
+  height: 466px;
+  background-color: $blue;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 0; // Behind the profile card
+}
+
+.blue-card {
+  // ... existing styles
+
+  color: #039be5;
+  display: grid;
+  grid-template-columns: 25px 3px 5fr; // 3 columns: squares, line, code lines art
+  grid-gap: 16px; // Space between the columns
+  align-items: center; // Center the items vertically
+}
+
+.yellow-squares {
+  display: grid;
+  grid-template-rows: repeat(12, 1fr); // 12 rows for the squares
+  gap: 5px;
+}
+
+.yellow-square {
+  background-color: $yellowSquare;
+  width: 18px;
+  height: 18px; // Fixed height for the squares
+  margin: 5px;
+}
+
+.vertical-line {
+  background-color: $yellowSquare;
+  width: 5px; // Full width of the column
+  height: 100%; // Full height of the card
+  margin-left: 0px;
+}
+
+.code-lines-art {
+  display: grid;
+  grid-auto-rows: minmax(10px, auto); // Set a minimum height for each code line
+  gap: 5px;
+  align-items: start;
+  padding-left: 10px; // Padding to simulate indentation
+}
+
+.code-line {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2px;
+
+  // Indentation classes
+  &.indent-0 {
+    padding-left: 0;
+  }
+  &.indent-1 {
+    padding-left: 20px;
+  }
+  &.indent-2 {
+    padding-left: 40px;
+  }
+  &.indent-3 {
+    padding-left: 60px;
+  }
+
+  // Reverse indentation for unindented lines
+  &:nth-child(odd) {
+    padding-left: 15px; // Slight indent for the start
+    flex-direction: row-reverse; // Flip the direction for reverse indentation
+    justify-content: end; // Align to the end to reverse indent
+  }
+}
+
+// Use the colors defined in the $colors list for the code lines
+@for $i from 1 through length($colors) {
+  .code-color-#{$i} {
+    height: 8px;
+    width: 38px;
+    margin: auto 3px;
+    background-color: nth($colors, $i);
+  }
+}
+
+.code-icon {
+  margin-top: 0px;
+  align-self: top;
+  color: white;
+}
+// profile card and text
+.profile-card {
+  background-color: $lightgrey;
+  border-radius: 20px 0 0 20px;
+  padding: 42px;
+  margin: auto 0px auto auto;
+  padding-top: 60px;
+  text-align: center;
+  max-width: 873px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; // Added to position the top banner absolutely at the top
+
+  .top-banner {
+    position: absolute;
+    top: 0;
+    left: 0; // Align to the left edge of profile-card
+    right: 0; // Align to the right edge of profile-card
+    border-radius: 20px 20px 0 0; // Rounded corners on top
+    background-color: $lightgrey;
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    padding: 12px;
+    box-sizing: border-box; // Make sure padding is included in the width
+    z-index: 1;
+    width: 100%;
+  }
+
+  .name {
+    color: $blue;
+    margin-bottom: 0.25em;
+  }
+
+  .title {
+    color: $orange;
+    margin-bottom: 0.5em;
+  }
+
+  .github-link {
+    color: $grey;
+    text-decoration: none;
+    font-size: 28px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// top banner
+.top-banner {
+  // Use a 4-column layout to accommodate the traffic lights, control buttons, search bar, and stacked dots
+  display: grid;
+  grid-template-columns: auto auto 1fr auto; // Define four columns
+  align-items: center;
+  padding: 12px;
+  background-color: $lightgrey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%; // Make sure the top banner covers the entire width
+  border-radius: 20px 20px 0 0;
+  z-index: 1; // Ensure the z-index is high enough
+
+  .traffic-lights {
+    display: flex;
+    gap: 4px;
+
+    .traffic-dot {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+    }
+
+    .red {
+      background-color: #ff605c;
+    }
+    .yellow {
+      background-color: #ffbd44;
+    }
+    .green {
+      background-color: #00ca4e;
+    }
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 18px;
+    padding: 4px 13px;
+    flex-grow: 1; // Search bar takes up remaining space
+
+    input {
+      flex-grow: 1; // Input field takes up available space
+      width: 42rem;
+      border: none;
+      background: none;
+      outline: none;
+      padding-right: 10px;
+    }
+
+    i {
+      color: #555;
+    }
+  }
+
+  .control-buttons {
+    display: flex;
+    gap: 4px;
+
+    .control-btn {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .stacked-dots {
+    display: grid; // Change to grid layout for proper alignment
+    grid-template-rows: repeat(3, 1fr); // Create three rows for the dots
+    gap: 4px;
+
+    .dot {
+      height: 4px;
+      width: 4px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Define colors for each column
+$colors: (
+  #436e80,
+  #468346,
+  #f1e240,
+  #dda338,
+  #d85549,
+  #746951,
+  #3d4040,
+  #9977a9,
+  #436e80,
+  #468346,
+  #f1e240,
+  #dda338,
+  #d85549
+);
+
+// Function to lighten the color
+@function lighten-color($color, $amount) {
+  @return mix(white, $color, $amount);
+}
+
+.rainbow-grid {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 20px 0px auto auto;
+  background-color: $lightgrey;
+
+  .grid-square {
+    min-height: 50px;
+    width: 50px;
+    border-radius: 5px;
+  }
+
+  // Create squares
+  @for $i from 0 through 38 {
+    $color: nth($colors, ($i % 13) + 1); // get color from list
+    $row: floor($i / 13) + 1; // determine row number
+    $lighten-amount: ($row - 1) * 25%; // amount to lighten by row
+
+    .grid-square:nth-child(#{$i + 1}) {
+      height: 20px;
+      border-radius: 5px;
+      background-color: lighten-color($color, $lighten-amount);
+    }
+  }
+}
+
+// ... rest of your components
