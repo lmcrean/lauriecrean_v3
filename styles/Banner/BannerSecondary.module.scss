@@ -1,0 +1,73 @@
+// This is the secondary card that fits behind the profile banner. It has a lightblue background with yellow squares and code lines art.
+
+.blueCard {
+  position: absolute;
+  top: 0px; // Slightly offset to show behind the profile card
+  left: 19%; // More offset to allow space for a third card
+  width: calc(100% - 60px); // Width slightly less than the profile card
+
+  height: 414px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 0; // Behind the profile card
+
+  display: grid;
+  grid-template-columns: 25px 3px 5fr; // 3 columns: squares, line, code lines art
+  grid-gap: 16px; // Space between the columns
+  align-items: center; // Center the items vertically
+  > * {
+    max-height: 100%;
+    overflow: hidden; // Prevent content from expanding beyond the set height
+  }
+}
+
+.yellowSquares {
+  display: grid;
+  grid-template-rows: repeat(12, 1fr); // 12 rows for the squares
+  gap: 5px;
+  height: 100%; // Adjust height to fill the blueCard height
+  align-content: start; // Align the squares to the top
+}
+
+.yellowSquare {
+
+  width: 18px;
+  height: 18px; 
+  margin: 5px;
+}
+
+.verticalLine {
+
+  width: 5px; // Full width of the column
+  height: 100%; // Full height of the card
+  margin-left: 0px;
+}
+
+.codeLinesArt {
+  display: grid;
+  grid-auto-rows: minmax(10px, auto); // Adjust the min-height for each code line to match the wireframe
+  gap: 5px; // Adjust the gap to match the wireframe
+  align-items: flex-start;
+  padding-left: 10px; // Padding to simulate indentation
+}
+
+// Adjusting .codeLine to replicate the pattern of code lines from the wireframe
+.codeLine {
+  height: 8px; // Adjust height to match the wireframe
+  margin-bottom: 5px; // Adjust the margin to create space between lines
+  width: 100%; // Set default width to full container width
+
+  // Override widths for specific lines to match the wireframe
+  &:nth-child(1) { width: 50vh; }
+  &:nth-child(2) { width: 45vh; }
+  &:nth-child(3) { width: 40vh; }
+  // Continue for each line, adjusting the width to match the wireframe
+}
+
+.codeIcon {
+  margin-top: 0px;
+  align-self: top;
+}
