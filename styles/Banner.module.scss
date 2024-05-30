@@ -1,23 +1,4 @@
-// Color palette
-
-$blue: #039be5;
-$orange: #f16529;
-$grey: #737373;
-$lightgrey: #e4e1e3;
-$yellowSquare: #f1e240; // One of the colors from the rainbow grid
-
-$colors: (
-  #f1e240,
-  // Yellow
-  #68b3a5,
-  // Custom Teal
-  #ff605c,
-  // Red
-  #ffbd44,
-  // Orange
-  #00ca4e,
-  // Green
-);
+@import './Colors.module';
 
 @import url("https://fonts.cdnfonts.com/css/hussar-4");
 
@@ -31,19 +12,15 @@ $colors: (
   display: flex;
   justify-content: center;
   padding: 0px;
-  background-color: darkblue;
 }
 
-// Blue card colors from the rainbow grid
-$codeBackground: #fff; // Same color as Laurie Crean text for consistency
-$codeLineColor: #f16529; // A color from the rainbow grid
 
 .blueCard {
   position: absolute;
   top: 0px; // Slightly offset to show behind the profile card
   left: 19%; // More offset to allow space for a third card
   width: calc(100% - 60px); // Width slightly less than the profile card
-  background-color: $blue;
+
   height: 414px;
   border-radius: 20px;
   display: grid;
@@ -51,7 +28,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 0; // Behind the profile card
-  color: #039be5;
+
   display: grid;
   grid-template-columns: 25px 3px 5fr; // 3 columns: squares, line, code lines art
   grid-gap: 16px; // Space between the columns
@@ -71,14 +48,14 @@ $codeLineColor: #f16529; // A color from the rainbow grid
 }
 
 .yellowSquare {
-  background-color: $yellowSquare;
+
   width: 18px;
   height: 18px; 
   margin: 5px;
 }
 
 .verticalLine {
-  background-color: $yellowSquare;
+
   width: 5px; // Full width of the column
   height: 100%; // Full height of the card
   margin-left: 0px;
@@ -105,20 +82,13 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   // Continue for each line, adjusting the width to match the wireframe
 }
 
-@for $i from 1 through length($colors) {
-  .codeLine:nth-child(#{$i}) {
-    background-color: nth($colors, $i); // Assign color from the $colors list
-  }
-}
-
 .codeIcon {
   margin-top: 0px;
   align-self: top;
-  color: white;
 }
+
 // profile card and text
 .profileCard {
-  background-color: $lightgrey;
   border-radius: 20px 0 0 20px;
   padding: 42px;
   margin: auto 0px auto auto;
@@ -135,7 +105,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     left: 0; // Align to the left edge of profile-card
     right: 0; // Align to the right edge of profile-card
     border-radius: 20px 20px 0 0; // Rounded corners on top
-    background-color: $lightgrey;
+
     display: grid;
     gap: 8px;
     align-items: center;
@@ -146,17 +116,14 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   }
 
   .name {
-    color: $blue;
     margin-bottom: 0.25em;
   }
 
   .title {
-    color: $orange;
     margin-bottom: 0.5em;
   }
 
   .githubLink {
-    color: $grey;
     text-decoration: none;
     font-size: 28px;
     &:hover {
@@ -172,7 +139,6 @@ $codeLineColor: #f16529; // A color from the rainbow grid
   grid-template-columns: auto auto 1fr auto; // Define four columns
   align-items: center;
   padding: 12px;
-  background-color: $lightgrey;
   position: absolute;
   top: 0;
   left: 0;
@@ -190,22 +156,12 @@ $codeLineColor: #f16529; // A color from the rainbow grid
       width: 12px;
       border-radius: 50%;
     }
-
-    .red {
-      background-color: #ff605c;
-    }
-    .yellow {
-      background-color: #ffbd44;
-    }
-    .green {
-      background-color: #00ca4e;
-    }
   }
 
   .searchBar {
     display: flex;
     align-items: center;
-    background-color: #eee;
+
     border-radius: 18px;
     padding: 4px 13px;
     flex-grow: 1; // Search bar takes up remaining space
@@ -219,9 +175,6 @@ $codeLineColor: #f16529; // A color from the rainbow grid
       padding-right: 10px;
     }
 
-    i {
-      color: #555;
-    }
   }
 
   .controlButtons {
@@ -229,7 +182,7 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     gap: 4px;
 
     .controlBtn {
-      background-color: white;
+
       border: 1px solid #ddd;
       border-radius: 50%;
       width: 30px;
@@ -247,34 +200,14 @@ $codeLineColor: #f16529; // A color from the rainbow grid
     .dot {
       height: 4px;
       width: 4px;
-      background-color: white;
+
       border: 1px solid #ddd;
       border-radius: 50%;
     }
   }
 }
 
-// Define colors for each column
-$colors: (
-  #436e80,
-  #468346,
-  #f1e240,
-  #dda338,
-  #d85549,
-  #746951,
-  #3d4040,
-  #9977a9,
-  #436e80,
-  #468346,
-  #f1e240,
-  #dda338,
-  #d85549
-);
 
-// Function to lighten the color
-@function lightenColor($color, $amount) {
-  @return mix(white, $color, $amount);
-}
 
 .rainbowGrid {
   display: grid;
@@ -283,7 +216,7 @@ $colors: (
   padding: 10px;
   border-radius: 20px;
   margin: 20px 0px auto auto;
-  background-color: $lightgrey;
+
 
   .gridSquare {
     min-height: 50px;
@@ -293,14 +226,14 @@ $colors: (
 
   // Create squares
   @for $i from 0 through 38 {
-    $color: nth($colors, ($i % 13) + 1); // get color from list
+
     $row: floor($i / 13) + 1; // determine row number
     $lightenAmount: ($row - 1) * 25%; // amount to lighten by row
 
     .gridSquare:nth-child(#{$i + 1}) {
       height: 20px;
       border-radius: 5px;
-      background-color: lightenColor($color, $lightenAmount);
+
     }
   }
 }

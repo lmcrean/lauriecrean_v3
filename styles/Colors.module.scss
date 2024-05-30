@@ -1,0 +1,155 @@
+
+// Color palette
+
+$blue: #039be5;
+$orange: #f16529;
+$grey: #737373;
+$lightgrey: #e4e1e3;
+$yellowSquare: #f1e240; // One of the colors from the rainbow grid
+
+$colors: (
+  #f1e240,
+  // Yellow
+  #68b3a5,
+  // Custom Teal
+  #ff605c,
+  // Red
+  #ffbd44,
+  // Orange
+  #00ca4e,
+  // Green
+);
+
+.banner {
+  background-color: darkblue;
+}
+
+// Blue card colors from the rainbow grid
+$codeBackground: #fff; // Same color as Laurie Crean text for consistency
+$codeLineColor: #f16529; // A color from the rainbow grid
+
+.blueCard {
+  background-color: $blue;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #039be5;
+  display: grid;
+}
+
+.yellowSquare {
+  background-color: $yellowSquare;
+}
+
+.verticalLine {
+  background-color: $yellowSquare;
+}
+
+@for $i from 1 through length($colors) {
+  .codeLine:nth-child(#{$i}) {
+    background-color: nth($colors, $i); // Assign color from the $colors list
+  }
+}
+
+.codeIcon {
+  color: white;
+}
+
+// profile card and text
+.profileCard {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .topBanner {
+    background-color: $lightgrey;
+  }
+
+  .name {
+    color: $blue;
+  }
+
+  .title {
+    color: $orange;
+  }
+
+  .githubLink {
+    color: $grey;
+  }
+}
+
+// top banner
+.topBanner {
+  background-color: $lightgrey;
+
+  .trafficLights {
+    .red {
+      background-color: #ff605c;
+    }
+    .yellow {
+      background-color: #ffbd44;
+    }
+    .green {
+      background-color: #00ca4e;
+    }
+  }
+
+  .searchBar {
+    background-color: #eee;
+
+    i {
+      color: #555;
+    }
+  }
+
+  .controlButtons {
+    display: flex;
+    gap: 4px;
+
+    .controlBtn {
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+  }
+  .stackedDots {
+    .dot {
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+  }
+}
+
+// Define colors for each column
+$colors: (
+  #436e80,
+  #468346,
+  #f1e240,
+  #dda338,
+  #d85549,
+  #746951,
+  #3d4040,
+  #9977a9,
+  #436e80,
+  #468346,
+  #f1e240,
+  #dda338,
+  #d85549
+);
+
+// Function to lighten the color
+@function lightenColor($color, $amount) {
+  @return mix(white, $color, $amount);
+}
+
+.rainbowGrid {
+
+  background-color: $lightgrey;
+
+
+  // Create squares
+  @for $i from 0 through 38 {
+    $color: nth($colors, ($i % 13) + 1); // get color from list
+    $row: floor($i / 13) + 1; // determine row number. floor() rounds down to the nearest whole number
+    $lightenAmount: ($row - 1) * 25%; // amount to lighten by row
+
+    .gridSquare:nth-child(#{$i + 1}) {
+      background-color: lightenColor($color, $lightenAmount);
+    }
+  }
+}
