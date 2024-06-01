@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from '../styles/Master.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const ProfileCard = () => (
   <div className={styles.profileCard}>
@@ -11,8 +13,9 @@ const ProfileCard = () => (
       target="_blank"
       className={styles.githubLink}
     >
-      github.com/lmcrean
+      <i className="fas fa-github"></i>
     </a>
+    
     <RainbowGrid />
   </div>
 );
