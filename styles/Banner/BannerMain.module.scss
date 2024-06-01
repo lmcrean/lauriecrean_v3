@@ -19,13 +19,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative; // Added to position the top banner absolutely at the top
 
+  @media screen and (max-width: 873px){
+    max-width: 100%;
+  }
+
   .topBanner {
     position: absolute;
     top: 0;
     left: 0; // Align to the left edge of profile-card
     right: 0; // Align to the right edge of profile-card
     border-radius: 20px 20px 0 0; // Rounded corners on top
-
     display: grid;
     gap: 8px;
     align-items: center;
@@ -37,6 +40,7 @@
 
   .name {
     margin-bottom: 0.25em;
+    font-size: 34px;
   }
 
   .title {
@@ -48,6 +52,9 @@
     font-size: 28px;
     &:hover {
       text-decoration: underline;
+    }
+    @media screen and (max-width: 389px){
+      font-size: 18px;
     }
   }
 }
@@ -66,6 +73,10 @@
   width: 100%; // Make sure the top banner covers the entire width
   border-radius: 20px 20px 0 0;
   z-index: 1; // Ensure the z-index is high enough
+
+  @media screen and (max-width: 873px){
+    display: none;
+  }
 
   .trafficLights {
     display: flex;
@@ -95,11 +106,19 @@
       padding-right: 10px;
     }
 
+    @media screen and (max-width: 873px){
+      display: none;
+    }
+
   }
 
   .controlButtons {
     display: flex;
     gap: 4px;
+
+    @media screen and (max-width: 873px){
+      display: none;
+    }
 
     .controlBtn {
 
@@ -110,12 +129,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      
+      
     }
   }
   .stackedDots {
     display: grid; // Change to grid layout for proper alignment
     grid-template-rows: repeat(3, 1fr); // Create three rows for the dots
     gap: 4px;
+
+    @media screen and (max-width: 873px){
+      display: none;
+    }
 
     .dot {
       height: 4px;
@@ -137,11 +162,14 @@
   border-radius: 20px;
   margin: 20px 0px auto auto;
 
-
   .gridSquare {
     min-height: 50px;
     width: 50px;
     border-radius: 5px;
+
+    @media screen and (max-width: 873px){
+      display: none;
+    }
   }
 
   // Create squares
