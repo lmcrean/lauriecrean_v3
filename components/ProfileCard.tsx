@@ -13,7 +13,7 @@ const ProfileCard = () => (
       target="_blank"
       className={styles.githubLink}
     >
-      <i className="fas fa-github"></i>
+      github.com/lmcrean
     </a>
     
     <RainbowGrid />
