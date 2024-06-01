@@ -1,6 +1,41 @@
 import React from 'react';
 import styles from '../styles/Master.module.scss';
 
+// Secondary Banner component YellowSquares and CodeArtCard
+const YellowSquares = () => {
+  return (
+    <div className={styles.yellowSquares}>
+      {Array.from({ length: 12 }).map((_, index) => (
+        <div key={index} className={styles.yellowSquare} />
+      ))}
+    </div>
+  );
+};
+
+const CodeArtCard = () => {
+  const indentation = [0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0];
+
+  const codeLines = indentation.map((indent, index) => (
+    <div key={index} className={`${styles.codeLine} ${styles[`indent-${indent}`]}`}>
+      {Array.from({ length: 5 }).map((_, idx) => (
+        <div key={idx} className={styles[`codeColor-${(idx % 5) + 1}`]}></div>
+      ))}
+    </div>
+  ));
+
+  return (
+    <div className={styles.blueCard}>
+      <YellowSquares />
+      <div className={styles.verticalLine}></div>
+      <div className={styles.codeLinesArt}>
+        <i className={`fas fa-code ${styles.codeIcon}`}></i>
+        {codeLines}
+        <i className={`fas fa-code ${styles.codeIcon}`}></i>
+      </div>
+    </div>
+  );
+};
+
 // Main Banner component ProfileCard and RainbowGrid
 
 const ProfileCard = () => (
@@ -61,6 +96,7 @@ const RainbowGrid = () => {
 const App = () => {
   return (
     <div className={styles.banner}>
+      <CodeArtCard />
       <ProfileCard />
     </div>
   );
