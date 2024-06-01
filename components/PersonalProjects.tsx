@@ -1,4 +1,7 @@
 import React from 'react';
+import Badge from 'react-bootstrap/Badge';
+import Stack from 'react-bootstrap/Stack'; // Bug: currently not working, expecting to render a horizontal stack of badges, instead it renders plain text
+
 
 const PersonalProjects = () => {
     return (
@@ -9,6 +12,21 @@ const PersonalProjects = () => {
             <div key={index} className="bg-white shadow-md rounded-lg p-4">
               <h3 className="text-lg font-semibold mb-2">Project {index + 1}</h3>
               <p>A brief description of what Project {index + 1} does.</p>
+              <br></br>
+
+              <p>Key features:</p>
+              <ul>
+                <li>- Feature 1</li>
+                <li>- Feature 2</li>
+                <li>- Feature 3</li>
+              </ul>
+              <br></br>
+              
+              <Stack direction="horizontal" gap={2}>
+                <Badge pill  bg="primary">Html</Badge>
+                <Badge pill bg="secondary">React</Badge>
+                <Badge pill bg="success">Django</Badge>
+              </Stack>
             </div>
           ))}
         </div>
