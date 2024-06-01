@@ -2,8 +2,8 @@ import React from 'react';
 
 const PersonalProjects = () => {
     return (
-      <section className="container mx-auto px-4">
-        <h2 className="text-xl font-bold mb-4">Personal Projects</h2>
+      <section className="personal-projects container mx-auto px-auto">
+        <h2 className="text-center text-white text-xl font-bold mb-3 mt-5">Personal Projects</h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
           {Array.from({ length: 5 }).map((_, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-4">

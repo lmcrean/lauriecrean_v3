@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 
 const App = () => {
   return (
-    <div className={styles.banner}>
+    <div className={styles.layout}>
       <ProfileCard />
       <PersonalProjects />
       <TeamProjects />
