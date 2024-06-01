@@ -11,3 +11,10 @@
 @import './Animations/HoverAnimations.scss';
 
 @import './Portfolio/Portfolio.module';
+
+.layout {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    flex-direction: column;
+}  

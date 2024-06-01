@@ -20,13 +20,14 @@ $colors: (
   // Green
 );
 
-.banner {
-  background-color: darkblue;
-}
-
 // Blue card colors from the rainbow grid
 $codeBackground: #fff; // Same color as Laurie Crean text for consistency
 $codeLineColor: #f16529; // A color from the rainbow grid
+
+.layout {
+  background-color: rgb(2, 10, 70);
+  color: darkblue;
+}
 
 .blueCard {
   background-color: $blue;
