@@ -7,8 +7,6 @@ import Testimonials from '../components/Testimonials';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import Badge from 'react-bootstrap/Badge';
-import Stack from 'react-bootstrap/Stack';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
