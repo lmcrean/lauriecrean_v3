@@ -1,6 +1,7 @@
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
-import Stack from 'react-bootstrap/Stack'; // Bug: currently not working, expecting to render a horizontal stack of badges, instead it renders plain text
+import Stack from 'react-bootstrap/Stack';
+import Card from 'react-bootstrap/Card'; //todo: convert section to card
 
 
 const PersonalProjects = () => {
