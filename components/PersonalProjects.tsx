@@ -11,7 +11,7 @@ const PersonalProjects = () => {
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
           {Array.from({ length: 5 }).map((_, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-4">
-              <div className='d-flex'>
+              <div className='d-flex justify-content-between'>
               <h3 className="text-lg font-semibold mb-2">Project {index + 1}</h3><a className='mr-0'>More info</a>
               </div>
               <img src="/images/steamreport.png" alt="SteamReport" />
