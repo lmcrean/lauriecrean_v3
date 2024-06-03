@@ -1,7 +1,11 @@
+"use client" // this enables framer-motion to work with Next.js 
+
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
 import Card from 'react-bootstrap/Card'; //todo: convert section to card. https://react-bootstrap.netlify.app/docs/components/cards
+import { motion } from 'framer-motion';
+import LineIcon from "lineicons-react";
 
 
 const PersonalProjects = () => {
@@ -10,7 +14,7 @@ const PersonalProjects = () => {
         <h2 className="text-center text-white text-xl font-bold mb-3 mt-5">Personal Projects</h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
           {Array.from({ length: 5 }).map((_, index) => (
-            <div className="bg-white shadow-md rounded-lg p-4">
+            <div key={index} className="bg-white shadow-md rounded-lg p-4">
               <div className='d-flex justify-content-between'>
               <h3 className="text-lg font-semibold mb-2">Project {index + 1}</h3><a className='mr-0'>More info</a>
               </div>

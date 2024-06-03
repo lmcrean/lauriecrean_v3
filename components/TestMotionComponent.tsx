@@ -1,15 +1,20 @@
+"use client"
+
 // TestMotionComponent.tsx
 import React from 'react';
-import { motion } from 'framer-motion'; // bug: error when applying motion.div to a component
-// Error: (0 , react__WEBPACK_IMPORTED_MODULE_0__.createContext) is not a function
+import { motion } from 'framer-motion'; 
 
 
 const TestMotionComponent = () => {
   return (
-    <section>
-        <div>
-            <h1>Test Motion Component</h1>
-        </div>
+    <section className='d-flex'>
+       <motion.h1 className='text-white text-xl font-bold mb-3 mt-5 mx-auto'
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 5 }}
+        >
+          Test Motion Component
+        </motion.h1>
     </section>
   );
 };

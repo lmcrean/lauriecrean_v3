@@ -15,6 +15,7 @@
     "bootstrap": "^5.3.3",
     "fontawesome": "^5.6.3",
     "framer-motion": "^11.2.10",
+    "lineicons-react": "^1.0.5",
     "next": "^14.2.3",
     "react": "^18",
     "react-bootstrap": "^2.10.2",
