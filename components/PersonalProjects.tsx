@@ -22,7 +22,7 @@ const projectsData = [
   },
   {
     id: 2,
-    name: "Project 2",
+    name: "React Project (in progress)",
     description: "Description for Project 2",
     features: ["React", "Node.js", "Express"],
     imageSrc: "/images/project2.png",
@@ -30,7 +30,7 @@ const projectsData = [
   },
   {
     id: 3,
-    name: "Project 3",
+    name: "Steam Report",
     description: "Description for Project 3",
     features: ["React", "Node.js", "Express"],
     imageSrc: "/images/project3.png",
@@ -38,7 +38,7 @@ const projectsData = [
   },
   {
     id: 4,
-    name: "Project 4",
+    name: "Crocodile Kingdom",
     description: "Description for Project 4",
     features: ["React", "Node.js", "Express"],
     imageSrc: "/images/project4.png",
@@ -46,7 +46,7 @@ const projectsData = [
   },
   {
     id: 5,
-    name: "Project 5",
+    name: "Hoverboard",
     description: "Description for Project 5",
     features: ["React", "Node.js", "Express"],
     imageSrc: "/images/project5.png",
@@ -54,7 +54,7 @@ const projectsData = [
   },
   {
     id: 6,
-    name: "Project 6",
+    name: "Portfolio Website",
     description: "Description for Project 6",
     features: ["React", "Node.js", "Express"],
     imageSrc: "/images/project6.png",
@@ -63,7 +63,7 @@ const projectsData = [
 ];
 
 const PersonalProjects = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
     <section className="personal-projects container mx-auto px-auto">
@@ -120,7 +120,7 @@ const PersonalProjects = () => {
         justifyContent: 'center',
       }}
     >
-      <div
+      <motion.div
         style={{
           backgroundColor: 'white',
           boxShadow: 'md',
@@ -134,7 +134,21 @@ const PersonalProjects = () => {
       >
         {/* Detailed view of the selected project goes here */}
         <button onClick={() => setSelectedId(null)}>Close</button>
-      </div>
+        <h2>{projectsData[selectedId - 1].name}</h2>
+        <p>{projectsData[selectedId - 1].description}</p>
+        <img src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} />
+        <h3>Key Features:</h3>
+        <ul>
+          {projectsData[selectedId - 1].features.map(feature => (
+            <li key={feature}>{feature}</li>
+          ))}
+        </ul>
+        <Stack direction="horizontal" gap={2}>
+          {projectsData[selectedId - 1].badges.map((badge, index) => (
+            <Badge key={index} pill bg="info">{badge}</Badge>
+          ))}
+        </Stack>
+      </motion.div>
     </motion.div>
   )}
 </AnimatePresence>
