@@ -14,22 +14,22 @@ interface IconProps {
 }
 
 // CodePen icon component
-const CodePenIcon: React.FC<IconProps> = ({ width = 24, height = 24, alt = 'CodePen Icon' }) => (
+const CodePenIcon: React.FC<IconProps> = ({ width = 34, height = 34, alt = 'CodePen Icon' }) => (
     <Image src="/icons_social/codepen.svg" width={width} height={height} alt={alt} />
   );
   
   // GitHub icon component
-  const GithubIcon: React.FC<IconProps> = ({ width = 24, height = 24, alt = 'GitHub Icon' }) => (
+  const GithubIcon: React.FC<IconProps> = ({ width = 34, height = 34, alt = 'GitHub Icon' }) => (
     <Image src="/icons_social/github.svg" width={width} height={height} alt={alt} />
   );
   
   // LinkedIn icon component
-  const LinkedInIcon: React.FC<IconProps> = ({ width = 24, height = 24, alt = 'LinkedIn Icon' }) => (
+  const LinkedInIcon: React.FC<IconProps> = ({ width = 34, height = 34, alt = 'LinkedIn Icon' }) => (
     <Image src="/icons_social/linkedin.svg" width={width} height={height} alt={alt} />
   );
   
   // StackOverflow icon component
-  const StackOverflowIcon: React.FC<IconProps> = ({ width = 24, height = 24, alt = 'StackOverflow Icon' }) => (
+  const StackOverflowIcon: React.FC<IconProps> = ({ width = 34, height = 34, alt = 'StackOverflow Icon' }) => (
     <Image src="/icons_social/stackoverflow.svg" width={width} height={height} alt={alt} />
   );
   
