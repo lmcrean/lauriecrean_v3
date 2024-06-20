@@ -6,6 +6,8 @@ import ReactDOM from "react-dom";
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
 import Card from 'react-bootstrap/Card'; //todo: convert section to card. https://react-bootstrap.netlify.app/docs/components/cards
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const projectsData = [
   {
@@ -139,7 +141,9 @@ const PersonalProjects = () => {
           overflowY: 'auto',
         }}
       >
-        {/* Detailed view of the selected project goes here */}
+        {/* Detailed view of the selected project goes here, with a Readme in the second column */}
+        <Row>
+        <Col md={6}>
         <button onClick={handleClose}>Close</button>
         <h2>{projectsData[selectedId - 1].name}</h2>
         <p>{projectsData[selectedId - 1].description}</p>
@@ -155,6 +159,16 @@ const PersonalProjects = () => {
             <Badge key={index} pill bg="info">{badge}</Badge>
           ))}
         </Stack>
+        </Col>
+        <Col md={6}>
+        <h2>README</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+        <h3>Header 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+        <h3>Header 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+        </Col>
+        </Row>
       </motion.div>
     </motion.div>
   )}
