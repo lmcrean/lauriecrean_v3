@@ -60,7 +60,7 @@ const PersonalProjects = () => {
 
             <Stack direction="horizontal" gap={2}>
               {project.badges.map((badge, index) => (
-                <Badge key={index} pill variant="info">{badge}</Badge>
+                <Badge key={index} pill bg="info">{badge}</Badge>
               ))}
             </Stack>
           </motion.div>
@@ -74,13 +74,16 @@ const PersonalProjects = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ type: 'spring', stiffness: 120 }}
+      transition={{ type: 'spring', stiffness: 100 }}
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        width: '80%',
+        height: '80%',
+        margin: 'auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -92,8 +95,8 @@ const PersonalProjects = () => {
           boxShadow: 'md',
           borderRadius: '25px',
           padding: '1rem',
-          width: '80%',
-          height: '80%',
+          width: '100%',
+          height: '100%',
           maxWidth: '4xl',
           overflowY: 'auto',
         }}
