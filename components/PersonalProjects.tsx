@@ -28,7 +28,38 @@ const projectsData = [
     imageSrc: "/images/project2.png",
     badges: ["Python", "Django", "PostgreSQL"]
   },
-  // Add more projects here...
+  {
+    id: 3,
+    name: "Project 3",
+    description: "Description for Project 3",
+    features: ["React", "Node.js", "Express"],
+    imageSrc: "/images/project3.png",
+    badges: ["Python", "Django", "PostgreSQL"]
+  },
+  {
+    id: 4,
+    name: "Project 4",
+    description: "Description for Project 4",
+    features: ["React", "Node.js", "Express"],
+    imageSrc: "/images/project4.png",
+    badges: ["Python", "Django", "PostgreSQL"]
+  },
+  {
+    id: 5,
+    name: "Project 5",
+    description: "Description for Project 5",
+    features: ["React", "Node.js", "Express"],
+    imageSrc: "/images/project5.png",
+    badges: ["Python", "Django", "PostgreSQL"]
+  },
+  {
+    id: 6,
+    name: "Project 6",
+    description: "Description for Project 6",
+    features: ["React", "Node.js", "Express"],
+    imageSrc: "/images/project6.png",
+    badges: ["Python", "Django", "PostgreSQL"]
+  },
 ];
 
 const PersonalProjects = () => {
