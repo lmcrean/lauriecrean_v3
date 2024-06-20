@@ -17,7 +17,7 @@ const projectsData = [
       "Users post Questions and Answers", "Data hosted on Cloudinary and Heroku",
       "users can comment on posts",
       "users can bookmark favourite answers"],
-    imageSrc: "/images/project1.png",
+    imageSrc: "projects/coachmatrix/1.png", // doesn't work
     badges: ["Django", "Cloudinary", "Heroku"]
   },
   {
@@ -25,7 +25,7 @@ const projectsData = [
     name: "React Project (in progress)",
     description: "Description for Project 2",
     features: ["React", "Node.js", "Express"],
-    imageSrc: "/images/project2.png",
+    imageSrc: "/projects/react/1.jpg",
     badges: ["Python", "Django", "PostgreSQL"]
   },
   {
@@ -33,7 +33,7 @@ const projectsData = [
     name: "Steam Report",
     description: "Description for Project 3",
     features: ["React", "Node.js", "Express"],
-    imageSrc: "/images/project3.png",
+    imageSrc: "projects/steamreport/1.png", 
     badges: ["Python", "Django", "PostgreSQL"]
   },
   {
@@ -41,7 +41,7 @@ const projectsData = [
     name: "Crocodile Kingdom",
     description: "Description for Project 4",
     features: ["React", "Node.js", "Express"],
-    imageSrc: "/images/project4.png",
+    imageSrc: "/projects/crocodilekingdom/1.png",
     badges: ["Python", "Django", "PostgreSQL"]
   },
   {
@@ -49,7 +49,7 @@ const projectsData = [
     name: "Hoverboard",
     description: "Description for Project 5",
     features: ["React", "Node.js", "Express"],
-    imageSrc: "/images/project5.png",
+    imageSrc: "/projects/hoverboard/1.png",
     badges: ["Python", "Django", "PostgreSQL"]
   },
   {
@@ -57,7 +57,7 @@ const projectsData = [
     name: "Portfolio Website",
     description: "Description for Project 6",
     features: ["React", "Node.js", "Express"],
-    imageSrc: "/images/project6.png",
+    imageSrc: "/projects/portfolio/1.jpg",
     badges: ["Python", "Django", "PostgreSQL"]
   },
 ];
@@ -143,7 +143,7 @@ const PersonalProjects = () => {
         <button onClick={handleClose}>Close</button>
         <h2>{projectsData[selectedId - 1].name}</h2>
         <p>{projectsData[selectedId - 1].description}</p>
-        <img src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} />
+        <img src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} style={{ maxWidth: '500px' }}/>
         <h3>Key Features:</h3>
         <ul>
           {projectsData[selectedId - 1].features.map(feature => (
