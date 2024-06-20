@@ -67,21 +67,43 @@ const PersonalProjects = () => {
         ))}
       </div>
 
-      <AnimatePresence>
-        {selectedId && (
-          <motion.div
-            layoutId={`project-${selectedId}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 120 }}
-            className="bg-white shadow-md rounded-lg p-4 fixed inset-0 z-10"
-          >
-            {/* Detailed view of the selected project goes here */}
-            <button onClick={() => setSelectedId(null)}>Close</button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {selectedId && (
+    <motion.div
+      layoutId={`project-${selectedId}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ type: 'spring', stiffness: 120 }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: 'white',
+          boxShadow: 'md',
+          borderRadius: '25px',
+          padding: '1rem',
+          width: '80%',
+          height: '80%',
+          maxWidth: '4xl',
+          overflowY: 'auto',
+        }}
+      >
+        {/* Detailed view of the selected project goes here */}
+        <button onClick={() => setSelectedId(null)}>Close</button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
   );
 };
