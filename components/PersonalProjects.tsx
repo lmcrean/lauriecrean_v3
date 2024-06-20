@@ -64,6 +64,12 @@ const projectsData = [
 
 const PersonalProjects = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [prevId, setPrevId] = useState<number | null>(null);
+
+  const handleClose = () => {
+    setPrevId(selectedId);
+    setSelectedId(null);
+  };
 
   return (
     <section className="personal-projects container mx-auto px-auto">
@@ -99,8 +105,9 @@ const PersonalProjects = () => {
       </div>
 
 <AnimatePresence>
-  {selectedId && (
+  {selectedId!== null && (
     <motion.div
+      key={selectedId}
       layoutId={`project-${selectedId}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -133,7 +140,7 @@ const PersonalProjects = () => {
         }}
       >
         {/* Detailed view of the selected project goes here */}
-        <button onClick={() => setSelectedId(null)}>Close</button>
+        <button onClick={handleClose}>Close</button>
         <h2>{projectsData[selectedId - 1].name}</h2>
         <p>{projectsData[selectedId - 1].description}</p>
         <img src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} />
