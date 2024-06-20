@@ -10,17 +10,23 @@ import { motion } from 'framer-motion';
 const projectsData = [
   {
     id: 1,
-    name: "Project 1",
-    description: "Description for Project 1",
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    imageSrc: "/images/project1.png"
+    name: "Coach Matrix",
+    description: "a multi-user blog for professionals working in education, similar to reddit",
+    features: [
+      "⬆️Users upvote and downvote favourite content",
+      "Users post Questions and Answers", "Data hosted on Cloudinary and Heroku",
+      "users can comment on posts",
+      "users can bookmark favourite answers"],
+    imageSrc: "/images/project1.png",
+    badges: ["Django", "Cloudinary", "Heroku"]
   },
   {
     id: 2,
     name: "Project 2",
     description: "Description for Project 2",
-    features: ["Feature A", "Feature B", "Feature C"],
-    imageSrc: "/images/project2.png"
+    features: ["React", "Node.js", "Express"],
+    imageSrc: "/images/project2.png",
+    badges: ["Python", "Django", "PostgreSQL"]
   },
   // Add more projects here...
 ];
@@ -46,12 +52,10 @@ const PersonalProjects = () => {
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-                <br /><br />
               <Stack direction="horizontal" gap={2}>
-                {/* Example badges */}
-                <Badge pill bg="primary">Html</Badge>
-                <Badge pill bg="secondary">React</Badge>
-                <Badge pill bg="success">Django</Badge>
+                {project.badges.map((badge, index) => (
+                  <Badge key={index} pill variant="info">{badge}</Badge>
+                ))}
               </Stack>
             </div>
           ))}
