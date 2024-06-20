@@ -8,13 +8,6 @@ const ProfileCard = () => (
     <TopBanner />
     <h1 className={styles.name}>Laurie Crean</h1>
     <h2 className={styles.title}>Junior Full-Stack Software Developer</h2>
-    <a
-      href="https://github.com/lmcrean"
-      target="_blank"
-      className={styles.githubLink}
-    >
-      github.com/lmcrean
-    </a>
     
     <RainbowGrid />
   </div>

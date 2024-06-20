@@ -1,12 +1,11 @@
 "use client" // this enables framer-motion to work with Next.js 
 
 import React from 'react';
+import ReactDOM from "react-dom";
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
 import Card from 'react-bootstrap/Card'; //todo: convert section to card. https://react-bootstrap.netlify.app/docs/components/cards
 import { motion } from 'framer-motion';
-import LineIcon from "lineicons-react";
-
 
 const PersonalProjects = () => {
     return (

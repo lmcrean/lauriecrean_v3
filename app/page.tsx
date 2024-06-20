@@ -7,20 +7,21 @@ import Testimonials from '../components/Testimonials';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import TestMotionComponent from '../components/TestMotionComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactDOM from "react-dom";
+import SocialHeader from '@/components/SocialHeader';
 
 const App = () => {
   return (
     <div className={styles.layout}>
       <ProfileCard />
+      <SocialHeader />
       <PersonalProjects />
       <TeamProjects />
       <Testimonials />
       <About />
       <Contact />
       <Footer />
-      <TestMotionComponent />
     </div>
   );
 };
