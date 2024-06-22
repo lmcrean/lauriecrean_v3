@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactDOM from "react-dom";
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; //todo: convert section to card. https://react-bootstrap.netlify.app/docs/components/cards
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -55,6 +56,8 @@ const PersonalProjects = () => {
             layoutId={`project-${project.id}`}
             onClick={() => setSelectedId(project.id)}
             className="bg-white shadow-md rounded-lg p-4 cursor-pointer"
+            whileHover={{ scale: 1.05 }} // Scale up to 105% of original size on hover
+            transition={{ duration: 0.3 }} // Smooth transition
           >
             <h3 className="text-xl text-center font-semibold mb-4">{project.name}</h3>
             <img src={project.imageSrc} alt={`${project.name}`} />
@@ -67,13 +70,22 @@ const PersonalProjects = () => {
                 <li key={feature}>{feature}</li>
               ))}
             </ul>
-            <br /><br />
-
-            <Stack direction="horizontal" gap={2}>
+            
+            
+            <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
               {project.badges.map((badge, index) => (
                 <Badge key={index} pill bg="info">{badge}</Badge>
               ))}
             </Stack>
+
+            <div className="d-flex justify-center">
+            <Button variant="dark" size="lg">
+              Repository
+            </Button>
+            <Button className="ml-3" variant="primary" size="lg">
+              Live Demo
+            </Button>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -126,11 +138,21 @@ const PersonalProjects = () => {
             <li key={feature}>{feature}</li>
           ))}
         </ul>
-        <Stack className='mb-5' direction="horizontal" gap={2}>
+        <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
           {projectsData[selectedId - 1].badges.map((badge, index) => (
             <Badge key={index} pill bg="info">{badge}</Badge>
           ))}
         </Stack>
+
+        <div className="d-flex justify-center">
+            <Button variant="dark" size="lg">
+              Repository
+            </Button>
+            <Button className="ml-3" variant="primary" size="lg">
+              Live Demo
+            </Button>
+        </div>
+
         </Col>
         <Col md={6} className="h-100 overflow-hidden">
         <h2 className='text-center'>README</h2>
