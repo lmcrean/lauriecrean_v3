@@ -1,6 +1,6 @@
 "use client" // this enables framer-motion to work with Next.js 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactDOM from "react-dom";
 import Badge from 'react-bootstrap/Badge';
@@ -8,71 +8,43 @@ import Stack from 'react-bootstrap/Stack';
 import Card from 'react-bootstrap/Card'; //todo: convert section to card. https://react-bootstrap.netlify.app/docs/components/cards
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ReactMarkdown from 'react-markdown';
+import { projectsData } from './PersonalProjectsData';
 
-const projectsData = [
-  {
-    id: 1,
-    name: "Coach Matrix",
-    description: "a multi-user blog for professionals working in education, similar to reddit",
-    features: [
-      "⬆️Users upvote and downvote favourite content",
-      "Users post Questions and Answers", "Data hosted on Cloudinary and Heroku",
-      "users can comment on posts",
-      "users can bookmark favourite answers"],
-    imageSrc: "projects/coachmatrix/1.png", // doesn't work
-    badges: ["Django", "Cloudinary", "Heroku"]
-  },
-  {
-    id: 2,
-    name: "React Project (in progress)",
-    description: "Description for Project 2",
-    features: ["React", "Node.js", "Express"],
-    imageSrc: "/projects/react/1.jpg",
-    badges: ["Python", "Django", "PostgreSQL"]
-  },
-  {
-    id: 3,
-    name: "Steam Report",
-    description: "Description for Project 3",
-    features: ["React", "Node.js", "Express"],
-    imageSrc: "projects/steamreport/1.png", 
-    badges: ["Python", "Django", "PostgreSQL"]
-  },
-  {
-    id: 4,
-    name: "Crocodile Kingdom",
-    description: "Description for Project 4",
-    features: ["React", "Node.js", "Express"],
-    imageSrc: "/projects/crocodilekingdom/1.png",
-    badges: ["Python", "Django", "PostgreSQL"]
-  },
-  {
-    id: 5,
-    name: "Hoverboard",
-    description: "Description for Project 5",
-    features: ["React", "Node.js", "Express"],
-    imageSrc: "/projects/hoverboard/1.png",
-    badges: ["Python", "Django", "PostgreSQL"]
-  },
-  {
-    id: 6,
-    name: "Portfolio Website",
-    description: "Description for Project 6",
-    features: ["React", "Node.js", "Express"],
-    imageSrc: "/projects/portfolio/1.jpg",
-    badges: ["Python", "Django", "PostgreSQL"]
-  },
-];
+interface Project {
+  id: number;
+  name: string;
+  description: string;
+  imageSrc: string;
+  features: string[];
+  badges: string[];
+  readme?: string;
+}
 
 const PersonalProjects = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [prevId, setPrevId] = useState<number | null>(null);
+  const [readmeContent, setReadmeContent] = useState('');
 
   const handleClose = () => {
     setPrevId(selectedId);
     setSelectedId(null);
   };
 
+  useEffect(() => {
+    const fetchReadme = async () => {
+      if (selectedId !== null) {
+        const project = projectsData.find(p => p.id === selectedId);
+        if (project?.readme) {
+          const response = await fetch(project.readme);
+          const text = await response.text();
+          setReadmeContent(text);
+        }
+      }
+    };
+    fetchReadme();
+  }, [selectedId]);
+  
   return (
     <section className="personal-projects container mx-auto px-auto">
       <h2 className="text-center text-white text-xl font-bold mb-3 mt-5">Personal Projects</h2>
@@ -162,11 +134,7 @@ const PersonalProjects = () => {
         </Col>
         <Col md={6}>
         <h2>README</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
-        <h3>Header 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
-        <h3>Header 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+        <ReactMarkdown>{readmeContent}</ReactMarkdown>
         </Col>
         </Row>
       </motion.div>
