@@ -47,7 +47,7 @@ const PersonalProjects = () => {
   
   return (
     <section className="personal-projects container mx-auto px-auto">
-      <h2 className="text-center text-white text-xl font-bold mb-3 mt-5">Personal Projects</h2>
+      <h2 className="text-center text-white text-xxxl font-bold mb-3 mt-5">Personal Projects</h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
         {projectsData.map(project => (
           <motion.div
@@ -56,7 +56,7 @@ const PersonalProjects = () => {
             onClick={() => setSelectedId(project.id)}
             className="bg-white shadow-md rounded-lg p-4 cursor-pointer"
           >
-            <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
+            <h3 className="text-xl text-center font-semibold mb-4">{project.name}</h3>
             <img src={project.imageSrc} alt={`${project.name}`} />
             <p>{project.description}</p>
             <br /><br />

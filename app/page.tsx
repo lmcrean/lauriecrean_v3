@@ -10,6 +10,8 @@ import Footer from '../components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from "react-dom";
 import SocialHeader from '@/components/SocialHeader';
+import '../styles/globals.scss'; 
+
 
 const App = () => {
   return (
