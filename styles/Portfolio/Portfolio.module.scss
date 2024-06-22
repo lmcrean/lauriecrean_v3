@@ -3,3 +3,14 @@
   border-radius: 12px;
   padding: 3px;
 } 
+
+.readme-scroll {
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .position-sticky {
+    top: 0 !important;
+    position: sticky !important;
+  }
+}

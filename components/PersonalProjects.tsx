@@ -114,27 +114,36 @@ const PersonalProjects = () => {
         }}
       >
         {/* Detailed view of the selected project goes here, with a Readme in the second column */}
-        <Row>
-        <Col md={6}>
+        <Row className="h-100">
+        <Col md={6} className="position-sticky top-0" style={{ top: 0, position: 'sticky' }}>
         <button onClick={handleClose}>Close</button>
-        <h2>{projectsData[selectedId - 1].name}</h2>
-        <p>{projectsData[selectedId - 1].description}</p>
-        <img src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} style={{ maxWidth: '500px' }}/>
-        <h3>Key Features:</h3>
+        <h2 className='text-center'>{projectsData[selectedId - 1].name}</h2>
+        <p className='text-center'>{projectsData[selectedId - 1].description}</p>
+        <img className='m-auto' src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} style={{ maxWidth: '500px' }}/>
+        <h3 className='text-center mt-3'>Key Features:</h3>
         <ul>
           {projectsData[selectedId - 1].features.map(feature => (
             <li key={feature}>{feature}</li>
           ))}
         </ul>
-        <Stack direction="horizontal" gap={2}>
+        <Stack className='mb-5' direction="horizontal" gap={2}>
           {projectsData[selectedId - 1].badges.map((badge, index) => (
             <Badge key={index} pill bg="info">{badge}</Badge>
           ))}
         </Stack>
         </Col>
-        <Col md={6}>
-        <h2>README</h2>
+        <Col md={6} className="h-100 overflow-hidden">
+        <h2 className='text-center'>README</h2>
+        <div className="no-overflow-md" style={{
+          height: '90%',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          margin: 'auto',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <ReactMarkdown>{readmeContent}</ReactMarkdown>
+        </div>
         </Col>
         </Row>
       </motion.div>
