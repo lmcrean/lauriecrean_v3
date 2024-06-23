@@ -11,6 +11,25 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
+import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, NextdotjsBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+
+const getBadgeComponent = (badgeName: string) => {
+  switch (badgeName) {
+    case 'Html': return <HtmlBadge />;
+    case 'Css': return <CssBadge />;
+    case 'Cloudinary': return <CloudinaryBadge />;
+    case 'Django': return <DjangoBadge />;
+    case 'Framer Motion': return <FramerBadge />;
+    case 'JavaScript': return <JavascriptBadge />;
+    case 'Next.js': return <NextdotjsBadge />;
+    case 'Python': return <PythonBadge />;
+    case 'React': return <ReactBadge />;
+    case 'React Bootstrap': return <ReactBootstrapBadge />;
+    case 'Vercel': return <VercelBadge />;
+    // Add cases for other badges as needed
+    default: return null;
+  }
+};
 
 interface Project {
   id: number;
@@ -73,9 +92,10 @@ const PersonalProjects = () => {
             
             
             <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
-              {project.badges.map((badge, index) => (
-                <Badge key={index} pill bg="info">{badge}</Badge>
-              ))}
+            {project.badges.map((badgeName) => {
+              const badgeElement = getBadgeComponent(badgeName as string);
+              return badgeElement? badgeElement : null;
+            })}
             </Stack>
 
             <div className="d-flex justify-center">
@@ -138,11 +158,14 @@ const PersonalProjects = () => {
             <li key={feature}>{feature}</li>
           ))}
         </ul>
-        <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
-          {projectsData[selectedId - 1].badges.map((badge, index) => (
-            <Badge key={index} pill bg="info">{badge}</Badge>
-          ))}
-        </Stack>
+        {projectsData.map((project) => (
+            <Stack key={project.id} className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
+                {project.badges.map((badgeName) => {
+                  const badgeElement = getBadgeComponent(badgeName as string);
+                  return badgeElement? badgeElement : null;
+                })}
+            </Stack>
+        ))}
 
         <div className="d-flex justify-center">
             <Button variant="dark" size="lg">

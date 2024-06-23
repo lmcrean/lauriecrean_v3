@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, NextdotjsBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+
 
 export const projectsData = [
   {
@@ -15,7 +17,7 @@ export const projectsData = [
     logo: "/path/to/logo.png", // Placeholder logo path
     liveDemoUrl: "https://example.com/coach-matrix-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/coach-matrix-repo", // Placeholder repository URL
-    badges: ["Django", "Cloudinary", "Heroku"],
+    badges: [<DjangoBadge />, <CloudinaryBadge />],
     readme: "/ReadmeText/CoachMatrix.md",
   },
   {
