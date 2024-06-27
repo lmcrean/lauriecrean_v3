@@ -10,50 +10,63 @@ export const projectsData = [
     features: [
       "Users upvote and downvote favourite content",
       "Users post Questions and Answers", "Data hosted on Cloudinary and Heroku",
-      "users can comment on posts",
-      "users can bookmark favourite answers"],
+      "users comment on posts",
+      "users bookmark favourite answers"],
     imageSrc: "projects/coachmatrix/1.png",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
-    liveDemoUrl: "https://example.com/coach-matrix-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/coach-matrix-repo", // Placeholder repository URL
-    badges: [<DjangoBadge />, <CloudinaryBadge />],
+    images: ["/projects/coachmatrix/1.png", "/projects/coachmatrix/2.png", "/projects/coachmatrix/3.png", "/projects/coachmatrix/4.png", "/projects/coachmatrix/5.png",],
+    logo: "/projects/coachmatrix/logo.png",
+    liveDemoUrl: "http://coachmatrix.org/",
+    repositoryUrl: "https://github.com/lmcrean/Coach-Matrix",
+    badges: [<DjangoBadge />, <CloudinaryBadge />, "Heroku", "PostgreSQL"],
     readme: "/ReadmeText/CoachMatrix.md",
   },
   {
     id: 2,
     name: "React Project (in progress)",
-    description: "Description for Project 2",
-    features: ["React", "Node.js", "Express"],
+    description: "A social media platform for sharing photos.",
+    features: [      
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Data hosted on Cloudinary and Heroku",]
+      ,
     imageSrc: "/projects/react/1.jpg",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
+    logo: "/projects/react/logo.png", // Placeholder logo path
     liveDemoUrl: "https://example.com/react-project-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/react-project-repo", // Placeholder repository URL
-    badges: ["Python", "Django", "PostgreSQL"],
-    readme: "./ReadmeText/CoachMatrix.md",
+    badges: ["React.JS", "Django", "Cloudinary", "Heroku", "PostgreSQL"],
+    readme: "./ReadmeText/ReactProject.md",
   },
   {
     id: 3,
     name: "Steam Report",
-    description: "Description for Project 3",
-    features: ["React", "Node.js", "Express"],
+    description: "A hybrid of Personality Trait Test and Trivia quiz that provides young people with a recommended career pathway based on their unique traits and subject knowledge",
+    features: [
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    ],
     imageSrc: "projects/steamreport/1.png",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
-    liveDemoUrl: "https://example.com/steam-report-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/steam-report-repo", // Placeholder repository URL
-    badges: ["Python", "Django", "PostgreSQL"],
-    readme: "./ReadmeText/SteamReport.md", // Assuming a readme exists for this project
+    images: ["/projects/steamreport/1.png", "/projects/steamreport/2.png", "/projects/steamreport/a1.gif", "/projects/steamreport/a2.gif", "/projects/steamreport/3.png", "projects/steamreport/4.png", "projects/steamreport/5.png", "projects/steamreport/6.png"],
+    logo: "/projects/steamreport/logo.png",
+    liveDemoUrl: "https://steam-report-4c5b92c32ae5.herokuapp.com/",
+    repositoryUrl: "https://github.com/lmcrean/Steam-Report",
+    badges: ["Python", "PostgreSQL", "Heroku", "JSON", "Node.JS"],
+    readme: "./ReadmeText/SteamReport.md", 
   },
   {
     id: 4,
     name: "Crocodile Kingdom",
-    description: "Description for Project 4",
-    features: ["React", "Node.js", "Express"],
+    description: "Crocodile Kingdom is a memory game for 5 year olds developed using vanilla Javascript",
+    features: [
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    ],
     imageSrc: "/projects/crocodilekingdom/1.png",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
+    logo: "/projects/crocodilekingdom/logo.png",
     liveDemoUrl: "https://example.com/crocodile-kingdom-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/crocodile-kingdom-repo", // Placeholder repository URL
     badges: ["Python", "Django", "PostgreSQL"],
@@ -62,27 +75,35 @@ export const projectsData = [
   {
     id: 5,
     name: "Hoverboard",
-    description: "Description for Project 5",
-    features: ["React", "Node.js", "Express"],
+    description: "A fully responsive SaaS product home page themed on Education Software",
+    features: [
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    ],
     imageSrc: "/projects/hoverboard/1.png",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
+    logo: "/projects/hoverboard/logo.png",
     liveDemoUrl: "https://example.com/hoverboard-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/hoverboard-repo", // Placeholder repository URL
-    badges: ["Python", "Django", "PostgreSQL"],
-    readme: "./ReadmeText/Hoverboard.md", // Assuming a readme exists for this project
+    badges: ["CSS", "JS", "HTML"],
+    readme: "./ReadmeText/Hoverboard.md", 
   },
   {
     id: 6,
     name: "Portfolio Website",
-    description: "Description for Project 6",
-    features: ["React", "Node.js", "Express"],
+    description: "A fully responsive portfolio website built using Next.js and React.js, using Framer Motion for engaging animations",
+    features: [
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    ],
     imageSrc: "/projects/portfolio/1.jpg",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/path/to/logo.png", // Placeholder logo path
-    liveDemoUrl: "https://example.com/portfolio-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/portfolio-repo", // Placeholder repository URL
-    badges: ["Python", "Django", "PostgreSQL"],
-    readme: "./ReadmeText/PortfolioWebsite.md", // Assuming a readme exists for this project
+    logo: "/projects/portfolio/logo.png",
+    liveDemoUrl: "http://lauriecrean.dev", 
+    repositoryUrl: "https://github.com/lmcrean/lauriecrean_nextjs",
+    badges: ["React", "React-Bootstrap", "Framer-Motion", "Next.js", "Vercel"],
+    readme: "./ReadmeText/PortfolioWebsite.md", 
   },
 ];

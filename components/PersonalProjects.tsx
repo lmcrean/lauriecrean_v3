@@ -26,7 +26,6 @@ const getBadgeComponent = (badgeName: string) => {
     case 'React': return <ReactBadge />;
     case 'React Bootstrap': return <ReactBootstrapBadge />;
     case 'Vercel': return <VercelBadge />;
-    // Add cases for other badges as needed
     default: return null;
   }
 };
