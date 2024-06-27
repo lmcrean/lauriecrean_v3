@@ -68,7 +68,7 @@ export const projectsData = [
       "Responsive to Mobile and Desktop view"
     ],
     imageSrc: "/projects/crocodilekingdom/1.png",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
+    images: ["projects/crocodilekingdom/a1.gif", "/projects/crocodilekingdom/1.png", "/projects/crocodilekingdom/2.png", "/projects/crocodilekingdom/3.png", "/projects/crocodilekingdom/4.png", "/projects/crocodilekingdom/5.png"],
     logo: "/projects/crocodilekingdom/logo.png",
     liveDemoUrl: "https://example.com/crocodile-kingdom-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/crocodile-kingdom-repo", // Placeholder repository URL
@@ -85,7 +85,7 @@ export const projectsData = [
       "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else"
     ],
     imageSrc: "/projects/hoverboard/1.png",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
+    images: ["/projects/hoverboard/1.png", "/projects/hoverboard/2.png", "/projects/hoverboard/3.png", "/projects/hoverboard/4.png"],
     logo: "/projects/hoverboard/logo.png",
     liveDemoUrl: "https://example.com/hoverboard-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/hoverboard-repo", // Placeholder repository URL
