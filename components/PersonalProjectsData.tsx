@@ -9,15 +9,15 @@ export const projectsData = [
     description: "a multi-user blog for professionals working in education, similar to reddit",
     features: [
       "Users upvote and downvote favourite content",
-      "Users post Questions and Answers", "Data hosted on Cloudinary and Heroku",
-      "users comment on posts",
-      "users bookmark favourite answers"],
+      "Users post Questions and Answers", 
+      "Data hosted on Cloudinary and ElephantSQL",
+      "users bookmark favourite content"],
     imageSrc: "projects/coachmatrix/1.png",
     images: ["/projects/coachmatrix/1.png", "/projects/coachmatrix/2.png", "/projects/coachmatrix/3.png", "/projects/coachmatrix/4.png", "/projects/coachmatrix/5.png",],
     logo: "/projects/coachmatrix/logo.png",
     liveDemoUrl: "http://coachmatrix.org/",
     repositoryUrl: "https://github.com/lmcrean/Coach-Matrix",
-    badges: [<DjangoBadge />, <CloudinaryBadge />, "Heroku", "PostgreSQL"],
+    badges: ["Django", "Cloudinary", "Heroku", "PostgreSQL", "ElephantSQL"],
     readme: "/ReadmeText/CoachMatrix.md",
   },
   {
@@ -25,9 +25,8 @@ export const projectsData = [
     name: "React Project (in progress)",
     description: "A social media platform for sharing photos.",
     features: [      
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Users can upload photos and view other users' photos.",
+      "Users can like and comment on photos.",
       "Data hosted on Cloudinary and Heroku",]
       ,
     imageSrc: "/projects/react/1.jpg",
@@ -41,11 +40,12 @@ export const projectsData = [
   {
     id: 3,
     name: "Steam Report",
-    description: "A hybrid of Personality Trait Test and Trivia quiz that provides young people with a recommended career pathway based on their unique traits and subject knowledge",
+    description: "A personal report that hybrids Personality Trait Test and Trivia quiz. Steam Report provides young people with a recommended career pathway based on their unique traits and subject knowledge",
     features: [
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Using algorithms that assess personality and subject knowledge. It then uses this data to work out optimal environment for user \"e.g. supportive and collaborative.\". ",
+      "Compares user's data with other user scores e.g. \"top 30% of agreeable, Ranked 5 in Science.\"",
+      "Personalized Reports for each user, with a list of recommended careers and a list of recommended subjects to study.",
+      "Stores user data on a Google Sheets database through the Google Sheets API."
     ],
     imageSrc: "projects/steamreport/1.png",
     images: ["/projects/steamreport/1.png", "/projects/steamreport/2.png", "/projects/steamreport/a1.gif", "/projects/steamreport/a2.gif", "/projects/steamreport/3.png", "projects/steamreport/4.png", "projects/steamreport/5.png", "projects/steamreport/6.png"],
@@ -60,16 +60,19 @@ export const projectsData = [
     name: "Crocodile Kingdom",
     description: "Crocodile Kingdom is a memory game for 5 year olds developed using vanilla Javascript",
     features: [
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Random array of Crocodile Reactions to engage the user",
+      "High Score table with unique ranking system using LocalStorage",
+      "Animated Progress Bar that visualises Turns Left",
+      "Sound Effects to enhance experience",
+      "Animations including confetti, card-flip and fade in.",
+      "Responsive to Mobile and Desktop view"
     ],
     imageSrc: "/projects/crocodilekingdom/1.png",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
     logo: "/projects/crocodilekingdom/logo.png",
     liveDemoUrl: "https://example.com/crocodile-kingdom-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/crocodile-kingdom-repo", // Placeholder repository URL
-    badges: ["Python", "Django", "PostgreSQL"],
+    badges: ["Javascript", "Github Pages", "JQuery"],
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
   {
@@ -77,9 +80,9 @@ export const projectsData = [
     name: "Hoverboard",
     description: "A fully responsive SaaS product home page themed on Education Software",
     features: [
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Multi-layered background squiggles, banners, filtered shapes",
+      "Detailed CSS Grid displays that change columns",
+      "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else"
     ],
     imageSrc: "/projects/hoverboard/1.png",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
@@ -94,9 +97,9 @@ export const projectsData = [
     name: "Portfolio Website",
     description: "A fully responsive portfolio website built using Next.js and React.js, using Framer Motion for engaging animations",
     features: [
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "Users Lorum Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else",
+      "Animations that engage the user, such as hover effects, page transitions and scroll animations",
+      "Resuable components that can be easily updated and added to",
     ],
     imageSrc: "/projects/portfolio/1.jpg",
     images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
@@ -106,4 +109,4 @@ export const projectsData = [
     badges: ["React", "React-Bootstrap", "Framer-Motion", "Next.js", "Vercel"],
     readme: "./ReadmeText/PortfolioWebsite.md", 
   },
-];
+];  
