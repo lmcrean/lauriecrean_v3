@@ -155,3 +155,10 @@ $colors: (
     }
   }
 }
+
+
+// Language Badges
+.django-badge {
+  background-color: #092e20 !important; // Doesn't seem to work at all
+  color: white;
+}

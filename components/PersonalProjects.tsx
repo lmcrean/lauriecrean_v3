@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
-import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, NextdotjsBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 
 const getBadgeComponent = (badgeName: string) => {
   switch (badgeName) {
@@ -20,8 +20,10 @@ const getBadgeComponent = (badgeName: string) => {
     case 'Cloudinary': return <CloudinaryBadge />;
     case 'Django': return <DjangoBadge />;
     case 'Framer Motion': return <FramerBadge />;
+    case 'Heroku': return <HerokuBadge />;
     case 'JavaScript': return <JavascriptBadge />;
     case 'Next.js': return <NextdotjsBadge />;
+    case 'PostgreSQL': return <PostgresSQLBadge />;
     case 'Python': return <PythonBadge />;
     case 'React': return <ReactBadge />;
     case 'React Bootstrap': return <ReactBootstrapBadge />;
@@ -91,10 +93,10 @@ const PersonalProjects = () => {
             
             
             <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
-            {project.badges.map((badgeName) => {
-              const badgeElement = getBadgeComponent(badgeName as string);
-              return badgeElement? badgeElement : null;
-            })}
+              {project.badges.map((badgeName, index) => {
+                const badgeElement = getBadgeComponent(badgeName);
+                return badgeElement ? React.cloneElement(badgeElement, { key: `${project.id}-${badgeName}-${index}` }) : null;
+              })}
             </Stack>
 
             <div className="d-flex justify-center">
@@ -157,15 +159,15 @@ const PersonalProjects = () => {
             <li key={feature}>{feature}</li>
           ))}
         </ul>
-        {projectsData.map((project) => (
-            <Stack key={project.id} className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
-                {project.badges.map((badgeName) => {
-                  const badgeElement = getBadgeComponent(badgeName as string);
-                  return badgeElement? badgeElement : null;
-                })}
-            </Stack>
+        {projectsData.map((project, index) => 
+        project.id === selectedId && (
+        <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
+          {project.badges.map((badgeName, index) => {
+            const badgeElement = getBadgeComponent(badgeName);
+            return badgeElement ? React.cloneElement(badgeElement, { key: `${project.id}-${badgeName}-${index}` }) : null;
+          })}
+        </Stack>
         ))}
-
         <div className="d-flex justify-center">
             <Button variant="dark" size="lg">
               Repository

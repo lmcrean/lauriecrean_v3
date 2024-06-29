@@ -95,7 +95,7 @@ export const projectsData = [
   {
     id: 6,
     name: "Portfolio Website",
-    description: "A fully responsive portfolio website built using Next.js and React.js, using Framer Motion for engaging animations",
+    description: "A fully responsive portfolio website built using Next.js, using Framer Motion for engaging animations",
     features: [
       "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else",
       "Animations that engage the user, such as hover effects, page transitions and scroll animations",

@@ -1,0 +1,24 @@
+// Colors/Badges.scss
+
+// Language Badges - use two selectors to increase specificity over bootstrap
+.django-badge.django-badge {
+    background-color: #092e20 !important; // getting recognised, however appears overridden by bootstrap primary color
+  }
+
+.cloudinary-badge.cloudinary-badge {
+    background-color: #1b52d4 !important;
+  }
+
+.html-badge.html-badge {
+    background-color: #f16529 !important;
+  }
+
+.css-badge.css-badge {
+    background-color: #2965f1 !important;
+  }
+
+.python-badge.python-badge {
+    background-color: #306998 !important;
+  }
+
+  

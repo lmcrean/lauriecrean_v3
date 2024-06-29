@@ -13,18 +13,18 @@ Coach Matrix is an open-source CPD platform for educators to connect and share k
 
 ***
 - [1. Features](#1-features)
-  - [1.1. User Posts Questions which can be answered and voted ](#11-user-posts-questions-which-can-be-answered-and-voted-)
-  - [1.2. Questions have tags which can be found through the filter view ](#12-questions-have-tags-which-can-be-found-through-the-filter-view-)
+  - [1.1. User Posts Questions which can be answered and voted](#11-user-posts-questions-which-can-be-answered-and-voted)
+  - [1.2. Questions have tags which can be found through the filter view](#12-questions-have-tags-which-can-be-found-through-the-filter-view)
   - [1.3. User Posts Answers to Questions](#13-user-posts-answers-to-questions)
-  - [1.4. User votes for both questions and answers  ](#14-user-votes-for-both-questions-and-answers--)
-  - [1.5. Toggle Sort content by highest vote vs newest post  ](#15-toggle-sort-content-by-highest-vote-vs-newest-post--)
-  - [1.6. Landing Page with login and sign up tabs ](#16-landing-page-with-login-and-sign-up-tabs-)
-  - [1.7. User creates, reads and deletes bookmarks. ](#17-user-creates-reads-and-deletes-bookmarks-)
-  - [1.8. User updates Authentication details ](#18-user-updates-authentication-details-)
-  - [1.9. Navbar ](#19-navbar-)
-  - [1.10. Footer ](#110-footer-)
-  - [1.11. About Page ](#111-about-page-)
-  - [1.12. Error Messages ](#112-error-messages-)
+  - [1.4. User votes for both questions and answers](#14-user-votes-for-both-questions-and-answers)
+  - [1.5. Toggle Sort content by highest vote vs newest post](#15-toggle-sort-content-by-highest-vote-vs-newest-post)
+  - [1.6. Landing Page with login and sign up tabs](#16-landing-page-with-login-and-sign-up-tabs)
+  - [1.7. User creates, reads and deletes bookmarks.](#17-user-creates-reads-and-deletes-bookmarks)
+  - [1.8. User updates Authentication details](#18-user-updates-authentication-details)
+  - [1.9. Navbar](#19-navbar)
+  - [1.10. Footer](#110-footer)
+  - [1.11. About Page](#111-about-page)
+  - [1.12. Error Messages](#112-error-messages)
 - [2. User Stories reviewed against UX Planes and Manual Testing](#2-user-stories-reviewed-against-ux-planes-and-manual-testing)
   - [2.1. Strategy plane](#21-strategy-plane)
   - [2.2. Scope plane](#22-scope-plane)
@@ -84,26 +84,26 @@ Coach Matrix is an open-source CPD platform for educators to connect and share k
 
 The following features were implemented, tested and debugged throughout the development process. Many of them are tightly interwoven e.g. Users Post Questions with Tags.
 
-## 1.1. User Posts Questions which can be answered and voted <!-- omit in toc-->
+## 1.1. User Posts Questions which can be answered and voted 
 Users can post questions, which can be edited and deleted. 
 
-## 1.2. Questions have tags which can be found through the filter view <!-- omit in toc-->
+## 1.2. Questions have tags which can be found through the filter view 
 
 Tags are used throughout the programme. Users can add tags to their questions. Users can also filter for questions by tag.
 
-##  1.3. User Posts Answers to Questions<!-- omit in toc-->
+##  1.3. User Posts Answers to Questions
 
 Users can post answers in response to questions, which can be edited and deleted.
 
-##  1.4. User votes for both questions and answers  <!-- omit in toc-->
+##  1.4. User votes for both questions and answers  
 
 Users can upvote and downvote both questions and answers
 
-##  1.5. Toggle Sort content by highest vote vs newest post  <!-- omit in toc-->
+##  1.5. Toggle Sort content by highest vote vs newest post  
 
 The user can toggle between sorting content by highest vote vs newest post. The default is highest vote. This applies to both questions and answers. Answers also provides a toggle to sort by oldest post, so they can get a sense of the narrative.
 
-##  1.6. Landing Page with login and sign up tabs <!-- omit in toc-->
+##  1.6. Landing Page with login and sign up tabs 
 
 The landing page provides a brief description of the site and a call to action to sign up. It also provides a link to the questions page. It features appealing animations and a video background. 
 
@@ -113,30 +113,30 @@ For Accessibility an option to pause the video is provided.
 
 For surface appeal dynamic animations are included, including a custom CSS logo.
 
-## 1.7. User creates, reads and deletes bookmarks. <!-- omit in toc-->
+## 1.7. User creates, reads and deletes bookmarks. 
 
 The user can bookmark questions. This is particularly useful for questions that the user wants to return to later.
 
-## 1.8. User updates Authentication details <!-- omit in toc-->
+## 1.8. User updates Authentication details 
 
 The user can update their profile. This includes updating their username and password.
 
-##  1.9. Navbar <!-- omit in toc-->
+##  1.9. Navbar 
 
 The navbar provides all the important links to the landing page, questions page, and the user's profile. It also provides a link to sign in and sign out.
 
 A custom CSS Logo is included in the navbar.
 
 
-##  1.10. Footer <!-- omit in toc-->
+##  1.10. Footer 
 
 The footer provides links to the developer's social media and a link to the developer's portfolio.
 
-## 1.11. About Page <!-- omit in toc-->
+## 1.11. About Page 
 
 The About Page provides a brief description of the site and introduces the developer. It also links to this README and the developer's portfolio.
 
-## 1.12. Error Messages <!-- omit in toc-->
+## 1.12. Error Messages 
 
 
 Custom error messages are used to provide feedback to the user.
