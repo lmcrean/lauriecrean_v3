@@ -3,6 +3,7 @@
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Image from 'react-bootstrap/Image';
+import '../styles/Colors/Badges.scss'; // Import Badges.scss after globals.scss
 
 // HTML Badge
 export const HtmlBadge = () => (
@@ -20,15 +21,16 @@ export const CssBadge = () => (
 
 // Cloudinary Badge
 export const CloudinaryBadge = () => (
-    <Badge pill bg="light">
+    <Badge pill className="d-flex align-items-center cloudinary-badge">
         <Image src="/icons_language/cloudinary.svg" width="24" height="24" alt="Cloudinary" className="me-2" /> Cloudinary
     </Badge>
 );
 
 // Django Badge
 export const DjangoBadge = () => (
-    <Badge pill bg="dark">
-        <Image src="/icons_language/django.svg" width="24" height="24" alt="Django" className="me-2" /> Django
+    <Badge pill className="d-flex align-items-center django-badge">
+        <Image src="/icons_language/django.svg" width="24" height="24" alt="Django" className="me-2"/>
+        <span>Django</span> 
     </Badge>
 );
 
@@ -46,10 +48,24 @@ export const JavascriptBadge = () => (
     </Badge>
 );
 
+// Heroku Badge
+export const HerokuBadge = () => (
+    <Badge pill className='d-flex align-items-center heroku-badge'>
+        <Image src="/icons_language/heroku.svg" width="24" height="24" alt="Heroku" className="me-2" /> Heroku
+    </Badge>
+);
+
 // Next.js Badge
 export const NextdotjsBadge = () => (
     <Badge pill bg="black">
         <Image src="/icons_language/nextdotjs.svg" width="24" height="24" alt="Next.js" className="me-2" /> Next.js
+    </Badge>
+);
+
+// PostgreSQL Badge
+export const PostgresSQLBadge = () => (
+    <Badge pill className='d-flex align-items-center postgresql-badge'>
+        <Image src="/icons_language/postgresql.svg" width="24" height="24" alt="PostgreSQL" className="me-2" /> PostgreSQL
     </Badge>
 );
 
