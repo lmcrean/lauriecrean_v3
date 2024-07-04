@@ -43,6 +43,7 @@ const getBadgeComponent = (badgeName: string) => {
 };
 
 interface Project {
+  banner: string;
   id: number;
   name: string;
   description: string;
@@ -61,20 +62,6 @@ const TeamProjects = () => {
     setPrevId(selectedId);
     setSelectedId(null);
   };
-
-  useEffect(() => {
-    const fetchReadme = async () => {
-      if (selectedId !== null) {
-        const project = teamProjectsData.find(p => p.id === selectedId);
-        if (project?.readme) {
-          const response = await fetch(project.readme);
-          const text = await response.text();
-          setReadmeContent(text);
-        }
-      }
-    };
-    fetchReadme();
-  }, [selectedId]);
   
   return (
     <section className="personal-projects container mx-auto px-auto">
@@ -90,14 +77,15 @@ const TeamProjects = () => {
             transition={{ duration: 0.3 }} // Smooth transition
           >
             <img 
-            src={project.banner} 
-            alt={project.name} 
-            className="mx-auto d-block" 
-            style={{ 
-              maxWidth: '100%', 
-              maxHeight: '300px',
-              filter: project.banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none',
-            }} />
+              src={project.banner} 
+              alt={project.name} 
+              className="mx-auto d-block" 
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '300px',
+                filter: project.banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none',
+              }} 
+            />
 
             <img src={project.imageSrc} alt={`${project.name}`} />
             <p>{project.description}</p>
@@ -207,15 +195,16 @@ const TeamProjects = () => {
       
         {/*banner image*/}
         <img 
-        src={teamProjectsData[selectedId - 1].banner} 
-          alt={teamProjectsData[selectedId - 1].name} className="mx-auto d-block" 
+          src={teamProjectsData[selectedId -1].banner} 
+          alt={teamProjectsData[selectedId -1].name} 
+          className="mx-auto d-block" 
           style={{ 
             maxWidth: '100%', 
             maxHeight: '200px',
-            filter: teamProjectsData[selectedId - 1].banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none'
+            filter: teamProjectsData[selectedId -1].banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none'
             }} 
         />
-        <p className='text-right'>{teamProjectsData[selectedId - 1].description}</p>
+        <p className='text-right'>{teamProjectsData[selectedId].description}</p>
         <h3 className='text-right mt-3'>Key Features:</h3>
         <ul className='text-right'>
           {teamProjectsData[selectedId - 1].features.map(feature => (
@@ -225,6 +214,7 @@ const TeamProjects = () => {
         {teamProjectsData.map((project, index) => 
         project.id === selectedId && (
         <Stack 
+          key={index}
           className='mb-5 d-flex flex-wrap justify-end' 
           direction="horizontal" 
           gap={2}
@@ -243,7 +233,7 @@ const TeamProjects = () => {
 
         {teamProjectsData.map((project, index) =>
         project.id === selectedId && (
-        <div className="d-flex justify-end">
+        <div className="d-flex justify-end" key={index}>
           <Link href={project.repositoryUrl} target="_blank">
             <Button variant="dark" size="lg">
               Repository

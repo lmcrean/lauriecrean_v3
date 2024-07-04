@@ -61,20 +61,6 @@ const PersonalProjects = () => {
     setPrevId(selectedId);
     setSelectedId(null);
   };
-
-  useEffect(() => {
-    const fetchReadme = async () => {
-      if (selectedId !== null) {
-        const project = projectsData.find(p => p.id === selectedId);
-        if (project?.readme) {
-          const response = await fetch(project.readme);
-          const text = await response.text();
-          setReadmeContent(text);
-        }
-      }
-    };
-    fetchReadme();
-  }, [selectedId]);
   
   return (
     <section className="personal-projects container mx-auto px-auto">
@@ -209,6 +195,7 @@ const PersonalProjects = () => {
         {projectsData.map((project, index) => 
         project.id === selectedId && (
         <Stack 
+          key={index}
           className='mb-5 d-flex flex-wrap justify-end' 
           direction="horizontal" 
           gap={2}
@@ -227,7 +214,7 @@ const PersonalProjects = () => {
 
         {projectsData.map((project, index) =>
         project.id === selectedId && (
-        <div className="d-flex justify-end">
+        <div className="d-flex justify-end" key={index}>
           <Link href={project.repositoryUrl} target="_blank">
             <Button variant="dark" size="lg">
               Repository
