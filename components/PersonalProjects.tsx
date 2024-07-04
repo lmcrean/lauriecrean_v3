@@ -103,10 +103,19 @@ const PersonalProjects = () => {
             </ul>
             
             
-            <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
+            <Stack 
+              className='mb-5 d-flex justify-content-center flex-wrap' 
+              direction="horizontal" 
+              gap={2}
+            >
               {project.badges.map((badgeName, index) => {
                 const badgeElement = getBadgeComponent(badgeName);
-                return badgeElement ? React.cloneElement(badgeElement, { key: `${project.id}-${badgeName}-${index}` }) : null;
+                return badgeElement 
+                  ? React.cloneElement(badgeElement, { 
+                      key: `${project.id}-${badgeName}-${index}`,
+                      className: `mb-2 ${badgeElement.props.className || ''}`
+                    }) 
+                  : null;
               })}
             </Stack>
 
@@ -199,10 +208,19 @@ const PersonalProjects = () => {
         </ul>
         {projectsData.map((project, index) => 
         project.id === selectedId && (
-        <Stack className='mb-5 d-flex justify-center mt-9' direction="horizontal" gap={2}>
+        <Stack 
+          className='mb-5 d-flex justify-content-center flex-wrap' 
+          direction="horizontal" 
+          gap={2}
+        >
           {project.badges.map((badgeName, index) => {
             const badgeElement = getBadgeComponent(badgeName);
-            return badgeElement ? React.cloneElement(badgeElement, { key: `${project.id}-${badgeName}-${index}` }) : null;
+            return badgeElement 
+              ? React.cloneElement(badgeElement, { 
+                  key: `${project.id}-${badgeName}-${index}`,
+                  className: `mb-2 ${badgeElement.props.className || ''}`
+                }) 
+              : null;
           })}
         </Stack>
         ))}
