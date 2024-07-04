@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card'; //todo: convert section to card. https:
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
-import { projectsData } from './PersonalProjectsData';
+import { teamProjectsData } from './TeamProjectsData';
 import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 import { Carousel } from 'react-bootstrap';
 
@@ -65,7 +65,7 @@ const TeamProjects = () => {
   useEffect(() => {
     const fetchReadme = async () => {
       if (selectedId !== null) {
-        const project = projectsData.find(p => p.id === selectedId);
+        const project = teamProjectsData.find(p => p.id === selectedId);
         if (project?.readme) {
           const response = await fetch(project.readme);
           const text = await response.text();
@@ -78,9 +78,9 @@ const TeamProjects = () => {
   
   return (
     <section className="personal-projects container mx-auto px-auto">
-      <h2 className="text-center text-white text-xxxl font-bold mb-3 mt-5">Personal Projects</h2>
+      <h2 className="text-center text-white text-xxxl font-bold mb-3 mt-5">Team Projects</h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
-        {projectsData.map(project => (
+        {teamProjectsData.map(project => (
           <motion.div
             key={project.id}
             layoutId={`project-${project.id}`}
@@ -198,15 +198,15 @@ const TeamProjects = () => {
         </button>
       
         {/*banner image*/}
-        <img src={projectsData[selectedId - 1].banner} alt={projectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-        <p className='text-right'>{projectsData[selectedId - 1].description}</p>
+        <img src={teamProjectsData[selectedId - 1].banner} alt={teamProjectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+        <p className='text-right'>{teamProjectsData[selectedId - 1].description}</p>
         <h3 className='text-right mt-3'>Key Features:</h3>
         <ul className='text-right'>
-          {projectsData[selectedId - 1].features.map(feature => (
+          {teamProjectsData[selectedId - 1].features.map(feature => (
             <li key={feature}>{feature}</li>
           ))}
         </ul>
-        {projectsData.map((project, index) => 
+        {teamProjectsData.map((project, index) => 
         project.id === selectedId && (
         <Stack 
           className='mb-5 d-flex flex-wrap justify-end' 
@@ -225,7 +225,7 @@ const TeamProjects = () => {
         </Stack>
         ))}
 
-        {projectsData.map((project, index) =>
+        {teamProjectsData.map((project, index) =>
         project.id === selectedId && (
         <div className="d-flex justify-end">
           <Link href={project.repositoryUrl} target="_blank">
@@ -246,7 +246,7 @@ const TeamProjects = () => {
           <h2 className='text-center'>Gallery</h2>
           {selectedId !== null && (
             <Carousel>
-            {projectsData[selectedId - 1].images.map((imageSrc, index) => (
+            {teamProjectsData[selectedId - 1].images.map((imageSrc, index) => (
               <Carousel.Item key={index} className="carousel-item">
                 <img
                   className="carousel-img"

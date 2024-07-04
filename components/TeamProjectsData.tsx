@@ -6,6 +6,7 @@ export const teamProjectsData = [
   {
     id: 1,
     name: "Retrolympic Rush",
+    banner: "/project_banners/retrolympicrush.svg",
     description: "A nostalgic sidescroller game with a nod to the 2024 Paris Olympics, completed for Code Institute's Retro-Themed Hackathon. As scrum master I was responsible for overseeing delegating tasks effectively and ensuring the team met their deadlines.",
     contributions: ["scrum master"],
     features: [
@@ -31,6 +32,7 @@ export const teamProjectsData = [
   {
     id: 2,
     name: "Wealth Quest",
+    banner: "/project_banners/retrolympicrush.svg",
     description: "A front-end JavaScript game where the user goes on a quest for passive income. The user achieves passive income by navigating deals, paydays and life happenings.",
     contributions: ["scrum master", "Frontend Developer"],
     features: [      
@@ -46,7 +48,7 @@ export const teamProjectsData = [
     logo: "/projects/wealthquest/logo.png", 
     liveDemoUrl: "https://lmcrean.github.io/Wealth-Quest/",
     repositoryUrl: "https://github.com/lmcrean/Wealth-Quest",
-    badges: ["HTML", "CSS", "Javascript", "Bootstrap"],
+    badges: ["Javascript", "Bootstrap", "Github Pages"],
     readme: "./ReadmeText/WealthQuest.md",
   },
 ];  
