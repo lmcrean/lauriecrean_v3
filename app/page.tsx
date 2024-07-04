@@ -19,8 +19,6 @@ const App = () => {
       <ProfileCard />
       <SocialHeader />
       <PersonalProjects />
-      <TeamProjects />
-      <Testimonials />
       <About />
       <Contact />
       <Footer />

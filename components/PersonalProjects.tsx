@@ -12,6 +12,8 @@ import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
 import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+import { Carousel } from 'react-bootstrap';
+
 
 const getBadgeComponent = (badgeName: string) => {
   switch (badgeName) {
@@ -183,17 +185,23 @@ const PersonalProjects = () => {
 
         </Col>
         <Col md={6} className="h-100 overflow-hidden">
-        <h2 className='text-center'>README</h2>
-        <div className="no-overflow-md" style={{
-          height: '90%',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          margin: 'auto',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <ReactMarkdown>{readmeContent}</ReactMarkdown>
-        </div>
+          <h2 className='text-center'>Gallery</h2>
+          {selectedId !== null && (
+            <Carousel>
+              {projectsData[selectedId - 1].images.map((imageSrc, index) => (
+                <Carousel.Item key={index}>
+                  <img
+                    className="w-100"
+                    src={imageSrc}
+                    alt={`Project Image ${index}`}
+                  />
+                  <Carousel.Caption>
+                    <p>{`Image ${index + 1}`}</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          )}
         </Col>
         </Row>
       </motion.div>
