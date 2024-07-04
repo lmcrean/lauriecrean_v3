@@ -15,7 +15,9 @@ import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, Fram
 import { Carousel } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faXmark, faXmarkCircle, faXmarksLines } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+
 
 
 const getBadgeComponent = (badgeName: string) => {
@@ -109,12 +111,16 @@ const PersonalProjects = () => {
             </Stack>
 
             <div className="d-flex justify-center">
-            <Button variant="dark" size="lg">
-              Repository
-            </Button>
-            <Button className="ml-3" variant="primary" size="lg">
-              Live Demo
-            </Button>
+              <Link href={project.repositoryUrl} target="_blank">
+                <Button variant="dark" size="lg">
+                  Repository
+                </Button>
+              </Link>
+              <Link href={project.liveDemoUrl} target="_blank">
+                <Button className="ml-3" variant="primary" size="lg">
+                  Live Demo
+                </Button>
+              </Link>
             </div>
           </motion.div>
         ))}
@@ -200,14 +206,22 @@ const PersonalProjects = () => {
           })}
         </Stack>
         ))}
+
+        {projectsData.map((project, index) =>
+        project.id === selectedId && (
         <div className="d-flex justify-center">
+          <Link href={project.repositoryUrl} target="_blank">
             <Button variant="dark" size="lg">
               Repository
             </Button>
+          </Link>
+          <Link href={project.liveDemoUrl} target="_blank">
             <Button className="ml-3" variant="primary" size="lg">
               Live Demo
             </Button>
+          </Link>
         </div>
+        ))}
 
         </Col>
         <Col md={6} className="h-100 overflow-hidden">

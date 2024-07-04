@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, NextdotjsBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 
 
+
 export const projectsData = [
   {
     id: 1,
@@ -74,8 +75,8 @@ export const projectsData = [
     imageSrc: "/projects/crocodilekingdom/1.png",
     images: ["projects/crocodilekingdom/a1.gif", "/projects/crocodilekingdom/1.png", "/projects/crocodilekingdom/2.png", "/projects/crocodilekingdom/3.png", "/projects/crocodilekingdom/4.png", "/projects/crocodilekingdom/5.png"],
     logo: "/projects/crocodilekingdom/logo.png",
-    liveDemoUrl: "https://example.com/crocodile-kingdom-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/crocodile-kingdom-repo", // Placeholder repository URL
+    liveDemoUrl: "https://lmcrean.github.io/Crocodile-Kingdom/", // Placeholder live demo URL
+    repositoryUrl: "https://github.com/lmcrean/crocodile-kingdom", // Placeholder repository URL
     badges: ["Javascript", "Github Pages", "JQuery", "Bootstrap"],
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
@@ -92,8 +93,8 @@ export const projectsData = [
     imageSrc: "/projects/hoverboard/1.png",
     images: ["/projects/hoverboard/1.png", "/projects/hoverboard/2.png", "/projects/hoverboard/3.png", "/projects/hoverboard/4.png"],
     logo: "/projects/hoverboard/logo.png",
-    liveDemoUrl: "https://example.com/hoverboard-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/hoverboard-repo", // Placeholder repository URL
+    liveDemoUrl: "https://lmcrean.github.io/Hoverboard/", // Placeholder live demo URL
+    repositoryUrl: "https://github.com/lmcrean/Hoverboard", // Placeholder repository URL
     badges: ["CSS", "JS", "HTML", "Github Pages"],
     readme: "./ReadmeText/Hoverboard.md", 
   },
