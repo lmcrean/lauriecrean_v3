@@ -82,7 +82,8 @@ const PersonalProjects = () => {
             whileHover={{ scale: 1.05 }} // Scale up to 105% of original size on hover
             transition={{ duration: 0.3 }} // Smooth transition
           >
-            <h3 className="text-xl text-center font-semibold mb-4">{project.name}</h3>
+            <img src={project.banner} alt={project.name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+
             <img src={project.imageSrc} alt={`${project.name}`} />
             <p>{project.description}</p>
             <br /><br />
