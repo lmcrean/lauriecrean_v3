@@ -35,7 +35,7 @@ const SocialHeader = () => {
     return (
         <header className='mt-4' style={{ display: 'flex', justifyContent: 'space-around', padding: '1rem', width: '100%', maxWidth: '700px', margin: 'auto' }}>
             {/* CodePen icon and text */}
-            <a href="https://www.codepen.io/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
+            <a href="https://codepen.io/lauriecrean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
                 <motion.div
                     onMouseEnter={() => handleIconHover('codePen')}
                     onMouseLeave={() => handleIconHover('codePen')}
@@ -56,7 +56,7 @@ const SocialHeader = () => {
             </a>
 
              {/* Github */}
-             <a href="https://github.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
+             <a href="https://github.com/lmcrean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
                 <motion.div
                     onMouseEnter={() => handleIconHover('github')}
                     onMouseLeave={() => handleIconHover('github')}
@@ -77,7 +77,7 @@ const SocialHeader = () => {
             </a>
 
             {/* LinkedIn */}
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
+            <a href="www.linkedin.com/in/lcrean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
                 <motion.div
                     onMouseEnter={() => handleIconHover('linkedin')}
                     onMouseLeave={() => handleIconHover('linkedin')}
@@ -98,7 +98,7 @@ const SocialHeader = () => {
             </a>
 
             {/* StackOverflow */}
-            <a href="https://www.stackoverflow.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
+            <a href="https://stackoverflow.com/users/21992930/laurie-crean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
                 <motion.div
                     onMouseEnter={() => handleIconHover('stackOverflow')}
                     onMouseLeave={() => handleIconHover('stackOverflow')}
