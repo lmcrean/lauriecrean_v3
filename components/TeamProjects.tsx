@@ -54,12 +54,12 @@ interface Project {
 }
 
 const TeamProjects = () => {
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId2, setSelectedId] = useState<number | null>(null);
   const [prevId, setPrevId] = useState<number | null>(null);
   const [readmeContent, setReadmeContent] = useState('');
 
   const handleClose = () => {
-    setPrevId(selectedId);
+    setPrevId(selectedId2);
     setSelectedId(null);
   };
   
@@ -88,7 +88,9 @@ const TeamProjects = () => {
             />
 
             <img src={project.imageSrc} alt={`${project.name}`} />
+            <p className='text-center'>Team Size: {project.teamsize}</p>
             <p>{project.description}</p>
+            <p className='italic'>{project.contributions}</p>
             <br /><br />
 
             <p>Key features:</p>
@@ -130,148 +132,6 @@ const TeamProjects = () => {
           </motion.div>
         ))}
       </div>
-
-<AnimatePresence>
-
-  {selectedId!== null && (
-    <motion.div
-      key="overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 15, 0.8)', // Transparent blue overlay
-        zIndex: 999, // Ensure it's below the modal
-      }}
-    />
-  )}
-  {selectedId!== null && (
-    <motion.div
-      key={selectedId}
-      layoutId={`project-${selectedId}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ type: 'spring', stiffness: 100 }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '80%',
-        height: '80%',
-        margin: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 9999,
-      }}
-    >
-      <motion.div
-        style={{
-          backgroundColor: 'white',
-          boxShadow: 'md',
-          borderRadius: '25px',
-          padding: '1rem',
-          width: '100%',
-          height: '100%',
-          maxWidth: '4xl',
-          overflowY: 'auto',
-        }}
-      >
-        {/* Detailed view of the selected project goes here, with a Readme in the second column */}
-        <Row className="h-100">
-        <Col md={6} className="position-sticky top-0" style={{ top: 0, position: 'sticky' }}>
-        <button onClick={handleClose}>
-          <FontAwesomeIcon icon={faCircleXmark} /> close
-        </button>
-      
-        {/*banner image*/}
-        <img 
-          src={teamProjectsData[selectedId -1].banner} 
-          alt={teamProjectsData[selectedId -1].name} 
-          className="mx-auto d-block" 
-          style={{ 
-            maxWidth: '100%', 
-            maxHeight: '200px',
-            filter: teamProjectsData[selectedId -1].banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none'
-            }} 
-        />
-        <p className='text-right'>{teamProjectsData[selectedId].description}</p>
-        <h3 className='text-right mt-3'>Key Features:</h3>
-        <ul className='text-right'>
-          {teamProjectsData[selectedId - 1].features.map(feature => (
-            <li key={feature}>{feature}</li>
-          ))}
-        </ul>
-        {teamProjectsData.map((project, index) => 
-        project.id === selectedId && (
-        <Stack 
-          key={index}
-          className='mb-5 d-flex flex-wrap justify-end' 
-          direction="horizontal" 
-          gap={2}
-        >
-          {project.badges.map((badgeName, index) => {
-            const badgeElement = getBadgeComponent(badgeName);
-            return badgeElement 
-              ? React.cloneElement(badgeElement, { 
-                  key: `${project.id}-${badgeName}-${index}`,
-                  className: `mb-2 ${badgeElement.props.className || ''}`
-                }) 
-              : null;
-          })}
-        </Stack>
-        ))}
-
-        {teamProjectsData.map((project, index) =>
-        project.id === selectedId && (
-        <div className="d-flex justify-end" key={index}>
-          <Link href={project.repositoryUrl} target="_blank">
-            <Button variant="dark" size="lg">
-              Repository
-            </Button>
-          </Link>
-          <Link href={project.liveDemoUrl} target="_blank">
-            <Button className="ml-3" variant="primary" size="lg">
-              Live Demo
-            </Button>
-          </Link>
-        </div>
-        ))}
-
-        </Col>
-        <Col md={6} className="h-100 overflow-hidden">
-          <h2 className='text-center'>Gallery</h2>
-          {selectedId !== null && (
-            <Carousel>
-            {teamProjectsData[selectedId - 1].images.map((imageSrc, index) => (
-              <Carousel.Item key={index} className="carousel-item">
-                <img
-                  className="carousel-img"
-                  src={imageSrc}
-                  alt={`Project Image ${index}`}
-                />
-                <Carousel.Caption>
-                  <p>{`Image ${index + 1}`}</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-          )}
-        </Col>
-        </Row>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
     </section>
   );
 };

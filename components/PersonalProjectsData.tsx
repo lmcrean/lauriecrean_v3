@@ -51,7 +51,7 @@ export const projectsData = [
       "Personalized Reports for each user, with a list of recommended careers and a list of recommended subjects to study.",
       "Stores user data on a Google Sheets database through the Google Sheets API."
     ],
-    imageSrc: "projects/steamreport/1.png",
+    imageSrc: "projects/steamreport/6.png",
     images: ["/projects/steamreport/1.png", "/projects/steamreport/2.png", "/projects/steamreport/a1.gif", "/projects/steamreport/a2.gif", "/projects/steamreport/3.png", "projects/steamreport/4.png", "projects/steamreport/5.png", "projects/steamreport/6.png"],
     logo: "/projects/steamreport/logo.png",
     liveDemoUrl: "https://steam-report-4c5b92c32ae5.herokuapp.com/",
@@ -72,7 +72,7 @@ export const projectsData = [
       "Animations including confetti, card-flip and fade in.",
       "Responsive to Mobile and Desktop view"
     ],
-    imageSrc: "/projects/crocodilekingdom/1.png",
+    imageSrc: "/projects/crocodilekingdom/a1.gif",
     images: ["projects/crocodilekingdom/a1.gif", "/projects/crocodilekingdom/1.png", "/projects/crocodilekingdom/2.png", "/projects/crocodilekingdom/3.png", "/projects/crocodilekingdom/4.png", "/projects/crocodilekingdom/5.png"],
     logo: "/projects/crocodilekingdom/logo.png",
     liveDemoUrl: "https://lmcrean.github.io/Crocodile-Kingdom/", // Placeholder live demo URL
@@ -90,7 +90,7 @@ export const projectsData = [
       "Detailed CSS Grid displays that change columns",
       "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else"
     ],
-    imageSrc: "/projects/hoverboard/1.png",
+    imageSrc: "/projects/hoverboard/2.png",
     images: ["/projects/hoverboard/1.png", "/projects/hoverboard/2.png", "/projects/hoverboard/3.png", "/projects/hoverboard/4.png"],
     logo: "/projects/hoverboard/logo.png",
     liveDemoUrl: "https://lmcrean.github.io/Hoverboard/", // Placeholder live demo URL
@@ -108,8 +108,8 @@ export const projectsData = [
       "Animations that engage the user, such as hover effects, page transitions and scroll animations",
       "Resuable components that can be easily updated and added to",
     ],
-    imageSrc: "/projects/portfolio/1.jpg",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
+    imageSrc: "/projects/portfolio/2.png",
+    images: ["/projects/portfolio/2.png"],
     logo: "/projects/portfolio/logo.png",
     liveDemoUrl: "http://lauriecrean.dev", 
     repositoryUrl: "https://github.com/lmcrean/lauriecrean_nextjs",

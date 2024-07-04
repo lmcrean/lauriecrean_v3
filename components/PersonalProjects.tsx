@@ -78,7 +78,7 @@ const PersonalProjects = () => {
             <img src={project.banner} alt={project.name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
 
             <img src={project.imageSrc} alt={`${project.name}`} />
-            <p>{project.description}</p>
+            <p className='font-weight-700'>{project.description}</p>
             <br /><br />
 
             <p>Key features:</p>
@@ -185,7 +185,7 @@ const PersonalProjects = () => {
       
         {/*banner image*/}
         <img src={projectsData[selectedId - 1].banner} alt={projectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-        <p className='text-right'>{projectsData[selectedId - 1].description}</p>
+        <p className='text-right font-weight-bold'>{projectsData[selectedId - 1].description}</p>
         <h3 className='text-right mt-3'>Key Features:</h3>
         <ul className='text-right'>
           {projectsData[selectedId - 1].features.map(feature => (
