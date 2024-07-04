@@ -89,7 +89,15 @@ const TeamProjects = () => {
             whileHover={{ scale: 1.05 }} // Scale up to 105% of original size on hover
             transition={{ duration: 0.3 }} // Smooth transition
           >
-            <img src={project.banner} alt={project.name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+            <img 
+            src={project.banner} 
+            alt={project.name} 
+            className="mx-auto d-block" 
+            style={{ 
+              maxWidth: '100%', 
+              maxHeight: '300px',
+              filter: project.banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none',
+            }} />
 
             <img src={project.imageSrc} alt={`${project.name}`} />
             <p>{project.description}</p>
@@ -198,7 +206,15 @@ const TeamProjects = () => {
         </button>
       
         {/*banner image*/}
-        <img src={teamProjectsData[selectedId - 1].banner} alt={teamProjectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+        <img 
+        src={teamProjectsData[selectedId - 1].banner} 
+          alt={teamProjectsData[selectedId - 1].name} className="mx-auto d-block" 
+          style={{ 
+            maxWidth: '100%', 
+            maxHeight: '200px',
+            filter: teamProjectsData[selectedId - 1].banner === "/project_banners/wealthquest.png" ? 'invert(1)' : 'none'
+            }} 
+        />
         <p className='text-right'>{teamProjectsData[selectedId - 1].description}</p>
         <h3 className='text-right mt-3'>Key Features:</h3>
         <ul className='text-right'>
