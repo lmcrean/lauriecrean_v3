@@ -6,6 +6,7 @@ export const projectsData = [
   {
     id: 1,
     name: "Coach Matrix",
+    banner: "/project_banners/coachmatrix.svg",
     description: "a multi-user blog for professionals working in education, similar to reddit",
     features: [
       "Users upvote and downvote favourite content",
@@ -23,6 +24,7 @@ export const projectsData = [
   {
     id: 2,
     name: "React Project (in progress)",
+    banner: "/project_banners/React.svg",
     description: "A social media platform for sharing photos.",
     features: [      
       "Users can upload photos and view other users' photos.",
@@ -40,6 +42,7 @@ export const projectsData = [
   {
     id: 3,
     name: "Steam Report",
+    banner: "/project_banners/steamreport.svg",
     description: "A personal report that hybrids Personality Trait Test and Trivia quiz. Steam Report provides young people with a recommended career pathway based on their unique traits and subject knowledge",
     features: [
       "Using algorithms that assess personality and subject knowledge. It then uses this data to work out optimal environment for user \"e.g. supportive and collaborative.\". ",
@@ -58,6 +61,7 @@ export const projectsData = [
   {
     id: 4,
     name: "Crocodile Kingdom",
+    banner: "/project_banners/crocodilekingdom.svg",
     description: "Crocodile Kingdom is a memory game for 5 year olds developed using vanilla Javascript",
     features: [
       "Random array of Crocodile Reactions to engage the user",
@@ -72,12 +76,13 @@ export const projectsData = [
     logo: "/projects/crocodilekingdom/logo.png",
     liveDemoUrl: "https://example.com/crocodile-kingdom-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/crocodile-kingdom-repo", // Placeholder repository URL
-    badges: ["Javascript", "Github Pages", "JQuery"],
+    badges: ["Javascript", "Github Pages", "JQuery", "Bootstrap"],
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
   {
     id: 5,
     name: "Hoverboard",
+    banner: "/project_banners/hoverboard.svg",
     description: "A fully responsive SaaS product home page themed on Education Software",
     features: [
       "Multi-layered background squiggles, banners, filtered shapes",
@@ -89,12 +94,13 @@ export const projectsData = [
     logo: "/projects/hoverboard/logo.png",
     liveDemoUrl: "https://example.com/hoverboard-demo", // Placeholder live demo URL
     repositoryUrl: "https://github.com/user/hoverboard-repo", // Placeholder repository URL
-    badges: ["CSS", "JS", "HTML"],
+    badges: ["CSS", "JS", "HTML", "Github Pages"],
     readme: "./ReadmeText/Hoverboard.md", 
   },
   {
     id: 6,
     name: "Portfolio Website",
+    banner: "/project_banners/lauriecrean.svg",
     description: "A fully responsive portfolio website built using Next.js, using Framer Motion for engaging animations",
     features: [
       "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else",
@@ -106,7 +112,7 @@ export const projectsData = [
     logo: "/projects/portfolio/logo.png",
     liveDemoUrl: "http://lauriecrean.dev", 
     repositoryUrl: "https://github.com/lmcrean/lauriecrean_nextjs",
-    badges: ["React", "React-Bootstrap", "Framer-Motion", "Next.js", "Vercel"],
+    badges: ["React.JS", "React Bootstrap", "Framer Motion", "Next.js", "Vercel"],
     readme: "./ReadmeText/PortfolioWebsite.md", 
   },
 ];  

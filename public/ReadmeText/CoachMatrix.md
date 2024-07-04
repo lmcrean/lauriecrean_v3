@@ -1,83 +1,6 @@
-# Coach Matrix <!-- omit in toc -->
+# Coach Matrix 
 
 Coach Matrix is an open-source CPD platform for educators to connect and share knowledge.
-
-## Table of Contents <!-- omit in toc -->
-
-
-- [1. Features](#1-features)
-- [2. User Stories reviewed against UX Planes and Manual Testing](#2-user-stories-reviewed-against-ux-planes-and-manual-testing)
-- [3. Automatic Testing](#3-automatic-testing)
-- [4. Issues and Bugs](#4-issues-and-bugs)
-- [5. Acknowledgement and credits](#5-acknowledgement-and-credits)
-
-***
-- [1. Features](#1-features)
-  - [1.1. User Posts Questions which can be answered and voted](#11-user-posts-questions-which-can-be-answered-and-voted)
-  - [1.2. Questions have tags which can be found through the filter view](#12-questions-have-tags-which-can-be-found-through-the-filter-view)
-  - [1.3. User Posts Answers to Questions](#13-user-posts-answers-to-questions)
-  - [1.4. User votes for both questions and answers](#14-user-votes-for-both-questions-and-answers)
-  - [1.5. Toggle Sort content by highest vote vs newest post](#15-toggle-sort-content-by-highest-vote-vs-newest-post)
-  - [1.6. Landing Page with login and sign up tabs](#16-landing-page-with-login-and-sign-up-tabs)
-  - [1.7. User creates, reads and deletes bookmarks.](#17-user-creates-reads-and-deletes-bookmarks)
-  - [1.8. User updates Authentication details](#18-user-updates-authentication-details)
-  - [1.9. Navbar](#19-navbar)
-  - [1.10. Footer](#110-footer)
-  - [1.11. About Page](#111-about-page)
-  - [1.12. Error Messages](#112-error-messages)
-- [2. User Stories reviewed against UX Planes and Manual Testing](#2-user-stories-reviewed-against-ux-planes-and-manual-testing)
-  - [2.1. Strategy plane](#21-strategy-plane)
-  - [2.2. Scope plane](#22-scope-plane)
-  - [2.3. Structure plane](#23-structure-plane)
-    - [2.3.1. App Structure](#231-app-structure)
-    - [2.3.2. Models](#232-models)
-    - [2.3.3. Forms](#233-forms)
-    - [2.3.4. Views](#234-views)
-    - [2.3.5. Templates](#235-templates)
-    - [2.3.6. URLPatterns](#236-urlpatterns)
-    - [2.3.7. Static Files](#237-static-files)
-    - [2.3.8. JavaScript Front-End Logic](#238-javascript-front-end-logic)
-  - [2.4.  Skeleton plane](#24--skeleton-plane)
-    - [2.4.1. Skeleton Plane Acceptance Criteria](#241-skeleton-plane-acceptance-criteria)
-    - [2.4.2. Early Wireframes using Figma](#242-early-wireframes-using-figma)
-    - [2.4.3. Feature drafting with CodePen](#243-feature-drafting-with-codepen)
-    - [2.4.4. CSS Skeleton Testing](#244-css-skeleton-testing)
-    - [2.4.5. HTML Bootstrap Testing](#245-html-bootstrap-testing)
-  - [2.5. Surface plane](#25-surface-plane)
-    - [2.5.1. Surface Plane acceptance criteria](#251-surface-plane-acceptance-criteria)
-    - [2.5.2. CSS Surface Testing](#252-css-surface-testing)
-    - [2.5.3. FontAwesome](#253-fontawesome)
-    - [2.5.4. Media Surface Testing](#254-media-surface-testing)
-- [3. Automatic Testing and Deployment](#3-automatic-testing-and-deployment)
-  - [3.1. Browserstack testing](#31-browserstack-testing)
-  - [3.2. Lighthouse testing](#32-lighthouse-testing)
-  - [3.3. Deployment to Heroku](#33-deployment-to-heroku)
-  - [3.4. Deployment from Heroku to coachmatrix.org](#34-deployment-from-heroku-to-coachmatrixorg)
-  - [3.5. Python Validation with PEP8 guidelines](#35-python-validation-with-pep8-guidelines)
-  - [3.6. HTML Validation with W3C guidelines](#36-html-validation-with-w3c-guidelines)
-  - [3.7.](#37)
-- [4. Issues and Bugs](#4-issues-and-bugs)
-  - [4.1. "Cannot Access Django-Admin Panel on Port."](#41-cannot-access-django-admin-panel-on-port)
-  - [4.2. "IntegrityError When Adding Social Application in Django: Null Value in Column ‘Provider\_id.’"](#42-integrityerror-when-adding-social-application-in-django-null-value-in-column-provider_id)
-  - [4.3. "Cannot Delete ‘Forgot Password?’ On Sign in Page. Seems Completely Unresponsive to Code."](#43-cannot-delete-forgot-password-on-sign-in-page-seems-completely-unresponsive-to-code)
-  - [4.4. "Cannot Access Django-Admin Panel on Port."](#44-cannot-access-django-admin-panel-on-port)
-  - [4.5. "Django NoReverseMatch Error for ‘questions’ View After Google OAuth Sign-In."](#45-django-noreversematch-error-for-questions-view-after-google-oauth-sign-in)
-  - [4.6. "Social Login Expects to Lead to Questions.Html via Django Urlpatterns, Instead Leads to Home Page."](#46-social-login-expects-to-lead-to-questionshtml-via-django-urlpatterns-instead-leads-to-home-page)
-  - [4.7. "Django QuestionForm in Forms.Py Not Creating Instance in Questions.Html."](#47-django-questionform-in-formspy-not-creating-instance-in-questionshtml)
-  - [4.8. "Django taggit view leading to FieldError: Related Field got invalid lookup: name"](#48-django-taggit-view-leading-to-fielderror-related-field-got-invalid-lookup-name)
-  - [4.9. "profile\_update\_form does not update field correctly, print logs suggest issue with redundant if statement](#49-profile_update_form-does-not-update-field-correctly-print-logs-suggest-issue-with-redundant-if-statement)
-  - [4.10. "Tag instances via django-taggit are not rendering as expected in update post form."](#410-tag-instances-via-django-taggit-are-not-rendering-as-expected-in-update-post-form)
-- [5. Acknowledgement and credits](#5-acknowledgement-and-credits)
-  - [5.1. Coding Languages](#51-coding-languages)
-  - [5.2. Frameworks, Libraries and Programs](#52-frameworks-libraries-and-programs)
-    - [5.2.1. Front-end modules](#521-front-end-modules)
-    - [5.2.2. Back-end modules](#522-back-end-modules)
-    - [5.2.3. Large Language Models](#523-large-language-models)
-  - [5.3. Deployment and IDE](#53-deployment-and-ide)
-  - [5.4. UX Software](#54-ux-software)
-  - [5.5. Resources](#55-resources)
-  - [5.6. Personal Acknowledgements](#56-personal-acknowledgements)
-
 
 
 # 1. Features
@@ -744,7 +667,7 @@ In the timeframe of this project it was not practical to migrate the full stacko
 
 <details><summary><i>issue</i></summary>
 
-### Expecting to be able to access django admin panel and add social accouunt <!-- omit in toc -->
+### Expecting to be able to access django admin panel and add social accouunt 
 
 opening admin panel by adding standard `admin/` extension to local preview port URL. This is expected to lead to classic [django admin panel.](https://www.programink.com/static/img/django-admin-login.png)
 
@@ -754,7 +677,7 @@ the website is otherwise displaying fine.
 
 *A simple google oath signin is currently being implemented.*
 
-### Error message: <!-- omit in toc -->
+### Error message: 
 
 ```
 DoesNotExist at /admin/login/
@@ -780,7 +703,7 @@ Server time:	Sat, 11 Nov 2023 15:17:58 +0000
 
 [traceback details in full](https://file.io/haymHM3ANkEI)
 
-### Currently trying to fix with this tutorial <!-- omit in toc -->
+### Currently trying to fix with this tutorial 
 
 “Set up Google Sign-in for Faster Django Login Experience Feat. Tech with Tim.” Akamai DevRel, YouTube Video, 12 Dec. 2022, https://youtu.be/yO6PP0vEOMc?feature=shared&t=1328. Accessed 11 Nov. 2023.
 
@@ -789,7 +712,7 @@ Server time:	Sat, 11 Nov 2023 15:17:58 +0000
 - before that django-admin panel seemed to be working fine
 
 
-## settings.py and url are likely problem areas <!-- omit in toc -->
+## settings.py and url are likely problem areas 
 
 
 installed apps seems ok on [settings.py - can be viewed here in full](https://file.io/HDZjRjk17k3w)

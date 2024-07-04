@@ -11,21 +11,24 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
-import { HtmlBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JavascriptBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 
 const getBadgeComponent = (badgeName: string) => {
   switch (badgeName) {
-    case 'Html': return <HtmlBadge />;
-    case 'Css': return <CssBadge />;
+    case 'HTML': return <HtmlBadge />;
+    case 'Bootstrap': return <BootstrapBadge />;
+    case 'CSS': return <CssBadge />;
     case 'Cloudinary': return <CloudinaryBadge />;
     case 'Django': return <DjangoBadge />;
     case 'Framer Motion': return <FramerBadge />;
+    case 'Github Pages': return <GithubPagesBadge />;
     case 'Heroku': return <HerokuBadge />;
-    case 'JavaScript': return <JavascriptBadge />;
+    case 'Javascript': return <JavascriptBadge />;
+    case 'JQuery': return <JQueryBadge />;
     case 'Next.js': return <NextdotjsBadge />;
     case 'PostgreSQL': return <PostgresSQLBadge />;
     case 'Python': return <PythonBadge />;
-    case 'React': return <ReactBadge />;
+    case 'React.JS': return <ReactBadge />;
     case 'React Bootstrap': return <ReactBootstrapBadge />;
     case 'Vercel': return <VercelBadge />;
     default: return null;
