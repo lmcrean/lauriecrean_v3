@@ -150,7 +150,7 @@ const PersonalProjects = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 55, 0.8)', // Transparent blue overlay. Issue: expecting it to be hidden until a project is selected
+        backgroundColor: 'rgba(0, 0, 15, 0.8)', // Transparent blue overlay
         zIndex: 999, // Ensure it's below the modal
       }}
     />
@@ -209,7 +209,7 @@ const PersonalProjects = () => {
         {projectsData.map((project, index) => 
         project.id === selectedId && (
         <Stack 
-          className='mb-5 d-flex justify-content-center flex-wrap' 
+          className='mb-5 d-flex flex-wrap justify-end' 
           direction="horizontal" 
           gap={2}
         >
@@ -227,7 +227,7 @@ const PersonalProjects = () => {
 
         {projectsData.map((project, index) =>
         project.id === selectedId && (
-        <div className="d-flex justify-center">
+        <div className="d-flex justify-end">
           <Link href={project.repositoryUrl} target="_blank">
             <Button variant="dark" size="lg">
               Repository

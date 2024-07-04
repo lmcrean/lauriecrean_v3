@@ -22,26 +22,26 @@ export const projectsData = [
     badges: ["Django", "Cloudinary", "Heroku", "PostgreSQL", "ElephantSQL"],
     readme: "/ReadmeText/CoachMatrix.md",
   },
+  // {
+  //   id: 2,
+  //   name: "React Project (in progress)",
+  //   banner: "/project_banners/React.svg",
+  //   description: "A social media platform for sharing photos.",
+  //   features: [      
+  //     "Users can upload photos and view other users' photos.",
+  //     "Users can like and comment on photos.",
+  //     "Data hosted on Cloudinary and Heroku",]
+  //     ,
+  //   imageSrc: "/projects/react/1.jpg",
+  //   images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
+  //   logo: "/projects/react/logo.png", // Placeholder logo path
+  //   liveDemoUrl: "https://example.com/react-project-demo", // Placeholder live demo URL
+  //   repositoryUrl: "https://github.com/user/react-project-repo", // Placeholder repository URL
+  //   badges: ["React.JS", "Django", "Cloudinary", "Heroku", "PostgreSQL"],
+  //   readme: "./ReadmeText/ReactProject.md",
+  // },
   {
     id: 2,
-    name: "React Project (in progress)",
-    banner: "/project_banners/React.svg",
-    description: "A social media platform for sharing photos.",
-    features: [      
-      "Users can upload photos and view other users' photos.",
-      "Users can like and comment on photos.",
-      "Data hosted on Cloudinary and Heroku",]
-      ,
-    imageSrc: "/projects/react/1.jpg",
-    images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-    logo: "/projects/react/logo.png", // Placeholder logo path
-    liveDemoUrl: "https://example.com/react-project-demo", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/user/react-project-repo", // Placeholder repository URL
-    badges: ["React.JS", "Django", "Cloudinary", "Heroku", "PostgreSQL"],
-    readme: "./ReadmeText/ReactProject.md",
-  },
-  {
-    id: 3,
     name: "Steam Report",
     banner: "/project_banners/steamreport.svg",
     description: "A personal report that hybrids Personality Trait Test and Trivia quiz. Steam Report provides young people with a recommended career pathway based on their unique traits and subject knowledge",
@@ -60,7 +60,7 @@ export const projectsData = [
     readme: "./ReadmeText/SteamReport.md", 
   },
   {
-    id: 4,
+    id: 3,
     name: "Crocodile Kingdom",
     banner: "/project_banners/crocodilekingdom.svg",
     description: "Crocodile Kingdom is a memory game for 5 year olds developed using vanilla Javascript",
@@ -81,7 +81,7 @@ export const projectsData = [
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
   {
-    id: 5,
+    id: 4,
     name: "Hoverboard",
     banner: "/project_banners/hoverboard.svg",
     description: "A fully responsive SaaS product home page themed on Education Software",
@@ -99,7 +99,7 @@ export const projectsData = [
     readme: "./ReadmeText/Hoverboard.md", 
   },
   {
-    id: 6,
+    id: 5,
     name: "Portfolio Website",
     banner: "/project_banners/lauriecrean.svg",
     description: "A fully responsive portfolio website built using Next.js, using Framer Motion for engaging animations",
