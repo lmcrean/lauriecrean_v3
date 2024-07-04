@@ -14,6 +14,9 @@ import { projectsData } from './PersonalProjectsData';
 import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 import { Carousel } from 'react-bootstrap';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faXmark, faXmarkCircle, faXmarksLines } from '@fortawesome/free-solid-svg-icons';
+
 
 const getBadgeComponent = (badgeName: string) => {
   switch (badgeName) {
@@ -155,19 +158,22 @@ const PersonalProjects = () => {
         {/* Detailed view of the selected project goes here, with a Readme in the second column */}
         <Row className="h-100">
         <Col md={6} className="position-sticky top-0" style={{ top: 0, position: 'sticky' }}>
-        <button onClick={handleClose}>Close</button>
-        <h2 className='text-center'>{projectsData[selectedId - 1].name}</h2>
-        <p className='text-center'>{projectsData[selectedId - 1].description}</p>
-        <img className='m-auto' src={projectsData[selectedId - 1].imageSrc} alt={projectsData[selectedId - 1].name} style={{ maxWidth: '500px' }}/>
-        <h3 className='text-center mt-3'>Key Features:</h3>
-        <ul>
+        <button onClick={handleClose}>
+          <FontAwesomeIcon icon={faCircleXmark} /> close
+        </button>
+      
+        {/*banner image*/}
+        <img src={projectsData[selectedId - 1].banner} alt={projectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+        <p className='text-right'>{projectsData[selectedId - 1].description}</p>
+        <h3 className='text-right mt-3'>Key Features:</h3>
+        <ul className='text-right'>
           {projectsData[selectedId - 1].features.map(feature => (
             <li key={feature}>{feature}</li>
           ))}
         </ul>
         {projectsData.map((project, index) => 
         project.id === selectedId && (
-        <Stack className='mb-5 d-flex justify-center' direction="horizontal" gap={2}>
+        <Stack className='mb-5 d-flex justify-center mt-9' direction="horizontal" gap={2}>
           {project.badges.map((badgeName, index) => {
             const badgeElement = getBadgeComponent(badgeName);
             return badgeElement ? React.cloneElement(badgeElement, { key: `${project.id}-${badgeName}-${index}` }) : null;
@@ -188,19 +194,19 @@ const PersonalProjects = () => {
           <h2 className='text-center'>Gallery</h2>
           {selectedId !== null && (
             <Carousel>
-              {projectsData[selectedId - 1].images.map((imageSrc, index) => (
-                <Carousel.Item key={index}>
-                  <img
-                    className="w-100"
-                    src={imageSrc}
-                    alt={`Project Image ${index}`}
-                  />
-                  <Carousel.Caption>
-                    <p>{`Image ${index + 1}`}</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              ))}
-            </Carousel>
+            {projectsData[selectedId - 1].images.map((imageSrc, index) => (
+              <Carousel.Item key={index} className="carousel-item">
+                <img
+                  className="carousel-img"
+                  src={imageSrc}
+                  alt={`Project Image ${index}`}
+                />
+                <Carousel.Caption>
+                  <p>{`Image ${index + 1}`}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
           )}
         </Col>
         </Row>
