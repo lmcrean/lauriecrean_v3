@@ -77,7 +77,7 @@ const SocialHeader = () => {
             </a>
 
             {/* LinkedIn */}
-            <a href="www.linkedin.com/in/lcrean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
+            <a href="https://www.linkedin.com/in/lcrean" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} className="social-link d-flex flex-column">
                 <motion.div
                     onMouseEnter={() => handleIconHover('linkedin')}
                     onMouseLeave={() => handleIconHover('linkedin')}
