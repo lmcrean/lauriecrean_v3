@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from "react-dom";
 import SocialHeader from '@/components/SocialHeader';
 import '../styles/globals.scss'; 
+import '../styles/Typography.scss';
 
 
 const App = () => {
