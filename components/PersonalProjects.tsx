@@ -78,11 +78,11 @@ const PersonalProjects = () => {
             <img src={project.banner} alt={project.name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
 
             <img src={project.imageSrc} alt={`${project.name}`} />
-            <p className='font-weight-700'>{project.description}</p>
+            <p className='fw-bold mt-3'>{project.description}</p>
             <br /><br />
 
-            <p>Key features:</p>
-            <ul>
+            <p className='fst-italic'>Key features:</p>
+            <ul className='fst-italic'>
               {project.features.map(feature => (
                 <li key={feature}>{feature}</li>
               ))}
@@ -185,9 +185,9 @@ const PersonalProjects = () => {
       
         {/*banner image*/}
         <img src={projectsData[selectedId - 1].banner} alt={projectsData[selectedId - 1].name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-        <p className='text-right font-weight-bold'>{projectsData[selectedId - 1].description}</p>
-        <h3 className='text-right mt-3'>Key Features:</h3>
-        <ul className='text-right'>
+        <p className='text-right fw-bold mt-3'>{projectsData[selectedId - 1].description}</p>
+        <h3 className='text-right mt-3 fst-italic'>Key Features:</h3>
+        <ul className='text-right fst-italic'>
           {projectsData[selectedId - 1].features.map(feature => (
             <li key={feature}>{feature}</li>
           ))}

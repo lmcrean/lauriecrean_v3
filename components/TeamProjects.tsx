@@ -89,14 +89,14 @@ const TeamProjects = () => {
 
             <img src={project.imageSrc} alt={`${project.name}`} />
             <p className='text-center'>Team Size: {project.teamsize}</p>
-            <p>{project.description}</p>
-            <p className='italic'>{project.contributions}</p>
+            <p className='fw-bold mt-3'>{project.description}</p>
+            <p className='fst-italic'>{project.contributions}</p>
             <br /><br />
 
-            <p>Key features:</p>
+            <p className='fst-italic'>Key features:</p>
             <ul>
               {project.features.map(feature => (
-                <li key={feature}>{feature}</li>
+                <li className='fst-italic' key={feature}>{feature}</li>
               ))}
             </ul>
             
