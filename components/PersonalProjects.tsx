@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
-import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, DjangoRestBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
 import { Carousel } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,18 +27,20 @@ const getBadgeComponent = (badgeName: string) => {
     case 'CSS': return <CssBadge />;
     case 'Cloudinary': return <CloudinaryBadge />;
     case 'Django': return <DjangoBadge />;
+    case 'Django Rest Framework': return <DjangoRestBadge />;;
     case 'Framer Motion': return <FramerBadge />;
     case 'Github Pages': return <GithubPagesBadge />;
     case 'Heroku': return <HerokuBadge />;
     case 'Javascript': return <JavascriptBadge />;
     case 'JQuery': return <JQueryBadge />;
+    case 'JWT': return <Badge pill className="jwt-badge">JWT</Badge>;
     case 'Next.js': return <NextdotjsBadge />;
     case 'PostgreSQL': return <PostgresSQLBadge />;
     case 'Python': return <PythonBadge />;
-    case 'React.JS': return <ReactBadge />;
+    case 'React': return <ReactBadge />;
     case 'React Bootstrap': return <ReactBootstrapBadge />;
     case 'Vercel': return <VercelBadge />;
-    default: return null;
+    default: return <Badge pill>{badgeName}</Badge>;
   }
 };
 
@@ -77,7 +79,7 @@ const PersonalProjects = () => {
           >
             <img src={project.banner} alt={project.name} className="mx-auto d-block" style={{ maxWidth: '100%', maxHeight: '200px' }} />
 
-            <img src={project.imageSrc} alt={`${project.name}`} />
+            <img src={project.imageSrc} className="mt-3" alt={`${project.name}`} />
             <p className='fw-bold mt-3'>{project.description}</p>
             <br /><br />
 

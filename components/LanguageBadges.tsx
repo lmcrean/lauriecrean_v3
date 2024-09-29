@@ -41,6 +41,13 @@ export const DjangoBadge = () => (
     </Badge>
 );
 
+export const DjangoRestBadge = () => (
+    <Badge pill className="d-flex align-items-center django-badge">
+        <Image src="/icons_language/django.svg" width="24" height="24" alt="Django" className="me-2"/>
+        <span>Django Rest Framework</span> 
+    </Badge>
+);
+
 // Framer Motion Badge
 export const FramerBadge = () => (
     <Badge pill className='d-flex align-items-center framer-badge'>

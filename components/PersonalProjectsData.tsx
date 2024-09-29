@@ -19,29 +19,33 @@ export const projectsData = [
     logo: "/projects/coachmatrix/logo.png",
     liveDemoUrl: "http://coachmatrix.org/",
     repositoryUrl: "https://github.com/lmcrean/Coach-Matrix",
-    badges: ["Django", "Cloudinary", "Heroku", "PostgreSQL", "ElephantSQL"],
+    badges: ["Django Rest Framework", "Cloudinary", "Heroku", "PostgreSQL", "ElephantSQL"],
     readme: "/ReadmeText/CoachMatrix.md",
   },
-  // {
-  //   id: 2,
-  //   name: "React Project (in progress)",
-  //   banner: "/project_banners/React.svg",
-  //   description: "A social media platform for sharing photos.",
-  //   features: [      
-  //     "Users can upload photos and view other users' photos.",
-  //     "Users can like and comment on photos.",
-  //     "Data hosted on Cloudinary and Heroku",]
-  //     ,
-  //   imageSrc: "/projects/react/1.jpg",
-  //   images: ["/projects/react/1.jpg", "/projects/react/1.jpg", "/projects/react/1.jpg"],
-  //   logo: "/projects/react/logo.png", // Placeholder logo path
-  //   liveDemoUrl: "https://example.com/react-project-demo", // Placeholder live demo URL
-  //   repositoryUrl: "https://github.com/user/react-project-repo", // Placeholder repository URL
-  //   badges: ["React.JS", "Django", "Cloudinary", "Heroku", "PostgreSQL"],
-  //   readme: "./ReadmeText/ReactProject.md",
-  // },
   {
     id: 2,
+    name: "Odyssey",
+    banner: "/project_banners/odyssey.png",
+    description: "A social media for finding users with similar goals with a messaging feature",
+    features: [      
+      "User authentication and profile management",
+      "Photo upload and sharing with Cloudinary integration",
+      "Like and comment functionality on posts",
+      "Real-time messaging between users",
+      "Follow/unfollow system to connect with other users",
+      "Responsive design for mobile and desktop",
+      "Infinite scroll for seamless content browsing",
+    ],
+    imageSrc: "/projects/odyssey/1.png",
+    images: ["/projects/odyssey/1.png", "/projects/odyssey/2.png", "/projects/odyssey/3.png"],
+    logo: "/projects/odyssey/1.png", // Placeholder logo path
+    liveDemoUrl: "https://odyssey.lauriecrean.dev", // Placeholder live demo URL
+    repositoryUrl: "https://github.com/lmcrean/odyssey-api", // Placeholder repository URL
+    badges: ["React", "Django Rest Framework", "Cloudinary", "PostgreSQL", "Bootstrap", "Heroku"],
+    readme: "./ReadmeText/ReactProject.md",
+  },
+  {
+    id: 3,
     name: "Steam Report",
     banner: "/project_banners/steamreport.svg",
     description: "A personal report that hybrids Personality Trait Test and Trivia quiz. Steam Report provides young people with a recommended career pathway based on their unique traits and subject knowledge",
@@ -60,7 +64,7 @@ export const projectsData = [
     readme: "./ReadmeText/SteamReport.md", 
   },
   {
-    id: 3,
+    id: 4,
     name: "Crocodile Kingdom",
     banner: "/project_banners/crocodilekingdom.svg",
     description: "Crocodile Kingdom is a memory game for 5 year olds developed using vanilla Javascript",
@@ -81,7 +85,7 @@ export const projectsData = [
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
   {
-    id: 4,
+    id: 5,
     name: "Hoverboard",
     banner: "/project_banners/hoverboard.svg",
     description: "A fully responsive SaaS product home page themed on Education Software",
@@ -99,7 +103,7 @@ export const projectsData = [
     readme: "./ReadmeText/Hoverboard.md", 
   },
   {
-    id: 5,
+    id: 6,
     name: "Portfolio Website",
     banner: "/project_banners/lauriecrean.svg",
     description: "A fully responsive portfolio website built using Next.js, using Framer Motion for engaging animations",
@@ -113,7 +117,7 @@ export const projectsData = [
     logo: "/projects/portfolio/logo.png",
     liveDemoUrl: "http://lauriecrean.dev", 
     repositoryUrl: "https://github.com/lmcrean/lauriecrean_nextjs",
-    badges: ["React.JS", "React Bootstrap", "Framer Motion", "Next.js", "Vercel"],
+    badges: ["React", "React Bootstrap", "Framer Motion", "Next.js", "Vercel"],
     readme: "./ReadmeText/PortfolioWebsite.md", 
   },
 ];  
