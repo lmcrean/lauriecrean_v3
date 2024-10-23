@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactMarkdown from 'react-markdown';
 import { projectsData } from './PersonalProjectsData';
-import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, DjangoRestBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge } from './LanguageBadges';
+import { HtmlBadge, BootstrapBadge, CssBadge, CloudinaryBadge, DjangoBadge, DjangoRestBadge, FramerBadge, JQueryBadge, JavascriptBadge, GithubPagesBadge, HerokuBadge, NextdotjsBadge, PostgresSQLBadge, PythonBadge, ReactBadge, ReactBootstrapBadge, VercelBadge, TailwindBadge } from './LanguageBadges';
 import { Carousel } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -39,6 +39,7 @@ const getBadgeComponent = (badgeName: string) => {
     case 'Python': return <PythonBadge />;
     case 'React': return <ReactBadge />;
     case 'React Bootstrap': return <ReactBootstrapBadge />;
+    case 'TailwindCSS': return <TailwindBadge />;
     case 'Vercel': return <VercelBadge />;
     default: return <Badge pill>{badgeName}</Badge>;
   }

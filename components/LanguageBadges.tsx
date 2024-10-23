@@ -19,6 +19,13 @@ export const CssBadge = () => (
     </Badge>
 );
 
+// Tailwind CSS Badge
+export const TailwindBadge = () => (
+    <Badge pill className='d-flex align-items-center tailwind-badge'>
+        Tailwind CSS
+    </Badge>
+);
+
 //Bootstrap Badge
 export const BootstrapBadge = () => (
     <Badge pill className='d-flex align-items-center bootstrap-badge'>

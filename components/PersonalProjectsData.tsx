@@ -39,8 +39,8 @@ export const projectsData = [
     imageSrc: "/projects/odyssey/1.png",
     images: ["/projects/odyssey/1.png", "/projects/odyssey/2.png", "/projects/odyssey/3.png"],
     logo: "/projects/odyssey/1.png", // Placeholder logo path
-    liveDemoUrl: "https://odyssey.lauriecrean.dev", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/lmcrean/odyssey-api", // Placeholder repository URL
+    liveDemoUrl: "https://odyssey.lauriecrean.dev", 
+    repositoryUrl: "https://github.com/lmcrean/odyssey-api", 
     badges: ["React", "Django Rest Framework", "Cloudinary", "PostgreSQL", "Bootstrap", "Heroku"],
     readme: "./ReadmeText/ReactProject.md",
   },
@@ -79,8 +79,8 @@ export const projectsData = [
     imageSrc: "/projects/crocodilekingdom/a1.gif",
     images: ["projects/crocodilekingdom/a1.gif", "/projects/crocodilekingdom/1.png", "/projects/crocodilekingdom/2.png", "/projects/crocodilekingdom/3.png", "/projects/crocodilekingdom/4.png", "/projects/crocodilekingdom/5.png"],
     logo: "/projects/crocodilekingdom/logo.png",
-    liveDemoUrl: "https://lmcrean.github.io/Crocodile-Kingdom/", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/lmcrean/crocodile-kingdom", // Placeholder repository URL
+    liveDemoUrl: "https://lmcrean.github.io/Crocodile-Kingdom/", 
+    repositoryUrl: "https://github.com/lmcrean/crocodile-kingdom", 
     badges: ["Javascript", "Github Pages", "JQuery", "Bootstrap"],
     readme: "./ReadmeText/CrocodileKingdom.md",
   },
@@ -91,15 +91,15 @@ export const projectsData = [
     description: "A fully responsive SaaS product home page themed on Education Software",
     features: [
       "Multi-layered background squiggles, banners, filtered shapes",
-      "Detailed CSS Grid displays that change columns",
+      "Detailed TailwindCSS Grid displays that change columns",
       "Dynamic content that moves around the page, sometimes expanding, hiding or reappearing somewhere else"
     ],
     imageSrc: "/projects/hoverboard/2.png",
     images: ["/projects/hoverboard/1.png", "/projects/hoverboard/2.png", "/projects/hoverboard/3.png", "/projects/hoverboard/4.png"],
     logo: "/projects/hoverboard/logo.png",
-    liveDemoUrl: "https://lmcrean.github.io/Hoverboard/", // Placeholder live demo URL
-    repositoryUrl: "https://github.com/lmcrean/Hoverboard", // Placeholder repository URL
-    badges: ["CSS", "JS", "HTML", "Github Pages"],
+    liveDemoUrl: "https://hoverboard.lauriecrean.dev", 
+    repositoryUrl: "https://github.com/lmcrean/hoverboard-react", 
+    badges: ["React", "TailwindCSS", "Next.js", "Vercel"],
     readme: "./ReadmeText/Hoverboard.md", 
   },
   {
