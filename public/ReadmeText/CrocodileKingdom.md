@@ -65,7 +65,7 @@ Full Table of Contents: <!-- omit in toc --></div>
   - [1.10. High Score feature](#110-high-score-feature)
 - [2. UX Development Planes \& Manual Testing](#2-ux-development-planes--manual-testing)
   - [2.1. Strategy Plane](#21-strategy-plane)
-    - [2.1.1. Developer Research](#211-developer-research)
+    - [2.1.1. Engineer Research](#211-developer-research)
     - [2.1.2. Initial Product Research](#212-initial-product-research)
     - [2.1.3. Project Timeline](#213-project-timeline)
     - [2.1.4. User Stories \& business goals](#214-user-stories--business-goals)
@@ -334,7 +334,7 @@ The overall strategy was to develop a memory game over 6 weeks that would appeal
 
 ***
 
-### 2.1.1. Developer Research
+### 2.1.1. Engineer Research
 
 <details>
 <summary>
@@ -364,7 +364,7 @@ click here to see the areas of the Comparitative programming that were researche
 
 <br>
 
-The Developer then tested a [walkthrough project of a memory game](https://github.com/code-sketch/memory-game), using event listeners, functions, loops, arrays, objects, and DOM manipulation.
+The Engineer then tested a [walkthrough project of a memory game](https://github.com/code-sketch/memory-game), using event listeners, functions, loops, arrays, objects, and DOM manipulation.
 
 [↑ Back to top](#Portfolio-Project-2-with-Javascript)
 

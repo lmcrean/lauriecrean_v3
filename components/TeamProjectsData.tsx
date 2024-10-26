@@ -38,7 +38,7 @@ export const teamProjectsData = [
     teamsize: 6,
     contributions: [
       "as scrum master I was responsible for overseeing delegating tasks effectively and ensuring the team met their deadlines through daily sprints and standups.", 
-      "in the Frontend Developer team I contributed modals, tooltips, color schemes and other surface elements to the game.",
+      "in the Frontend Engineer team I contributed modals, tooltips, color schemes and other surface elements to the game.",
     ],
     features: [      
       "Users select a profession to represent them in the game.",

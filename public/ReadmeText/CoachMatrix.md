@@ -956,7 +956,7 @@ The following resources were used to assist with the development of the project 
 - [W3Schools](https://www.w3schools.com/)
     - W3Schools is a web developer information website, with tutorials and references relating to web development topics such as HTML, CSS, JavaScript, PHP, SQL, Python, jQuery, Java, C++, C#, React, Node.js, XML, W3.CSS, and Bootstrap.
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
-    - MDN Web Docs, previously Mozilla Developer Network and formerly Mozilla Developer Center, is the official Mozilla website for development documentation of web standards and Mozilla projects.
+    - MDN Web Docs, previously Mozilla Engineer Network and formerly Mozilla Engineer Center, is the official Mozilla website for development documentation of web standards and Mozilla projects.
 - [Django Documentation](https://docs.djangoproject.com/en/4.1/)
     - The official documentation for Django was particularly helpful.
 

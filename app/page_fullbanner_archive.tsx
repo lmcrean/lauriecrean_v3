@@ -42,7 +42,7 @@ const ProfileCard = () => (
   <div className={styles.profileCard}>
     <TopBanner />
     <h1 className={styles.name}>Laurie Crean</h1>
-    <h2 className={styles.title}>Junior Full-Stack Software Developer</h2>
+    <h2 className={styles.title}>Junior Software Engineer</h2>
     <a
       href="https://github.com/lmcrean"
       target="_blank"
