@@ -1,5 +1,5 @@
-* Projects
-* Certifications
+* [Projects](/projects)
+* [Certifications](/certifications)
 * Email
 * Resume
 * LinkedIn
