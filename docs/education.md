@@ -4,6 +4,8 @@ My prior education was in the creative arts.
 
 ## Diploma in Full Stack Software Development - Advanced Frontend
 
+Led technology initiatives across two London schools, including cloud platform implementation and automated marking systems. Developed XLS to PDF conversion tools for faculty use. Managed digital curriculum delivery to 400+ students while exceeding department performance by 32.7%.
+
 ## PGCE
 
 ## Royal Drawing School
