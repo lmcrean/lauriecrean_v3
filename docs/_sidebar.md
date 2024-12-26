@@ -1,6 +1,8 @@
 * [Projects](/projects)
 * [Certifications](/certifications)
-* Email
+
+<a href="mailto:lmcrean@gmail.com"><button> Email </button></a>
+
 * Resume
 * LinkedIn
 * GitHub
