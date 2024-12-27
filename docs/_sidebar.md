@@ -1,6 +1,6 @@
 * [Projects](/projects)
 * [Certifications](/certifications)
-* [Experience](/education)
+* [Experience](/experience)
 * [Education](/education)
 
 <a href="mailto:lmcrean@gmail.com" target="_blank"><button> Email </button></a>
