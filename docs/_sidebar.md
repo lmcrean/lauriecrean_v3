@@ -1,6 +1,8 @@
+# Laurie Crean
+
 * [Projects](/projects)
 * [Certifications](/certifications)
-* [Experience](/experience)
+* [Employment History](/experience)
 * [Education](/education)
 
 <a href="mailto:lmcrean@gmail.com" target="_blank"><button> Email </button></a>
