@@ -13,16 +13,24 @@
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main)
 
-Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments 
+<!--language badges-->
+
+![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) 
+![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=lambda&logoColor=white) ![Express](https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
+![Playwright](https://img.shields.io/badge/Playwright-12_Passed-32B72F?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-2_Passed-32B72F?style=flat-square&logo=jest&logoColor=white)
 
 ## Odyssey
 
+
 <a href="https://github.com/lmcrean/odyssey-api"><button> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button> readme </button></a> <a href="https://odyssey.lauriecrean.dev"><button> live demo </button></a>
+
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api/commits/main)
 
-- Frontend: React, TailwindCSS, Vercel, Cloudinary, Playwright, Jest, Python, PostgreSQL, Django, OAuth2, JWT, Heroku, Vercel
-- Backend: Python, PostgreSQL, Django, OAuth2, JWT, Heroku, Vercel
+![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-1C1C1C?&logo=cloudinary&logoColor=white) 
+![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=oauth&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-32_Passed-32B72F?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-5_Passed-32B72F?style=flat-square&logo=jest&logoColor=white) ![Python](https://img.shields.io/badge/Python-38_Passed-32B72F?style=flat-square&logo=python&logoColor=white)
+
 
 Developed Cloudinary media integration; improved performance with cached rendering • 75 automated tests across three frameworks (32 Playwright, 5 Jest, 38 Python) including comprehensive alert feeback • OAuth2/JWT authentication • Automated Heroku deployments • Unified API and Frontend into a singular repository to improve security standards and ensure compatibility with Safari browsers
 
@@ -31,6 +39,9 @@ Developed Cloudinary media integration; improved performance with cached renderi
 <a href="https://github.com/lmcrean/coach-matrix"><button> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button> readme </button></a> <a href="http://coachmatrix.org/"><button> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix/commits/main)
+
+![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white)![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=oauth&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white)
 
 Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline • [Code] [Readme] [Live Demo]
 
