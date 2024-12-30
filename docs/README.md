@@ -25,6 +25,8 @@ Welcome to my portfolio website! It's currently under construction but you may c
 ![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=lambda&logoColor=white) ![Express](https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
 ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-32B72F?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-2_Passed-32B72F?style=flat-square&logo=jest&logoColor=white)
 
+ Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
+
 ## Odyssey
 
 
