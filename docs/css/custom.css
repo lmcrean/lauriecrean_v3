@@ -1,11 +1,25 @@
 /* Dark theme styles for Docsify */
 :root {
-    --background-color: #1e1e1e;
-    --text-color: #e0e0e0;
+    --background-color: #091439;
+    --sidebar-background-color: #010b2e;
+    --text-color: #fcfafa;
     --border-color: #444;
-    --table-header-bg: #2c2c2c;
-    --table-row-bg: #252525;
-    --table-row-alt-bg: #2a2a2a;
+    --table-header-bg: #091439;
+    --table-row-bg: #091439;
+    --table-row-alt-bg: #091439;
+    --sidebar-highlight-color: #b0c0ff;
+  }
+
+  .anchor span {
+    color: var(--text-color);
+  }
+
+  .sidebar {
+    background-color: var(--sidebar-background-color);
+  }
+
+  .sidebar ul li a {
+    color: var(--text-color);
   }
   
   body {
@@ -86,6 +100,10 @@ li.active ::before {
   transform: rotate(90deg);
 }
 
+.sidebar-nav > ul {
+  padding-left: 20px;
+}
+
 /* Hide sub-items when collapsed */
 .sidebar-nav > ul > li.collapse > ul {
   display: none;
@@ -96,43 +114,17 @@ li.active ::before {
   content: none;
 }
 
-/* Style for sidebar buttons */
-.sidebar-button {
-  display: inline-block;
-  padding: 10px 15px;
-  margin: 5px;
-  margin-left: 25px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  width: 80%;
-}
-
-.sidebar-button:hover {
-  background-color: #45a049;
-}
-
-.sidebar-button:active {
-  background-color: #3e8e41;
-}
 
 
 .sidebar ul li.active > a {
-  color: lightgreen !important;
-  font-weight: 600;
+  color: var(--sidebar-highlight-color);
   background-color: var(--background-color);
   border-width: thick;
-
 }
 
 .sidebar ul li > a {
   padding-left: 10px;
+  font-weight: 600;
   margin-left: 5px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;

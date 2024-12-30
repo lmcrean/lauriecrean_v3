@@ -1,0 +1,61 @@
+
+.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin: 3px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .code-btn:hover, .readme-btn:hover, .live-demo-btn:hover {
+    filter: brightness(1.2);
+    scale: 1.05;
+  }
+  
+  .code-btn { background-color: #3e8e41;}
+  .readme-btn { background-color: #3b0d4c;}
+  .live-demo-btn { background-color: #043ca5;}
+
+a {
+    text-decoration: none;
+}
+  
+/* Style for sidebar buttons */
+.sidebar-btn {
+    margin-right: 5px;
+    background-color: #1e4a20;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    filter: saturate(0.9);
+  }
+  
+  .sidebar-btn:hover {
+    filter: brightness(1.2);
+    scale: 1.05;
+  }
+  
+  .sidebar-button:active {
+    background-color: #091009;
+  }
+
+  .github-btn {
+    background-color: #000000;
+  }
+
+  .linkedin-btn {
+    background-color: #0077b5;
+  }
+
+  .email-btn {
+    background-color: #d44638;
+  }
