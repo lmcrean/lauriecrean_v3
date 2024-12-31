@@ -21,7 +21,7 @@ Please use the sidebar to see my other information, including my software creden
 
 ## Steam Report v2.0 web client
 
- <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="auto"></img>
+ <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -37,7 +37,7 @@ Please use the sidebar to see my other information, including my software creden
 
 ## Odyssey
 
-<img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto"></img>
+<img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -52,7 +52,7 @@ Developed Cloudinary media integration; improved performance with cached renderi
 
 ## Coach Matrix
 
-<img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="auto"></img>
+<img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -78,7 +78,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 ## Laurie Crean v1.0
 
-<img src="/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" height="auto"></img>
+<img src="/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/lauriecrean"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -88,7 +88,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 ## Wealth Quest
 
-<img src="/docs/screenshots/wealthquest.png" alt="wealthquest" height="auto"></img>
+<img src="/docs/screenshots/wealthquest.png" alt="wealthquest" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
@@ -148,7 +148,7 @@ Ported HTML CSS to React. Integrated Tailwind into workflow.
 
 ## Hoverboard 1.0
 
-<img src="/docs/screenshots/hoverboard.png" alt="hoverboard" height="auto"></img>
+<img src="/docs/screenshots/hoverboard.png" alt="hoverboard" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
