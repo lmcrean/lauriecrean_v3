@@ -10,9 +10,12 @@ Please use the sidebar to see my other information, including my software creden
 
 <!-- TODO: 
 - [x] add links to projects
-- [ ] github badges
-- [ ] commit summaries 
+- [x] github badges
+- [x] commit summaries 
 - [ ] screenshots-->
+  - [ ] (must) Projects
+  - [ ] (must) Certifications
+  - [ ] (could) Education 
 
 ## Steam Report v2.0 web client
 

@@ -4,7 +4,6 @@
 This page is currently under construction!
 </font>
 
-My prior education was in the creative arts. 
 
 ## Diploma in Full Stack Software Development - Advanced Frontend
 
