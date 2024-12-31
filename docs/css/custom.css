@@ -19,7 +19,7 @@
     color: var(--text-color);
   }
 
-  .sidebar, body.close .sidebar-toggle, input[type='search'] {
+  .sidebar, body.close .sidebar-toggle, input[type='search'], button.sidebar-toggle {
     background-color: var(--sidebar-background-color) !important;
   }
 
