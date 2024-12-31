@@ -19,22 +19,6 @@ Please use the sidebar to see my other information, including my software creden
   - [ ] (must) Certifications
   - [ ] (could) Education -->
 
-## Steam Report v2.0 web client
-
- <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="auto" width="450"></img>
-
-<a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main)
-
-<!--language badges-->
-
-![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) 
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=lambda&logoColor=white) ![Express](https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
-![Playwright](https://img.shields.io/badge/Playwright-12_Passed-32B72F?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-2_Passed-32B72F?style=flat-square&logo=jest&logoColor=white)
-
- Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
-
 ## Odyssey
 
 <img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto" width="450"></img>
@@ -61,6 +45,24 @@ Developed Cloudinary media integration; improved performance with cached renderi
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white)  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=python&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white)
 
 Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline 
+
+
+## Steam Report v2.0 web client
+
+ <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="auto" width="450"></img>
+
+<a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main)
+
+<!--language badges-->
+
+![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) 
+![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=lambda&logoColor=white) ![Express](https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
+![Playwright](https://img.shields.io/badge/Playwright-12_Passed-32B72F?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-2_Passed-32B72F?style=flat-square&logo=jest&logoColor=white)
+
+ Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
+
 
 # Frontend Projects
 
