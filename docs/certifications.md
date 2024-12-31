@@ -1,9 +1,14 @@
 # certifications
 
+<font color="red">
+This page is currently under construction!
+</font>
+
 My certifications have demonstrated a love of problem solving and a willingness to take on new challenges. In addition, participation in hackathons demonstrate my ability to work in a team.
 
 ## Software Engineer Certificate
 https://www.hackerrank.com/certificates/5a88bb740325
+
 It covers topics like Problem solving, SQL, and REST API.
 
 ## Software Development Certificate
