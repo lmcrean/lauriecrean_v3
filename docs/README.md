@@ -13,12 +13,13 @@ Please use the sidebar to see my other information, including my software creden
 - [x] github badges
 - [x] commit summaries 
 - [ ] screenshots
-  - [ ] (must) Projects
+  - [x] (must) Projects
   - [ ] (must) Certifications
   - [ ] (could) Education -->
 
 ## Steam Report v2.0 web client
 
+ <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="450"></img>
 
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -34,6 +35,7 @@ Please use the sidebar to see my other information, including my software creden
 
 ## Odyssey
 
+<img src="/docs/screenshots/odyssey.png" alt="odyssey" height="450"></img>
 
 <a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -48,6 +50,8 @@ Developed Cloudinary media integration; improved performance with cached renderi
 
 ## Coach Matrix
 
+<img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="450"></img>
+
 <a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix/commits/main)
@@ -60,6 +64,8 @@ Custom authentication and permission system • OAuth2/JWT authentication • Co
 
 ## Laurie Crean v2.0
 
+<!-- <img src="/docs/screenshots/lauriecrean-v2.png" alt="lauriecrean-v2" height="450"></img> -->
+
 <a href="https://github.com/lmcrean/lauriecrean_nextjs"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 ![Docsify](https://img.shields.io/badge/Docsify.js-1C1C1C?&logo=docsify&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white)
@@ -70,6 +76,8 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 ## Laurie Crean v1.0
 
+<img src="/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" height="450"></img>
+
 <a href="https://github.com/lmcrean/lauriecrean"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean)](https://github.com/lmcrean/lauriecrean) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean)](https://github.com/lmcrean/lauriecrean/commits/main)
@@ -77,6 +85,8 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![FramerMotion](https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white)
 
 ## Wealth Quest
+
+<img src="/docs/screenshots/wealthquest.png" alt="wealthquest" height="450"></img>
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
@@ -88,6 +98,8 @@ Role: Scrum Master.
 
 ## Crocodile Kingdom v2.0
 
+<img src="/docs/screenshots/crocodilegame-v2.png" alt="crocodilegame-v2" height="450"></img>
+
 <a href="https://github.com/lmcrean/crocodile-kingdom-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://crocodile-kingdom-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern)](https://github.com/lmcrean/crocodile-kingdom-mern) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern)](https://github.com/lmcrean/crocodile-kingdom-mern/commits/main)
@@ -97,6 +109,8 @@ Role: Scrum Master.
 Ported Javascript into React. 
 
 ## Crocodile Kingdom v1.0
+
+<img src="/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" height="450"></img>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -108,6 +122,8 @@ Developed Memory game with Javascript.
 
 ## Retrolympic Rush
 
+<img src="/docs/screenshots/retrolympics.png" alt="retrolympicrush" height="450"></img>
+
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush/commits/main)
@@ -118,6 +134,8 @@ Role: Scrum Master. Hackathon Project over 5 days.
 
 ## Hoverboard v2.0
 
+<img src="/docs/screenshots/hoverboard-v2.png" alt="hoverboard-v2" height="450"></img>
+
 <a href="https://github.com/lmcrean/hoverboard-react"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react)](https://github.com/lmcrean/hoverboard-react) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react)](https://github.com/lmcrean/hoverboard-react/commits/main)
@@ -127,6 +145,8 @@ Role: Scrum Master. Hackathon Project over 5 days.
 Ported HTML CSS to React. Integrated Tailwind into workflow.
 
 ## Hoverboard 1.0
+
+<img src="/docs/screenshots/hoverboard.png" alt="hoverboard" height="450"></img>
 
 <a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -139,6 +159,8 @@ Developed Responsive website with HTML and CSS.
 # Back End Projects
 
 ## Steam Report v1.0
+
+<img src="/docs/screenshots/steamreport.png" alt="steamreport-v1" height="450"></img>
 
 <a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
