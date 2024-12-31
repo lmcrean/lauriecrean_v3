@@ -14,8 +14,12 @@
     color: var(--text-color);
   }
 
-  .sidebar {
-    background-color: var(--sidebar-background-color);
+  .sidebar, body.close .sidebar-toggle, input[type='search'] {
+    background-color: var(--sidebar-background-color) !important;
+  }
+
+  input[type='search'] {
+    filter: brightness(1.2);
   }
 
   .sidebar ul li a {
