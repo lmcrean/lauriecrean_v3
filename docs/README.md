@@ -1,8 +1,4 @@
-# Welcome
-
 <img src="/docs/banner.png" alt="banner"></img>
-
-# Welcome
 
 Welcome to my portfolio website! Below you will find my selected projects that demonstrate my skills in full-stack, frontend and backend development.
 

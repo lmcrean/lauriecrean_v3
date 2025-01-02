@@ -7,6 +7,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Actor';
+    src: url('../fonts/Actor-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Funnel Display Variable Font */
 @font-face {
     font-family: 'Funnel Display';
@@ -22,7 +30,11 @@ h1  {
     font-weight: 200;
 }
 
-h3, h4, h5, h6,p, li {
-    font-family: 'Funnel Display', sans-serif;
+h3, h4, h5, h6, span, li {
+    font-family: 'Funnel Display', sans-serif !important;
     font-weight: 400; /* You can adjust this between 100-900 */
+}
+
+p {
+    font-family: 'Actor', sans-serif !important;
 }
