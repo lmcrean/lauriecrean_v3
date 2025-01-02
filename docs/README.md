@@ -1,3 +1,5 @@
+# Welcome
+
 <img src="/docs/banner.png" alt="banner"></img>
 
 # Welcome
@@ -7,6 +9,8 @@ Welcome to my portfolio website! Below you will find my selected projects that d
 Please use the sidebar to see my other information, including my software credentials, employment history and contact details.
 
 <!---I' like to display /projects.md here below the banner-->
+
+***
 
 # Full-Stack Projects
 
@@ -64,7 +68,7 @@ Custom authentication and permission system • OAuth2/JWT authentication • Co
  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
 
-# Frontend Projects
+# Front end Projects
 
 ## Laurie Crean v2.0
 
@@ -159,6 +163,8 @@ Ported HTML CSS to React. Integrated Tailwind into workflow.
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white)
 
 Developed Responsive website with HTML and CSS.
+
+***
 
 # Back End Projects
 

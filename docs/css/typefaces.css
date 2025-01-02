@@ -1,0 +1,28 @@
+/* Etna for headings */
+@font-face {
+    font-family: 'Etna';
+    src: url('../fonts/etna-free-font.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Funnel Display Variable Font */
+@font-face {
+    font-family: 'Funnel Display';
+    src: url('../fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900; /* Variable font weight range */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Apply fonts to elements */
+h1  {
+    font-family: 'Etna', sans-serif !important;
+    font-weight: 200;
+}
+
+h3, h4, h5, h6,p, li {
+    font-family: 'Funnel Display', sans-serif;
+    font-weight: 400; /* You can adjust this between 100-900 */
+}
