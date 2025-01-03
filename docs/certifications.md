@@ -1,8 +1,4 @@
-# certifications
-
-<font color="red">
-This page is currently under construction!
-</font>
+# Certifications
 
 My certifications have demonstrated a love of problem solving and a willingness to take on new challenges. In addition, participation in hackathons demonstrate my ability to work in a team.
 
@@ -14,9 +10,8 @@ My certifications have demonstrated a love of problem solving and a willingness 
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-1C1C1C?&logo=postgresql&logoColor=white) ![REST API](https://img.shields.io/badge/REST_API-1C1C1C?&logo=django&logoColor=white)
 
-It covers topics like Problem solving, SQL, and REST API.
 
-## Software Development Certificate
+## Frontend Developer Certificate
 <a href="https://www.hackerrank.com/certificates/890a46f6356a">
     <img src="/docs/screenshots/certifications/frontend-developer.png" alt="Software Development" style="width: 500px; height: auto;">
 </a>
@@ -31,6 +26,7 @@ It covers topics like Problem solving, SQL, and REST API.
 ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-1C1C1C?&logo=postgresql&logoColor=white) ![REST API](https://img.shields.io/badge/REST_API-1C1C1C?&logo=django&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![Git](https://img.shields.io/badge/Git-1C1C1C?&logo=git&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white)
 
 ## Hackathon Third Place
+
 <a href="https://eu.badgr.com/public/assertions/VjNUqnbxR7G_syKI8UJt8Q">
     <img src="/docs/screenshots/certifications/hackathon-3rd.png" alt="Hackathon Third Place" style="width: 500px; height: auto;">
 </a>

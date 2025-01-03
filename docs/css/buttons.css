@@ -37,6 +37,8 @@ a {
     text-align: center;
     display: inline-block;
     filter: saturate(0.9);
+    width: 35px;
+    height: 35px;
   }
   
   .sidebar-btn:hover {

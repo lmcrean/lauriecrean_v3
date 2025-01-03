@@ -20,7 +20,7 @@
   }
 
   .sidebar, body.close .sidebar-toggle, input[type='search'], button.sidebar-toggle {
-    background-color: var(--sidebar-background-color) !important;
+    background-color: inherit !important;
   }
 
   input[type='search'] {
