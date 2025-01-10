@@ -173,14 +173,3 @@ Developed Responsive website with HTML and CSS.
 ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-1C1C1C?&logo=node.js&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Google Sheets](https://img.shields.io/badge/Google_Sheets-1C1C1C?&logo=google-sheets&logoColor=white)
 
 Built Python/Node.js application integrating multiple external APIs including Google Sheets • Implemented data aggregation system for career pathway analysis • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
-## Odyssey v2.0 API
-
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon-api-gateway&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon-dynamodb&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon-s3&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![REST](https://img.shields.io/badge/REST_API-1C1C1C?&logo=django&logoColor=white)
-
-<a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2)](https://github.com/lmcrean/odyssey-v2/commits/main)
-
-Currently improving the Heroku-Cloudinary-PostgreSQL API from version 1.0 by unifying into a singular AWS cloud based solution.
-
-Using Python for a vertical testing solution.
