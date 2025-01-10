@@ -1,8 +1,6 @@
 # Education
 
-<font color="red">
-This page is currently under construction!
-</font>
+I have developed a unique perspective on creative software solutions evidenced through my work in Software, the science of teaching, and Fine Arts.
 
 
 ## Diploma in Full Stack Software Development - Advanced Frontend
@@ -13,6 +11,12 @@ This page is currently under construction!
 
 ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-1C1C1C?&logo=postgresql&logoColor=white) ![REST API](https://img.shields.io/badge/REST_API-1C1C1C?&logo=django&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![Git](https://img.shields.io/badge/Git-1C1C1C?&logo=git&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white)
 
+May 2023 - October 2024
+
+
+- Developed 8 Projects over 17 months, 5 personal project and three group hackathons. 
+- undertook 650 hours study including coding challenges and structured walkthroughs.
+- Mentored by experience software developers for personal projects.
 
 
 ## Postgraduate Certificate in General Education with Qualified Teacher Status, University of Roehampton
