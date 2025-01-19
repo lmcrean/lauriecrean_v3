@@ -20,6 +20,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ## Odyssey
 
 <img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto" width="450"></img>
+<img src="/docs/screenshots/odyssey-A.png" alt="odyssey" height="auto" width="300"></img>
+<img src="/docs/screenshots/odyssey-B.png" alt="odyssey" height="auto" width="300"></img>
+<img src="/docs/screenshots/odyssey-C.png" alt="odyssey" height="auto" width="300"></img>
 
 <a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -32,6 +35,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 ## Coach Matrix
 
+<img src="/docs/screenshots/coachmatrix-A.png" alt="coachmatrix" height="auto" width="450"></img>
 <img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
