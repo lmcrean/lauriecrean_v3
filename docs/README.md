@@ -20,7 +20,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ## Odyssey
 
 <img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto" width="600"></img>
-<img src="/docs/screenshots/odyssey-A.png" alt="odyssey" height="auto" width="450"></img>
+<img src="/docs/screenshots/odyssey-A.png" alt="odyssey" height="auto" width="450"></img> <br>
 <img src="/docs/screenshots/odyssey-B.png" alt="odyssey" height="auto" width="300"></img>
 <img src="/docs/screenshots/odyssey-C.png" alt="odyssey" height="auto" width="300"></img>
 
