@@ -1,6 +1,6 @@
 <img src="/docs/banner.png" alt="banner"></img>
 
-Welcome to my portfolio website! On this page you will find my selected projects that demonstrate my skills in full-stack, frontend and backend development.
+Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development.
 
 <!---I' like to display /projects.md here below the banner-->
 
@@ -45,7 +45,8 @@ Social platform focused on professional development • Custom authentication an
 
 ## Steam Report v2.0 web client
 
- <img src="/docs/screenshots/steamreport-v2.png" alt="steam-report-v2" height="auto" width="450"></img>
+ <img src="/docs/screenshots/steamreport-v2-A.png" alt="steam-report-v2" height="auto" width="450"></img>
+  <img src="/docs/screenshots/steamreport-v2-B.png" alt="steam-report-v2" height="auto" width="450"></img>
 
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
