@@ -138,3 +138,45 @@ li.active ::before {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
+
+/* Splide Carousel Styles */
+.splide {
+  margin: 2rem 0;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splide__slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumbnail carousel specific styles */
+#thumbnail-carousel .splide__slide {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+#thumbnail-carousel .splide__slide.is-active {
+  opacity: 1;
+}
+
+#thumbnail-carousel .splide__slide img {
+  max-height: 80px;
+  width: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #thumbnail-carousel .splide__slide img {
+    max-height: 60px;
+  }
+}

@@ -9,6 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
@@ -27,6 +28,7 @@
   </head>
   <body>
     <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
       var num = 0;
@@ -82,6 +84,49 @@
               document.querySelectorAll('img').forEach(img => {
                 img.src = resolveImagePath(img.getAttribute('src'));
               });
+            });
+          },
+          function(hook) {
+            hook.doneEach(function() {
+              // Initialize basic carousels
+              document.querySelectorAll('.splide:not(#main-carousel):not(#thumbnail-carousel)').forEach(carousel => {
+                new Splide(carousel, {
+                  type: 'loop',
+                  perPage: 1,
+                  perMove: 1,
+                  gap: '1rem',
+                  pagination: true,
+                  arrows: true,
+                }).mount();
+              });
+
+              // Initialize thumbnail carousel if it exists
+              const main = document.querySelector('#main-carousel');
+              const thumbnails = document.querySelector('#thumbnail-carousel');
+              
+              if (main && thumbnails) {
+                const mainSplide = new Splide(main, {
+                  type: 'loop',
+                  perPage: 1,
+                  perMove: 1,
+                  gap: '1rem',
+                  pagination: false,
+                  arrows: true,
+                });
+
+                const thumbnailSplide = new Splide(thumbnails, {
+                  perPage: 3,
+                  gap: '1rem',
+                  rewind: true,
+                  pagination: false,
+                  isNavigation: true,
+                  arrows: false,
+                });
+
+                mainSplide.sync(thumbnailSplide);
+                mainSplide.mount();
+                thumbnailSplide.mount();
+              }
             });
           }
         ]
