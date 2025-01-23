@@ -40,6 +40,29 @@
 </section>  -->
 
 
+## Manual Navigation Carousel with Track Bar
+
+<section class="splide" id="manual-carousel" aria-label="Manual Navigation Carousel">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
+      </li>
+    </ul>
+  </div>
+
+  <!-- Add the custom progress bar element -->
+  <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
+
 ## iFrame for Figma
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&embed-host=share" allowfullscreen></iframe>

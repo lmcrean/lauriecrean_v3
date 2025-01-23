@@ -122,6 +122,38 @@
 
                 mainSplide.mount();
               }
+
+              const manual = document.querySelector('#manual-carousel');
+              if (manual) {
+                const manualSplide = new Splide(manual, {
+                  type: 'loop',
+                  perPage: 1,
+                  perMove: 1,
+                  gap: '1rem',
+                  arrows: true,
+                  pagination: false,
+                  autoplay: false,
+                  classes: {
+                    arrows: 'splide__arrows manual-arrows',
+                    arrow : 'splide__arrow manual-arrow',
+                    prev  : 'splide__arrow--prev manual-prev',
+                    next  : 'splide__arrow--next manual-next',
+                  },
+                  speed: 400,
+                });
+
+                // Get the progress bar
+                const bar = manual.querySelector('.my-carousel-progress-bar');
+
+                // Update the progress bar when the carousel moves
+                manualSplide.on('mounted move', function () {
+                  const end = manualSplide.Components.Controller.getEnd() + 1;
+                  const rate = Math.min((manualSplide.index + 1) / end, 1);
+                  bar.style.width = String(100 * rate) + '%';
+                });
+
+                manualSplide.mount();
+              }
             });
           }
         ]
