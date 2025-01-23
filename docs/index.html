@@ -89,7 +89,7 @@
           function(hook) {
             hook.doneEach(function() {
               // Initialize basic carousels
-              document.querySelectorAll('.splide:not(#main-carousel)').forEach(carousel => {
+              document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(carousel => {
                 new Splide(carousel, {
                   type: 'loop',
                   perPage: 1,
@@ -98,62 +98,47 @@
                   pagination: true,
                   arrows: true,
                   autoplay: true,
-                  interval: 3000, // Time between slides in milliseconds
+                  interval: 3000,
                   pauseOnHover: true,
                 }).mount();
               });
 
-              // Initialize main carousel if it exists
-              const main = document.querySelector('#main-carousel');
+              // Initialize project carousels with manual navigation
+              const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
               
-              if (main) {
-                const mainSplide = new Splide(main, {
-                  type: 'loop',
-                  perPage: 1,
-                  perMove: 1,
-                  gap: '1rem',
-                  arrows: true,
-                  pagination: true, // Disabled pagination dots
-                  autoplay: true,
-                  interval: 9000,
-                  pauseOnHover: true,
-                  progress: true, // Enable progress bar
-                });
+              projectCarousels.forEach(id => {
+                const carousel = document.querySelector(`#${id}-carousel`);
+                if (carousel) {
+                  const splide = new Splide(carousel, {
+                    type: 'loop',
+                    perPage: 1,
+                    perMove: 1,
+                    gap: '1rem',
+                    arrows: true,
+                    pagination: false,
+                    autoplay: false,
+                    classes: {
+                      arrows: 'splide__arrows manual-arrows',
+                      arrow : 'splide__arrow manual-arrow',
+                      prev  : 'splide__arrow--prev manual-prev',
+                      next  : 'splide__arrow--next manual-next',
+                    },
+                    speed: 400,
+                  });
 
-                mainSplide.mount();
-              }
+                  // Get the progress bar
+                  const bar = carousel.querySelector('.my-carousel-progress-bar');
 
-              const manual = document.querySelector('#manual-carousel');
-              if (manual) {
-                const manualSplide = new Splide(manual, {
-                  type: 'loop',
-                  perPage: 1,
-                  perMove: 1,
-                  gap: '1rem',
-                  arrows: true,
-                  pagination: false,
-                  autoplay: false,
-                  classes: {
-                    arrows: 'splide__arrows manual-arrows',
-                    arrow : 'splide__arrow manual-arrow',
-                    prev  : 'splide__arrow--prev manual-prev',
-                    next  : 'splide__arrow--next manual-next',
-                  },
-                  speed: 400,
-                });
+                  // Update the progress bar when the carousel moves
+                  splide.on('mounted move', function () {
+                    const end = splide.Components.Controller.getEnd() + 1;
+                    const rate = Math.min((splide.index + 1) / end, 1);
+                    bar.style.width = String(100 * rate) + '%';
+                  });
 
-                // Get the progress bar
-                const bar = manual.querySelector('.my-carousel-progress-bar');
-
-                // Update the progress bar when the carousel moves
-                manualSplide.on('mounted move', function () {
-                  const end = manualSplide.Components.Controller.getEnd() + 1;
-                  const rate = Math.min((manualSplide.index + 1) / end, 1);
-                  bar.style.width = String(100 * rate) + '%';
-                });
-
-                manualSplide.mount();
-              }
+                  splide.mount();
+                }
+              });
             });
           }
         ]

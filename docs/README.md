@@ -231,3 +231,41 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 ![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white)
 
 Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework.
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousels = ['odyssey', 'coachmatrix', 'steamreport'];
+    
+    carousels.forEach(id => {
+      const carousel = new Splide(`#${id}-carousel`, {
+        type: 'slide',
+        perPage: 1,
+        perMove: 1,
+        gap: '1rem',
+        pagination: false,
+        arrows: true
+      });
+
+      // Create and update progress bar
+      const progressBar = document.querySelector(`#${id}-carousel .my-carousel-progress-bar`);
+      
+      // Update progress bar on mount and move
+      carousel.on('mounted move', function() {
+        const end = carousel.Components.Controller.getEnd() + 1;
+        const rate = Math.min((carousel.index + 1) / end, 1);
+        progressBar.style.width = String(100 * rate) + '%';
+      });
+
+      // Manual arrow navigation
+      const arrows = document.querySelectorAll(`#${id}-carousel .manual-arrow`);
+      arrows.forEach(arrow => {
+        arrow.addEventListener('click', () => {
+          const direction = arrow.classList.contains('prev') ? '<' : '>';
+          carousel.go(direction);
+        });
+      });
+
+      carousel.mount();
+    });
+  });
+</script>
