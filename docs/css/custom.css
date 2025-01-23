@@ -170,7 +170,7 @@ li.active ::before {
 }
 
 .my-carousel-progress-bar {
-  background: #a5e22c;
+  background: var(--sidebar-highlight-color);
   height: 2px;
   transition: width 400ms ease;
   width: 0;
