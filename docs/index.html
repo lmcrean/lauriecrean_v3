@@ -89,7 +89,7 @@
           function(hook) {
             hook.doneEach(function() {
               // Initialize basic carousels
-              document.querySelectorAll('.splide:not(#main-carousel):not(#thumbnail-carousel)').forEach(carousel => {
+              document.querySelectorAll('.splide:not(#main-carousel)').forEach(carousel => {
                 new Splide(carousel, {
                   type: 'loop',
                   perPage: 1,
@@ -97,35 +97,30 @@
                   gap: '1rem',
                   pagination: true,
                   arrows: true,
+                  autoplay: true,
+                  interval: 3000, // Time between slides in milliseconds
+                  pauseOnHover: true,
                 }).mount();
               });
 
-              // Initialize thumbnail carousel if it exists
+              // Initialize main carousel if it exists
               const main = document.querySelector('#main-carousel');
-              const thumbnails = document.querySelector('#thumbnail-carousel');
               
-              if (main && thumbnails) {
+              if (main) {
                 const mainSplide = new Splide(main, {
                   type: 'loop',
                   perPage: 1,
                   perMove: 1,
                   gap: '1rem',
-                  pagination: false,
                   arrows: true,
+                  pagination: true, // Disabled pagination dots
+                  autoplay: true,
+                  interval: 9000,
+                  pauseOnHover: true,
+                  progress: true, // Enable progress bar
                 });
 
-                const thumbnailSplide = new Splide(thumbnails, {
-                  perPage: 3,
-                  gap: '1rem',
-                  rewind: true,
-                  pagination: false,
-                  isNavigation: true,
-                  arrows: false,
-                });
-
-                mainSplide.sync(thumbnailSplide);
                 mainSplide.mount();
-                thumbnailSplide.mount();
               }
             });
           }

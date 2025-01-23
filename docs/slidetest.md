@@ -1,8 +1,8 @@
 # Slide Test
 
-## Customized Carousel with Thumbnails
+## Customized Carousel with Progress Bar
 
-<section class="splide" id="main-carousel" aria-label="Project Screenshots with Thumbnails">
+<section class="splide" id="main-carousel" aria-label="Project Screenshots with Progress Bar">
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
@@ -16,9 +16,14 @@
       </li>
     </ul>
   </div>
+
+  <div class="splide__progress">
+    <div class="splide__progress__bar">
+    </div>
+  </div>
 </section>
 
-<section class="splide" id="thumbnail-carousel" aria-label="Thumbnails">
+<!-- <section class="splide" id="thumbnail-carousel" aria-label="Thumbnails">
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
@@ -32,7 +37,7 @@
       </li>
     </ul>
   </div>
-</section> 
+</section>  -->
 
 
 ## iFrame for Figma
