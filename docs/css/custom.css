@@ -184,16 +184,31 @@ li.active ::before {
   margin-bottom: 3rem;
 }
 
-.manual-arrow {
-  background: transparent;
+/* Arrow customization */
+.splide__arrow {
+  background: rgba(0, 0, 0, 0.5);
   width: 3rem;
   height: 3rem;
   opacity: 0.7;
   transition: opacity 0.3s;
+  border-radius: 50%;
 }
 
-.manual-arrow:hover {
+.splide__arrow:hover {
   opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.splide__arrow svg {
+  fill: #fff;
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s;
+}
+
+/* Remove old manual arrow styles */
+.manual-arrow {
+  display: none;
 }
 
 /* Thumbnail carousel specific styles */
@@ -217,24 +232,4 @@ li.active ::before {
   #thumbnail-carousel .splide__slide img {
     max-height: 60px;
   }
-}
-
-/* Arrow customization */
-.splide__arrow {
-  background: rgba(0, 0, 0, 0.5);
-  width: 2.5em;
-  height: 2.5em;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-.splide__arrow:hover {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.splide__arrow svg {
-  fill: #fff;
-  width: 1.2em;
-  height: 1.2em;
 }
