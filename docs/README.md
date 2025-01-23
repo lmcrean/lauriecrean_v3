@@ -22,16 +22,16 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
   <div class="splide__track">
     <ul class="splide__list">
-      <li class="splide__slide">
+      <li class="splide__slide" style="width: 100%">
         <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
-      <li class="splide__slide">
+      <li class="splide__slide" style="width: 49%">
         <img src="/docs/screenshots/odyssey-A.png" alt="Odyssey Screenshot A">
       </li>
-      <li class="splide__slide">
+      <li class="splide__slide" style="width: 49%">
         <img src="/docs/screenshots/odyssey-B.png" alt="Odyssey Screenshot B">
       </li>
-      <li class="splide__slide">
+      <li class="splide__slide" style="width: 100%">
         <img src="/docs/screenshots/odyssey-C.png" alt="Odyssey Screenshot C">
       </li>
     </ul>
@@ -60,6 +60,9 @@ Developed Social Media application with Auth, messaging and media sharing featur
       </li>
       <li class="splide__slide">
         <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/coachmatrix-B.png" alt="Coach Matrix Screenshot B">
       </li>
     </ul>
   </div>
@@ -244,7 +247,21 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
         gap: '1rem',
         pagination: false,
         arrows: true
-      });
+      };
+
+      // Special configuration for Odyssey carousel
+      if (id === 'odyssey') {
+        carouselConfig = {
+          ...carouselConfig,
+          autoWidth: true,
+          focus: 0,
+          gap: '2%',
+          omitEnd: true,
+          drag: 'free'
+        };
+      }
+
+      const carousel = new Splide(`#${id}-carousel`, carouselConfig);
 
       // Create and update progress bar
       const progressBar = document.querySelector(`#${id}-carousel .my-carousel-progress-bar`);
@@ -254,15 +271,6 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
         const end = carousel.Components.Controller.getEnd() + 1;
         const rate = Math.min((carousel.index + 1) / end, 1);
         progressBar.style.width = String(100 * rate) + '%';
-      });
-
-      // Manual arrow navigation
-      const arrows = document.querySelectorAll(`#${id}-carousel .manual-arrow`);
-      arrows.forEach(arrow => {
-        arrow.addEventListener('click', () => {
-          const direction = arrow.classList.contains('prev') ? '<' : '>';
-          carousel.go(direction);
-        });
       });
 
       carousel.mount();
