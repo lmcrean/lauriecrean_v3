@@ -233,3 +233,30 @@ li.active ::before {
     max-height: 60px;
   }
 }
+
+/* Pagination styles */
+.pagination-item {
+  margin: 1rem 0;
+}
+
+.pagination-item a {
+  color: var(--text-color) !important;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background-color: var(--sidebar-background-color);
+}
+
+.pagination-item a:hover {
+  background-color: var(--border-color);
+}
+
+.pagination-item-label {
+  color: var(--sidebar-highlight-color);
+  font-size: 0.8rem;
+}
+
+.pagination-item-title {
+  font-weight: 600;
+}
