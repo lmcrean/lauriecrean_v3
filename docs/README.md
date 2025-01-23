@@ -19,10 +19,27 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 ## Odyssey
 
-<img src="/docs/screenshots/odyssey.png" alt="odyssey" height="auto" width="980"></img>
-<img src="/docs/screenshots/odyssey-A.png" alt="odyssey" height="auto" width="450"></img> <br>
-<img src="/docs/screenshots/odyssey-B.png" alt="odyssey" height="auto" width="300"></img>
-<img src="/docs/screenshots/odyssey-C.png" alt="odyssey" height="auto" width="300"></img>
+<section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey-A.png" alt="Odyssey Screenshot A">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey-B.png" alt="Odyssey Screenshot B">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey-C.png" alt="Odyssey Screenshot C">
+      </li>
+    </ul>
+  </div>
+  <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 <a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -35,8 +52,21 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 ## Coach Matrix
 
-<img src="/docs/screenshots/coachmatrix-A.png" alt="coachmatrix" height="auto" width="450"></img>
-<img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="auto" width="450"></img>
+<section class="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">
+        <img src="/docs/screenshots/coachmatrix-A.png" alt="Coach Matrix Screenshot A">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+      </li>
+    </ul>
+  </div>
+  <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 <a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=yHzltpMr0AArlSyi-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -49,8 +79,21 @@ Social platform focused on professional development • Custom authentication an
 
 ## Steam Report v2.0 web client
 
- <img src="/docs/screenshots/steamreport-v2-A.png" alt="steam-report-v2" height="auto" width="450"></img>
-  <img src="/docs/screenshots/steamreport-v2-B.png" alt="steam-report-v2" height="auto" width="450"></img>
+<section class="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">
+        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A">
+      </li>
+      <li class="splide__slide">
+        <img src="/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B">
+      </li>
+    </ul>
+  </div>
+  <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 

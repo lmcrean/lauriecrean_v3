@@ -12,6 +12,9 @@
         <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
       </li>
       <li class="splide__slide">
+        <img src="/docs/screenshots/coachmatrix-v2.png" alt="Coach Matrix Screenshot">
+      </li>
+      <li class="splide__slide">
         <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
       </li>
     </ul>
