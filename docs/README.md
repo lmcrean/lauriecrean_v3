@@ -22,16 +22,16 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
   <div class="splide__track">
     <ul class="splide__list">
-      <li class="splide__slide" style="width: 500px">
+      <li class="splide__slide">
         <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
-      <li class="splide__slide" style="width: 499px">
+      <li class="splide__slide">
         <img src="/docs/screenshots/odyssey-A.png" alt="Odyssey Screenshot A">
       </li>
-      <li class="splide__slide" style="width: 377px">
+      <li class="splide__slide">
         <img src="/docs/screenshots/odyssey-B.png" alt="Odyssey Screenshot B">
       </li>
-      <li class="splide__slide" style="width: 377px">
+      <li class="splide__slide">
         <img src="/docs/screenshots/odyssey-C.png" alt="Odyssey Screenshot C">
       </li>
     </ul>
@@ -248,18 +248,6 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
         pagination: false,
         arrows: true
       };
-
-      // Special configuration for Odyssey carousel
-      if (id === 'odyssey') {
-        carouselConfig = {
-          ...carouselConfig,
-          autoWidth: true,
-          focus: 0,
-          gap: '2%',
-          omitEnd: true,
-          drag: 'free'
-        };
-      }
 
       const carousel = new Splide(`#${id}-carousel`, carouselConfig);
 
