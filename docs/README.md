@@ -24,7 +24,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <img src="/docs/screenshots/odyssey-B.png" alt="odyssey" height="auto" width="300"></img>
 <img src="/docs/screenshots/odyssey-C.png" alt="odyssey" height="auto" width="300"></img>
 
-<a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api/commits/main)
 
@@ -38,7 +38,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 <img src="/docs/screenshots/coachmatrix-A.png" alt="coachmatrix" height="auto" width="450"></img>
 <img src="/docs/screenshots/coachmatrix.png" alt="coachmatrix" height="auto" width="450"></img>
 
-<a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=yHzltpMr0AArlSyi-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix/commits/main)
 
@@ -52,7 +52,7 @@ Social platform focused on professional development • Custom authentication an
  <img src="/docs/screenshots/steamreport-v2-A.png" alt="steam-report-v2" height="auto" width="450"></img>
   <img src="/docs/screenshots/steamreport-v2-B.png" alt="steam-report-v2" height="auto" width="450"></img>
 
-<a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report-mern) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main)
 
@@ -131,7 +131,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 <img src="/docs/screenshots/retrolympics.png" alt="retrolympicrush" height="auto" width="450"></img>
 
-<a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush) ![Created at](https://img.shields.io/github/created-at/lmcrean/retrolympics-rush) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush/commits/main) ![Contributors](https://img.shields.io/github/contributors/lmcrean/retrolympics-rush)
 
