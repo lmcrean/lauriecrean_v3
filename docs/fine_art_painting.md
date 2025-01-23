@@ -1,12 +1,8 @@
-# Fine Art Painting
+# Artistic Development
 
-My Fine Art Painting practise lasted from early childhood until around 2018. Then from 2019-22 my attention naturally evolved into more of an interest in collaborating with young people, which lead to the science of learning.
+Expression, experimentation, experiencing the world in a new way, are all crucial in my programming practise and stem from early childhood involvement in Fine Art.
 
-I've had a few spells since such as a spontaneous self portrait below (while supervising another teacher in a very lively mask painting class!). 
-
-At the time of writing I enjoy artistic interests through many other mediums such as dance. Artistically and professionally, I seem more and more engaged in the process of collaboration... In contrast these Paintings took place in what seems to have been more of a soul-searching period of my life. 
-
-I am proud of the work that emerged from it; I'm equally grateful I fulfilled my biggest childhood dream of attending Art School, which was a wonderful experience.
+At the time of writing I enjoy the medium of dance. Artistically and professionally, I am more and more involved in the joy of collaboration... In contrast the Paintings pictured below took place in what appears to have been more of a soul-searching period of my life. 
 
 <!--TODO: Add images, captions -->
 

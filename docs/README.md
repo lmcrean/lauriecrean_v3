@@ -2,20 +2,14 @@
 
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development.
 
-<!---I' like to display /projects.md here below the banner-->
-
 ***
+<div style="display: none;">
+
+# Welcome
+
+</div>
 
 # Full-Stack Projects
-
-<!-- TODO: 
-- [x] add links to projects
-- [x] github badges
-- [x] commit summaries 
-- [x] screenshots
-  - [x] (must) Projects
-  - [x] (must) Certifications
-  - [ ] (could) Education -->
 
 ## Odyssey
 
@@ -110,6 +104,8 @@ Social platform focused on professional development • Custom authentication an
 
   Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
+
+***
 
 # Front end Projects
 

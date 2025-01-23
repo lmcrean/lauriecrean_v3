@@ -245,11 +245,6 @@ li.active ::before {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
-  background-color: var(--sidebar-background-color);
-}
-
-.pagination-item a:hover {
-  background-color: var(--border-color);
 }
 
 .pagination-item-label {
@@ -259,4 +254,13 @@ li.active ::before {
 
 .pagination-item-title {
   font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem !important;
+  text-align: center;
+}
+
+h2 {
+  /* font-size: 1.5rem !important; */
 }
