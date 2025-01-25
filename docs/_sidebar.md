@@ -14,6 +14,7 @@
 * [Certifications](/certifications)
 * [Employment History](/experience)
 * [Education](/education)
+* [Agile Development](/agile)
 * [Artistic Development](/fine_art_painting)
 
 <br>
