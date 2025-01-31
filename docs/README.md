@@ -20,6 +20,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
         <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
       <li class="splide__slide">
+        <img src="/docs/screenshots/odyssey-E.png" alt="Odyssey Screenshot">
+      </li>
+      <li class="splide__slide">
         <img src="/docs/screenshots/odyssey-D.png" alt="Odyssey Screenshot D">
       </li>
       <li class="splide__slide">
