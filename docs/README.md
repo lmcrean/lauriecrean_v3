@@ -77,7 +77,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo 
 
 
-## Steam Report v2.0 web client
+## Steam Report v2.0
 
 <section class="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots">
   <div class="splide__track">
