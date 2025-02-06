@@ -5,13 +5,13 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ***
 <div style="display: none;">
 
-# Welcome
+<h1>Welcome</h1>
 
 </div>
 
-# Full-Stack Projects
+<h1>Full-Stack Projects</h1>
 
-## Odyssey
+<h2>Odyssey</h2>
 
 <section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
   <div class="splide__track">
@@ -50,7 +50,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 Developed Social Media application with Auth, messaging and media sharing features • Unified API and Frontend into a singular repository to improve security standards and ensure compatibility with Safari browsers • Integrated Cloudinary media storage; improved performance with cached rendering • 78 automated tests across four testing frameworks (see above) including comprehensive alert feeback • integrated automatic testing screenshots for enhanced insights into frontend alerts • OAuth2/JWT authentication • Automated Heroku deployments through CLI • integrated customised SVG logo • integrated dark mode toggle with animated transition  • customised highly responsive Navbar for each device size, including popout menu for further options 
 
-## Coach Matrix
+<h2>Coach Matrix</h2>
 
 <section class="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots">
   <div class="splide__track">
@@ -80,7 +80,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo 
 
 
-## Steam Report v2.0
+<h2>Steam Report v2.0</h2>
 
 <section class="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots">
   <div class="splide__track">
@@ -110,7 +110,7 @@ Social platform focused on professional development • Custom authentication an
 
   Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
-## Odyssey v2.0
+<h2>Odyssey v2.0</h2>
 
 <a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -122,9 +122,9 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 ***
 
-# Front end Projects
+<h1>Front end Projects</h1>
 
-## Laurie Crean v2.0
+<h2>Laurie Crean v2.0</h2>
 
 <!-- <img src="/docs/screenshots/lauriecrean-v2.png" alt="lauriecrean-v2" height="auto"></img> -->
 
@@ -136,7 +136,7 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
-## Laurie Crean v1.0
+<h2>Laurie Crean v1.0</h2>
 
 <img src="/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" height="auto" width="450"></img>
 
@@ -148,7 +148,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
-## Wealth Quest
+<h2>Wealth Quest</h2>
 
 <img src="/docs/screenshots/wealthquest.png" alt="wealthquest" height="auto" width="450"></img>
 
@@ -160,7 +160,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-## Crocodile Kingdom v2.0
+<h2>Crocodile Kingdom v2.0</h2>
 
 <img src="/docs/screenshots/crocodilegame-v2.png" alt="crocodilegame-v2" height="auto" width="450"></img>
 
@@ -172,7 +172,7 @@ Took up role of Scrum Master in team of 6 • Contributed to front end developme
 
 Ported Javascript into React • Integrated Tailwind CSS into workflow.
 
-## Crocodile Kingdom v1.0
+<h2>Crocodile Kingdom v1.0</h2>
 
 <img src="/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" height="auto" width="450"></img>
 
@@ -184,7 +184,7 @@ Ported Javascript into React • Integrated Tailwind CSS into workflow.
 
 Developed Memory game with Javascript • dynamic progress bar to track progress • used LocalStorage to save high scores
 
-## Retrolympic Rush
+<h2>Retrolympic Rush</h2>
 
 <img src="/docs/screenshots/retrolympics.png" alt="retrolympicrush" height="auto" width="450"></img>
 
@@ -196,7 +196,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • used agile methods with daily standups and sprint reviews over 5 days • Reviewed pull requests and merged code to main branch • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-## Hoverboard v2.0
+<h2>Hoverboard v2.0</h2>
 
 <img src="/docs/screenshots/hoverboard-v2.png" alt="hoverboard-v2" height="auto" width="600"></img>
 
@@ -208,7 +208,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
 
-## Hoverboard 1.0
+<h2>Hoverboard 1.0</h2>
 
 <img src="/docs/screenshots/hoverboard.png" alt="hoverboard" height="auto" width="450"></img>
 
@@ -222,9 +222,9 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 ***
 
-# Back End Projects
+<h1>Back End Projects</h1>
 
-## Steam Report v1.0
+<h2>Steam Report v1.0</h2>
 
 <img src="/docs/screenshots/steamreport.png" alt="steamreport-v1" height="auto" width="600"></img>
 
@@ -236,7 +236,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
  Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
 
-## Odyssey v1.5 API
+<h2>Odyssey v1.5 API</h2>
 
 <a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
 
