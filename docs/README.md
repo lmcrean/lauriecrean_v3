@@ -175,11 +175,19 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 <h2>Wealth Quest</h2>
 
+<div style="text-align: center;">
+  <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
+  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
+  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon"><img>
+</div>
+
+
+
 <img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest)](https://github.com/lmcrean/Wealth-Quest) ![Created at](https://img.shields.io/github/created-at/lmcrean/Wealth-Quest) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest)](https://github.com/lmcrean/Wealth-Quest/commits/main) ![Contributors](https://img.shields.io/github/contributors/lmcrean/Wealth-Quest)
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest)](https://github.com/lmcrean/Wealth-Quest) ![Created at](https://img.shields.io/github/created-at/lmcrean/Wealth-Quest) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest)](https://github.com/lmcrean/Wealth-Quest/commits/main) 
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white)
 
@@ -211,11 +219,19 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 <h2>Retrolympic Rush</h2>
 
+<div style="text-align: center;">
+  <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors">
+  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
+  <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon"><img>
+</div>
+
 <img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush) ![Created at](https://img.shields.io/github/created-at/lmcrean/retrolympics-rush) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush/commits/main) ![Contributors](https://img.shields.io/github/contributors/lmcrean/retrolympics-rush)
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush) ![Created at](https://img.shields.io/github/created-at/lmcrean/retrolympics-rush) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush)](https://github.com/lmcrean/retrolympics-rush/commits/main)
+
+
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Kaboom](https://img.shields.io/badge/Kaboom.JS-1C1C1C?&logo=kaboom&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white)
 
