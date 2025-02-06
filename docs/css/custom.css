@@ -1,23 +1,16 @@
 /* Dark theme styles for Docsify */
-:root {
-    --background-color: #091439;
-    --sidebar-background-color: #010b2e;
-    --text-color: #fcfafa;
-    --border-color: #2c095a;
-    --table-header-bg: rgba(25, 25, 25, 0.9);
-    --table-row-bg:  rgba(25, 25, 25, 0.9);
-    --table-row-alt-bg:  rgba(25, 25, 25, 0.9);
-    --sidebar-highlight-color: #b0c0ff;
-  }
+/* Color variables moved to colors.css */
+
+@import 'colors.css';
 
   img {
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .anchor span {
-    color: var(--text-color);
-  }
+.anchor span, h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+}
 
   .sidebar, body.close .sidebar-toggle, input[type='search'], button.sidebar-toggle {
     background-color: inherit !important;
@@ -264,7 +257,6 @@ h1 {
 h2 {
   /* font-size: 1.5rem !important; */
 }
-
 
 .splide {
   max-width: 800px !important;
