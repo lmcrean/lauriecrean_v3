@@ -13,6 +13,8 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <h2>Odyssey</h2>
 
+<section class="responsive-one-to-two-columns">
+
 <section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
   <div class="splide__track">
     <ul class="splide__list">
@@ -41,6 +43,8 @@ Welcome to my portfolio website! On this page you will find a guide to my select
   </div>
 </section>
 
+<section>
+
 <a href="https://github.com/lmcrean/odyssey-api"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://odyssey.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api)](https://github.com/lmcrean/odyssey-api/commits/main)
@@ -50,7 +54,14 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 Developed Social Media application with Auth, messaging and media sharing features • Unified API and Frontend into a singular repository to improve security standards and ensure compatibility with Safari browsers • Integrated Cloudinary media storage; improved performance with cached rendering • 78 automated tests across four testing frameworks (see above) including comprehensive alert feeback • integrated automatic testing screenshots for enhanced insights into frontend alerts • OAuth2/JWT authentication • Automated Heroku deployments through CLI • integrated customised SVG logo • integrated dark mode toggle with animated transition  • customised highly responsive Navbar for each device size, including popout menu for further options 
 
+</section>
+</section>
+
+
+
 <h2>Coach Matrix</h2>
+
+<section class="responsive-one-to-two-columns">
 
 <section class="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots">
   <div class="splide__track">
@@ -71,6 +82,8 @@ Developed Social Media application with Auth, messaging and media sharing featur
   </div>
 </section>
 
+<section>
+
 <a href="https://github.com/lmcrean/coach-matrix"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=yHzltpMr0AArlSyi-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="http://coachmatrix.org/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix)](https://github.com/lmcrean/coach-matrix/commits/main)
@@ -79,8 +92,12 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo 
 
+</section>
+</section>
 
 <h2>Steam Report v2.0</h2>
+
+<section class="responsive-one-to-two-columns">
 
 <section class="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots">
   <div class="splide__track">
@@ -98,6 +115,8 @@ Social platform focused on professional development • Custom authentication an
   </div>
 </section>
 
+<section>
+
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report-mern) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern)](https://github.com/lmcrean/steam-report-mern/commits/main)
@@ -110,7 +129,13 @@ Social platform focused on professional development • Custom authentication an
 
   Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
-<h2>Odyssey v2.0</h2>
+</section>
+</section>
+
+
+
+<h2>Odyssey v2.0 Authenticator</h2>
+
 
 <a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
