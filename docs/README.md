@@ -151,7 +151,7 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 <h2>Laurie Crean v2.0</h2>
 
-<!-- <img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v2.png" alt="lauriecrean-v2" height="auto"></img> -->
+<img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v2.png" alt="laurie-crean-v2" height="auto"></img>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
