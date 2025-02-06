@@ -1,4 +1,4 @@
-<img src="/docs/banner.png" alt="banner"></img>
+<img src="http://lauriecrean.dev/docs/banner.png" alt="banner"></img>
 
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development.
 
