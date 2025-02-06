@@ -25,10 +25,11 @@
 }
 
 /* Apply fonts to elements */
-h1,h2  {
+h1,h2, .sidebar-title  {
     font-family: 'Etna', sans-serif !important;
     font-weight: 200;
     text-align: center;
+    color: var(--text-color) !important;
     opacity: 0.9;
 }
 
