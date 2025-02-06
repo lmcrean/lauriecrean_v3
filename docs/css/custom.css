@@ -264,3 +264,8 @@ h1 {
 h2 {
   /* font-size: 1.5rem !important; */
 }
+
+
+.splide {
+  max-width: 800px !important;
+}
