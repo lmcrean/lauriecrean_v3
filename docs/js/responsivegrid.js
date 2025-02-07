@@ -1,5 +1,3 @@
-
-
 // Function to wrap content between h2s in grid sections
 function wrapH2Sections() {
     const mainContent = document.querySelector('#main');
@@ -8,46 +6,83 @@ function wrapH2Sections() {
         return;
     }
 
+    // Get the current page path from Docsify
+    const currentPath = window.location.hash.slice(2) || 'README';
+
     // Find all h1 and h2 elements
     const allHeadings = mainContent.querySelectorAll('h1, h2');
     if (allHeadings.length === 0) return;
 
-    let inFrontEndSection = false;
-    let inBackEndSection = false;
-    const sections = [];
-    let currentSection = [];
+    // Different handling based on the current page
+    if (currentPath === 'README') {
+        // Original portfolio project handling
+        let inFrontEndSection = false;
+        let inBackEndSection = false;
+        const sections = [];
+        let currentSection = [];
 
-    // First pass: identify sections and their content
-    allHeadings.forEach((heading) => {
-        if (heading.tagName === 'H1') {
-            const title = heading.textContent.trim().toLowerCase();
-            inFrontEndSection = title === 'front end projects';
-            inBackEndSection = title === 'back end projects';
-        } else if (heading.tagName === 'H2' && (inFrontEndSection || inBackEndSection)) {
-            // If we were collecting a previous section, save it
-            if (currentSection.length > 0) {
-                sections.push(currentSection);
+        // First pass: identify sections and their content
+        allHeadings.forEach((heading) => {
+            if (heading.tagName === 'H1') {
+                const title = heading.textContent.trim().toLowerCase();
+                inFrontEndSection = title === 'front end projects';
+                inBackEndSection = title === 'back end projects';
+            } else if (heading.tagName === 'H2' && (inFrontEndSection || inBackEndSection)) {
+                if (currentSection.length > 0) {
+                    sections.push(currentSection);
+                }
+                currentSection = [heading];
+                
+                let currentElement = heading;
+                while (currentElement.nextElementSibling && 
+                       currentElement.nextElementSibling.tagName !== 'H1' && 
+                       currentElement.nextElementSibling.tagName !== 'H2') {
+                    currentElement = currentElement.nextElementSibling;
+                    currentSection.push(currentElement);
+                }
             }
-            // Start a new section
-            currentSection = [heading];
-            
-            // Collect all elements until next h1 or h2
-            let currentElement = heading;
-            while (currentElement.nextElementSibling && 
-                   currentElement.nextElementSibling.tagName !== 'H1' && 
-                   currentElement.nextElementSibling.tagName !== 'H2') {
-                currentElement = currentElement.nextElementSibling;
-                currentSection.push(currentElement);
-            }
+        });
+
+        if (currentSection.length > 0) {
+            sections.push(currentSection);
         }
-    });
 
-    // Don't forget to add the last section if we were collecting one
-    if (currentSection.length > 0) {
-        sections.push(currentSection);
+        wrapSectionsInGrid(sections);
+    } else if (['certifications', 'education', 'experience'].includes(currentPath)) {
+        // Handle certifications, education, and experience pages
+        const sections = [];
+        let currentSection = [];
+        let isAfterFirstH1 = false;
+
+        allHeadings.forEach((heading) => {
+            if (heading.tagName === 'H1') {
+                isAfterFirstH1 = true;
+            } else if (heading.tagName === 'H2' && isAfterFirstH1) {
+                if (currentSection.length > 0) {
+                    sections.push(currentSection);
+                }
+                currentSection = [heading];
+                
+                let currentElement = heading;
+                while (currentElement.nextElementSibling && 
+                       currentElement.nextElementSibling.tagName !== 'H1' && 
+                       currentElement.nextElementSibling.tagName !== 'H2') {
+                    currentElement = currentElement.nextElementSibling;
+                    currentSection.push(currentElement);
+                }
+            }
+        });
+
+        if (currentSection.length > 0) {
+            sections.push(currentSection);
+        }
+
+        wrapSectionsInGrid(sections);
     }
+}
 
-    // Now wrap pairs of sections in grid containers
+// Helper function to wrap sections in grid
+function wrapSectionsInGrid(sections) {
     for (let i = 0; i < sections.length; i += 2) {
         const gridContainer = document.createElement('div');
         gridContainer.className = 'project-grid-container';
