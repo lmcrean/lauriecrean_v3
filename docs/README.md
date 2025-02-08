@@ -5,15 +5,17 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ***
 <div style="display: none;">
 
-<h1>Welcome</h1>
+# Welcome
 
 </div>
 
-<h1>Full-Stack Projects</h1>
+# Full-Stack Projects
 
-<h2>Odyssey</h2>
+## Odyssey
+
 
 <section class="responsive-one-to-two-columns">
+
 
 <section class="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots">
   <div class="splide__track">
@@ -59,11 +61,12 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 
 
-<h2>Coach Matrix</h2>
+## Coach Matrix
 
 <section class="responsive-one-to-two-columns">
 
 <section class="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots">
+
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
@@ -95,11 +98,12 @@ Social platform focused on professional development • Custom authentication an
 </section>
 </section>
 
-<h2>Steam Report v2.0</h2>
+## Steam Report v2.0
 
 <section class="responsive-one-to-two-columns">
 
 <section class="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots">
+
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
@@ -134,7 +138,8 @@ Social platform focused on professional development • Custom authentication an
 
 
 
-<h2>Odyssey v2.0 Authenticator</h2>
+## Odyssey v2.0 Authenticator
+
 
 
 <a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
@@ -147,11 +152,11 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 ***
 
-<h1>Front end Projects</h1>
+# Front end Projects
 
-<h2>Laurie Crean v2.0</h2>
+## Laurie Crean v2.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" height="auto"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" max-height="500px" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -161,9 +166,9 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
-<h2>Laurie Crean v1.0</h2>
+## Laurie Crean v1.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/lauriecrean"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -173,7 +178,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
-<h2>Wealth Quest</h2>
+## Wealth Quest
 
 <div style="text-align: center;">
   <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
@@ -183,7 +188,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 
 
-<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
@@ -193,9 +198,9 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-<h2>Crocodile Kingdom v2.0</h2>
+## Crocodile Kingdom v2.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame-v2.png" alt="crocodilegame-v2" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame-v2.png" alt="crocodilegame-v2" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://crocodile-kingdom-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -205,9 +210,9 @@ Took up role of Scrum Master in team of 6 • Contributed to front end developme
 
 Ported Javascript into React • Integrated Tailwind CSS into workflow.
 
-<h2>Crocodile Kingdom v1.0</h2>
+## Crocodile Kingdom v1.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/"><button class="live-demo-btn"><i class="fa fa-play" ></i> live demo </button></a>
 
@@ -217,7 +222,7 @@ Ported Javascript into React • Integrated Tailwind CSS into workflow.
 
 Developed Memory game with Javascript • dynamic progress bar to track progress • used LocalStorage to save high scores
 
-<h2>Retrolympic Rush</h2>
+## Retrolympic Rush
 
 <div style="text-align: center;">
   <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors">
@@ -225,7 +230,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon"><img>
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -237,9 +242,9 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • used agile methods with daily standups and sprint reviews over 5 days • Reviewed pull requests and merged code to main branch • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-<h2>Hoverboard v2.0</h2>
+## Hoverboard v2.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard-v2.png" alt="hoverboard-v2" height="auto" width="600" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard-v2.png" alt="hoverboard-v2" max-height="auto" width="600" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/hoverboard-react"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -249,9 +254,9 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
 
-<h2>Hoverboard 1.0</h2>
+## Hoverboard 1.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -263,11 +268,11 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 ***
 
-<h1>Back End Projects</h1>
+# Back End Projects
 
-<h2>Steam Report v1.0</h2>
+## Steam Report v1.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" height="auto" width="600" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -277,7 +282,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
  Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
 
-<h2>Odyssey v1.5 API</h2>
+## Odyssey v1.5 API
 
 <a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
 
