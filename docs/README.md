@@ -1,6 +1,4 @@
-<img src="http://lauriecrean.dev/docs/banner.png" alt="banner"></img>
 
-Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development.
 
 ***
 <div style="display: none;">
@@ -161,6 +159,39 @@ Social platform focused on professional development • Custom authentication an
 
 Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
 
+
+
+
+## Odyssey v1.5 API
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div>
+
+<a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
+
+![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
+
+Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
+
+## Steam Report v1.0
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div>
+
+<img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
+
+<a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
+
+![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-1C1C1C?&logo=node.js&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Google Sheets](https://img.shields.io/badge/Google_Sheets-1C1C1C?&logo=google-sheets&logoColor=white)
+
+ Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
+
 ## Laurie Crean v2.0
 
 <div style="text-align: center;">
@@ -296,34 +327,5 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 
 Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
 
-## Steam Report v1.0
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
-</div>
-
-<img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
-
-<a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
-
-![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-1C1C1C?&logo=node.js&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Google Sheets](https://img.shields.io/badge/Google_Sheets-1C1C1C?&logo=google-sheets&logoColor=white)
-
- Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
-
-## Odyssey v1.5 API
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
-</div>
-
-<a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
-
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
-
-Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
 
 <script src="js/carousel.js"></script>
