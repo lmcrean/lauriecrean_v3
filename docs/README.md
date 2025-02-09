@@ -197,21 +197,23 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-## Crocodile Kingdom v2.0
+## Crocodile Kingdom
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame-v2.png" alt="crocodilegame-v2" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
-<a href="https://github.com/lmcrean/crocodile-kingdom-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://crocodile-kingdom-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+
+
+<center><b>version 2.0</b></center>
+
+<a href="https://github.com/lmcrean/crocodile-kingdom-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://crocodilekingdom.lauriecrean.dev/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern) ![Created at](https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom-mern?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern/commits/main)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white)  ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white)
 
-Ported Javascript into React • Integrated Tailwind CSS into workflow.
+Ported essential Javascript features into React • Integrated Tailwind CSS into workflow.
 
-## Crocodile Kingdom v1.0
-
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<center><b>version 1.0</b></center>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/"><button class="live-demo-btn"><i class="fa fa-play" ></i> live demo </button></a>
 
@@ -220,6 +222,9 @@ Ported Javascript into React • Integrated Tailwind CSS into workflow.
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-1C1C1C?&logo=bootstrap&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) 
 
 Developed Memory game with Javascript • dynamic progress bar to track progress • used LocalStorage to save high scores
+
+***
+
 
 ## Retrolympic Rush
 
@@ -241,9 +246,19 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • used agile methods with daily standups and sprint reviews over 5 days • Reviewed pull requests and merged code to main branch • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
-## Hoverboard v2.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard-v2.png" alt="hoverboard-v2" max-height="auto" width="600" style="margin:auto; display:flex"></img>
+
+
+
+## Hoverboard
+
+
+
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
+      
+<br>
+
+<center><b>version 2.0</b></center>
 
 <a href="https://github.com/lmcrean/hoverboard-react"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -253,9 +268,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
 
-## Hoverboard 1.0
-
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<center><b>version 1.0</b></center>
 
 <a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -265,7 +278,6 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 
 Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
 
-***
 
 # Back End Projects
 
@@ -287,13 +299,13 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
 
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
 
 Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const carousels = ['odyssey', 'coachmatrix', 'steamreport'];
+    const carousels = ['odyssey', 'coachmatrix', 'steamreport', 'hoverboard'];
     
     carousels.forEach(id => {
       const carousel = new Splide(`#${id}-carousel`, {
@@ -303,9 +315,7 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
         gap: '1rem',
         pagination: false,
         arrows: true
-      };
-
-      const carousel = new Splide(`#${id}-carousel`, carouselConfig);
+      });
 
       // Create and update progress bar
       const progressBar = document.querySelector(`#${id}-carousel .my-carousel-progress-bar`);
