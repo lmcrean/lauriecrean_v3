@@ -10,19 +10,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"
-    />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/buttons.css" />
     <link rel="stylesheet" href="css/typefaces.css">
@@ -32,12 +24,18 @@
   <body>
     <div id="app"></div>
 
+    <!-- Core Dependencies (Order matters!) -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+    <!-- Initialize Mermaid -->
     <script>
       var num = 0;
       mermaid.initialize({ startOnLoad: false });
+    </script>
 
+    <!-- Docsify Configuration -->
+    <script>
       window.$docsify = {
         name: "",
         repo: "",
@@ -54,13 +52,13 @@
         },
         markdown: {
           renderer: {
-            code: function (code, lang) {
+            code: function(code, lang) {
               if (lang === "mermaid") {
                 return '<div class="mermaid">' + code + "</div>";
               }
               return this.origin.code.apply(this, arguments);
-            },
-          },
+            }
+          }
         },
         search: {
           maxAge: 86400000,
@@ -77,80 +75,81 @@
           querySelector: ".mermaid",
         },
         plugins: [
-          function (hook) {
-            hook.doneEach(function () {
-              mermaid.init(undefined, ".mermaid");
-            });
-          },
           function(hook) {
             hook.doneEach(function() {
-              // Initialize basic carousels
-              document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(carousel => {
-                new Splide(carousel, {
-                  type: 'loop',
-                  perPage: 1,
-                  perMove: 1,
-                  gap: '1rem',
-                  pagination: true,
-                  arrows: true,
-                  autoplay: true,
-                  interval: 3000,
-                  pauseOnHover: true,
-                }).mount();
-              });
+              // Initialize Mermaid diagrams
+              mermaid.init(undefined, ".mermaid");
 
-              // Initialize project carousels with manual navigation
-              const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
-              
-              projectCarousels.forEach(id => {
-                const carousel = document.querySelector(`#${id}-carousel`);
-                if (carousel) {
-                  const splide = new Splide(carousel, {
+              // Initialize carousels
+              setTimeout(() => {
+                // Basic carousels
+                document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(carousel => {
+                  new Splide(carousel, {
                     type: 'loop',
                     perPage: 1,
                     perMove: 1,
                     gap: '1rem',
+                    pagination: true,
                     arrows: true,
-                    pagination: false,
-                    autoplay: false,
-                    arrowPath: 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z',
-                    speed: 400,
-                  });
+                    autoplay: true,
+                    interval: 3000,
+                    pauseOnHover: true,
+                  }).mount();
+                });
 
-                  // Get the progress bar
-                  const bar = carousel.querySelector('.my-carousel-progress-bar');
+                // Project carousels
+                const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
+                projectCarousels.forEach(id => {
+                  const carousel = document.querySelector(`#${id}-carousel`);
+                  if (carousel) {
+                    const splide = new Splide(carousel, {
+                      type: 'loop',
+                      perPage: 1,
+                      perMove: 1,
+                      gap: '1rem',
+                      arrows: true,
+                      pagination: false,
+                      autoplay: false,
+                      arrowPath: 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z',
+                      speed: 400,
+                    });
 
-                  // Update the progress bar when the carousel moves
-                  splide.on('mounted move', function () {
-                    const end = splide.Components.Controller.getEnd() + 1;
-                    const rate = Math.min((splide.index + 1) / end, 1);
-                    bar.style.width = String(100 * rate) + '%';
-                  });
+                    // Get the progress bar
+                    const bar = carousel.querySelector('.my-carousel-progress-bar');
 
-                  splide.mount();
-                }
-              });
+                    // Update the progress bar when the carousel moves
+                    splide.on('mounted move', function() {
+                      const end = splide.Components.Controller.getEnd() + 1;
+                      const rate = Math.min((splide.index + 1) / end, 1);
+                      bar.style.width = String(100 * rate) + '%';
+                    });
+
+                    splide.mount();
+                  }
+                });
+              }, 100);
             });
           }
         ]
       };
     </script>
 
-    <!-- Docsify v4 -->
+    <!-- Docsify Core -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-    <script src="./js/responsivegrid.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/docsify-darklight.min.js"></script>
+
+    <!-- Docsify Plugins -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/d3@7"></script>
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-      mermaid.initialize({ startOnLoad: true });
-      window.mermaid = mermaid;
-    </script>
     <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
     <script src="//unpkg.com/docsify-mermaid-zoom/dist/docsify-mermaid-zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/docsify-darklight.min.js"></script>
+
+    <!-- Additional Dependencies -->
+    <script src="//cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://use.fontawesome.com/3b2b169b3c.js"></script>
+
+    <!-- Sidebar Navigation -->
     <script>
       window.addEventListener('DOMContentLoaded', (event) => {
         // Add click event to first-level sidebar items (excluding buttons)
@@ -164,7 +163,7 @@
             });
           }
         });
-    
+
         // Expand current page in sidebar
         let activeLink = document.querySelector('.sidebar-nav li.active');
         if (activeLink) {
@@ -179,6 +178,5 @@
         }
       });
     </script>
-    <script src="https://use.fontawesome.com/3b2b169b3c.js"></script>
   </body>
 </html>
