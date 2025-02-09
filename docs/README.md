@@ -303,31 +303,4 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const carousels = ['odyssey', 'coachmatrix', 'steamreport', 'hoverboard'];
-    
-    carousels.forEach(id => {
-      const carousel = new Splide(`#${id}-carousel`, {
-        type: 'slide',
-        perPage: 1,
-        perMove: 1,
-        gap: '1rem',
-        pagination: false,
-        arrows: true
-      });
-
-      // Create and update progress bar
-      const progressBar = document.querySelector(`#${id}-carousel .my-carousel-progress-bar`);
-      
-      // Update progress bar on mount and move
-      carousel.on('mounted move', function() {
-        const end = carousel.Components.Controller.getEnd() + 1;
-        const rate = Math.min((carousel.index + 1) / end, 1);
-        progressBar.style.width = String(100 * rate) + '%';
-      });
-
-      carousel.mount();
-    });
-  });
-</script>
+<script src="js/carousel.js"></script>
