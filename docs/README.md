@@ -11,6 +11,10 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 ## Odyssey
 
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+</div>
+
 <section class="responsive-one-to-two-columns">
 
 
@@ -60,6 +64,10 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 ## Coach Matrix
 
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+</div>
+
 <section class="responsive-one-to-two-columns">
 
 <section class="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots">
@@ -96,6 +104,10 @@ Social platform focused on professional development • Custom authentication an
 </section>
 
 ## Steam Report v2.0
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+</div>
 
 <section class="responsive-one-to-two-columns">
 
@@ -137,7 +149,9 @@ Social platform focused on professional development • Custom authentication an
 
 ## Odyssey v2.0 Authenticator
 
-
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+</div>
 
 <a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -149,7 +163,11 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 
 ## Laurie Crean v2.0
 
-<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" max-height="500px" style="margin:auto; display:flex"></img>
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+</div>
+
+<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -160,6 +178,10 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent fr
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
 ## Laurie Crean v1.0
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+</div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
@@ -174,12 +196,11 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 ## Wealth Quest
 
 <div style="text-align: center;">
+  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
   <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
   <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
-  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon"><img>
+  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon">
 </div>
-
-
 
 <img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
@@ -193,6 +214,9 @@ Took up role of Scrum Master in team of 6 • Contributed to front end developme
 
 ## Crocodile Kingdom
 
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+</div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
@@ -217,15 +241,13 @@ Ported essential Javascript features into React • Integrated Tailwind CSS into
 
 Developed Memory game with Javascript • dynamic progress bar to track progress • used LocalStorage to save high scores
 
-***
-
-
 ## Retrolympic Rush
 
 <div style="text-align: center;">
+  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
   <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors">
   <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
-  <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon"><img>
+  <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon">
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex"></img>
@@ -246,7 +268,9 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 ## Hoverboard
 
-
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+</div><br>
 
 <img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
       
@@ -258,7 +282,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react/commits/main)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white)![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white)![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white)![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
 
 Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
 
@@ -274,6 +298,10 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 ## Steam Report v1.0
 
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div>
+
 <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
@@ -285,6 +313,10 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
  Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
 
 ## Odyssey v1.5 API
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div>
 
 <a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
 
