@@ -51,18 +51,26 @@ class SectionLayout {
         const mainContent = document.querySelector('#main');
         if (!mainContent) return;
 
+        // Get all h2 elements and their positions
         const h2Elements = Array.from(mainContent.querySelectorAll('h2'));
-        
-        // Create a container for all projects
-        const projectsContainer = document.createElement('div');
+        if (h2Elements.length === 0) return;
+
+        // Store original positions of all elements for reference
+        const originalPositions = new Map();
+        h2Elements.forEach((h2, index) => {
+            originalPositions.set(h2, index);
+        });
+
+        // Create a container for non-splide projects
+        let projectsContainer = document.createElement('div');
         projectsContainer.className = 'projects-grid';
-        
-        h2Elements.forEach(h2 => {
+
+        // First pass: collect and organize content
+        const sections = h2Elements.map(h2 => {
             let sectionContent = [];
             let currentElement = h2.nextElementSibling;
             let hasSplide = false;
             
-            // Collect elements until next h2 or no more siblings
             while (currentElement && currentElement.tagName !== 'H2') {
                 if (currentElement.querySelector('.splide')) {
                     hasSplide = true;
@@ -71,40 +79,46 @@ class SectionLayout {
                 currentElement = currentElement.nextElementSibling;
             }
 
-            if (sectionContent.length > 0) {
-                // If this section has a splide carousel
-                if (hasSplide) {
-                    const splideWrapper = document.createElement('div');
-                    splideWrapper.className = 'splide-wrapper';
-                    
-                    // Move the h2 and content instead of cloning
-                    splideWrapper.appendChild(h2);
-                    sectionContent.forEach(el => splideWrapper.appendChild(el));
-                    
-                    // If we have a projects container with content, insert it before the splide section
-                    if (projectsContainer.children.length > 0) {
-                        mainContent.appendChild(projectsContainer.cloneNode(true));
-                        projectsContainer.innerHTML = ''; // Clear for future projects
-                    }
-                    
-                    // Insert the splide wrapper
-                    mainContent.appendChild(splideWrapper);
-                } else {
-                    // Create a project item
-                    const projectItem = document.createElement('div');
-                    projectItem.className = 'project-item';
-                    
-                    // Move the h2 and content instead of cloning
-                    projectItem.appendChild(h2);
-                    sectionContent.forEach(el => projectItem.appendChild(el));
-                    
-                    // Add to projects container
-                    projectsContainer.appendChild(projectItem);
+            return {
+                h2,
+                content: sectionContent,
+                hasSplide,
+                originalIndex: originalPositions.get(h2)
+            };
+        });
+
+        // Clear main content
+        while (mainContent.firstChild) {
+            mainContent.removeChild(mainContent.firstChild);
+        }
+
+        // Second pass: reconstruct content in correct order
+        sections.forEach((section, index) => {
+            if (section.hasSplide) {
+                // Insert accumulated projects before splide if any exist
+                if (projectsContainer.children.length > 0) {
+                    mainContent.appendChild(projectsContainer);
+                    projectsContainer = document.createElement('div');
+                    projectsContainer.className = 'projects-grid';
                 }
+
+                // Create splide wrapper
+                const splideWrapper = document.createElement('div');
+                splideWrapper.className = 'splide-wrapper';
+                splideWrapper.appendChild(section.h2);
+                section.content.forEach(el => splideWrapper.appendChild(el));
+                mainContent.appendChild(splideWrapper);
+            } else {
+                // Add to projects grid
+                const projectItem = document.createElement('div');
+                projectItem.className = 'project-item';
+                projectItem.appendChild(section.h2);
+                section.content.forEach(el => projectItem.appendChild(el));
+                projectsContainer.appendChild(projectItem);
             }
         });
-        
-        // If we have any remaining projects in the container, insert it
+
+        // Append any remaining projects
         if (projectsContainer.children.length > 0) {
             mainContent.appendChild(projectsContainer);
         }
