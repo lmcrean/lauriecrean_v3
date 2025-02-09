@@ -57,9 +57,6 @@ class SectionLayout {
         const projectsContainer = document.createElement('div');
         projectsContainer.className = 'projects-grid';
         
-        // Flag to track if we've inserted the container
-        let containerInserted = false;
-        
         h2Elements.forEach(h2 => {
             let sectionContent = [];
             let currentElement = h2.nextElementSibling;
@@ -79,33 +76,31 @@ class SectionLayout {
                 if (hasSplide) {
                     const splideWrapper = document.createElement('div');
                     splideWrapper.className = 'splide-wrapper';
-                    splideWrapper.appendChild(h2.cloneNode(true));
-                    sectionContent.forEach(el => splideWrapper.appendChild(el.cloneNode(true)));
+                    
+                    // Move the h2 and content instead of cloning
+                    splideWrapper.appendChild(h2);
+                    sectionContent.forEach(el => splideWrapper.appendChild(el));
                     
                     // If we have a projects container with content, insert it before the splide section
-                    if (containerInserted && projectsContainer.children.length > 0) {
-                        h2.parentNode.insertBefore(projectsContainer.cloneNode(true), h2);
-                        projectsContainer.innerHTML = ''; // Clear the container for potential future projects
-                        containerInserted = false;
+                    if (projectsContainer.children.length > 0) {
+                        mainContent.appendChild(projectsContainer.cloneNode(true));
+                        projectsContainer.innerHTML = ''; // Clear for future projects
                     }
                     
                     // Insert the splide wrapper
-                    h2.parentNode.insertBefore(splideWrapper, h2);
+                    mainContent.appendChild(splideWrapper);
                 } else {
                     // Create a project item
                     const projectItem = document.createElement('div');
                     projectItem.className = 'project-item';
-                    projectItem.appendChild(h2.cloneNode(true));
-                    sectionContent.forEach(el => projectItem.appendChild(el.cloneNode(true)));
+                    
+                    // Move the h2 and content instead of cloning
+                    projectItem.appendChild(h2);
+                    sectionContent.forEach(el => projectItem.appendChild(el));
                     
                     // Add to projects container
                     projectsContainer.appendChild(projectItem);
-                    containerInserted = true;
                 }
-                
-                // Remove original elements
-                h2.remove();
-                sectionContent.forEach(el => el.remove());
             }
         });
         
