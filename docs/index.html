@@ -84,20 +84,6 @@
           },
           function(hook) {
             hook.doneEach(function() {
-              // Function to resolve image paths
-              function resolveImagePath(src) {
-                if (src.startsWith('http') || src.startsWith('/')) return src;
-                return 'https://raw.githubusercontent.com/lmcrean/lauriecrean-nextjs/main/' + src;
-              }
-
-              // Select all img tags and update their src
-              document.querySelectorAll('img').forEach(img => {
-                img.src = resolveImagePath(img.getAttribute('src'));
-              });
-            });
-          },
-          function(hook) {
-            hook.doneEach(function() {
               // Initialize basic carousels
               document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(carousel => {
                 new Splide(carousel, {
