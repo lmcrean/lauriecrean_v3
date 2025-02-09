@@ -249,6 +249,8 @@ Took up role of Scrum Master in team of 6 • Contributed to front end developme
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+<img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend">
+
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
