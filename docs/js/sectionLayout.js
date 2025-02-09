@@ -24,6 +24,18 @@ class SectionLayout {
                 width: 100%;
             }
 
+            /* Banner and intro styles */
+            .banner-section {
+                width: 100%;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .banner-section img {
+                max-width: 100%;
+                height: auto;
+            }
+
             /* Desktop layout - only apply 2 columns above 1400px */
             @media (min-width: 1400px) {
                 .projects-grid {
@@ -54,6 +66,18 @@ class SectionLayout {
         // Get all h2 elements and their positions
         const h2Elements = Array.from(mainContent.querySelectorAll('h2'));
         if (h2Elements.length === 0) return;
+
+        // Store the content that appears before the first H2
+        const bannerSection = document.createElement('div');
+        bannerSection.className = 'banner-section';
+        let currentElement = mainContent.firstChild;
+        const firstH2 = h2Elements[0];
+
+        while (currentElement && currentElement !== firstH2) {
+            const nextElement = currentElement.nextSibling;
+            bannerSection.appendChild(currentElement);
+            currentElement = nextElement;
+        }
 
         // Store original positions of all elements for reference
         const originalPositions = new Map();
@@ -90,6 +114,11 @@ class SectionLayout {
         // Clear main content
         while (mainContent.firstChild) {
             mainContent.removeChild(mainContent.firstChild);
+        }
+
+        // Add the banner section back first
+        if (bannerSection.hasChildNodes()) {
+            mainContent.appendChild(bannerSection);
         }
 
         // Second pass: reconstruct content in correct order
