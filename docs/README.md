@@ -9,8 +9,6 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 </div>
 
-# Full-Stack Projects
-
 ## Odyssey
 
 <section class="responsive-one-to-two-columns">
@@ -149,10 +147,6 @@ Social platform focused on professional development • Custom authentication an
 
 Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
 
-***
-
-# Front end Projects
-
 ## Laurie Crean v2.0
 
 <img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" max-height="500px" style="margin:auto; display:flex"></img>
@@ -277,9 +271,6 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
 
 Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
-
-
-# Back End Projects
 
 ## Steam Report v1.0
 
