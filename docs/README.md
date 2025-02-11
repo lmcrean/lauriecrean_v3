@@ -1,6 +1,6 @@
 <img src="http://lauriecrean.dev/docs/banner.png" alt="banner"></img>
 
-Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development.
+Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
 
 ***
 <div style="display: none;">
@@ -12,7 +12,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ## Odyssey
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack"> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
 </div>
 
 <section class="responsive-one-to-two-columns">
@@ -65,7 +65,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 ## Coach Matrix
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack"> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
 </div>
 
 <section class="responsive-one-to-two-columns">
@@ -103,10 +103,10 @@ Social platform focused on professional development • Custom authentication an
 </section>
 </section>
 
-## Steam Report v2.0
+## Steam Report
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack"> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
 </div>
 
 <section class="responsive-one-to-two-columns">
@@ -121,6 +121,9 @@ Social platform focused on professional development • Custom authentication an
       <li class="splide__slide">
         <img src="http://lauriecrean.dev/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B">
       </li>
+      <li class="splide__slide">
+        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
+      </li>
     </ul>
   </div>
   <div class="my-carousel-progress">
@@ -129,6 +132,8 @@ Social platform focused on professional development • Custom authentication an
 </section>
 
 <section>
+
+<b>version 2.0</b>
 
 <a href="https://github.com/lmcrean/steam-report-mern"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -142,50 +147,10 @@ Social platform focused on professional development • Custom authentication an
 
   Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
-</section>
-</section>
+<hr>
 
-
-
-## Odyssey v2.0 Authenticator
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack">
-</div>
-
-<a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
-
-![Amplify](https://img.shields.io/badge/Amplify-1C1C1C?&logo=amazon&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![GraphQL](https://img.shields.io/badge/GraphQL-1C1C1C?&logo=graphql&logoColor=white) ![Cognito](https://img.shields.io/badge/Cognito-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-67_Passed-blue?style=flat-square&logo=vitest&logoColor=white) 
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2-amplify-vite?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite/commits/main)
-
-Ported Cloudinary, gitpod, PostgreSQL, Heroku from version 1 to more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
-
-
-
-
-## Odyssey v1.5 API
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
-</div>
-
-<a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
-
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
-
-Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
-
-## Steam Report v1.0
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
-</div>
-
-<img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
-
+<b>version 1.0</b>
+  
 <a href="https://github.com/lmcrean/steam-report"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
@@ -194,13 +159,52 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
 
  Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
 
-## Laurie Crean v2.0
+
+</section>
+</section>
+
+
+
+## AWS Authenticator
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack"> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div><br>
+
+<center><b>version 2.0</b></center>
+
+<a href="https://github.com/lmcrean/odyssey-v2-amplify-vite"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+![Amplify](https://img.shields.io/badge/Amplify-1C1C1C?&logo=amazon&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![GraphQL](https://img.shields.io/badge/GraphQL-1C1C1C?&logo=graphql&logoColor=white) ![Cognito](https://img.shields.io/badge/Cognito-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-67_Passed-blue?style=flat-square&logo=vitest&logoColor=white) 
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2-amplify-vite?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite/commits/main)
+
+Ported Cloudinary, gitpod, PostgreSQL, Heroku from [Odyssey API](https://github.com/lmcrean/odyssey-api) to a more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
+
+
+<hr>
+
+<center><b>version 1.0</b></center>
+
+<a href="https://github.com/lmcrean/odyssey-v2"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
+
+![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
+
+Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
+
+
+
+## Laurie Crean
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex"></img>
+
+<center><b>version 2.0</b></center>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -210,13 +214,8 @@ Moved [Odyssey v1.0 API](https://github.com/lmcrean/odyssey-api) from Python-Clo
 
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
-## Laurie Crean v1.0
-
-<div style="text-align: center;">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
-</div>
-
-<img src="http://lauriecrean.dev/docs/screenshots/lauriecrean-v1.png" alt="lauriecrean-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<hr>
+<center><b>version v1.0</b></center>
 
 <a href="https://github.com/lmcrean/lauriecrean"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -226,24 +225,39 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
-## Wealth Quest
+
+## Hoverboard
 
 <div style="text-align: center;">
-  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
-  <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
-  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
-  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon">
-</div>
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+</div><br>
 
-<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
+      
+<br>
 
-<a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
+<center><b>version 2.0</b></center>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest) ![Created at](https://img.shields.io/github/created-at/lmcrean/Wealth-Quest?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest/commits/main) 
+<a href="https://github.com/lmcrean/hoverboard-react"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white)
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react/commits/main)
 
-Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white)![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
+
+Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
+
+<center><b>version 1.0</b></center>
+
+<a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard/commits/main)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
+
+Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
+
+
+<script src="js/carousel.js"></script>
 
 ## Crocodile Kingdom
 
@@ -298,38 +312,21 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • used agile methods with daily standups and sprint reviews over 5 days • Reviewed pull requests and merged code to main branch • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
 
-
-
-
-## Hoverboard
+## Wealth Quest
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
-</div><br>
+  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
+  <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
+  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
+  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon">
+</div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
-      
-<br>
+<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
-<center><b>version 2.0</b></center>
+<a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
-<a href="https://github.com/lmcrean/hoverboard-react"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest) ![Created at](https://img.shields.io/github/created-at/lmcrean/Wealth-Quest?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest/commits/main) 
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react/commits/main)
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white)![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
-
-Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
-
-<center><b>version 1.0</b></center>
-
-<a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard/commits/main)
-
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white)
-
-Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
-
-
-<script src="js/carousel.js"></script>
+Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
