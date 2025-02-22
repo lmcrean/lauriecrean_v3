@@ -209,6 +209,19 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
 
+## Antelope
+
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack"> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API">
+</div><br>
+
+<a href="https://github.com/lmcrean/antelope"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope) ![Created at](https://img.shields.io/github/created-at/lmcrean/antelope?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope/commits/main)
+
+![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Javascript](https://img.shields.io/badge/Javascript-1C1C1C?&logo=javascript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![Axios](https://img.shields.io/badge/Axios-1C1C1C?&logo=axios&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-1C1C1C?&logo=supabase&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![NGINX](https://img.shields.io/badge/NGINX-1C1C1C?&logo=nginx&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright_12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-29_Passed-blue?style=flat-square&logo=pytest&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-80_Passed-blue?style=flat-square&logo=vitest&logoColor=white)
+
+Developed full-stack boilerplate with React JSX frontend and Django REST API • Implemented comprehensive testing with Playwright E2E, Vitest and Pytest unit tests • Integrated Supabase PostgreSQL database • Deployed frontend and API to Heroku with NGINX • Automated deployments with GitHub Actions and Heroku CLI
 
 ## Laurie Crean
 
