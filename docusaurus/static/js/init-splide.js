@@ -1,36 +1,44 @@
 // Manual Splide initialization
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded - init-splide.js executing');
-  
-  // Check if Splide is loaded
-  if (typeof Splide === 'undefined') {
-    console.error('Splide not loaded. Loading now...');
+(function() {
+  // Main initialization function
+  function initSplide() {
+    console.log('DOM fully loaded - init-splide.js executing');
     
-    // Load Splide CSS
-    const splideCSS = document.createElement('link');
-    splideCSS.rel = 'stylesheet';
-    splideCSS.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
-    document.head.appendChild(splideCSS);
-    
-    // Load Splide JS
-    const splideScript = document.createElement('script');
-    splideScript.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js';
-    splideScript.onload = initializeSplideCarousels;
-    document.body.appendChild(splideScript);
-  } else {
-    console.log('Splide already loaded');
-    initializeSplideCarousels();
+    // Check if Splide is loaded
+    if (typeof Splide === 'undefined') {
+      console.error('Splide not loaded. Loading now...');
+      
+      // Load Splide CSS
+      const splideCSS = document.createElement('link');
+      splideCSS.rel = 'stylesheet';
+      splideCSS.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
+      document.head.appendChild(splideCSS);
+      
+      // Load Splide JS
+      const splideScript = document.createElement('script');
+      splideScript.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js';
+      splideScript.onload = initializeSplideCarousels;
+      document.body.appendChild(splideScript);
+    } else {
+      console.log('Splide already loaded');
+      initializeSplideCarousels();
+    }
   }
   
   function initializeSplideCarousels() {
     console.log('Manual Splide initialization running');
     
-    // Initialize all splide elements
-    const splideElements = document.querySelectorAll('.splide');
-    console.log(`Found ${splideElements.length} splide elements`);
+    // Check if we have any uninitialized carousels
+    const splideElements = document.querySelectorAll('.splide:not(.is-initialized)');
+    if (splideElements.length === 0) {
+      console.log('No uninitialized splide elements found, skipping initialization');
+      return;
+    }
+    
+    console.log(`Found ${splideElements.length} uninitialized splide elements`);
     
     // Initialize basic carousels
-    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(function(carousel, index) {
+    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(.is-initialized)').forEach(function(carousel, index) {
       console.log(`Initializing basic carousel #${index}`);
       try {
         new Splide(carousel, {
@@ -53,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize specific project carousels
     const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
     projectCarousels.forEach(function(id) {
-      const carousel = document.querySelector(`#${id}-carousel`);
+      const carousel = document.querySelector(`#${id}-carousel:not(.is-initialized)`);
       if (carousel) {
         console.log(`Initializing project carousel: ${id}`);
         try {
@@ -86,8 +94,22 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error(`Error initializing project carousel ${id}:`, e);
         }
       } else {
-        console.log(`Project carousel ${id} not found in DOM`);
+        console.log(`Project carousel ${id} not found in DOM or already initialized`);
       }
     });
   }
-}); 
+
+  // Initialize on first load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSplide);
+  } else {
+    initSplide();
+  }
+
+  // Handle Docusaurus page transitions - initialize carousels after page changes
+  // This is needed because Docusaurus uses client-side routing
+  document.addEventListener('docusaurus.routeDidUpdate', function() {
+    console.log('Route updated, reinitializing Splide carousels');
+    setTimeout(initializeSplideCarousels, 100); // Small delay to ensure DOM is updated
+  });
+})(); 
