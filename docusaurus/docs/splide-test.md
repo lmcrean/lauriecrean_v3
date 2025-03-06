@@ -2,22 +2,26 @@
 
 This is a simple test page to verify that Splide is working correctly.
 
-<section class="splide" aria-label="Simple Test Carousel">
-  <div class="splide__track">
-    <ul class="splide__list">
-      <li class="splide__slide">
+<div id="splide-debug-info">
+Loading splide...
+</div>
+
+<section className="splide" id="test-splide-carousel" aria-label="Simple Test Carousel">
+  <div className="splide__track">
+    <ul className="splide__list">
+      <li className="splide__slide">
         <div style={{backgroundColor: '#FF5733', padding: '50px', textAlign: 'center', color: 'white'}}>
           <h2>Slide 1</h2>
           <p>This is the first slide</p>
         </div>
       </li>
-      <li class="splide__slide">
+      <li className="splide__slide">
         <div style={{backgroundColor: '#33FF57', padding: '50px', textAlign: 'center', color: 'black'}}>
           <h2>Slide 2</h2>
           <p>This is the second slide</p>
         </div>
       </li>
-      <li class="splide__slide">
+      <li className="splide__slide">
         <div style={{backgroundColor: '#3357FF', padding: '50px', textAlign: 'center', color: 'white'}}>
           <h2>Slide 3</h2>
           <p>This is the third slide</p>
@@ -25,10 +29,17 @@ This is a simple test page to verify that Splide is working correctly.
       </li>
     </ul>
   </div>
-  <div class="my-carousel-progress">
-    <div class="my-carousel-progress-bar"></div>
+  <div className="my-carousel-progress">
+    <div className="my-carousel-progress-bar"></div>
   </div>
 </section>
+
+<div id="splide-debug-script">
+{/* 
+In MDX, we can't use a normal script tag. Instead, we'll use client-side code that will be injected via our SplideInit component.
+The debug output above will help us understand what's happening.
+*/}
+</div>
 
 ## Splide Implementation Details
 
