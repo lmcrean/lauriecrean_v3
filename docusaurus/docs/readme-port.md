@@ -256,7 +256,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 ## Hoverboard
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br>
 
 <img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex" />
@@ -289,8 +289,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 ## Crocodile Kingdom
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend">
-
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex" />
@@ -319,10 +318,10 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 ## Retrolympic Rush
 
 <div style="text-align: center;">
-  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
-  <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors">
-  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
-  <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon">
+  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" />
+  <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors" />
+  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" />
+  <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex" />
@@ -341,10 +340,10 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 ## Wealth Quest
 
 <div style="text-align: center;">
-  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type">
-  <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors">
-  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon">
-  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon">
+  <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" />
+  <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors" />
+  <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" />
+  <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex" />
