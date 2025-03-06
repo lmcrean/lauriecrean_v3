@@ -13,7 +13,9 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
@@ -31,6 +33,7 @@
     "@docusaurus/module-type-aliases": "3.7.0",
     "@docusaurus/tsconfig": "3.7.0",
     "@docusaurus/types": "3.7.0",
+    "@playwright/test": "^1.51.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.0",
     "babel-jest": "^29.7.0",
