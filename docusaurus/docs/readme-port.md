@@ -3,7 +3,7 @@
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
 
 ***
-<div style="display: none;">
+<div style={{display: 'none'}}>
 
 # Welcome
 
@@ -11,7 +11,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 ## Odyssey
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
@@ -64,7 +64,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 ## Coach Matrix
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
@@ -105,7 +105,7 @@ Social platform focused on professional development • Custom authentication an
 
 ## Steam Report
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
@@ -122,7 +122,7 @@ Social platform focused on professional development • Custom authentication an
         <img src="http://lauriecrean.dev/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B" />
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex" />
+        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style={{margin: 'auto', display: 'flex'}} />
       </li>
     </ul>
   </div>
@@ -167,7 +167,7 @@ Social platform focused on professional development • Custom authentication an
 
 ## AWS Authentication Feature
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
 
@@ -196,7 +196,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 
 ## Azure Authentication Feature
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
 
@@ -211,7 +211,7 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 
 ## Antelope
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
 
@@ -225,11 +225,11 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 
 ## Laurie Crean
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex" />
+<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style={{margin: 'auto', display: 'flex'}} />
 
 <center><b>version 2.0</b></center>
 
@@ -255,11 +255,11 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 ## Hoverboard
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br />
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex" />
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style={{margin: 'auto', display: 'flex'}} />
       
 <br />
 
@@ -288,11 +288,11 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 ## Crocodile Kingdom
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex" />
+<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style={{margin: 'auto', display: 'flex'}} />
 
 
 <center><b>version 2.0</b></center>
@@ -317,14 +317,14 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 ## Retrolympic Rush
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
   <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" />
   <img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors" />
   <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" />
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex" />
+<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style={{margin: 'auto', display: 'flex'}} />
 
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -339,14 +339,14 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 ## Wealth Quest
 
-<div style="text-align: center;">
+<div style={{textAlign: 'center'}}>
   <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" />
   <img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors" />
   <img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" />
   <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex" />
+<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style={{margin: 'auto', display: 'flex'}} />
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
