@@ -147,7 +147,7 @@ Social platform focused on professional development • Custom authentication an
 
   Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
 
-<hr>
+<hr />
 
 <b>version 1.0</b>
   
@@ -182,7 +182,7 @@ Social platform focused on professional development • Custom authentication an
 Ported Cloudinary, gitpod, PostgreSQL, Heroku from [Odyssey API](https://github.com/lmcrean/odyssey-api) to a more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
 
 
-<hr>
+<hr />
 
 <center><b>version 1.0</b></center>
 
@@ -226,7 +226,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 ## Laurie Crean
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div>
 
 <img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex" />
@@ -241,7 +241,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
-<hr>
+<hr />
 <center><b>version 1.0</b></center>
 
 <a href="https://github.com/lmcrean/lauriecrean"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
