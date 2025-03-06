@@ -23,6 +23,25 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // Add splide scripts directly to the head
+  scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js',
+      async: true,
+    },
+    {
+      src: '/js/init-splide.js',
+      async: true,
+      defer: true,
+    },
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css',
+      type: 'text/css',
+    },
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -45,7 +64,7 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css', './src/css/splide-custom.css'],
         },
       } satisfies Preset.Options,
     ],
@@ -126,6 +145,12 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  // Add this section for client modules
+  clientModules: [
+    // Add scripts that need to run on every page here
+    require.resolve('./src/css/splide-custom.css'),
+  ],
 };
 
 export default config;
