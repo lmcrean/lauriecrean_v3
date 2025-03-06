@@ -14,6 +14,12 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testPathIgnorePatterns: ['/node_modules/', '/.docusaurus/', '/build/'],
+  testPathIgnorePatterns: [
+    '/node_modules/', 
+    '/.docusaurus/', 
+    '/build/',
+    '/tests-e2e/',
+    '\\.spec\\.(js|jsx|ts|tsx)$'
+  ],
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
 }; 
