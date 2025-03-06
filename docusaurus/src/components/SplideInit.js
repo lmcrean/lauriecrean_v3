@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // This is a client-side only component
-export default function SplideInit() {
+export default function SplideInit({ testMode = false, onInitializeStart = null }) {
   useEffect(() => {
     console.log('SplideInit component mounted');
 
@@ -13,7 +13,7 @@ export default function SplideInit() {
 
     // Check if carousels are already initialized by our static script
     const alreadyInitialized = document.querySelectorAll('.splide.is-initialized').length > 0;
-    if (alreadyInitialized) {
+    if (alreadyInitialized && !testMode) {
       console.log('Carousels already initialized by static script, skipping React initialization');
       return;
     }
@@ -64,6 +64,11 @@ export default function SplideInit() {
     // Initialize carousels using our existing carousel.js logic
     const initializeCarousels = () => {
       console.log('Initializing carousels');
+      
+      // Notify for testing purposes
+      if (onInitializeStart && typeof onInitializeStart === 'function') {
+        onInitializeStart();
+      }
       
       if (!window.Splide) {
         console.error('Splide not available in window object');
@@ -191,7 +196,7 @@ export default function SplideInit() {
       console.log('SplideInit component unmounting');
       // Clean up could remove event listeners if needed
     };
-  }, []);
+  }, [testMode, onInitializeStart]);
 
   // This component doesn't render anything visible
   return null;
