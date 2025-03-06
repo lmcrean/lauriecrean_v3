@@ -18,6 +18,10 @@ export default function SplideInit() {
       return;
     }
 
+    // Retry counter to avoid infinite retries
+    let retryCount = 0;
+    const MAX_RETRIES = 3;
+
     // Load Splide CSS first (if not already in your head)
     const loadSplideStyles = () => {
       console.log('Loading Splide CSS');
@@ -70,13 +74,29 @@ export default function SplideInit() {
       const allCarousels = document.querySelectorAll('.splide');
       console.log(`Found ${allCarousels.length} total splide carousels`);
       
+      // Log IDs for debugging
+      allCarousels.forEach((carousel, index) => {
+        console.log(`Carousel #${index} with ID: ${carousel.id}, classes: ${carousel.className}`);
+      });
+      
+      if (allCarousels.length === 0) {
+        retryCount++;
+        if (retryCount <= MAX_RETRIES) {
+          console.log(`No carousels found. Retrying initialization (${retryCount}/${MAX_RETRIES})...`);
+          setTimeout(initializeCarousels, 1000); // Retry after 1 second
+        } else {
+          console.log('Max retries reached. No carousels found.');
+        }
+        return;
+      }
+      
       // Basic carousels
-      const basicCarousels = document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)');
+      const basicCarousels = document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(.is-initialized)');
       console.log(`Found ${basicCarousels.length} basic carousels`);
       
       basicCarousels.forEach((carousel, index) => {
         try {
-          console.log(`Initializing basic carousel #${index}`);
+          console.log(`Initializing basic carousel #${index} with ID: ${carousel.id}`);
           new window.Splide(carousel, {
             type: 'loop',
             perPage: 1,
@@ -98,7 +118,7 @@ export default function SplideInit() {
       const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
       
       projectCarousels.forEach(id => {
-        const carousel = document.querySelector(`#${id}-carousel`);
+        const carousel = document.querySelector(`#${id}-carousel:not(.is-initialized)`);
         if (carousel) {
           console.log(`Initializing project carousel: ${id}`);
           try {
@@ -133,7 +153,7 @@ export default function SplideInit() {
             console.error(`Error initializing project carousel ${id}:`, error);
           }
         } else {
-          console.log(`Project carousel ${id} not found in DOM`);
+          console.log(`Project carousel ${id} not found in DOM or already initialized`);
         }
       });
     };
@@ -150,6 +170,15 @@ export default function SplideInit() {
           console.log('Timeout elapsed, initializing carousels');
           initializeCarousels();
         }, 1000);
+        
+        // Also try after longer delay to catch any late-loading elements
+        setTimeout(() => {
+          const hasInitializedCarousels = document.querySelectorAll('.splide.is-initialized').length > 0;
+          if (!hasInitializedCarousels) {
+            console.log('No initialized carousels found after delay, trying again');
+            initializeCarousels();
+          }
+        }, 3000);
       } catch (error) {
         console.error('Error in Splide initialization:', error);
       }
