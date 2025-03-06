@@ -1,0 +1,264 @@
+/* Dark theme styles for Docsify */
+/* Color variables moved to colors.css */
+
+@import 'colors.css';
+
+  img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
+.anchor span, h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+}
+
+  .sidebar, body.close .sidebar-toggle, input[type='search'], button.sidebar-toggle {
+    background-color: inherit !important;
+  }
+
+  input[type='search'] {
+    filter: brightness(1.2);
+  }
+
+  .sidebar ul li a {
+    color: var(--text-color);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .markdown-section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .markdown-section table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+  }
+  
+  .markdown-section table th,
+  .markdown-section table td {
+    border: 1px solid var(--sidebar-highlight-color);
+    padding: 8px;
+  }
+  
+  .markdown-section table th {
+    background-color: var(--table-header-bg);
+    font-weight: bold;
+  }
+  
+  .markdown-section table tr {
+    background-color: var(--table-row-bg);
+  }
+  
+  .markdown-section table tr:nth-child(even) {
+    background-color: var(--table-row-alt-bg);
+  }
+  
+  /* Adjust code block styling */
+  .markdown-section pre {
+    background-color: #2c2c2c;
+  }
+  
+  .markdown-section code {
+    color: #e0e0e0;
+  }
+
+  .medium-zoom-overlay {
+  background-color: black !important;
+  opacity: 0.9 !important;
+  transition: all 0.3s !important;
+}
+
+.markdown-section pre > code, strong {
+  color: #d1d1d1 !important;
+}
+
+/* Remove default styling for all list items */
+.sidebar-nav li::before {
+  content: none;
+}
+
+/* Style for top-level items */
+.sidebar-nav > ul > li {
+  position: relative;
+}
+
+.sidebar-nav > ul > li:not(:has(> .sidebar-button))::before {
+  content: '▶';
+  position: absolute;
+  left: -7px;
+  top: 0px;
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+/* Rotate arrow when item is open */
+li.active ::before {
+  transform: rotate(90deg);
+}
+
+.sidebar-nav > ul {
+  padding-left: 20px;
+}
+
+/* Hide sub-items when collapsed */
+.sidebar-nav > ul > li.collapse > ul {
+  display: none;
+}
+
+/* Remove arrows from all sub-items */
+.sidebar-nav ul ul li::before {
+  content: none;
+}
+
+
+
+.sidebar ul li.active > a {
+  color: var(--sidebar-highlight-color);
+  background-color: var(--background-color);
+  border-width: thick;
+}
+
+.sidebar ul li > a {
+  padding-left: 10px;
+  font-weight: 600;
+  margin-left: 5px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+
+/* Splide Carousel Styles */
+.splide {
+  margin: 2rem 0;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splide__slide img {
+  max-width: 100%;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Manual carousel progress bar styles */
+.my-carousel-progress {
+  background: #2d2d2d;
+  height: 2px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.my-carousel-progress-bar {
+  background: var(--sidebar-highlight-color);
+  height: 2px;
+  transition: width 400ms ease;
+  width: 0;
+}
+
+/* Manual carousel styles for project carousels */
+#odyssey-carousel,
+#coachmatrix-carousel,
+#steamreport-carousel {
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Arrow customization */
+.splide__arrow {
+  background: rgba(0, 0, 0, 0.5);
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  border-radius: 50%;
+}
+
+.splide__arrow:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.splide__arrow svg {
+  fill: #fff;
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s;
+}
+
+/* Remove old manual arrow styles */
+.manual-arrow {
+  display: none;
+}
+
+/* Thumbnail carousel specific styles */
+#thumbnail-carousel .splide__slide {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+#thumbnail-carousel .splide__slide.is-active {
+  opacity: 1;
+}
+
+#thumbnail-carousel .splide__slide img {
+  max-height: 80px;
+  width: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #thumbnail-carousel .splide__slide img {
+    max-height: 60px;
+  }
+}
+
+/* Pagination styles */
+.pagination-item {
+  margin: 1rem 0;
+}
+
+.pagination-item a {
+  color: var(--text-color) !important;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.pagination-item-label {
+  color: var(--sidebar-highlight-color);
+  font-size: 0.8rem;
+}
+
+.pagination-item-title {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem !important;
+  text-align: center;
+}
+
+h2 {
+  /* font-size: 1.5rem !important; */
+}
+
+.splide {
+  max-width: 800px !important;
+}
+
