@@ -1,0 +1,52 @@
+/* Custom styles for Splide carousels */
+.splide__arrow {
+  background: rgba(0, 0, 0, 0.7);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.splide__arrow svg {
+  fill: #fff;
+}
+
+.my-carousel-progress {
+  background: #ccc;
+  height: 4px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.my-carousel-progress-bar {
+  background: var(--ifm-color-primary);
+  height: 4px;
+  width: 0;
+  transition: width 400ms ease;
+}
+
+/* Make splide more responsive */
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .splide__arrow {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .splide__arrow svg {
+  fill: #eee;
+}
+
+[data-theme='dark'] .my-carousel-progress {
+  background: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .splide__arrow {
+    width: 2rem;
+    height: 2rem;
+  }
+} 
