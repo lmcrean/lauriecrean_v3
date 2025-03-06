@@ -169,7 +169,7 @@ Social platform focused on professional development • Custom authentication an
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br>
+</div><br />
 
 <center><b>version 2.0</b></center>
 
@@ -198,7 +198,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br>
+</div><br />
 
 ![ASP.NET](https://img.shields.io/badge/ASP.NET-1C1C1C?&logo=asp.net&logoColor=white) ![C#](https://img.shields.io/badge/C%23-1C1C1C?&logo=c&logoColor=white) ![Azure](https://img.shields.io/badge/Azure-1C1C1C?&logo=windows&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Azure app services](https://img.shields.io/badge/Azure_App_Services-1C1C1C?&logo=azure&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![Github Actions](https://img.shields.io/badge/Github_Actions-1C1C1C?&logo=github&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-1_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
 
@@ -213,7 +213,7 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br>
+</div><br />
 
 <a href="https://github.com/lmcrean/antelope"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -257,11 +257,11 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
-</div><br>
+</div><br />
 
 <img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex" />
       
-<br>
+<br />
 
 <center><b>version 2.0</b></center>
 
@@ -275,7 +275,7 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1"> <button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> </a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/hoverboard"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1"> <button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://lmcrean.github.io/Hoverboard/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard/commits/main)
 
