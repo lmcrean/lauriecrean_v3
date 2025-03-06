@@ -22,5 +22,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/_document.js"],
-  "exclude": ["node_modules", "components/ReadmeText/Hoverboard.tsx", "components/ReadmeText/SteamReport.tsx"]
+  "exclude": ["node_modules", ".archive/components/ReadmeText/Hoverboard.tsx", ".archive/components/ReadmeText/SteamReport.tsx"]
 }

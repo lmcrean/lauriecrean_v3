@@ -14,6 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "bootstrap": "^5.3.3",
     "docsify": "^4.13.1",
+    "docusaurus": "^1.14.7",
     "fontawesome": "^5.6.3",
     "framer-motion": "^11.2.10",
     "lineicons-react": "^1.0.5",
