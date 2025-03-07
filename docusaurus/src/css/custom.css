@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom sidebar variables */
+  --sidebar-project-indent: 1rem;
+  --sidebar-item-indent: 0.5rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,4 +45,43 @@
 /* Smooth transition for theme switching */
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom sidebar styling for table of contents */
+.table-of-contents {
+  font-size: 0.9rem;
+}
+
+.table-of-contents ul {
+  padding-left: var(--sidebar-project-indent);
+}
+
+/* Make h2 items look distinct like project items */
+.table-of-contents li a {
+  display: block;
+  padding: 0.4rem 0;
+}
+
+/* Indent h3+ items to create hierarchy */
+.table-of-contents li li {
+  margin-left: var(--sidebar-item-indent);
+  font-size: 0.85rem;
+}
+
+/* Add some visual distinction to project headings */
+.table-of-contents li a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Custom project page styling */
+.theme-doc-markdown h2 {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-gray-300);
+}
+
+/* First h2 shouldn't have the top border */
+.theme-doc-markdown h2:first-of-type {
+  border-top: none;
 }
