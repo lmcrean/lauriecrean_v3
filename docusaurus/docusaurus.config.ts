@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Dark Mode Docusaurus',
-  tagline: 'A sleek documentation site with enhanced dark mode',
+  title: 'Laurie Crean',
+  tagline: 'Full-Stack Software Engineer, Developer, QA Tester',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -58,10 +58,11 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Set routeBasePath to '/' to make docs the landing page
           routeBasePath: '/',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // Remove the edit URL
+          editUrl: undefined,
+          // Configure TOC (Table of Contents) for sidebar
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
         },
         theme: {
           customCss: ['./src/css/custom.css', './src/css/splide-custom.css'],
@@ -79,21 +80,25 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: false,
+      },
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 3,
+    },
     navbar: {
-      title: 'Dark Mode Docusaurus',
+      title: 'Laurie Crean',
       logo: {
-        alt: 'Dark Mode Docusaurus Logo',
+        alt: 'Laurie Crean Portfolio Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/lauriecrean',
           label: 'GitHub',
           position: 'right',
         },
@@ -103,10 +108,10 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Connect',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Portfolio',
               to: '/',
             },
           ],
@@ -133,12 +138,12 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/lauriecrean',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Laurie Crean. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
