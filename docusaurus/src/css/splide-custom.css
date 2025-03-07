@@ -27,7 +27,41 @@
 .splide__slide img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.splide__track {
+  height: 600px;
+}
+
+/* Project-specific carousel styles */
+#odyssey-carousel,
+#coachmatrix-carousel,
+#steamreport-carousel {
+  margin: 1rem 0;
+  max-height: 650px; /* Allows for the carousel controls and progress bar */
+}
+
+#odyssey-carousel .splide__slide,
+#coachmatrix-carousel .splide__slide,
+#steamreport-carousel .splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+#odyssey-carousel .splide__slide img,
+#coachmatrix-carousel .splide__slide img,
+#steamreport-carousel .splide__slide img {
+  max-width: 100%;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Dark mode adjustments */
@@ -48,5 +82,18 @@
   .splide__arrow {
     width: 2rem;
     height: 2rem;
+  }
+  
+  #odyssey-carousel .splide__slide,
+  #coachmatrix-carousel .splide__slide,
+  #steamreport-carousel .splide__slide {
+    height: auto;
+    max-height: 500px;
+  }
+  
+  #odyssey-carousel .splide__slide img,
+  #coachmatrix-carousel .splide__slide img,
+  #steamreport-carousel .splide__slide img {
+    max-height: 500px;
   }
 } 
