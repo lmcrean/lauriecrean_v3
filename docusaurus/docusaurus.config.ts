@@ -65,7 +65,7 @@ const config: Config = {
           showLastUpdateAuthor: false,
         },
         theme: {
-          customCss: ['./src/css/custom.css', './src/css/splide-custom.css'],
+          customCss: ['./src/css/custom.css', './src/css/splide-custom.css', './src/css/buttons.css'],
         },
       } satisfies Preset.Options,
     ],
@@ -155,6 +155,7 @@ const config: Config = {
   clientModules: [
     // Add scripts that need to run on every page here
     require.resolve('./src/css/splide-custom.css'),
+    require.resolve('./src/css/buttons.css'),
   ],
 };
 
