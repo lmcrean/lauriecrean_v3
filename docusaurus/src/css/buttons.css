@@ -1,0 +1,94 @@
+.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn, .figma-btn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .code-btn:hover, .readme-btn:hover, .live-demo-btn:hover, .figma-btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .code-btn { background-color: #3e8e41;}
+  .readme-btn { background-color: #3b0d4c;}
+  .live-demo-btn { background-color: #043ca5;}
+  .figma-btn { background-color: #643a0f;}
+
+a {
+    text-decoration: none;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+  
+/* Style for sidebar buttons */
+.sidebar-btn {
+    margin-right: 5px;
+    background-color: #1e4a20;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    filter: saturate(0.9);
+    width: 35px;
+    height: 35px;
+  }
+  
+  .sidebar-btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar-button:active {
+    background-color: #091009;
+  }
+
+  .github-btn {
+    background-color: #000000;
+  }
+
+  .linkedin-btn {
+    background-color: #0077b5;
+  }
+
+  .email-btn {
+    background-color: #d44638;
+  }
+
+/* Fix for MDX style handling */
+[style*="text-align: center"] {
+  text-align: center;
+}
+
+[style*="margin: auto"] {
+  margin: auto;
+}
+
+[style*="display: flex"] {
+  display: flex;
+}
+
+/* Button icon spacing */
+button i {
+  margin-right: 5px;
+  font-size: 14px;
+}
