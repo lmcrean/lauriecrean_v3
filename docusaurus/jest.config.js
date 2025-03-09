@@ -1,25 +1,16 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', {
-      presets: [
-        ['@babel/preset-env', { targets: { node: 'current' } }],
-        '@babel/preset-react',
-        '@babel/preset-typescript',
-      ],
-    }],
-  },
   moduleNameMapper: {
-    '^@site/(.*)$': '<rootDir>/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { configFile: './babel.config.js' }],
+  },
+  setupFilesAfterEnv: ['<rootDir>/src/tests/setupTests.js'],
   testPathIgnorePatterns: [
     '/node_modules/', 
-    '/.docusaurus/', 
+    '/.cache/', 
     '/build/',
-    '/tests-e2e/',
-    '\\.spec\\.(js|jsx|ts|tsx)$'
+    '/tests-e2e/'  // Exclude Playwright E2E tests directory
   ],
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
 }; 
