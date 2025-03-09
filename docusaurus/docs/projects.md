@@ -128,7 +128,7 @@ Social platform focused on professional development • Custom authentication an
         <img src="http://lauriecrean.dev/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B" />
       </li>
       <li className="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" style="max-height: auto; width: 600px; margin: auto; display: flex;" />
+        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" style={{maxHeight: "auto", width: "600px", margin: "auto", display: "flex"}} />
       </li>
     </ul>
   </div>
@@ -235,7 +235,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" style="width: 500px; height: auto; margin: auto; display: flex;" />
+<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" style={{width: "500px", height: "auto", margin: "auto", display: "flex"}} />
 
 <center><b>version 2.0</b></center>
 
@@ -265,7 +265,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br />
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" style="max-height: auto; width: 500px; margin: auto; display: flex;" />
+<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
       
 <br />
 
@@ -298,7 +298,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" style="max-height: auto; width: 450px; margin: auto; display: flex;" />
+<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
 
 <center><b>version 2.0</b></center>
@@ -330,7 +330,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" style="max-height: auto; width: 450px; margin: auto; display: flex;" />
+<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -352,7 +352,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
   <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" style="max-height: auto; width: 450px; margin: auto; display: flex;" />
+<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
