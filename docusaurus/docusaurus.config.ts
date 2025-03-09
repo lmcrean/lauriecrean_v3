@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Laurie Crean',
   tagline: 'Full-Stack Software Engineer, Developer, QA Tester',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://raw.githubusercontent.com/lmcrean/lauriecrean_nextjs/refs/heads/main/docs/favicon-v2.ico',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -102,7 +102,7 @@ const config: Config = {
       title: 'Laurie Crean',
       logo: {
         alt: 'Laurie Crean Portfolio Logo',
-        src: 'img/logo.svg',
+        src: 'https://raw.githubusercontent.com/lmcrean/lauriecrean_nextjs/refs/heads/main/docs/favicon-v2.ico',
       },
       items: [
         {
