@@ -13,11 +13,13 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "test": "jest",
-    "test:unit": "jest",
+    "test": "jest --config jest.config.js",
+    "test:unit": "jest --config jest.config.js",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:all": "npm run test:unit && npm run test:e2e"
+    "test:all": "npm run test:unit && npm run test:e2e",
+    "test:watch": "jest --config jest.config.js --watch",
+    "test:buttons": "jest --config jest.config.js src/tests/button"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
