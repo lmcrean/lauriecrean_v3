@@ -13,12 +13,32 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // Portfolio sidebar with nested projects
-  portfolioSidebar: [
+  // Main sidebar with all documents
+  docs: [
     {
       type: 'doc',
       id: 'projects',
       label: 'Projects',
+    },
+    {
+      type: 'doc',
+      id: 'certifications',
+      label: 'Certifications',
+    },
+    {
+      type: 'doc',
+      id: 'experience',
+      label: 'Experience',
+    },
+    {
+      type: 'doc',
+      id: 'education',
+      label: 'Education',
+    },
+    {
+      type: 'doc',
+      id: 'agile',
+      label: 'Agile Development',
     },
   ],
 };
