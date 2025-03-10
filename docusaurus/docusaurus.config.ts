@@ -110,34 +110,40 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://www.linkedin.com/in/lcrean/',
+          label: 'LinkedIn',
+          position: 'right',
+        },
+        {
+          href: 'mailto:lmcrean@gmail.com',
+          label: 'Email',
+          position: 'right',
+        },
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Connect',
+          title: 'Contact',
           items: [
             {
-              label: 'Portfolio',
-              to: '/',
+              label: 'Email',
+              href: 'mailto:lmcrean@gmail.com',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Connect',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub',
+              href: 'https://github.com/lmcrean',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'LinkedIn',
+              href: 'http://linkedin.com/in/lcrean',
             },
           ],
         },
@@ -145,8 +151,16 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/lauriecrean',
+              label: 'LeetCode',
+              href: 'https://leetcode.com/lmcrean',
+            },
+            {
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/users/21992930/laurie-crean?tab=topactivity',
+            },
+            {
+              label: 'HackerRank',
+              href: 'https://www.hackerrank.com/profile/mrcrean92',
             },
           ],
         },
