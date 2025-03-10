@@ -139,7 +139,7 @@ Social platform focused on professional development • Custom authentication an
 
 <section>
 
-<b>version 2.0</b>
+<center><b>version 2.0</b><br/></center>
 
 <a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -155,7 +155,7 @@ Social platform focused on professional development • Custom authentication an
 
 <hr />
 
-<b>version 1.0</b>
+<center><b>version 1.0</b><br/></center>
   
 <a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
