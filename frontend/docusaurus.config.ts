@@ -7,18 +7,18 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Laurie Crean',
   tagline: 'Full-Stack Software Engineer, Developer, QA Tester',
-  favicon: 'https://raw.githubusercontent.com/lmcrean/lauriecrean_nextjs/refs/heads/main/docs/favicon-v2.ico',
+  favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://lauriecrean-v3-fl6r6kiez-lmcreans-projects.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'lmcrean', // Usually your GitHub org/user name.
+  projectName: 'lauriecrean', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -81,7 +81,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.svg',
     // Add colorMode configuration
     colorMode: {
       defaultMode: 'dark',
@@ -102,7 +102,7 @@ const config: Config = {
       title: 'Laurie Crean',
       logo: {
         alt: 'Laurie Crean Portfolio Logo',
-        src: 'https://raw.githubusercontent.com/lmcrean/lauriecrean_nextjs/refs/heads/main/docs/favicon-v2.ico',
+        src: 'img/logo.svg',
       },
       items: [
         {
