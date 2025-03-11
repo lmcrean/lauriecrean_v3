@@ -25,6 +25,12 @@ test.describe('Image Loading Tests', () => {
         continue;
       }
       
+      // Skip GitHub shields badges as they are external resources
+      if (src.includes('img.shields.io')) {
+        console.log(`Skipping GitHub shield badge: ${src}`);
+        continue;
+      }
+      
       // Check if the image is visible
       const isVisible = await img.isVisible();
       if (!isVisible) {
