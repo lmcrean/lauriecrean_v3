@@ -19,7 +19,10 @@
     "test:e2e:ui": "playwright test --ui",
     "test:all": "npm run test:unit && npm run test:e2e",
     "test:watch": "jest --config jest.config.js --watch",
-    "test:buttons": "jest --config jest.config.js src/tests/button"
+    "test:buttons": "jest --config jest.config.js src/tests/button",
+    "deploy:prod": "vercel --prod",
+    "test:prod:images": "playwright test tests-e2e/images.spec.ts --config=playwright.prod.config.ts --headed",
+    "deploy-and-test-images": "npm run deploy:prod && npm run test:prod:images"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
