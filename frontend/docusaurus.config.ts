@@ -40,6 +40,22 @@ const config: Config = {
       href: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css',
       type: 'text/css',
     },
+    // Add Google Fonts preconnect
+    {
+      href: 'https://fonts.googleapis.com',
+      rel: 'preconnect',
+    },
+    {
+      href: 'https://fonts.gstatic.com',
+      rel: 'preconnect',
+      crossorigin: 'anonymous',
+    },
+    // Add Google Fonts stylesheet
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap',
+      type: 'text/css',
+      rel: 'stylesheet',
+    },
     // Add Font Awesome
     {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
