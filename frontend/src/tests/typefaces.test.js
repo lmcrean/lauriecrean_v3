@@ -28,32 +28,32 @@ describe('Typefaces CSS Tests', () => {
     window.getComputedStyle = jest.fn().mockImplementation((element) => {
       if (element.tagName === 'H1') {
         return {
-          fontFamily: "'Etna', sans-serif",
+          fontFamily: "'Funnel Display', sans-serif",
           fontSize: '3rem',
           textAlign: 'center',
           opacity: '0.9',
         };
       } else if (element.tagName === 'H2') {
         return {
-          fontFamily: "'Etna', sans-serif",
+          fontFamily: "'Funnel Display', sans-serif",
           fontSize: '2.5rem',
           textAlign: 'center',
           opacity: '0.9',
         };
       } else if (element.className && element.className.includes('sidebar-title')) {
         return {
-          fontFamily: "'Etna', sans-serif",
+          fontFamily: "'Funnel Display', sans-serif",
           textAlign: 'center',
           opacity: '0.9',
         };
       } else if (['H3', 'H4', 'H5', 'H6', 'SPAN', 'LI'].includes(element.tagName)) {
         return {
-          fontFamily: "'Funnel Display', sans-serif",
+          fontFamily: "'GlacialIndifference', sans-serif",
           fontWeight: '400',
         };
       } else if (element.tagName === 'P') {
         return {
-          fontFamily: "'Actor', sans-serif",
+          fontFamily: "'GlacialIndifference', sans-serif",
           fontSize: '1rem',
           lineHeight: '1.5rem',
         };
@@ -67,18 +67,18 @@ describe('Typefaces CSS Tests', () => {
     window.getComputedStyle = originalGetComputedStyle;
   });
 
-  test('h1 and h2 elements should use Etna font', () => {
+  test('h1 and h2 elements should use Funnel Display font', () => {
     const h1 = document.querySelector('h1');
     const h2 = document.querySelector('h2');
     
-    expect(window.getComputedStyle(h1).fontFamily).toContain('Etna');
-    expect(window.getComputedStyle(h2).fontFamily).toContain('Etna');
+    expect(window.getComputedStyle(h1).fontFamily).toContain('Funnel Display');
+    expect(window.getComputedStyle(h2).fontFamily).toContain('Funnel Display');
   });
 
-  test('sidebar-title should use Etna font', () => {
+  test('sidebar-title should use Funnel Display font', () => {
     const sidebarTitle = document.querySelector('.sidebar-title');
     
-    expect(window.getComputedStyle(sidebarTitle).fontFamily).toContain('Etna');
+    expect(window.getComputedStyle(sidebarTitle).fontFamily).toContain('Funnel Display');
   });
 
   test('h1 should have font size of 3rem', () => {
@@ -91,22 +91,22 @@ describe('Typefaces CSS Tests', () => {
     expect(window.getComputedStyle(h2).fontSize).toBe('2.5rem');
   });
 
-  test('h3, h4, span, and li elements should use Funnel Display font', () => {
+  test('h3, h4, span, and li elements should use GlacialIndifference font', () => {
     const h3 = document.querySelector('h3');
     const h4 = document.querySelector('h4');
     const span = document.querySelector('span');
     const li = document.querySelector('li');
     
-    expect(window.getComputedStyle(h3).fontFamily).toContain('Funnel Display');
-    expect(window.getComputedStyle(h4).fontFamily).toContain('Funnel Display');
-    expect(window.getComputedStyle(span).fontFamily).toContain('Funnel Display');
-    expect(window.getComputedStyle(li).fontFamily).toContain('Funnel Display');
+    expect(window.getComputedStyle(h3).fontFamily).toContain('GlacialIndifference');
+    expect(window.getComputedStyle(h4).fontFamily).toContain('GlacialIndifference');
+    expect(window.getComputedStyle(span).fontFamily).toContain('GlacialIndifference');
+    expect(window.getComputedStyle(li).fontFamily).toContain('GlacialIndifference');
   });
 
-  test('p elements should use Actor font', () => {
+  test('p elements should use GlacialIndifference font', () => {
     const p = document.querySelector('p');
     
-    expect(window.getComputedStyle(p).fontFamily).toContain('Actor');
+    expect(window.getComputedStyle(p).fontFamily).toContain('GlacialIndifference');
   });
 
   test('p elements should have font size of 1rem and line height of 1.5rem', () => {
