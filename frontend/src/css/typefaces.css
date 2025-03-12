@@ -1,7 +1,7 @@
 /* Etna for headings */
 @font-face {
     font-family: 'Etna';
-    src: url('../fonts/etna-free-font.otf') format('opentype');
+    src: url('/fonts/etna-free-font.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'Actor';
-    src: url('../fonts/Actor-Regular.ttf') format('truetype');
+    src: url('/fonts/Actor-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -18,7 +18,7 @@
 /* Funnel Display Variable Font */
 @font-face {
     font-family: 'Funnel Display';
-    src: url('../fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype-variations');
+    src: url('/fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 100 900; /* Variable font weight range */
     font-style: normal;
     font-display: swap;
