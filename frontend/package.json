@@ -22,7 +22,11 @@
     "test:buttons": "jest --config jest.config.js src/tests/button",
     "deploy:prod": "vercel --prod",
     "test:prod:images": "playwright test tests-e2e/images.spec.ts --config=playwright.prod.config.ts --headed",
-    "deploy-and-test-images": "npm run deploy:prod && npm run test:prod:images"
+    "test:prod:typefaces": "playwright test tests-e2e/typefaces.prod.spec.ts --config=playwright.prod.config.ts",
+    "test:prod:typefaces:headed": "playwright test tests-e2e/typefaces.prod.spec.ts --config=playwright.prod.config.ts --headed",
+    "deploy-and-test-images": "npm run deploy:prod && npm run test:prod:images",
+    "deploy-and-test-typefaces": "npm run deploy:prod && npm run test:prod:typefaces",
+    "deploy-and-test-all": "npm run deploy:prod && npm run test:prod:images && npm run test:prod:typefaces"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
