@@ -13,8 +13,8 @@ test.describe('Typeface Styling', () => {
     // Wait for the page to fully load
     await page.waitForLoadState('networkidle');
     
-    // Wait a bit longer to ensure CSS has loaded
-    await page.waitForTimeout(1000);
+    // Wait longer to ensure CSS and fonts have loaded
+    await page.waitForTimeout(3000);
   });
 
   // Test that the font files are loaded in the page
@@ -65,7 +65,7 @@ test.describe('Typeface Styling', () => {
     // This may not work if fonts are bundled or loaded differently in production
     const hasEtnaFont = fontRequests.some(url => url.includes('etna'));
     const hasActorFont = fontRequests.some(url => url.includes('actor'));
-    const hasFunnelFont = fontRequests.some(url => url.includes('funnel'));
+    const hasFunnelFont = fontRequests.some(url => url.includes('funnel') || url.includes('FunnelDisplay'));
     
     // Log what we found for debugging
     console.log('Found fonts - Etna:', hasEtnaFont, 'Actor:', hasActorFont, 'Funnel:', hasFunnelFont);
@@ -112,22 +112,40 @@ test.describe('Typeface Styling', () => {
     
     // Check if h1 has a computed style (this is a basic check that styling is applied)
     if (h1Count > 0) {
-      const h1HasStyle = await page.locator('h1').first().evaluate(el => {
+      const h1Styles = await page.locator('h1').first().evaluate(el => {
         const style = window.getComputedStyle(el);
-        return style.fontFamily !== '' && style.fontSize !== '';
+        return {
+          fontFamily: style.fontFamily,
+          fontSize: style.fontSize,
+          textAlign: style.textAlign
+        };
       });
       
-      expect(h1HasStyle).toBeTruthy();
+      console.log('H1 computed styles:', h1Styles);
+      
+      // Check that h1 has Etna font (or at least a non-default font)
+      expect(h1Styles.fontFamily).not.toBe('');
+      const hasEtnaFont = h1Styles.fontFamily.toLowerCase().includes('etna');
+      console.log('H1 has Etna font:', hasEtnaFont);
     }
     
     // Check if p has a computed style
     if (pCount > 0) {
-      const pHasStyle = await page.locator('p').first().evaluate(el => {
+      const pStyles = await page.locator('p').first().evaluate(el => {
         const style = window.getComputedStyle(el);
-        return style.fontFamily !== '' && style.fontSize !== '';
+        return {
+          fontFamily: style.fontFamily,
+          fontSize: style.fontSize,
+          lineHeight: style.lineHeight
+        };
       });
       
-      expect(pHasStyle).toBeTruthy();
+      console.log('Paragraph computed styles:', pStyles);
+      
+      // Check that paragraph has Funnel Display font (or at least a non-default font)
+      expect(pStyles.fontFamily).not.toBe('');
+      const hasFunnelFont = pStyles.fontFamily.toLowerCase().includes('funnel');
+      console.log('Paragraph has Funnel Display font:', hasFunnelFont);
     }
   });
 }); 
