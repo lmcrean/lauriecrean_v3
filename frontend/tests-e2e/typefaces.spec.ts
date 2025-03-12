@@ -20,10 +20,10 @@ test.describe('Typeface Styling', () => {
   // Test that the font files are loaded in the page
   test('should load font files', async ({ page }) => {
     // Take a screenshot for debugging
-    await page.screenshot({ path: 'typefaces-fonts.png' });
+    await page.screenshot({ path: 'tests-e2e/screenshots/typefaces-fonts.png' });
     
     // Manually navigate to the font files to check if they exist
-    for (const fontFile of ['etna-free-font.otf', 'FunnelDisplay-VariableFont_wght.ttf']) {
+    for (const fontFile of ['FunnelDisplay-VariableFont_wght.ttf', 'GlacialIndifference-Regular.woff', 'GlacialIndifference-Bold.woff']) {
       const fontUrl = `http://localhost:3000/fonts/${fontFile}`;
       const fontResponse = await page.evaluate(async (url) => {
         try {
@@ -63,12 +63,12 @@ test.describe('Typeface Styling', () => {
     
     // Optional: Check for specific font files if they're loaded directly
     // This may not work if fonts are bundled or loaded differently in production
-    const hasEtnaFont = fontRequests.some(url => url.includes('etna'));
-    const hasActorFont = fontRequests.some(url => url.includes('actor'));
     const hasFunnelFont = fontRequests.some(url => url.includes('funnel') || url.includes('FunnelDisplay'));
+    const hasGlacialFont = fontRequests.some(url => url.includes('glacial') || url.includes('GlacialIndifference'));
+    const hasActorFont = fontRequests.some(url => url.includes('actor'));
     
     // Log what we found for debugging
-    console.log('Found fonts - Etna:', hasEtnaFont, 'Actor:', hasActorFont, 'Funnel:', hasFunnelFont);
+    console.log('Found fonts - Funnel:', hasFunnelFont, 'GlacialIndifference:', hasGlacialFont, 'Actor:', hasActorFont);
   });
 
   // Test that the CSS file with font definitions is loaded
@@ -108,7 +108,7 @@ test.describe('Typeface Styling', () => {
     expect(pCount).toBeGreaterThan(0);
     
     // Take a screenshot of the page to visually verify fonts
-    await page.screenshot({ path: 'typefaces-page.png', fullPage: true });
+    await page.screenshot({ path: 'tests-e2e/screenshots/typefaces-page.png', fullPage: true });
     
     // Check if h1 has a computed style (this is a basic check that styling is applied)
     if (h1Count > 0) {
@@ -123,10 +123,10 @@ test.describe('Typeface Styling', () => {
       
       console.log('H1 computed styles:', h1Styles);
       
-      // Check that h1 has Etna font (or at least a non-default font)
+      // Check that h1 has Funnel Display font (or at least a non-default font)
       expect(h1Styles.fontFamily).not.toBe('');
-      const hasEtnaFont = h1Styles.fontFamily.toLowerCase().includes('etna');
-      console.log('H1 has Etna font:', hasEtnaFont);
+      const hasFunnelFont = h1Styles.fontFamily.toLowerCase().includes('funnel');
+      console.log('H1 has Funnel Display font:', hasFunnelFont);
     }
     
     // Check if p has a computed style
@@ -142,10 +142,10 @@ test.describe('Typeface Styling', () => {
       
       console.log('Paragraph computed styles:', pStyles);
       
-      // Check that paragraph has Funnel Display font (or at least a non-default font)
+      // Check that paragraph has GlacialIndifference font (or at least a non-default font)
       expect(pStyles.fontFamily).not.toBe('');
-      const hasFunnelFont = pStyles.fontFamily.toLowerCase().includes('funnel');
-      console.log('Paragraph has Funnel Display font:', hasFunnelFont);
+      const hasGlacialFont = pStyles.fontFamily.toLowerCase().includes('glacial');
+      console.log('Paragraph has GlacialIndifference font:', hasGlacialFont);
     }
   });
 }); 
