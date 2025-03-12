@@ -28,7 +28,12 @@ export default function Fonts() {
             font-display: swap;
           }
 
-          /* Apply fonts to elements with reliable fallbacks - using higher specificity */
+          /* Default font for all text - apply Funnel Display to everything */
+          html body * {
+            font-family: 'Funnel Display', sans-serif !important;
+          }
+
+          /* Apply Etna only to headings with reliable fallbacks - using higher specificity */
           html body h1, 
           html body h2, 
           html body h3, 
@@ -49,14 +54,8 @@ export default function Fonts() {
             font-size: 2.5rem !important;
           }
 
-          html body span, 
-          html body li {
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 400;
-          }
-
+          /* Specific styles for other text elements - all using Funnel Display */
           html body p {
-            font-family: 'Funnel Display', sans-serif !important;
             font-size: 1rem !important;
             line-height: 1.5rem !important;
           }
