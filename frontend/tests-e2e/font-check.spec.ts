@@ -8,7 +8,8 @@ test.describe('Font File Accessibility', () => {
   test('should be able to directly access font files', async ({ page, request }) => {
     // Try to fetch each font file directly
     const fontFiles = [
-      '/fonts/etna-free-font.otf',
+      '/fonts/GlacialIndifference-Regular.woff',
+      '/fonts/GlacialIndifference-Bold.woff',
       '/fonts/Actor-Regular.ttf',
       '/fonts/FunnelDisplay-VariableFont_wght.ttf'
     ];
