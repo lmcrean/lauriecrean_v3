@@ -17,8 +17,8 @@ test.describe('Font File Accessibility', () => {
     for (const fontFile of fontFiles) {
       console.log(`Checking font file: ${fontFile}`);
       
-      // Create the full URL
-      const url = new URL(fontFile, 'https://lauriecrean-v3-l9dsdlhpq-lmcreans-projects.vercel.app').href;
+      // Create the full URL using localhost instead of production
+      const url = new URL(fontFile, 'http://localhost:3000').href;
       console.log(`Full URL: ${url}`);
       
       // Try to fetch the file
