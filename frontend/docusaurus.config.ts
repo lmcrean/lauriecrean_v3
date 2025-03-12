@@ -73,7 +73,7 @@ const config: Config = {
           showLastUpdateAuthor: false,
         },
         theme: {
-          customCss: ['./src/css/custom.css', './src/css/splide-custom.css', './src/css/buttons.css'],
+          customCss: ['./src/css/custom.css', './src/css/splide-custom.css', './src/css/buttons.css', './src/css/typefaces.css'],
         },
       } satisfies Preset.Options,
     ],
