@@ -62,3 +62,22 @@ p {
     font-size: 1rem !important;
     line-height: 1.5rem !important;
 }
+
+/* Sidebar styling */
+.theme-doc-sidebar-container {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+}
+
+.theme-doc-sidebar-item-link, 
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
+    font-weight: 700 !important;
+}
+
+.menu__link--active {
+    font-weight: 700 !important;
+}
+
+.theme-doc-sidebar-menu {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+}
