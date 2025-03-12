@@ -20,7 +20,7 @@
     "test:all": "npm run test:unit && npm run test:e2e",
     "test:watch": "jest --config jest.config.js --watch",
     "test:buttons": "jest --config jest.config.js src/tests/button",
-    "deploy:prod": "vercel --prod",
+    "deploy:prod": "npx vercel --prod",
     "test:prod:images": "playwright test tests-e2e/images.spec.ts --config=playwright.prod.config.ts --headed",
     "test:prod:typefaces": "playwright test tests-e2e/typefaces.prod.spec.ts --config=playwright.prod.config.ts",
     "test:prod:typefaces:headed": "playwright test tests-e2e/typefaces.prod.spec.ts --config=playwright.prod.config.ts --headed",
