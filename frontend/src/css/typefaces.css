@@ -1,4 +1,7 @@
-/* Etna for headings */
+/* Import Google Fonts for fallback */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Montserrat:wght@100..900&family=Roboto+Mono&display=swap');
+
+/* Etna for headings (with fallback to Alegreya) */
 @font-face {
     font-family: 'Etna';
     src: url('/fonts/etna-free-font.otf') format('opentype');
@@ -24,10 +27,10 @@
     font-display: swap;
 }
 
-/* Apply fonts to elements */
-h1,h2, .sidebar-title  {
-    font-family: 'Etna', sans-serif !important;
-    font-weight: 200;
+/* Apply fonts to elements with fallbacks */
+h1, h2, .sidebar-title {
+    font-family: 'Etna', 'Alegreya', serif !important;
+    font-weight: 700;
     text-align: center;
     color: var(--text-color) !important;
     opacity: 0.9;
@@ -41,14 +44,13 @@ h2 {
     font-size: 2.5rem !important;
 }
 
-
 h3, h4, h5, h6, span, li {
-    font-family: 'Funnel Display', sans-serif !important;
+    font-family: 'Funnel Display', 'Montserrat', sans-serif !important;
     font-weight: 400; /* You can adjust this between 100-900 */
 }
 
 p {
-    font-family: 'Actor', sans-serif !important;
+    font-family: 'Actor', 'Roboto Mono', monospace !important;
     font-size: 1rem !important;
     line-height: 1.5rem !important;
 }
