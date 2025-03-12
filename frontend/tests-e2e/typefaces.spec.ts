@@ -22,6 +22,26 @@ test.describe('Typeface Styling', () => {
     // Take a screenshot for debugging
     await page.screenshot({ path: 'typefaces-fonts.png' });
     
+    // Manually navigate to the font files to check if they exist
+    for (const fontFile of ['etna-free-font.otf', 'FunnelDisplay-VariableFont_wght.ttf']) {
+      const fontUrl = `http://localhost:3000/fonts/${fontFile}`;
+      const fontResponse = await page.evaluate(async (url) => {
+        try {
+          const response = await fetch(url);
+          return {
+            status: response.status,
+            contentType: response.headers.get('content-type'),
+            ok: response.ok
+          };
+        } catch (error) {
+          return { error: error.toString(), ok: false };
+        }
+      }, fontUrl);
+
+      console.log(`Font file ${fontFile} check:`, fontResponse);
+      expect(fontResponse.ok).toBeTruthy();
+    }
+    
     // Check for font file requests in the network
     const fontRequests = await page.evaluate(() => {
       // Get all resources loaded by the page
