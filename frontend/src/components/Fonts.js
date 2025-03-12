@@ -28,27 +28,34 @@ export default function Fonts() {
             font-display: swap;
           }
 
-          /* Apply fonts to elements with reliable fallbacks */
-          h1, h2, h3, h4, h5, h6, .sidebar-title {
+          /* Apply fonts to elements with reliable fallbacks - using higher specificity */
+          html body h1, 
+          html body h2, 
+          html body h3, 
+          html body h4, 
+          html body h5, 
+          html body h6, 
+          html body .sidebar-title {
             font-family: 'Etna', serif !important;
             color: var(--text-color) !important;
             opacity: 0.9;
           }
 
-          h1 {
+          html body h1 {
             font-size: 3rem !important;
           }
 
-          h2 {
+          html body h2 {
             font-size: 2.5rem !important;
           }
 
-          span, li {
+          html body span, 
+          html body li {
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 400;
           }
 
-          p {
+          html body p {
             font-family: 'Funnel Display', sans-serif !important;
             font-size: 1rem !important;
             line-height: 1.5rem !important;
