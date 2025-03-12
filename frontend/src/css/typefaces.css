@@ -1,11 +1,11 @@
 /* Import Google Fonts for fallback */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Montserrat:wght@100..900&family=Roboto+Mono&display=swap');
 
-/* Etna for headings (with fallback to Alegreya) */
+/* Funnel Display Variable Font for headings */
 @font-face {
-    font-family: 'Etna';
-    src: url('/fonts/etna-free-font.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'Funnel Display';
+    src: url('/fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900; /* Variable font weight range */
     font-style: normal;
     font-display: swap;
 }
@@ -18,18 +18,26 @@
     font-display: swap;
 }
 
-/* Funnel Display Variable Font */
+/* GlacialIndifference for paragraphs */
 @font-face {
-    font-family: 'Funnel Display';
-    src: url('/fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 100 900; /* Variable font weight range */
+    font-family: 'GlacialIndifference';
+    src: url('/fonts/GlacialIndifference-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GlacialIndifference';
+    src: url('/fonts/GlacialIndifference-Bold.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 /* Apply fonts to elements with fallbacks */
 h1, h2, .sidebar-title {
-    font-family: 'Etna', 'Alegreya', serif !important;
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
     text-align: center;
     color: var(--text-color) !important;
@@ -45,12 +53,12 @@ h2 {
 }
 
 h3, h4, h5, h6, span, li {
-    font-family: 'Funnel Display', 'Montserrat', sans-serif !important;
-    font-weight: 400; /* You can adjust this between 100-900 */
+    font-family: 'GlacialIndifference', 'Montserrat', sans-serif !important;
+    font-weight: 400;
 }
 
 p {
-    font-family: 'Actor', 'Roboto Mono', monospace !important;
+    font-family: 'GlacialIndifference', 'Roboto Mono', monospace !important;
     font-size: 1rem !important;
     line-height: 1.5rem !important;
 }
