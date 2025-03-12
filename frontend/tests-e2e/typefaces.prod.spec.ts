@@ -20,7 +20,7 @@ test.describe('Production Typeface Styling', () => {
   // Test that font resources are loaded
   test('should load font resources', async ({ page }) => {
     // Take a screenshot for debugging
-    await page.screenshot({ path: 'prod-typefaces-fonts.png' });
+    await page.screenshot({ path: 'tests-e2e/screenshots/prod-typefaces-fonts.png' });
     
     // Check for resource requests in the network
     const fontRequests = await page.evaluate(() => {
@@ -45,6 +45,12 @@ test.describe('Production Typeface Styling', () => {
     
     // Check if any font files were loaded
     expect(fontRequests.length).toBeGreaterThan(0);
+    
+    // Check for specific font files
+    const hasFunnelFont = fontRequests.some(url => url.includes('funnel') || url.includes('FunnelDisplay'));
+    const hasGlacialFont = fontRequests.some(url => url.includes('glacial') || url.includes('GlacialIndifference'));
+    
+    console.log('Found specific fonts - Funnel:', hasFunnelFont, 'GlacialIndifference:', hasGlacialFont);
   });
 
   // Test that the CSS styles are loaded
@@ -74,7 +80,7 @@ test.describe('Production Typeface Styling', () => {
     expect(pCount).toBeGreaterThan(0);
     
     // Take a screenshot of the page to visually verify fonts
-    await page.screenshot({ path: 'prod-typefaces-page.png', fullPage: true });
+    await page.screenshot({ path: 'tests-e2e/screenshots/prod-typefaces-page.png', fullPage: true });
     
     // Test that h1 elements have styles applied
     if (h1Count > 0) {
@@ -88,6 +94,10 @@ test.describe('Production Typeface Styling', () => {
       });
       
       console.log('H1 computed styles:', h1HasStyle);
+      
+      // Check for Funnel Display in headings
+      const hasFunnelFont = h1HasStyle.fontFamily.toLowerCase().includes('funnel');
+      console.log('H1 has Funnel Display font:', hasFunnelFont);
       
       // Check that h1 has font styling (basic verification)
       expect(h1HasStyle.fontFamily).not.toBe('');
@@ -107,6 +117,10 @@ test.describe('Production Typeface Styling', () => {
       
       console.log('Paragraph computed styles:', pHasStyle);
       
+      // Check for GlacialIndifference in paragraphs
+      const hasGlacialFont = pHasStyle.fontFamily.toLowerCase().includes('glacial');
+      console.log('Paragraph has GlacialIndifference font:', hasGlacialFont);
+      
       // Check that paragraph has font styling (basic verification)
       expect(pHasStyle.fontFamily).not.toBe('');
       expect(pHasStyle.fontSize).not.toBe('');
@@ -123,7 +137,7 @@ test.describe('Production Typeface Styling', () => {
     const h1Element = page.locator('h1').first();
     if (await h1Element.count() > 0) {
       // Take screenshot of the h1 element for visual comparison
-      await h1Element.screenshot({ path: 'prod-h1-element.png' });
+      await h1Element.screenshot({ path: 'tests-e2e/screenshots/prod-h1-element.png' });
       
       // We're intentionally not doing a visual comparison here
       // as this would require a baseline screenshot to compare against
@@ -134,7 +148,7 @@ test.describe('Production Typeface Styling', () => {
     const pElement = page.locator('p').first();
     if (await pElement.count() > 0) {
       // Take screenshot of the paragraph element for visual comparison
-      await pElement.screenshot({ path: 'prod-p-element.png' });
+      await pElement.screenshot({ path: 'tests-e2e/screenshots/prod-p-element.png' });
     }
   });
 }); 
