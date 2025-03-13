@@ -85,3 +85,29 @@ html {
 .theme-doc-markdown h2:first-of-type {
   border-top: none;
 }
+
+/* Navbar icon styling */
+.navbar-icon-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+  color: var(--ifm-navbar-link-color);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-icon-item i {
+  margin-right: 5px;
+}
+
+.navbar-icon-item:hover {
+  color: var(--ifm-navbar-link-hover-color);
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+/* Add some spacing between navbar items */
+.navbar__items--right > .navbar-icon-item {
+  margin-left: 0.5rem;
+}
