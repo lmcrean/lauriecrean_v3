@@ -192,7 +192,7 @@ Ported Cloudinary, gitpod, PostgreSQL, Heroku from [Odyssey API](https://github.
 
 ![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
 
-Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v20).
+Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [Odyssey v2.0 API](#odyssey-v2).
 
 ## Azure Authentication Feature
 
