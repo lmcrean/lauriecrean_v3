@@ -45,12 +45,6 @@ test.describe('Production Typeface Styling', () => {
     
     // Check if any font files were loaded
     expect(fontRequests.length).toBeGreaterThan(0);
-    
-    // Check for specific font files
-    const hasFunnelFont = fontRequests.some(url => url.includes('funnel') || url.includes('FunnelDisplay'));
-    const hasGlacialFont = fontRequests.some(url => url.includes('glacial') || url.includes('GlacialIndifference'));
-    
-    console.log('Found specific fonts - Funnel:', hasFunnelFont, 'GlacialIndifference:', hasGlacialFont);
   });
 
   // Test that the CSS styles are loaded
@@ -95,10 +89,6 @@ test.describe('Production Typeface Styling', () => {
       
       console.log('H1 computed styles:', h1HasStyle);
       
-      // Check for Funnel Display in headings
-      const hasFunnelFont = h1HasStyle.fontFamily.toLowerCase().includes('funnel');
-      console.log('H1 has Funnel Display font:', hasFunnelFont);
-      
       // Check that h1 has font styling (basic verification)
       expect(h1HasStyle.fontFamily).not.toBe('');
       expect(h1HasStyle.fontSize).not.toBe('');
@@ -116,10 +106,6 @@ test.describe('Production Typeface Styling', () => {
       });
       
       console.log('Paragraph computed styles:', pHasStyle);
-      
-      // Check for GlacialIndifference in paragraphs
-      const hasGlacialFont = pHasStyle.fontFamily.toLowerCase().includes('glacial');
-      console.log('Paragraph has GlacialIndifference font:', hasGlacialFont);
       
       // Check that paragraph has font styling (basic verification)
       expect(pHasStyle.fontFamily).not.toBe('');
