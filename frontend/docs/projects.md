@@ -15,6 +15,8 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 </div>
 
+<div className="screenshot-project-element">
+
 ## Odyssey
 
 <div style={{textAlign: 'center'}}>
@@ -66,6 +68,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 </section>
 </section>
 
+</div>
 
 
 ## Coach Matrix
