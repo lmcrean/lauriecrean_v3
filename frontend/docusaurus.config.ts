@@ -123,17 +123,20 @@ const config: Config = {
       items: [
         {
           href: 'https://github.com/lauriecrean',
-          label: 'GitHub',
+          html: '<i class="fab fa-github fa-lg" title="GitHub"></i> <b>GitHub</b>',
+          className: 'navbar-icon-item',
           position: 'right',
         },
         {
           href: 'https://www.linkedin.com/in/lcrean/',
-          label: 'LinkedIn',
+          html: '<i class="fab fa-linkedin fa-lg" title="LinkedIn"></i> <b>LinkedIn</b>',
+          className: 'navbar-icon-item',
           position: 'right',
         },
         {
           href: 'mailto:lmcrean@gmail.com',
-          label: 'Email',
+          html: '<i class="fas fa-envelope fa-lg" title="Email"></i> <b>Email</b>',
+          className: 'navbar-icon-item',
           position: 'right',
         },
       ],
