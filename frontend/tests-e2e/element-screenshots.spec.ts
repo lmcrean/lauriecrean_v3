@@ -98,4 +98,34 @@ test('capture project screenshot element', async ({ page }) => {
       height: captureHeight // Ensure at least 700px height from the heading
     }
   });
+});
+
+// Capture the navbar with icons
+test('capture navbar screenshot element', async ({ page }) => {
+  // Navigate to the projects page
+  await page.goto('http://localhost:3000/projects');
+  await page.waitForLoadState('networkidle');
+  
+  // Wait for navbar to be visible
+  const navbar = await page.waitForSelector('.navbar', { timeout: 60000 });
+  
+  // Ensure the navbar is fully visible
+  await navbar.scrollIntoViewIfNeeded();
+  
+  // Small pause to ensure any animations are complete
+  await page.waitForTimeout(500);
+  
+  // Get the bounding box of the navbar
+  const boundingBox = await navbar.boundingBox();
+  
+  // Take screenshot of the navbar
+  await page.screenshot({
+    path: path.join('tests-e2e', 'screenshots', 'elements', 'navbar-element.png'),
+    clip: {
+      x: boundingBox.x,
+      y: boundingBox.y,
+      width: boundingBox.width,
+      height: boundingBox.height
+    }
+  });
 }); 
