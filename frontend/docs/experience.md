@@ -17,7 +17,7 @@ May 2023 - present
 - Developed a range of software solutions. Use cases are currently hypothetical with intention of deploying real products in the future.
 - Networked with range of collaborators through hackathons and meetups.
 
-## Long-term supply teacher at Featherstone High School
+## Teacher at Featherstone High School
 
 ![Powerpoint](https://img.shields.io/badge/Powerpoint-1C1C1C?&logo=microsoft&logoColor=white) ![Excel](https://img.shields.io/badge/Excel-1C1C1C?&logo=microsoft&logoColor=white)
 
