@@ -111,3 +111,7 @@ html {
 .navbar__items--right > .navbar-icon-item {
   margin-left: 0.5rem;
 }
+
+.breadcrumbs {
+  display: none;
+}
