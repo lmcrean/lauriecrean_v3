@@ -181,6 +181,14 @@ const config: Config = {
               label: 'HackerRank',
               href: 'https://www.hackerrank.com/profile/mrcrean92',
             },
+            {
+              label: 'Devpost',
+              href: 'https://devpost.com/lauriecrean',
+            },
+            {
+              label: 'Codepen',
+              href: 'https://codepen.io/lauriecrean',
+            },
           ],
         },
       ],
