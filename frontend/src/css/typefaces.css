@@ -39,8 +39,10 @@
 h1, h2, .sidebar-title {
     font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
-    text-align: center;
     color: var(--text-color) !important;
+}
+
+.sidebar-title {
     opacity: 0.9;
 }
 
