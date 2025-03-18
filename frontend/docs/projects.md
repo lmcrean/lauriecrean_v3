@@ -367,7 +367,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
-><section className="splide" id="crocodile-kingdom-carousel" aria-label="Odyssey Screenshots" data-splide-init="true">
+<section className="splide" id="crocodile-kingdom-carousel" aria-label="Odyssey Screenshots" data-splide-init="true">
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
