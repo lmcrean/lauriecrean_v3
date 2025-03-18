@@ -60,7 +60,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api/commits/main)
 
-![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-1C1C1C?&logo=cloudinary&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=oauth&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-1C1C1C?&logo=amazon&logoColor=white)
+![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-1C1C1C?&logo=cloudinary&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=oauth&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-1C1C1C?&logo=amazon&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-32_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Jest](https://img.shields.io/badge/Jest-5_Passed-blue?style=flat-square&logo=jest&logoColor=white)  ![Cypress](https://img.shields.io/badge/Cypress-3_passed-blue?style=flat-square&logo=cypress&logoColor=white) ![Python](https://img.shields.io/badge/Python-38_Passed-blue?style=flat-square&logo=python&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-20_Passed-blue?style=flat-square&logo=pytest&logoColor=white)
 
 Developed Social Media application with Auth, messaging and media sharing features • Unified API and Frontend into a singular repository to improve security standards and ensure compatibility with Safari browsers • Integrated Cloudinary media storage; improved performance with cached rendering • 78 automated tests across four testing frameworks (see above) including comprehensive alert feeback • integrated automatic testing screenshots for enhanced insights into frontend alerts • OAuth2/JWT authentication • Automated Heroku deployments through CLI • integrated customised SVG logo • integrated dark mode toggle with animated transition  • customised highly responsive Navbar for each device size, including popout menu for further options 
@@ -105,7 +105,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix/commits/main)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white)  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=python&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-3_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Python](https://img.shields.io/badge/Python-4_Passed-blue?style=flat-square&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white)  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-1C1C1C?&logo=amazon&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2-1C1C1C?&logo=python&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-3_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Python](https://img.shields.io/badge/Python-4_Passed-blue?style=flat-square&logo=python&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-6_Passed-blue?style=flat-square&logo=pytest&logoColor=white)
 
 Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo 
 
@@ -125,10 +125,10 @@ Social platform focused on professional development • Custom authentication an
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A" />
+        <img src="/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B" />
+        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A" />
       </li>
       <li className="splide__slide">
         <img src="/docs/screenshots/steamreport.png" alt="steamreport-v1" style={{maxHeight: "auto", width: "600px", margin: "auto", display: "flex"}} />
@@ -174,11 +174,33 @@ Social platform focused on professional development • Custom authentication an
 
 
 
-## AWS Authentication Feature
+## Buffalo
 
 <div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
+
+<section className="splide" id="buffalo-carousel" aria-label="Buffalo Screenshots" data-splide-init="true">
+  <div className="splide__track">
+    <ul className="splide__list">
+      <li className="splide__slide">
+        <img src="/docs/screenshots/buffalo4.png" alt="Buffalo Screenshot A" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/buffalo.png" alt="Buffalo Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/buffalo3.png" alt="Buffalo Screenshot D" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/buffalo5.png" alt="Buffalo Screenshot B" />
+      </li>
+    </ul>
+  </div>
+  <div className="my-carousel-progress">
+    <div className="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 <center><b>version 2.0</b></center>
 
@@ -188,7 +210,7 @@ Social platform focused on professional development • Custom authentication an
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2-amplify-vite?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite/commits/main)
 
-Ported Cloudinary, gitpod, PostgreSQL, Heroku from [Odyssey API](https://github.com/lmcrean/odyssey-api) to a more efficent framework in unified AWS ecosystem. Established more robust test coverage with Vitest for unit tests and Playwright for E2E tests.
+Developed an AWS authentication feature running on Amplify though TDD. Migrated version 1.0 to a more efficent framework in unified AWS ecosystem. Established robust test coverage with Vitest for unit tests and Playwright for E2E tests.
 
 
 <hr />
@@ -214,7 +236,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool) ![Created at](https://img.shields.io/github/created-at/lmcrean/BudgetTool?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool/commits/main)
 
 
-<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://budget-tool-frontend-dububsc9aeezgjf0.uksouth-01.azurewebsites.net/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <button class="live-demo-btn"><i class="fa fa-play"></i> demo expired </button>
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
 
@@ -223,6 +245,8 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 <div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
+
+<img src="/docs/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -234,9 +258,21 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 
 ## Laurie Crean
 
-<div style={{textAlign: 'center'}}>
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
-</div>
+<section className="splide" id="laurie-crean-carousel" aria-label="Laurie Crean Screenshots" data-splide-init="true">
+  <div className="splide__track">
+    <ul className="splide__list">
+      <li className="splide__slide">
+        <img src="/docs/screenshots/laurie-crean-v2.png" alt="Laurie Crean Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/lauriecrean-v1.png" alt="Laurie Crean Screenshot" />
+      </li>
+    </ul>
+  </div>
+  <div className="my-carousel-progress">
+    <div className="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 <img src="/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" style={{width: "500px", height: "auto", margin: "auto", display: "flex"}} />
 
@@ -268,7 +304,39 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br />
 
-<img src="/docs/screenshots/hoverboard.png" alt="hoverboard" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
+<section className="splide" id="hoverboard-carousel" aria-label="Hoverboard Screenshots" data-splide-init="true">
+  <div className="splide__track">
+    <ul className="splide__list">
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard2.png" alt="Hoverboard Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard3.png" alt="Hoverboard Screenshot D" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard4.png" alt="Hoverboard Screenshot A" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard5.png" alt="Hoverboard Screenshot B" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard6.png" alt="Hoverboard Screenshot C" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard7.png" alt="Hoverboard Screenshot A" />
+      </li>
+      <li className="splide__slide">
+        <img src="/docs/screenshots/hoverboard8.png" alt="Hoverboard Screenshot B" />
+      </li>
+    </ul>
+  </div>
+  <div className="my-carousel-progress">
+    <div className="my-carousel-progress-bar"></div>
+  </div>
+</section>
       
 <br />
 
@@ -310,9 +378,9 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern) ![Created at](https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom-mern?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern/commits/main)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white)  ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white)  ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-53_passed-blue?&logo=vitest&logoColor=white)
 
-Ported essential Javascript features into React • Integrated Tailwind CSS into workflow.
+Refined gameplay logic to creative word association game with validation • Ported essential Javascript features into React • Integrated Tailwind CSS into workflow.
 
 <center><b>version 1.0</b></center>
 
