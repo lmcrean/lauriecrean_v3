@@ -1,6 +1,6 @@
 // Initialize basic carousels
 function initializeBasicCarousels() {
-    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel)').forEach(carousel => {
+    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(#buffalo-carousel):not(#laurie-crean-carousel):not(#hoverboard-carousel)').forEach(carousel => {
         new Splide(carousel, {
             type: 'loop',
             perPage: 1,
@@ -17,7 +17,7 @@ function initializeBasicCarousels() {
 
 // Initialize project carousels
 function initializeProjectCarousels() {
-    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
+    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard'];
     
     projectCarousels.forEach(id => {
         const carousel = document.querySelector(`#${id}-carousel`);
@@ -36,28 +36,40 @@ function initializeProjectCarousels() {
 
             // Get the progress bar
             const bar = carousel.querySelector('.my-carousel-progress-bar');
-
-            // Update the progress bar when the carousel moves
-            splide.on('mounted move', function () {
-                const end = splide.Components.Controller.getEnd() + 1;
-                const rate = Math.min((splide.index + 1) / end, 1);
-                bar.style.width = String(100 * rate) + '%';
-            });
+            if (bar) {
+                // Update the progress bar when the carousel moves
+                splide.on('mounted move', function () {
+                    const end = splide.Components.Controller.getEnd() + 1;
+                    const rate = Math.min((splide.index + 1) / end, 1);
+                    bar.style.width = String(100 * rate) + '%';
+                });
+            }
 
             splide.mount();
         }
     });
 }
 
-// Docsify plugin for carousel initialization
-function initializeCarousels(hook) {
-    hook.doneEach(function() {
-        // Small timeout to ensure DOM is ready
-        setTimeout(() => {
-            initializeBasicCarousels();
-            initializeProjectCarousels();
-        }, 100);
-    });
-}
+// Document ready function
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing carousels from carousel.js');
+    initializeBasicCarousels();
+    initializeProjectCarousels();
+});
 
-export { initializeCarousels }; 
+// Also initialize on document.docusaurus.routeDidUpdate for Docusaurus navigation
+document.addEventListener('docusaurus.routeDidUpdate', function() {
+    console.log('Route updated, reinitializing carousel.js');
+    setTimeout(() => {
+        initializeBasicCarousels();
+        initializeProjectCarousels();
+    }, 100);
+});
+
+// Export for potential module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        initializeBasicCarousels,
+        initializeProjectCarousels
+    };
+} 
