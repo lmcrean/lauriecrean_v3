@@ -184,16 +184,16 @@ Social platform focused on professional development • Custom authentication an
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/docs/screenshots/buffalo4.png" alt="Buffalo Screenshot A" />
+        <img src="/img/docs/screenshots/buffalo4.png" alt="Buffalo Screenshot A" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/buffalo.png" alt="Buffalo Screenshot" />
+        <img src="/img/docs/screenshots/buffalo.png" alt="Buffalo Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/buffalo3.png" alt="Buffalo Screenshot D" />
+        <img src="/img/docs/screenshots/buffalo3.png" alt="Buffalo Screenshot D" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/buffalo5.png" alt="Buffalo Screenshot B" />
+        <img src="/img/docs/screenshots/buffalo5.png" alt="Buffalo Screenshot B" />
       </li>
     </ul>
   </div>
@@ -306,28 +306,28 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
+        <img src="/img/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard2.png" alt="Hoverboard Screenshot" />
+        <img src="/img/docs/screenshots/hoverboard2.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard3.png" alt="Hoverboard Screenshot D" />
+        <img src="/img/docs/screenshots/hoverboard3.png" alt="Hoverboard Screenshot D" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard4.png" alt="Hoverboard Screenshot A" />
+        <img src="/img/docs/screenshots/hoverboard4.png" alt="Hoverboard Screenshot A" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard5.png" alt="Hoverboard Screenshot B" />
+        <img src="/img/docs/screenshots/hoverboard5.png" alt="Hoverboard Screenshot B" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard6.png" alt="Hoverboard Screenshot C" />
+        <img src="/img/docs/screenshots/hoverboard6.png" alt="Hoverboard Screenshot C" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard7.png" alt="Hoverboard Screenshot A" />
+        <img src="/img/docs/screenshots/hoverboard7.png" alt="Hoverboard Screenshot A" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard8.png" alt="Hoverboard Screenshot B" />
+        <img src="/img/docs/screenshots/hoverboard8.png" alt="Hoverboard Screenshot B" />
       </li>
     </ul>
   </div>
@@ -367,7 +367,30 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
-<img src="/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
+><section className="splide" id="crocodile-kingdom-carousel" aria-label="Odyssey Screenshots" data-splide-init="true">
+  <div className="splide__track">
+    <ul className="splide__list">
+      <li className="splide__slide">
+        <img src="/img/docs/screenshots/crocodilegame-A.png" alt="Odyssey Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/img/docs/screenshots/crocodilegame-B.png" alt="Odyssey Screenshot" />
+      </li>
+      <li className="splide__slide">
+        <img src="/img/docs/screenshots/crocodilegame-C.png" alt="Odyssey Screenshot D" />
+      </li>
+      <li className="splide__slide">
+        <img src="/img/docs/screenshots/crocodilegame-D.png" alt="Odyssey Screenshot A" />
+      </li>
+      <li className="splide__slide">
+        <img src="/img/docs/screenshots/crocodilegame.png" alt="Odyssey Screenshot B" />
+      </li>
+    </ul>
+  </div>
+  <div className="my-carousel-progress">
+    <div className="my-carousel-progress-bar"></div>
+  </div>
+</section>
 
 
 <center><b>version 2.0</b></center>

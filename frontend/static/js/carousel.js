@@ -1,6 +1,6 @@
 // Initialize basic carousels
 function initializeBasicCarousels() {
-    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(#buffalo-carousel):not(#laurie-crean-carousel):not(#hoverboard-carousel)').forEach(carousel => {
+    document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(#buffalo-carousel):not(#laurie-crean-carousel):not(#hoverboard-carousel):not(#crocodile-kingdom-carousel)').forEach(carousel => {
         new Splide(carousel, {
             type: 'loop',
             perPage: 1,
@@ -17,7 +17,7 @@ function initializeBasicCarousels() {
 
 // Initialize project carousels
 function initializeProjectCarousels() {
-    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard'];
+    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard', 'crocodile-kingdom'];
     
     projectCarousels.forEach(id => {
         const carousel = document.querySelector(`#${id}-carousel`);
