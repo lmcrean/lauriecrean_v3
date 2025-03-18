@@ -274,8 +274,6 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
   </div>
 </section>
 
-<img src="/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" style={{width: "500px", height: "auto", margin: "auto", display: "flex"}} />
-
 <center><b>version 2.0</b></center>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
