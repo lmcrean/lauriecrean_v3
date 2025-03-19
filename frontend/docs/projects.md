@@ -274,9 +274,13 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
   </div>
 </section>
 
-<center><b>version 2.0</b></center>
+<center><b>version 3.0</b></center>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+![Docusaurus](https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-33_Passed-blue?style=flat-square&logo=vitest&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
+
+<center><b>version 2.0</b></center>
 
 ![Docsify](https://img.shields.io/badge/Docsify.js-1C1C1C?&logo=docsify&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white)
 
@@ -291,7 +295,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean/commits/main)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![FramerMotion](https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![FramerMotion](https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
@@ -306,28 +310,28 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard2.png" alt="Hoverboard Screenshot" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard3.png" alt="Hoverboard Screenshot D" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard4.png" alt="Hoverboard Screenshot A" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard5.png" alt="Hoverboard Screenshot B" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard6.png" alt="Hoverboard Screenshot C" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard7.png" alt="Hoverboard Screenshot A" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/hoverboard8.png" alt="Hoverboard Screenshot B" />
+        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
       </li>
     </ul>
   </div>
@@ -371,19 +375,19 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/crocodilegame-A.png" alt="Odyssey Screenshot" />
+        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/crocodilegame-B.png" alt="Odyssey Screenshot" />
+        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/crocodilegame-C.png" alt="Odyssey Screenshot D" />
+        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/crocodilegame-D.png" alt="Odyssey Screenshot A" />
+        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/img/docs/screenshots/crocodilegame.png" alt="Odyssey Screenshot B" />
+        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
       </li>
     </ul>
   </div>
