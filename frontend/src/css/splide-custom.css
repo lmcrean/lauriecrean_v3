@@ -1,12 +1,30 @@
 /* Custom styles for Splide carousels */
 .splide__arrow {
-  background: rgba(0, 0, 0, 0.7);
-  width: 2.5rem;
-  height: 2.5rem;
+  background: rgba(0, 150, 136, 0) !important;
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.8;
+  transform: translateY(-50%);
+}
+
+.splide__arrow--prev {
+  left: -1rem;
+}
+
+.splide__arrow--next {
+  right: -1rem;
 }
 
 .splide__arrow svg {
-  fill: #fff;
+  fill: rgba(0, 150, 136, 1);
+  width: 3rem;
+  height: 3rem;
+}
+
+.splide__arrow:hover {
+  background-color: rgba(0, 150, 136, 1) !important;
+  opacity: 1;
+  transition: 0.3s ease;
 }
 
 .my-carousel-progress {
