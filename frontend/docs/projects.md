@@ -261,6 +261,9 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 <section className="splide" id="laurie-crean-carousel" aria-label="Laurie Crean Screenshots" data-splide-init="true">
   <div className="splide__track">
     <ul className="splide__list">
+    <li className="splide__slide">
+        <img src="/docs/screenshots/lauriecrean-v3.png" alt="Laurie Crean Screenshot" />
+      </li>
       <li className="splide__slide">
         <img src="/docs/screenshots/laurie-crean-v2.png" alt="Laurie Crean Screenshot" />
       </li>
@@ -375,16 +378,16 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-B.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-A.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-C.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-D.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
         <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
