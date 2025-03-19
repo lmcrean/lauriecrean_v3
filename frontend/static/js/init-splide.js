@@ -128,47 +128,48 @@
   function setupSidebarToggleListener() {
     console.log('Setting up sidebar toggle listener');
     
-    // Function to refresh all splide carousels
+    // Function to refresh all splide carousels without changing slides
     function refreshSplideCarousels() {
       console.log('Sidebar toggled, refreshing Splide carousels');
       
-      // Find all Splide carousels
+      // Find all initialized splides
       document.querySelectorAll('.splide.is-initialized').forEach(function(carousel) {
         try {
-          console.log('Refreshing carousel:', carousel.id);
+          console.log(`Refreshing carousel layout for ${carousel.id}`);
           
-          // Get the list element with transform 
-          const list = carousel.querySelector('.splide__list');
-          if (list) {
-            // Temporarily modify the transform to force a recalculation
-            const originalTransform = list.style.transform;
+          // Force a reflow of the carousel by temporarily changing a CSS property
+          // This is a gentler approach than clicking arrows
+          const track = carousel.querySelector('.splide__track');
+          if (track) {
+            // Save current transform
+            const originalTransform = track.style.transform;
             
-            // Force reflow by briefly modifying the transform
-            list.style.transition = 'none';
-            list.style.transform = 'translateX(0px)';
-            
-            // Trigger reflow
-            void list.offsetWidth;
-            
-            // Simulate arrow click which reliably fixes positioning
-            const nextArrow = carousel.querySelector('.splide__arrow--next');
-            if (nextArrow) {
-              const clickEvent = new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                view: window
-              });
+            // Apply a small padding change to force layout recalculation
+            const list = carousel.querySelector('.splide__list');
+            if (list) {
+              // Force a layout recalculation
+              const originalWidth = list.offsetWidth;
               
-              // Click next then previous to reset to original position
+              // Apply and remove a class to trigger reflow without changing slides
+              carousel.classList.add('sidebar-toggle-refresh');
               setTimeout(() => {
-                nextArrow.dispatchEvent(clickEvent);
+                carousel.classList.remove('sidebar-toggle-refresh');
                 
-                setTimeout(() => {
-                  const prevArrow = carousel.querySelector('.splide__arrow--prev');
-                  if (prevArrow) {
-                    prevArrow.dispatchEvent(clickEvent);
+                // If we have Splide v4+, we can also try to dispatch a resize event
+                if (typeof Splide !== 'undefined' && typeof Splide.prototype.emit === 'function') {
+                  try {
+                    // For newer Splide versions with emit method
+                    const splideInstance = carousel.splide;
+                    if (splideInstance && typeof splideInstance.emit === 'function') {
+                      splideInstance.emit('resize');
+                    }
+                  } catch (e) {
+                    console.log('Could not emit resize event, continuing with DOM-based refresh');
                   }
-                }, 100);
+                }
+                
+                // Dispatch a window resize event as a last resort
+                window.dispatchEvent(new Event('resize'));
               }, 10);
             }
           }
@@ -178,32 +179,33 @@
       });
     }
     
-    // Track sidebar toggle through both click events and class changes
-    
-    // 1. Listen for clicks on sidebar toggle buttons
-    document.addEventListener('click', function(event) {
-      // Check if the clicked element is a sidebar toggle button
-      const sidebarToggle = event.target.closest('.navbar__toggle, .menu__button, .navbar-sidebar__close, [aria-label="Navigation bar toggle"]');
-      if (sidebarToggle) {
-        console.log('Sidebar toggle button clicked');
-        setTimeout(refreshSplideCarousels, 300); // Wait for animation
-      }
-    });
-    
-    // 2. Watch for class changes on html element (Docusaurus adds classes when sidebar state changes)
-    const docObserver = new MutationObserver(function(mutations) {
+    // Use MutationObserver to detect sidebar toggle
+    const sidebarObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         if (mutation.attributeName === 'class') {
-          const target = mutation.target;
-          console.log('Class changed on', target.tagName);
-          setTimeout(refreshSplideCarousels, 300); // Wait for animation
+          const sidebarCollapsed = document.documentElement.classList.contains('sidebar-hidden') || 
+                                   document.documentElement.classList.contains('navbar--sidebar-show') || 
+                                   document.documentElement.classList.contains('navbar-sidebar--show');
+          
+          console.log('Sidebar state changed, collapsed:', sidebarCollapsed);
+          // Wait for the sidebar animation to start before refreshing
+          setTimeout(refreshSplideCarousels, 50);
         }
       });
     });
     
-    // Observe both html and body elements for sidebar-related class changes
-    docObserver.observe(document.documentElement, { attributes: true });
-    docObserver.observe(document.body, { attributes: true });
+    // Start observing the HTML element for class changes
+    sidebarObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    
+    // Also listen for Docusaurus sidebar toggle button clicks directly
+    document.addEventListener('click', function(event) {
+      const toggleButton = event.target.closest('.navbar__toggle, .navbar-sidebar__close, .navbar-sidebar__backdrop, .navbar__toggle');
+      if (toggleButton) {
+        console.log('Sidebar toggle button clicked');
+        // Wait a bit for the sidebar animation to start
+        setTimeout(refreshSplideCarousels, 50);
+      }
+    });
   }
 
   // Initialize on first load
