@@ -124,15 +124,99 @@
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
+  // Add sidebar toggle listener to handle sidebar collapse/expand
+  function setupSidebarToggleListener() {
+    console.log('Setting up sidebar toggle listener');
+    
+    // Function to refresh all splide carousels
+    function refreshSplideCarousels() {
+      console.log('Sidebar toggled, refreshing Splide carousels');
+      
+      // Find all Splide carousels
+      document.querySelectorAll('.splide.is-initialized').forEach(function(carousel) {
+        try {
+          console.log('Refreshing carousel:', carousel.id);
+          
+          // Get the list element with transform 
+          const list = carousel.querySelector('.splide__list');
+          if (list) {
+            // Temporarily modify the transform to force a recalculation
+            const originalTransform = list.style.transform;
+            
+            // Force reflow by briefly modifying the transform
+            list.style.transition = 'none';
+            list.style.transform = 'translateX(0px)';
+            
+            // Trigger reflow
+            void list.offsetWidth;
+            
+            // Simulate arrow click which reliably fixes positioning
+            const nextArrow = carousel.querySelector('.splide__arrow--next');
+            if (nextArrow) {
+              const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+              });
+              
+              // Click next then previous to reset to original position
+              setTimeout(() => {
+                nextArrow.dispatchEvent(clickEvent);
+                
+                setTimeout(() => {
+                  const prevArrow = carousel.querySelector('.splide__arrow--prev');
+                  if (prevArrow) {
+                    prevArrow.dispatchEvent(clickEvent);
+                  }
+                }, 100);
+              }, 10);
+            }
+          }
+        } catch (e) {
+          console.error(`Error refreshing carousel ${carousel.id}:`, e);
+        }
+      });
+    }
+    
+    // Track sidebar toggle through both click events and class changes
+    
+    // 1. Listen for clicks on sidebar toggle buttons
+    document.addEventListener('click', function(event) {
+      // Check if the clicked element is a sidebar toggle button
+      const sidebarToggle = event.target.closest('.navbar__toggle, .menu__button, .navbar-sidebar__close, [aria-label="Navigation bar toggle"]');
+      if (sidebarToggle) {
+        console.log('Sidebar toggle button clicked');
+        setTimeout(refreshSplideCarousels, 300); // Wait for animation
+      }
+    });
+    
+    // 2. Watch for class changes on html element (Docusaurus adds classes when sidebar state changes)
+    const docObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          const target = mutation.target;
+          console.log('Class changed on', target.tagName);
+          setTimeout(refreshSplideCarousels, 300); // Wait for animation
+        }
+      });
+    });
+    
+    // Observe both html and body elements for sidebar-related class changes
+    docObserver.observe(document.documentElement, { attributes: true });
+    docObserver.observe(document.body, { attributes: true });
+  }
+
   // Initialize on first load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       initSplide();
       setupMutationObserver();
+      setupSidebarToggleListener();
     });
   } else {
     initSplide();
     setupMutationObserver();
+    setupSidebarToggleListener();
   }
 
   // Handle Docusaurus page transitions - initialize carousels after page changes
@@ -142,11 +226,5 @@
     // Reset initialization flag when route changes
     hasInitialized = false;
     setTimeout(initializeSplideCarousels, 500); // Small delay to ensure DOM is updated
-  });
-  
-  // Also try after window load (when all resources are loaded)
-  window.addEventListener('load', function() {
-    console.log('Window fully loaded, checking for uninitialized carousels');
-    setTimeout(initializeSplideCarousels, 1000);
   });
 })(); 
