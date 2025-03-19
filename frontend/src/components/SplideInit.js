@@ -110,7 +110,7 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
             pagination: false, // We're using our custom progress bar instead
             arrows: true,
             autoplay: false,
-            arrowPath: 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z',
+            arrowPath: 'm 15.5 0.932 l -4.3 4.38 l 14.5 14.6 l -14.5 14.5 l 4.3 4.4 l 14.6 -14.6 l 4.4 -4.3 l -4.4 -4.4 l -14.6 -14.6 Z',
             speed: 400,
           });
 
