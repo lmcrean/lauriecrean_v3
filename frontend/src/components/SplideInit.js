@@ -95,70 +95,42 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
         return;
       }
       
-      // Basic carousels
-      const basicCarousels = document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(.is-initialized)');
-      console.log(`Found ${basicCarousels.length} basic carousels`);
+      // Initialize all carousels with consistent settings - no special cases
+      const uninitializedCarousels = document.querySelectorAll('.splide:not(.is-initialized)');
+      console.log(`Found ${uninitializedCarousels.length} uninitialized carousels`);
       
-      basicCarousels.forEach((carousel, index) => {
+      uninitializedCarousels.forEach((carousel, index) => {
         try {
-          console.log(`Initializing basic carousel #${index} with ID: ${carousel.id}`);
-          new window.Splide(carousel, {
+          console.log(`Initializing carousel #${index} with ID: ${carousel.id}`);
+          const splide = new window.Splide(carousel, {
             type: 'loop',
             perPage: 1,
             perMove: 1,
             gap: '1rem',
-            pagination: true,
+            pagination: false, // We're using our custom progress bar instead
             arrows: true,
-            autoplay: true,
-            interval: 3000,
-            pauseOnHover: true,
-          }).mount();
-          console.log(`Basic carousel #${index} initialized`);
-        } catch (error) {
-          console.error(`Error initializing basic carousel #${index}:`, error);
-        }
-      });
+            autoplay: false,
+            arrowPath: 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z',
+            speed: 400,
+          });
 
-      // Project carousels
-      const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport'];
-      
-      projectCarousels.forEach(id => {
-        const carousel = document.querySelector(`#${id}-carousel:not(.is-initialized)`);
-        if (carousel) {
-          console.log(`Initializing project carousel: ${id}`);
-          try {
-            const splide = new window.Splide(carousel, {
-              type: 'loop',
-              perPage: 1,
-              perMove: 1,
-              gap: '1rem',
-              arrows: true,
-              pagination: false,
-              autoplay: false,
-              arrowPath: 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z',
-              speed: 400,
+          // Get the progress bar
+          const bar = carousel.querySelector('.my-carousel-progress-bar');
+          if (bar) {
+            // Update the progress bar when the carousel moves
+            splide.on('mounted move', function () {
+              const end = splide.Components.Controller.getEnd() + 1;
+              const rate = Math.min((splide.index + 1) / end, 1);
+              bar.style.width = String(100 * rate) + '%';
             });
-
-            // Get the progress bar
-            const bar = carousel.querySelector('.my-carousel-progress-bar');
-            if (bar) {
-              // Update the progress bar when the carousel moves
-              splide.on('mounted move', function () {
-                const end = splide.Components.Controller.getEnd() + 1;
-                const rate = Math.min((splide.index + 1) / end, 1);
-                bar.style.width = String(100 * rate) + '%';
-              });
-            } else {
-              console.warn(`Progress bar not found for ${id}-carousel`);
-            }
-
-            splide.mount();
-            console.log(`Project carousel ${id} initialized`);
-          } catch (error) {
-            console.error(`Error initializing project carousel ${id}:`, error);
+          } else {
+            console.warn(`Progress bar not found for ${carousel.id}`);
           }
-        } else {
-          console.log(`Project carousel ${id} not found in DOM or already initialized`);
+
+          splide.mount();
+          console.log(`Carousel ${carousel.id} initialized`);
+        } catch (error) {
+          console.error(`Error initializing carousel ${carousel.id}:`, error);
         }
       });
     };
