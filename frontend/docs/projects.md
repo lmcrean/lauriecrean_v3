@@ -378,10 +378,10 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
   <div className="splide__track">
     <ul className="splide__list">
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-B.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-A.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-A.png" alt="Crocodile Kingdom Screenshot" />
+        <img src="/docs/screenshots/crocodilegame-B.png" alt="Crocodile Kingdom Screenshot" />
       </li>
       <li className="splide__slide">
         <img src="/docs/screenshots/crocodilegame-C.png" alt="Crocodile Kingdom Screenshot" />
