@@ -1,0 +1,11 @@
+/* Color variables */
+:root {
+    --background-color: #091439;
+    --sidebar-background-color: #010b2e;
+    --text-color: #fcfafa;
+    --border-color: #2c095a;
+    --table-header-bg: rgba(25, 25, 25, 0.9);
+    --table-row-bg:  rgba(25, 25, 25, 0.9);
+    --table-row-alt-bg:  rgba(25, 25, 25, 0.9);
+    --sidebar-highlight-color: #b0c0ff;
+}
