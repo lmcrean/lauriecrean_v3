@@ -124,31 +124,31 @@ const projectCarousels = {
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard2.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard3.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard4.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard5.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard6.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard7.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard8.png',
         alt: 'Hoverboard Screenshot'
       }
     ]
