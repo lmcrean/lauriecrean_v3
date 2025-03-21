@@ -270,7 +270,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
 </div>
 
-<img src="/docs/screenshots/retrolympics.png" alt="retrolympicrush" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
+<ProjectCarousel projectKey="retrolympics" />
 
 <a href="https://github.com/lmcrean/retrolympics-rush" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -292,7 +292,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
   <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
 </div>
 
-<img src="/docs/screenshots/wealthquest.png" alt="wealthquest" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
+<ProjectCarousel projectKey="wealthquest" />
 
 <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank"><button class="live-demo-btn"> live demo </button></a>
 

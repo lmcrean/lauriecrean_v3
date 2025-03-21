@@ -179,6 +179,64 @@ const projectCarousels = {
         alt: 'Crocodile Kingdom Screenshot'
       }
     ]
+  },
+  
+  retrolympics: {
+    id: 'retrolympics-carousel',
+    label: 'Retrolympics Rush Screenshots',
+    slides: [
+      {
+        src: '/img/docs/screenshots/retrolympics.png',
+        alt: 'Retrolympic Rush Screenshot'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-A.png',
+        alt: 'Retrolympic Rush Screenshot A'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-B.png',
+        alt: 'Retrolympic Rush Screenshot B'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-C.png',
+        alt: 'Retrolympic Rush Screenshot C'
+      }
+    ]
+  },
+  
+  wealthquest: {
+    id: 'wealthquest-carousel',
+    label: 'Wealth Quest Screenshots',
+    slides: [
+      {
+        src: '/img/docs/screenshots/wealthquest.png',
+        alt: 'Wealth Quest Screenshot'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest2.png',
+        alt: 'Wealth Quest Screenshot 2'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest3.png',
+        alt: 'Wealth Quest Screenshot 3'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest4.png',
+        alt: 'Wealth Quest Screenshot 4'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest5.png',
+        alt: 'Wealth Quest Screenshot 5'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest6.png',
+        alt: 'Wealth Quest Screenshot 6'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest7.png',
+        alt: 'Wealth Quest Screenshot 7'
+      }
+    ]
   }
 };
 

@@ -14,7 +14,9 @@ describe('Project Carousels Data', () => {
       'buffalo',
       'lauriecrean',
       'hoverboard',
-      'crocodilekingdom'
+      'crocodilekingdom',
+      'retrolympics',
+      'wealthquest'
     ];
     
     const actualKeys = Object.keys(projectCarousels);
