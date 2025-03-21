@@ -13,298 +13,252 @@ import ProjectCarousel from './ProjectCarousel';
  * @param {Object} props.projectData - Project data from projects.js
  * @returns {JSX.Element} The rendered project
  */
-export default function Project({ projectData }) {
-  if (!projectData) {
-    console.error('Project data not provided');
-    return null;
-  }
-  
-  const { 
-    id, 
-    name, 
-    version, 
-    versions,
-    description, 
-    technologies, 
-    projectTypes,
-    testResults,
-    commitId, 
+const Project = ({ projectData }) => {
+  const {
+    id,
+    name,
+    projectTypes = [],
+    description,
+    technologies = [],
+    testResults = [],
     githubInfo,
-    buttons,
-    slides 
+    buttons = {},
+    versions,
+    slides = []
   } = projectData;
 
-  // Render a specific version of the project
-  const renderVersion = (versionData, isFirst = false, isLast = false) => {
+  // Extract project key for carousel ID
+  const projectKey = id.split('-')[0];
+
+  // Generate a shield URL based on the GitHub repo and shield type
+  const generateShieldUrl = (repo, shieldType) => {
+    if (!repo) return null;
+    
+    switch (shieldType) {
+      case 'lastCommit':
+        return `https://img.shields.io/github/last-commit/${repo}?style=for-the-badge`;
+      case 'createdAt':
+        return `https://img.shields.io/github/created-at/${repo}?style=for-the-badge`;
+      case 'commitActivity':
+        return `https://img.shields.io/github/commit-activity/m/${repo}?style=for-the-badge`;
+      default:
+        return null;
+    }
+  };
+
+  // Function to render a single button
+  const renderButton = (buttonType, buttonData) => {
+    if (!buttonData || !buttonData.url) return null;
+    
+    const { url, icon, text } = buttonData;
+    
     return (
-      <div className={`project-version ${isFirst ? 'first-version' : ''} ${isLast ? 'last-version' : ''}`}>
-        {versions && versions.length > 1 && (
-          <center>
-            <b>version {versionData.version}</b>
-          </center>
-        )}
+      <a 
+        key={buttonType} 
+        href={url} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={`project-button ${buttonType}-btn`}
+      >
+        <i className={`fa ${icon}`}></i> {text}
+      </a>
+    );
+  };
+
+  // Function to render a single version of the project
+  const renderVersion = (versionData, index) => {
+    const {
+      version,
+      description: versionDescription,
+      technologies: versionTechnologies = [],
+      testResults: versionTestResults = [],
+      githubInfo: versionGithubInfo,
+      buttons: versionButtons = {}
+    } = versionData;
+
+    return (
+      <div key={`version-${index}`} className="project-version">
+        <h3 className="version-title">version {version}</h3>
         
-        {/* Buttons */}
-        <div className="project-buttons">
-          {versionData.buttons?.code && (
-            <a href={versionData.buttons.code.url} target="_blank" rel="noopener noreferrer">
-              <button className="code-btn">
-                <i className={`fa ${versionData.buttons.code.icon}`}></i> {versionData.buttons.code.text}
-              </button>
-            </a>
-          )}
-          
-          {versionData.buttons?.readme && (
-            <a href={versionData.buttons.readme.url} target="_blank" rel="noopener noreferrer">
-              <button className="readme-btn">
-                <i className={`fa ${versionData.buttons.readme.icon}`}></i> {versionData.buttons.readme.text}
-              </button>
-            </a>
-          )}
-          
-          {versionData.buttons?.figma && (
-            <a href={versionData.buttons.figma.url} target="_blank" rel="noopener noreferrer">
-              <button className="figma-btn">
-                <i className={`fa ${versionData.buttons.figma.icon}`}></i> {versionData.buttons.figma.text}
-              </button>
-            </a>
-          )}
-          
-          {versionData.buttons?.liveDemo && (
-            <a href={versionData.buttons.liveDemo.url} target="_blank" rel="noopener noreferrer">
-              <button className="live-demo-btn">
-                <i className={`fa ${versionData.buttons.liveDemo.icon}`}></i> {versionData.buttons.liveDemo.text}
-              </button>
-            </a>
-          )}
+        {/* Version description */}
+        <div 
+          className="project-description" 
+          dangerouslySetInnerHTML={{ __html: versionDescription }} 
+        />
+        
+        {/* Technology badges */}
+        <div className="tech-badges">
+          {versionTechnologies.map(tech => (
+            <img 
+              key={tech} 
+              src={`/img/tech/${tech.toLowerCase()}.svg`} 
+              alt={tech} 
+              className="tech-badge" 
+            />
+          ))}
+        </div>
+        
+        {/* Test result badges */}
+        <div className="test-badges">
+          {versionTestResults.map(test => (
+            <img 
+              key={test.framework} 
+              src={`/img/test/${test.logo}.svg`} 
+              alt={`${test.framework} ${test.passed} Passed`} 
+              className="test-badge" 
+            />
+          ))}
         </div>
         
         {/* GitHub badges */}
-        {versionData.githubInfo && (
+        {versionGithubInfo && versionGithubInfo.repo && (
           <div className="github-badges">
-            {versionData.githubInfo.lastCommit && (
-              <a href={`https://github.com/${versionData.githubInfo.repo}`} target="_blank" rel="noopener noreferrer">
-                <img 
-                  src={`https://img.shields.io/github/last-commit/${versionData.githubInfo.repo}?color=blue`} 
-                  alt="Last Commit" 
-                />
-              </a>
-            )}
-            
-            {versionData.githubInfo.createdAt && (
+            {versionGithubInfo.lastCommit && (
               <img 
-                src={`https://img.shields.io/github/created-at/${versionData.githubInfo.repo}?color=blue`} 
-                alt="Created at" 
+                src={generateShieldUrl(versionGithubInfo.repo, 'lastCommit')} 
+                alt="Last Commit" 
+                className="github-badge" 
               />
             )}
-            
-            {versionData.githubInfo.commitActivity && (
-              <a href={`https://github.com/${versionData.githubInfo.repo}/commits/main`} target="_blank" rel="noopener noreferrer">
-                <img 
-                  src={`https://img.shields.io/github/commit-activity/t/${versionData.githubInfo.repo}?color=blue`} 
-                  alt="Commit Activity" 
-                />
-              </a>
+            {versionGithubInfo.createdAt && (
+              <img 
+                src={generateShieldUrl(versionGithubInfo.repo, 'createdAt')} 
+                alt="Created At" 
+                className="github-badge" 
+              />
+            )}
+            {versionGithubInfo.commitActivity && (
+              <img 
+                src={generateShieldUrl(versionGithubInfo.repo, 'commitActivity')} 
+                alt="Commit Activity" 
+                className="github-badge" 
+              />
             )}
           </div>
         )}
         
-        {/* Technology badges */}
-        <div className="technology-badges">
-          {versionData.technologies?.map((tech, index) => (
-            <img 
-              key={`${id}-tech-${index}-${versionData.version}`}
-              src={`https://img.shields.io/badge/${tech.replace(/\./g, '_').replace(/#/g, '_Sharp_').replace(/\+/g, '_Plus_')}-1C1C1C?&logo=${tech.toLowerCase()}&logoColor=white`}
-              alt={tech}
-            />
-          ))}
-          
-          {/* Testing badges */}
-          {versionData.testResults?.map((test, index) => (
-            <img 
-              key={`${id}-test-${index}-${versionData.version}`}
-              src={`https://img.shields.io/badge/${test.framework}-${test.passed}_Passed-blue?style=flat-square&logo=${test.logo}&logoColor=white`}
-              alt={`${test.framework} ${test.passed} Passed`}
-            />
-          ))}
+        {/* Version buttons */}
+        <div className="project-buttons">
+          {renderButton('code', versionButtons.code)}
+          {renderButton('readme', versionButtons.readme)}
+          {renderButton('figma', versionButtons.figma)}
+          {renderButton('liveDemo', versionButtons.liveDemo)}
         </div>
-        
-        {/* Description */}
-        <div className="project-description" dangerouslySetInnerHTML={{ __html: versionData.description }} />
-        
-        {/* Separator between versions */}
-        {!isLast && versions && versions.length > 1 && <hr />}
       </div>
     );
   };
-  
+
   return (
-    <div className="project-container" data-testid={id}>
-      {/* Project Header */}
-      <h2 className="project-title">{name}</h2>
-      
-      {/* Project Type Badges */}
-      {projectTypes && (
+    <div className="project-container">
+      {/* Project header with title and type badges */}
+      <div className="project-header">
+        <h2 className="project-title">{name}</h2>
         <div className="project-type-badges">
-          {projectTypes.map((type, index) => (
+          {projectTypes.map(type => (
             <img 
-              key={`${id}-type-${index}`}
-              src={`https://img.shields.io/badge/${type}-1C1C1C`}
-              alt={type}
+              key={type} 
+              src={`/img/project-type/${type.toLowerCase()}.svg`} 
+              alt={type} 
+              className="project-type-badge" 
             />
           ))}
         </div>
-      )}
+      </div>
       
-      <section className="responsive-one-to-two-columns">
-        {/* Project Carousel */}
-        {slides && <ProjectCarousel projectKey={projectData.id.replace('-project', '')} />}
+      {/* Responsive layout for single project content */}
+      <div className="responsive-one-to-two-columns">
+        {/* Project carousel */}
+        <div className="project-carousel">
+          <ProjectCarousel projectKey={projectKey} slides={slides} />
+        </div>
         
-        <section>
-          {/* Single version project */}
-          {!versions && (
-            <div className="project-content">
-              {/* Buttons */}
-              <div className="project-buttons">
-                {buttons?.code && (
-                  <a href={buttons.code.url} target="_blank" rel="noopener noreferrer">
-                    <button className="code-btn">
-                      <i className={`fa ${buttons.code.icon}`}></i> {buttons.code.text}
-                    </button>
-                  </a>
-                )}
-                
-                {buttons?.readme && (
-                  <a href={buttons.readme.url} target="_blank" rel="noopener noreferrer">
-                    <button className="readme-btn">
-                      <i className={`fa ${buttons.readme.icon}`}></i> {buttons.readme.text}
-                    </button>
-                  </a>
-                )}
-                
-                {buttons?.figma && (
-                  <a href={buttons.figma.url} target="_blank" rel="noopener noreferrer">
-                    <button className="figma-btn">
-                      <i className={`fa ${buttons.figma.icon}`}></i> {buttons.figma.text}
-                    </button>
-                  </a>
-                )}
-                
-                {buttons?.liveDemo && (
-                  <a href={buttons.liveDemo.url} target="_blank" rel="noopener noreferrer">
-                    <button className="live-demo-btn">
-                      <i className={`fa ${buttons.liveDemo.icon}`}></i> {buttons.liveDemo.text}
-                    </button>
-                  </a>
-                )}
+        <div className="project-details">
+          {/* If there are versions, render each version */}
+          {versions ? (
+            <div className="project-versions">
+              {versions.map((version, index) => renderVersion(version, index))}
+            </div>
+          ) : (
+            // Otherwise render the single project details
+            <>
+              {/* Project description */}
+              <div 
+                className="project-description" 
+                dangerouslySetInnerHTML={{ __html: description }} 
+              />
+              
+              {/* Technology badges */}
+              <div className="tech-badges">
+                {technologies.map(tech => (
+                  <img 
+                    key={tech} 
+                    src={`/img/tech/${tech.toLowerCase()}.svg`} 
+                    alt={tech} 
+                    className="tech-badge" 
+                  />
+                ))}
+              </div>
+              
+              {/* Test result badges */}
+              <div className="test-badges">
+                {testResults.map(test => (
+                  <img 
+                    key={test.framework} 
+                    src={`/img/test/${test.logo}.svg`} 
+                    alt={`${test.framework} ${test.passed} Passed`} 
+                    className="test-badge" 
+                  />
+                ))}
               </div>
               
               {/* GitHub badges */}
-              {githubInfo && (
+              {githubInfo && githubInfo.repo && (
                 <div className="github-badges">
                   {githubInfo.lastCommit && (
-                    <a href={`https://github.com/${githubInfo.repo}`} target="_blank" rel="noopener noreferrer">
-                      <img 
-                        src={`https://img.shields.io/github/last-commit/${githubInfo.repo}?color=blue`} 
-                        alt="Last Commit" 
-                      />
-                    </a>
-                  )}
-                  
-                  {githubInfo.createdAt && (
                     <img 
-                      src={`https://img.shields.io/github/created-at/${githubInfo.repo}?color=blue`} 
-                      alt="Created at" 
+                      src={generateShieldUrl(githubInfo.repo, 'lastCommit')} 
+                      alt="Last Commit" 
+                      className="github-badge" 
                     />
                   )}
-                  
+                  {githubInfo.createdAt && (
+                    <img 
+                      src={generateShieldUrl(githubInfo.repo, 'createdAt')} 
+                      alt="Created At" 
+                      className="github-badge" 
+                    />
+                  )}
                   {githubInfo.commitActivity && (
-                    <a href={`https://github.com/${githubInfo.repo}/commits/main`} target="_blank" rel="noopener noreferrer">
-                      <img 
-                        src={`https://img.shields.io/github/commit-activity/t/${githubInfo.repo}?color=blue`} 
-                        alt="Commit Activity" 
-                      />
-                    </a>
+                    <img 
+                      src={generateShieldUrl(githubInfo.repo, 'commitActivity')} 
+                      alt="Commit Activity" 
+                      className="github-badge" 
+                    />
                   )}
                 </div>
               )}
               
-              {/* Technology badges */}
-              <div className="technology-badges">
-                {technologies?.map((tech, index) => (
-                  <img 
-                    key={`${id}-tech-${index}`}
-                    src={`https://img.shields.io/badge/${tech.replace(/\./g, '_').replace(/#/g, '_Sharp_').replace(/\+/g, '_Plus_')}-1C1C1C?&logo=${tech.toLowerCase()}&logoColor=white`}
-                    alt={tech}
-                  />
-                ))}
-                
-                {/* Testing badges */}
-                {testResults?.map((test, index) => (
-                  <img 
-                    key={`${id}-test-${index}`}
-                    src={`https://img.shields.io/badge/${test.framework}-${test.passed}_Passed-blue?style=flat-square&logo=${test.logo}&logoColor=white`}
-                    alt={`${test.framework} ${test.passed} Passed`}
-                  />
-                ))}
+              {/* Project buttons */}
+              <div className="project-buttons">
+                {renderButton('code', buttons.code)}
+                {renderButton('readme', buttons.readme)}
+                {renderButton('figma', buttons.figma)}
+                {renderButton('liveDemo', buttons.liveDemo)}
               </div>
-              
-              {/* Description */}
-              <div className="project-description" dangerouslySetInnerHTML={{ __html: description }} />
-            </div>
+            </>
           )}
-          
-          {/* Multiple versions project */}
-          {versions && versions.map((versionData, index) => (
-            <div key={`${id}-version-${versionData.version}`}>
-              {renderVersion(
-                versionData, 
-                index === 0, 
-                index === versions.length - 1
-              )}
-            </div>
-          ))}
-        </section>
-      </section>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 Project.propTypes = {
   projectData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    version: PropTypes.string,
-    versions: PropTypes.arrayOf(
-      PropTypes.shape({
-        version: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        technologies: PropTypes.arrayOf(PropTypes.string),
-        testResults: PropTypes.arrayOf(
-          PropTypes.shape({
-            framework: PropTypes.string.isRequired,
-            passed: PropTypes.number.isRequired,
-            logo: PropTypes.string.isRequired
-          })
-        ),
-        commitId: PropTypes.string,
-        githubInfo: PropTypes.shape({
-          repo: PropTypes.string.isRequired,
-          lastCommit: PropTypes.bool,
-          createdAt: PropTypes.bool,
-          commitActivity: PropTypes.bool
-        }),
-        buttons: PropTypes.objectOf(
-          PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired
-          })
-        )
-      })
-    ),
-    description: PropTypes.string,
     projectTypes: PropTypes.arrayOf(PropTypes.string),
+    description: PropTypes.string,
     technologies: PropTypes.arrayOf(PropTypes.string),
     testResults: PropTypes.arrayOf(
       PropTypes.shape({
@@ -315,16 +269,73 @@ Project.propTypes = {
     ),
     commitId: PropTypes.string,
     githubInfo: PropTypes.shape({
-      repo: PropTypes.string,
+      repo: PropTypes.string.isRequired,
       lastCommit: PropTypes.bool,
       createdAt: PropTypes.bool,
       commitActivity: PropTypes.bool
     }),
-    buttons: PropTypes.objectOf(
-      PropTypes.shape({
+    buttons: PropTypes.shape({
+      code: PropTypes.shape({
         url: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired
+      }),
+      readme: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+      }),
+      figma: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+      }),
+      liveDemo: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+      })
+    }),
+    versions: PropTypes.arrayOf(
+      PropTypes.shape({
+        version: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        technologies: PropTypes.arrayOf(PropTypes.string),
+        testResults: PropTypes.arrayOf(
+          PropTypes.shape({
+            framework: PropTypes.string.isRequired,
+            passed: PropTypes.number.isRequired,
+            logo: PropTypes.string.isRequired
+          })
+        ),
+        githubInfo: PropTypes.shape({
+          repo: PropTypes.string.isRequired,
+          lastCommit: PropTypes.bool,
+          createdAt: PropTypes.bool,
+          commitActivity: PropTypes.bool
+        }),
+        buttons: PropTypes.shape({
+          code: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+          }),
+          readme: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+          }),
+          figma: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+          }),
+          liveDemo: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+          })
+        })
       })
     ),
     slides: PropTypes.arrayOf(
@@ -334,4 +345,6 @@ Project.propTypes = {
       })
     )
   }).isRequired
-}; 
+};
+
+export default Project; 
