@@ -1,0 +1,193 @@
+/**
+ * Project component styles
+ * Designed to match the index.md styling
+ */
+
+.project-container {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.project-type-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.responsive-one-to-two-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-one-to-two-columns {
+    flex-direction: row;
+  }
+  
+  .responsive-one-to-two-columns > * {
+    flex: 1;
+  }
+}
+
+.project-content,
+.project-version {
+  margin-bottom: 1.5rem;
+}
+
+/* Project buttons */
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-buttons button {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.project-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.project-buttons i {
+  margin-right: 0.5rem;
+}
+
+.code-btn {
+  background-color: #343a40;
+  color: white;
+}
+
+.readme-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.figma-btn {
+  background-color: #f24e1e;
+  color: white;
+}
+
+.live-demo-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+/* GitHub badges */
+.github-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.github-badges img {
+  height: 20px;
+}
+
+/* Technology badges */
+.technology-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.technology-badges img {
+  height: 20px;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Project description */
+.project-description {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.project-description a {
+  text-decoration: underline;
+  color: var(--ifm-color-primary);
+}
+
+/* Version separators */
+.project-version hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Version title */
+.project-version center {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Project grid for displaying multiple projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+}
+
+.project-grid .project-container {
+  margin-bottom: 0;
+}
+
+/* Carousel styling */
+.splide {
+  margin-bottom: 1rem;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.my-carousel-progress {
+  width: 100%;
+  height: 4px;
+  background-color: #eee;
+  margin-top: 0.5rem;
+}
+
+.my-carousel-progress-bar {
+  height: 100%;
+  background-color: var(--ifm-color-primary);
+  width: 0;
+  transition: width 400ms ease;
+}
+
+/* For the screenshot-project-element wrapper in index.md */
+.screenshot-project-element {
+  margin-bottom: 2rem;
+} 
