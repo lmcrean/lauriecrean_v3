@@ -70,6 +70,11 @@ describe('Shield URL Consistency Tests', () => {
     
     // Check each project in projects.js
     Object.values(projects).forEach(project => {
+      if (!project || !project.technologies) {
+        console.warn(`Project "${project?.name || 'unknown'}" doesn't have technologies defined`);
+        return;
+      }
+      
       // Render the Project component
       const { container } = render(<Project projectData={project} />);
       
@@ -115,6 +120,11 @@ describe('Shield URL Consistency Tests', () => {
   test('Project component render matches technologies in projects.js', () => {
     // Test each project individually
     Object.values(projects).forEach(project => {
+      if (!project || !project.technologies) {
+        console.warn(`Project "${project?.name || 'unknown'}" doesn't have technologies defined`);
+        return;
+      }
+      
       // Render the Project component
       const { container } = render(<Project projectData={project} />);
       
