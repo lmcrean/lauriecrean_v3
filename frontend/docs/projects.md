@@ -4,6 +4,8 @@ sidebar_label: Projects
 sidebar_position: 1
 ---
 
+import ProjectCarousel from '@site/src/components/ProjectCarousel';
+
 <img src="/docs/banner.png" alt="banner" />
 
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
@@ -25,34 +27,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section className="responsive-one-to-two-columns">
 
-
-<section className="splide" id="odyssey-carousel" aria-label="Odyssey Screenshots" data-splide-init="true">
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey-E.png" alt="Odyssey Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey-D.png" alt="Odyssey Screenshot D" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey-A.png" alt="Odyssey Screenshot A" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey-B.png" alt="Odyssey Screenshot B" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/odyssey-C.png" alt="Odyssey Screenshot C" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="odyssey" />
 
 <section>
 
@@ -79,25 +54,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 <section className="responsive-one-to-two-columns">
 
-<section className="splide" id="coachmatrix-carousel" aria-label="Coach Matrix Screenshots" data-splide-init="true">
-
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/docs/screenshots/coachmatrix-A.png" alt="Coach Matrix Screenshot A" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/coachmatrix-B.png" alt="Coach Matrix Screenshot B" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="coachmatrix" />
 
 <section>
 
@@ -120,25 +77,7 @@ Social platform focused on professional development • Custom authentication an
 
 <section className="responsive-one-to-two-columns">
 
-<section className="splide" id="steamreport-carousel" aria-label="Steam Report Screenshots" data-splide-init="true">
-
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/steamreport.png" alt="steamreport-v1" style={{maxHeight: "auto", width: "600px", margin: "auto", display: "flex"}} />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="steamreport" />
 
 <section>
 
@@ -180,27 +119,7 @@ Social platform focused on professional development • Custom authentication an
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
 
-<section className="splide" id="buffalo-carousel" aria-label="Buffalo Screenshots" data-splide-init="true">
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/img/docs/screenshots/buffalo4.png" alt="Buffalo Screenshot A" />
-      </li>
-      <li className="splide__slide">
-        <img src="/img/docs/screenshots/buffalo.png" alt="Buffalo Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/img/docs/screenshots/buffalo3.png" alt="Buffalo Screenshot D" />
-      </li>
-      <li className="splide__slide">
-        <img src="/img/docs/screenshots/buffalo5.png" alt="Buffalo Screenshot B" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="buffalo" />
 
 <center><b>version 2.0</b></center>
 
@@ -258,24 +177,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 
 ## Laurie Crean
 
-<section className="splide" id="laurie-crean-carousel" aria-label="Laurie Crean Screenshots" data-splide-init="true">
-  <div className="splide__track">
-    <ul className="splide__list">
-    <li className="splide__slide">
-        <img src="/docs/screenshots/lauriecrean-v3.png" alt="Laurie Crean Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/laurie-crean-v2.png" alt="Laurie Crean Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/lauriecrean-v1.png" alt="Laurie Crean Screenshot" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="lauriecrean" />
 
 <center><b>version 3.0</b></center>
 
@@ -309,39 +211,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br />
 
-<section className="splide" id="hoverboard-carousel" aria-label="Hoverboard Screenshots" data-splide-init="true">
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/hoverboard.png" alt="Hoverboard Screenshot" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
+<ProjectCarousel projectKey="hoverboard" />
       
 <br />
 
@@ -366,39 +236,13 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
 
 
-<script src="js/carousel.js"></script>
-
 ## Crocodile Kingdom
 
 <div style={{textAlign: 'center'}}>
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /> <img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
 </div>
 
-<section className="splide" id="crocodile-kingdom-carousel" aria-label="Odyssey Screenshots" data-splide-init="true">
-  <div className="splide__track">
-    <ul className="splide__list">
-      <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-A.png" alt="Crocodile Kingdom Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-B.png" alt="Crocodile Kingdom Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-C.png" alt="Crocodile Kingdom Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame-D.png" alt="Crocodile Kingdom Screenshot" />
-      </li>
-      <li className="splide__slide">
-        <img src="/docs/screenshots/crocodilegame.png" alt="Crocodile Kingdom Screenshot" />
-      </li>
-    </ul>
-  </div>
-  <div className="my-carousel-progress">
-    <div className="my-carousel-progress-bar"></div>
-  </div>
-</section>
-
+<ProjectCarousel projectKey="crocodilekingdom" />
 
 <center><b>version 2.0</b></center>
 
