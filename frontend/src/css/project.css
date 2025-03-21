@@ -3,93 +3,136 @@
  * Designed to match the index.md styling
  */
 
+/* Main project container */
 .project-container {
-  margin-bottom: 3rem;
   width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* Project header with title and type badges */
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .project-title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
 }
 
 .project-type-badges {
   display: flex;
-  justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
+.project-type-badge {
+  height: 1.5rem;
+  border-radius: 4px;
+}
+
+/* Responsive layout for project content */
 .responsive-one-to-two-columns {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .responsive-one-to-two-columns {
-    flex-direction: row;
-  }
-  
-  .responsive-one-to-two-columns > * {
-    flex: 1;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.project-content,
+/* Project carousel styling */
+.project-carousel {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Project details section */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Version styling for multi-version projects */
+.project-versions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .project-version {
-  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Project buttons */
-.project-buttons {
+.version-title {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+/* Project description */
+.project-description {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.project-description a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.project-description a:hover {
+  text-decoration: underline;
+}
+
+/* Technology badges */
+.tech-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.project-buttons button {
-  padding: 0.5rem 0.75rem;
-  border: none;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  transition: background-color 0.2s, transform 0.1s;
+.tech-badge {
+  height: 1.5rem;
+  border-radius: 4px;
 }
 
-.project-buttons button:hover {
-  transform: translateY(-2px);
+/* Test result badges */
+.test-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.project-buttons i {
-  margin-right: 0.5rem;
-}
-
-.code-btn {
-  background-color: #343a40;
-  color: white;
-}
-
-.readme-btn {
-  background-color: #17a2b8;
-  color: white;
-}
-
-.figma-btn {
-  background-color: #f24e1e;
-  color: white;
-}
-
-.live-demo-btn {
-  background-color: #28a745;
-  color: white;
+.test-badge {
+  height: 1.75rem;
+  border-radius: 4px;
 }
 
 /* GitHub badges */
@@ -100,47 +143,71 @@
   margin-bottom: 1rem;
 }
 
-.github-badges img {
-  height: 20px;
+.github-badge {
+  height: 1.75rem;
+  border-radius: 4px;
 }
 
-/* Technology badges */
-.technology-badges {
+/* Project buttons */
+.project-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.technology-badges img {
-  height: 20px;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-/* Project description */
-.project-description {
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.project-button:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
 }
 
-.project-description a {
-  text-decoration: underline;
-  color: var(--ifm-color-primary);
+.code-btn {
+  background-color: #0074d9;
 }
 
-/* Version separators */
-.project-version hr {
-  margin: 1.5rem 0;
-  border: 0;
-  border-top: 1px solid #dee2e6;
+.code-btn:hover {
+  background-color: #0063b1;
 }
 
-/* Version title */
-.project-version center {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+.readme-btn {
+  background-color: #2ecc40;
+}
+
+.readme-btn:hover {
+  background-color: #29b739;
+}
+
+.figma-btn {
+  background-color: #f80;
+}
+
+.figma-btn:hover {
+  background-color: #e67700;
+}
+
+.liveDemo-btn {
+  background-color: #ff4136;
+}
+
+.liveDemo-btn:hover {
+  background-color: #e03730;
+}
+
+/* Icon in buttons */
+.project-button i {
+  margin-right: 0.5rem;
 }
 
 /* Project grid for displaying multiple projects */

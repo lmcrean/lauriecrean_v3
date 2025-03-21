@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Tailwind component classes */
+@layer components {
+  /* You can define reusable component classes here */
+  .project-button {
+    @apply inline-flex items-center px-4 py-2 rounded font-medium text-white transition-all;
+  }
+
+  .code-btn {
+    @apply bg-blue-600 hover:bg-blue-700 hover:-translate-y-0.5;
+  }
+
+  .readme-btn {
+    @apply bg-green-600 hover:bg-green-700 hover:-translate-y-0.5;
+  }
+
+  .figma-btn {
+    @apply bg-orange-500 hover:bg-orange-600 hover:-translate-y-0.5;
+  }
+
+  .liveDemo-btn {
+    @apply bg-red-600 hover:bg-red-700 hover:-translate-y-0.5;
+  }
+
+  .tech-badge {
+    @apply h-6 rounded;
+  }
+
+  .test-badge {
+    @apply h-7 rounded;
+  }
+
+  .github-badge {
+    @apply h-7 rounded;
+  }
+
+  .project-title {
+    @apply text-xl md:text-2xl font-bold text-primary m-0;
+  }
+
+  .version-title {
+    @apply text-lg font-semibold text-primary mt-0 mb-4;
+  }
+
+  .project-container {
+    @apply w-full mb-8 rounded-lg;
+  }
+
+  .project-header {
+    @apply flex items-center justify-between mb-4 flex-wrap;
+  }
+
+  .project-type-badges {
+    @apply flex gap-2 flex-wrap;
+  }
+
+  .responsive-one-to-two-columns {
+    @apply grid grid-cols-1 gap-6 md:grid-cols-2;
+  }
+
+  .project-carousel {
+    @apply max-w-full overflow-hidden rounded-lg shadow-md;
+  }
+
+  .project-details {
+    @apply flex flex-col gap-4;
+  }
+
+  .project-versions {
+    @apply flex flex-col gap-6;
+  }
+
+  .project-version {
+    @apply p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm;
+  }
+
+  .project-description {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .tech-badges, .test-badges, .github-badges {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+
+  .project-buttons {
+    @apply flex flex-wrap gap-2 mt-4;
+  }
+
+  .project-grid {
+    @apply grid grid-cols-1 gap-8 mb-12 md:grid-cols-2;
+  }
+} 

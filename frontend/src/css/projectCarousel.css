@@ -1,0 +1,71 @@
+/* ProjectCarousel component styles */
+
+.splide-container {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Splide carousel styling */
+.splide {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.splide__slide {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Splide navigation styling */
+.splide__arrow {
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0.7;
+}
+
+.splide__arrow:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Pagination styling */
+.splide__pagination {
+  bottom: -1.5em;
+}
+
+.splide__pagination__page {
+  background: #ddd;
+  opacity: 0.7;
+}
+
+.splide__pagination__page.is-active {
+  background: var(--ifm-color-primary);
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Progress bar */
+.splide__progress {
+  padding: 0;
+  margin: 5px 0;
+}
+
+.splide__progress__bar {
+  height: 3px;
+  background: var(--ifm-color-primary);
+}
+
+/* Make sure images are responsive */
+@media (max-width: 767px) {
+  .project-image {
+    max-height: 300px;
+    object-fit: contain;
+  }
+} 
