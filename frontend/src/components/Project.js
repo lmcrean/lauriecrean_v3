@@ -165,8 +165,8 @@ const Project = ({ projectData }) => {
         </div>
       </div>
       
-      {/* Responsive layout for single project content */}
-      <div className="responsive-one-to-two-columns">
+      {/* Single column layout */}
+      <div className="project-content">
         {/* Project carousel */}
         <div className="project-carousel">
           <ProjectCarousel projectKey={projectKey} slides={slides} />
