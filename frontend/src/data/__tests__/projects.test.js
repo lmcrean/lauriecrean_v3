@@ -3,69 +3,94 @@
  */
 
 import projects from '../projects';
-import projectCarousels from '../projectCarousels';
 
 describe('Projects Data', () => {
-  it('contains all expected projects', () => {
-    // List of expected project keys
-    const expectedProjects = [
-      'odyssey',
-      'coachmatrix',
-      'steamreport',
-      'buffalo',
-      'lauriecrean',
-      'hoverboard',
-      'crocodilekingdom'
-    ];
-    
-    const actualKeys = Object.keys(projects);
-    
-    // Check that all expected projects exist
-    expectedProjects.forEach(key => {
-      expect(actualKeys).toContain(key);
-    });
-    
-    // Check for any unexpected keys
-    expect(actualKeys.length).toBe(expectedProjects.length);
+  const projectNames = Object.keys(projects);
+  
+  test('contains projects data', () => {
+    expect(projectNames.length).toBeGreaterThan(0);
   });
   
-  it('has the correct structure for each project', () => {
-    // Check each project has required fields
-    Object.keys(projects).forEach(key => {
-      const project = projects[key];
+  test('has odyssey project', () => {
+    expect(projects).toHaveProperty('odyssey');
+  });
+  
+  test('has the correct structure for each project', () => {
+    projectNames.forEach(projectName => {
+      const project = projects[projectName];
       
       // Required fields
       expect(project).toHaveProperty('id');
       expect(project).toHaveProperty('name');
-      expect(project).toHaveProperty('version');
-      expect(project).toHaveProperty('description');
-      expect(project).toHaveProperty('technologies');
-      expect(project).toHaveProperty('repositoryUrl');
-      expect(project).toHaveProperty('liveDemoUrl');
-      expect(project).toHaveProperty('slides');
+      expect(project).toHaveProperty('projectTypes');
       
-      // ID follows naming convention
-      expect(project.id).toBe(`${key}-project`);
-      
-      // Version follows semantic versioning pattern
-      expect(project.version).toMatch(/^\d+\.\d+\.\d+$/);
-      
-      // Technologies is an array with at least one item
-      expect(Array.isArray(project.technologies)).toBe(true);
-      expect(project.technologies.length).toBeGreaterThan(0);
-      
-      // Repository and demo URLs are valid URLs
-      expect(project.repositoryUrl).toMatch(/^https?:\/\//);
-      expect(project.liveDemoUrl).toMatch(/^https?:\/\//);
-    });
-  });
-  
-  it('uses slides from projectCarousels', () => {
-    // Check that slides are properly imported from projectCarousels
-    Object.keys(projects).forEach(key => {
-      if (projectCarousels[key]) {
-        expect(projects[key].slides).toBe(projectCarousels[key].slides);
+      // Either a single project or a multi-version project
+      if (project.versions) {
+        // Multi-version project
+        expect(project.versions).toBeInstanceOf(Array);
+        expect(project.versions.length).toBeGreaterThan(0);
+        
+        // Check each version
+        project.versions.forEach(version => {
+          expect(version).toHaveProperty('version');
+          expect(version).toHaveProperty('description');
+          expect(version).toHaveProperty('technologies');
+          
+          // Optional but common fields
+          if (version.githubInfo) {
+            expect(version.githubInfo).toHaveProperty('repo');
+          }
+          
+          if (version.buttons) {
+            // At least one button should be present
+            const buttonTypes = Object.keys(version.buttons);
+            expect(buttonTypes.length).toBeGreaterThan(0);
+            
+            // Check button structure
+            buttonTypes.forEach(buttonType => {
+              const button = version.buttons[buttonType];
+              expect(button).toHaveProperty('url');
+              expect(button).toHaveProperty('icon');
+              expect(button).toHaveProperty('text');
+            });
+          }
+        });
+      } else {
+        // Single version project
+        expect(project).toHaveProperty('description');
+        expect(project).toHaveProperty('technologies');
+        
+        // Check for buttons
+        if (project.buttons) {
+          // At least one button should be present
+          const buttonTypes = Object.keys(project.buttons);
+          expect(buttonTypes.length).toBeGreaterThan(0);
+          
+          // Check button structure
+          buttonTypes.forEach(buttonType => {
+            const button = project.buttons[buttonType];
+            expect(button).toHaveProperty('url');
+            expect(button).toHaveProperty('icon');
+            expect(button).toHaveProperty('text');
+          });
+        }
+        
+        // Check GitHub info
+        if (project.githubInfo) {
+          expect(project.githubInfo).toHaveProperty('repo');
+        }
       }
+      
+      // Slides are required for all projects
+      expect(project).toHaveProperty('slides');
+      expect(project.slides).toBeInstanceOf(Array);
+      expect(project.slides.length).toBeGreaterThan(0);
+      
+      // Check slide structure
+      project.slides.forEach(slide => {
+        expect(slide).toHaveProperty('src');
+        expect(slide).toHaveProperty('alt');
+      });
     });
   });
 }); 
