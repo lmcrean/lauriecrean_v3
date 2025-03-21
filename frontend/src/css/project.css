@@ -20,26 +20,25 @@
   margin-bottom: 1rem;
 }
 
-.responsive-one-to-two-columns {
+.project-content,
+.project-version {
+  margin-bottom: 1.5rem;
+}
+
+.project-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .responsive-one-to-two-columns {
-    flex-direction: row;
-  }
-  
-  .responsive-one-to-two-columns > * {
-    flex: 1;
-  }
+.project-content .project-carousel {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.project-content,
-.project-version {
-  margin-bottom: 1.5rem;
+.project-content .project-details {
+  width: 100%;
 }
 
 /* Project buttons */
@@ -72,25 +71,7 @@
   margin-right: 0.5rem;
 }
 
-.code-btn {
-  background-color: #343a40;
-  color: white;
-}
-
-.readme-btn {
-  background-color: #17a2b8;
-  color: white;
-}
-
-.figma-btn {
-  background-color: #f24e1e;
-  color: white;
-}
-
-.live-demo-btn {
-  background-color: #28a745;
-  color: white;
-}
+/* Button styles moved to buttons.css */
 
 /* GitHub badges */
 .github-badges {
