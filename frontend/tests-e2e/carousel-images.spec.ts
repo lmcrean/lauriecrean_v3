@@ -45,16 +45,14 @@ test.describe('Problem Carousel Image Tests', () => {
           
           // Check if this image should be using a different path
           // For now, only fail if both path patterns fail
-          const expectedPath = src.startsWith('/img/') ? 
-            src.replace('/img/docs/screenshots/', '/docs/screenshots/') : 
-            src.replace('/docs/screenshots/', '/img/docs/screenshots/');
-            
+          const normalizedSrc = src;
+          
           try {
-            const altResponse = await page.request.get(expectedPath);
-            console.log(`Alternative path ${expectedPath} returned status: ${altResponse.status()}`);
-            console.log(`Image ${i+1} should use path: ${expectedPath} instead of ${src}`);
+            const altResponse = await page.request.get(normalizedSrc);
+            console.log(`Alternative path ${normalizedSrc} returned status: ${altResponse.status()}`);
+            console.log(`Image ${i+1} should use path: ${normalizedSrc} instead of ${src}`);
           } catch (altError) {
-            console.error(`Error fetching alternative path ${expectedPath}:`, altError);
+            console.error(`Error fetching alternative path ${normalizedSrc}:`, altError);
             // The test should fail since both paths failed
             throw new Error(`Image ${src} cannot be loaded with either path pattern`);
           }
@@ -101,16 +99,14 @@ test.describe('Problem Carousel Image Tests', () => {
           
           // Check if this image should be using a different path
           // For now, only fail if both path patterns fail
-          const expectedPath = src.startsWith('/img/') ? 
-            src.replace('/img/docs/screenshots/', '/docs/screenshots/') : 
-            src.replace('/docs/screenshots/', '/img/docs/screenshots/');
-            
+          const normalizedSrc = src;
+          
           try {
-            const altResponse = await page.request.get(expectedPath);
-            console.log(`Alternative path ${expectedPath} returned status: ${altResponse.status()}`);
-            console.log(`Image ${i+1} should use path: ${expectedPath} instead of ${src}`);
+            const altResponse = await page.request.get(normalizedSrc);
+            console.log(`Alternative path ${normalizedSrc} returned status: ${altResponse.status()}`);
+            console.log(`Image ${i+1} should use path: ${normalizedSrc} instead of ${src}`);
           } catch (altError) {
-            console.error(`Error fetching alternative path ${expectedPath}:`, altError);
+            console.error(`Error fetching alternative path ${normalizedSrc}:`, altError);
             // The test should fail since both paths failed
             throw new Error(`Image ${src} cannot be loaded with either path pattern`);
           }
@@ -151,16 +147,14 @@ test.describe('Problem Carousel Image Tests', () => {
         console.error(`Error fetching image ${src}:`, error);
         
         // Check if this image should be using a different path
-        const expectedPath = src.startsWith('/img/') ? 
-          src.replace('/img/docs/screenshots/', '/docs/screenshots/') : 
-          src.replace('/docs/screenshots/', '/img/docs/screenshots/');
-          
+        const normalizedSrc = src;
+        
         try {
-          const altResponse = await page.request.get(expectedPath);
-          console.log(`Alternative path ${expectedPath} returned status: ${altResponse.status()}`);
-          console.log(`Antelope image should use path: ${expectedPath} instead of ${src}`);
+          const altResponse = await page.request.get(normalizedSrc);
+          console.log(`Alternative path ${normalizedSrc} returned status: ${altResponse.status()}`);
+          console.log(`Antelope image should use path: ${normalizedSrc} instead of ${src}`);
         } catch (altError) {
-          console.error(`Error fetching alternative path ${expectedPath}:`, altError);
+          console.error(`Error fetching alternative path ${normalizedSrc}:`, altError);
           // The test should fail since both paths failed
           throw new Error(`Image ${src} cannot be loaded with either path pattern`);
         }

@@ -9,11 +9,11 @@ const projectCarousels = {
     label: 'Odyssey Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/odyssey.png',
+        src: '/img/docs/screenshots/odyssey.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/docs/screenshots/odyssey-E.png',
+        src: '/img/docs/screenshots/odyssey-E.png',
         alt: 'Odyssey Screenshot'
       },
       {

@@ -169,7 +169,7 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div><br />
 
-<img src="/docs/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
+<img src="/img/docs/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
 
@@ -277,7 +277,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
 </div>
 
-<img src="/docs/screenshots/retrolympics.png" alt="retrolympicrush" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
+<img src="/img/docs/screenshots/retrolympics.png" alt="retrolympicrush" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/retrolympics-rush" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -299,7 +299,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
   <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
 </div>
 
-<img src="/docs/screenshots/wealthquest.png" alt="wealthquest" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
+<img src="/img/docs/screenshots/wealthquest.png" alt="wealthquest" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
 <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank"><button class="live-demo-btn"> live demo </button></a>
 
