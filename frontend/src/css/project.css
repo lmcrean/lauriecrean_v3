@@ -4,51 +4,111 @@
  */
 
 .project-container {
-  margin-bottom: 3rem;
-  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-header {
+  margin-bottom: 16px;
 }
 
 .project-title {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 }
 
 .project-type-badges {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
 }
 
-.project-content,
-.project-version {
-  margin-bottom: 1.5rem;
+.project-type-badge {
+  height: 22px;
 }
 
 .project-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 16px;
 }
 
-.project-content .project-carousel {
+.project-carousel {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 }
 
-.project-content .project-details {
-  width: 100%;
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* Project buttons */
+.project-description {
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.tech-badges, .test-badges, .github-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.tech-badge, .test-badge, .github-badge {
+  height: 22px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
 .project-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
 
+/* Version styling */
+.project-versions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project-version {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  padding-top: 16px;
+}
+
+.version-title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Responsive styling */
+@media (min-width: 768px) {
+  .project-content {
+    flex-direction: row;
+  }
+
+  .project-carousel {
+    flex: 1;
+    max-width: 60%;
+  }
+
+  .project-details {
+    flex: 1;
+  }
+}
+
+/* Project buttons */
 .project-buttons button {
   padding: 0.5rem 0.75rem;
   border: none;
@@ -74,25 +134,11 @@
 /* Button styles moved to buttons.css */
 
 /* GitHub badges */
-.github-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
 .github-badges img {
   height: 20px;
 }
 
 /* Technology badges */
-.technology-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
 .technology-badges img {
   height: 20px;
   margin-right: 0.25rem;
@@ -100,12 +146,6 @@
 }
 
 /* Project description */
-.project-description {
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
 .project-description a {
   text-decoration: underline;
   color: var(--ifm-color-primary);
@@ -116,12 +156,6 @@
   margin: 1.5rem 0;
   border: 0;
   border-top: 1px solid #dee2e6;
-}
-
-/* Version title */
-.project-version center {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
 }
 
 /* Project grid for displaying multiple projects */
