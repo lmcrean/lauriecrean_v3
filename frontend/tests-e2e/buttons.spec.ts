@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Tests to verify button styling in projects.md
@@ -18,8 +19,13 @@ test.describe('Button Styling', () => {
   });
 
   test('should have buttons with styling applied', async ({ page }) => {
+    // Wait for buttons to be visible
+    await page.waitForSelector('button, .button, [role="button"]');
+    
     // Take a screenshot for debugging
-    await page.screenshot({ path: 'buttons-page.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'components', 'buttons-page.png') 
+    });
     
     // Find all button types
     const codeButtons = page.locator('button.code-btn');

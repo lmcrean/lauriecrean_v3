@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Test to verify Buffalo carousel functionality and image loading
@@ -66,7 +67,9 @@ test.describe('Buffalo Carousel', () => {
     }
     
     // Take a screenshot of the buffalo carousel for visual reference
-    await buffaloCarousel.screenshot({ path: 'buffalo-carousel.png' });
+    await buffaloCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'buffalo-carousel.png') 
+    });
     
     // Test carousel navigation (optional)
     // Click the next button and verify the active slide changes
