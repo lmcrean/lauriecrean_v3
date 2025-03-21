@@ -1,6 +1,6 @@
 ---
 slug: /
-title: Projects
+title: ""
 sidebar_label: Projects
 sidebar_position: 1
 hide_table_of_contents: false
@@ -13,11 +13,6 @@ import ProjectCarousel from '@site/src/components/ProjectCarousel';
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
 
 ***
-<div style={{display: 'none'}}>
-
-# Welcome
-
-</div>
 
 <div className="screenshot-project-element">
 
