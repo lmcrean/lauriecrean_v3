@@ -24,7 +24,7 @@ const projects = {
       'Heroku',
       'OAuth2',
       'JWT',
-      'Render'
+      'Amazon RDS'
     ],
     testResults: [
       { framework: 'Playwright', passed: 32, logo: 'playwright' },
@@ -93,22 +93,25 @@ const projects = {
   coachmatrix: {
     id: 'coachmatrix-project',
     name: 'Coach Matrix',
-    projectTypes: ['Full-Stack', 'AI'],
-    description: 'Built a cutting-edge platform integrating Claude and OpenAI large language models from scratch • Set up automatic OpenAI embedding vector generation using prompts • Implemented vector and traditional search for the database • Created a responsive dashboard with live search for filtering • Added real-time notifications and status updates to enhance user experience',
+    projectTypes: ['Full-Stack', 'API'],
+    description: 'Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo',
     technologies: [
-      'React',
-      'NodeJS',
-      'Express', 
-      'MongoDB',
+      'JavaScript',
+      'Python',
+      'HTML',
+      'CSS',
+      'PostgreSQL',
+      'Django',
+      'Amazon RDS',
       'AWS',
-      'Netlify',
-      'OpenAI',
-      'Vector DB',
-      'Claude AI'
+      'OAuth2',
+      'JWT',
+      'Heroku'
     ],
     testResults: [
-      { framework: 'Playwright', passed: 15, logo: 'playwright' },
-      { framework: 'Jest', passed: 10, logo: 'jest' }
+      { framework: 'Playwright', passed: 3, logo: 'playwright' },
+      { framework: 'Python', passed: 4, logo: 'python' },
+      { framework: 'Pytest', passed: 6, logo: 'pytest' }
     ],
     githubInfo: {
       repo: 'lmcrean/coach-matrix',
@@ -123,12 +126,12 @@ const projects = {
         text: 'code'
       },
       figma: {
-        url: 'https://www.figma.com/file/1234567890/CoachMatrix',
+        url: 'https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1',
         icon: 'fa-paint-brush',
         text: 'mockup'
       },
       liveDemo: {
-        url: 'https://coachmatrix.app',
+        url: 'https://coach-matrix-d2cd1e717f81.herokuapp.com/',
         icon: 'fa-play',
         text: 'live demo'
       }
@@ -148,40 +151,53 @@ const projects = {
   steamreport: {
     id: 'steamreport-project',
     name: 'Steam Report',
-    projectTypes: ['Backend', 'API'],
-    description: 'Created a Node.js application that automatically pulls data from the Steam API • Implemented robust caching to minimize API calls • Built comprehensive analysis tools for gaming statistics • Added support for user authentication via Steam • Created exportable reports in multiple formats',
+    projectTypes: ['Full-Stack', 'API'],
+    description: 'Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments',
     technologies: [
-      'NodeJS',
+      'React',
+      'Next.js',
+      'TailwindCSS',
+      'JavaScript',
+      'Vite',
+      'AWS',
+      'Lambda',
+      'DynamoDB',
       'Express',
-      'Steam API',
-      'Redis',
-      'Docker',
-      'Chart.js',
-      'GitHub Actions'
+      'Vercel',
+      'Python',
+      'Node.js',
+      'Heroku',
+      'Google Sheets'
     ],
     testResults: [
-      { framework: 'Jest', passed: 28, logo: 'jest' },
-      { framework: 'Supertest', passed: 12, logo: 'supertest' }
+      { framework: 'Playwright', passed: 12, logo: 'playwright' }, 
+      { framework: 'Jest', passed: 2, logo: 'jest' },
+      { framework: 'Vitest', passed: 19, logo: 'vitest' }
     ],
     githubInfo: {
-      repo: 'lmcrean/steam-report',
+      repo: 'lmcrean/steam-report-mern',
       lastCommit: true,
       createdAt: true,
       commitActivity: true
     },
     buttons: {
       code: {
-        url: 'https://github.com/lmcrean/steam-report',
+        url: 'https://github.com/lmcrean/steam-report-mern',
         icon: 'fa-code',
         text: 'code'
       },
       readme: {
-        url: 'https://github.com/lmcrean/steam-report#readme',
+        url: 'https://steamreport-docs.lauriecrean.dev',
         icon: 'fa-book',
         text: 'readme'
       },
+      figma: {
+        url: 'https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1',
+        icon: 'fa-paint-brush',
+        text: 'mockup'
+      },
       liveDemo: {
-        url: 'https://steamreport.dev',
+        url: 'https://steamreport.lauriecrean.dev',
         icon: 'fa-play',
         text: 'live demo'
       }
@@ -201,78 +217,47 @@ const projects = {
   buffalo: {
     id: 'buffalo-project',
     name: 'Buffalo',
-    projectTypes: ['Frontend'],
-    versions: [
-      {
-        version: '2.0',
-        description: 'Completely redesigned Buffalo with a modern UI and improved architecture • Incorporated TypeScript for enhanced type safety • Implemented comprehensive test coverage with Jest and React Testing Library • Added support for multiple themes and accessibility features',
-        technologies: [
-          'React',
-          'TypeScript',
-          'Sass',
-          'Storybook',
-          'Jest',
-          'RTL',
-          'Webpack'
-        ],
-        testResults: [
-          { framework: 'Jest', passed: 45, logo: 'jest' },
-          { framework: 'RTL', passed: 30, logo: 'rtl' }
-        ],
-        githubInfo: {
-          repo: 'lmcrean/buffalo-v2',
-          lastCommit: true,
-          createdAt: true,
-          commitActivity: true
-        },
-        buttons: {
-          code: {
-            url: 'https://github.com/lmcrean/buffalo-v2',
-            icon: 'fa-code',
-            text: 'code'
-          },
-          figma: {
-            url: 'https://www.figma.com/file/1234567890/Buffalo-v2',
-            icon: 'fa-paint-brush',
-            text: 'mockup'
-          },
-          liveDemo: {
-            url: 'https://buffalo-v2.netlify.app',
-            icon: 'fa-play',
-            text: 'live demo'
-          }
-        }
-      },
-      {
-        version: '1.0',
-        description: 'Original Buffalo project, a responsive front-end framework for rapid prototyping • Built with JavaScript and CSS • Includes a comprehensive component library • Supports responsive layouts and animations',
-        technologies: [
-          'JavaScript',
-          'CSS',
-          'HTML',
-          'Gulp',
-          'jQuery'
-        ],
-        githubInfo: {
-          repo: 'lmcrean/buffalo',
-          lastCommit: true,
-          createdAt: true,
-          commitActivity: true
-        },
-        buttons: {
-          code: {
-            url: 'https://github.com/lmcrean/buffalo',
-            icon: 'fa-code',
-            text: 'code'
-          },
-          readme: {
-            url: 'https://github.com/lmcrean/buffalo#readme',
-            icon: 'fa-book',
-            text: 'readme'
-          }
-        }
-      }
+    projectTypes: ['Full-Stack', 'API'],
+    description: 'Developed an AWS authentication feature running on Amplify though TDD. Migrated version 1.0 to a more efficent framework in unified AWS ecosystem. Established robust test coverage with Vitest for unit tests and Playwright for E2E tests.',
+    technologies: [
+      'Amplify',
+      'React',
+      'TailwindCSS', 
+      'Vite',
+      'GraphQL',
+      'Cognito',
+      'S3',
+      'AWS',
+      'Lambda',
+      'DynamoDB',
+      'API Gateway',
+      'Python',
+      'Django',
+      'JWT'
     ],
+    testResults: [
+      { framework: 'Playwright', passed: 12, logo: 'playwright' },
+      { framework: 'Vitest', passed: 67, logo: 'vitest' }, 
+      { framework: 'Python', passed: 7, logo: 'python' }
+    ],
+    githubInfo: {
+      repo: 'lmcrean/odyssey-v2-amplify-vite',
+      lastCommit: true,
+      createdAt: true,
+      commitActivity: true
+    },
+    buttons: {
+      code: {
+        url: 'https://github.com/lmcrean/odyssey-v2-amplify-vite',
+        icon: 'fa-code',
+        text: 'code'
+      },
+      liveDemo: {
+        url: 'https://main.d1l70uc5e2kcii.amplifyapp.com/',
+        icon: 'fa-play',
+        text: 'live demo'
+      }
+    },
     slides: [
       {
         src: '/docs/screenshots/buffalo.png',
@@ -303,17 +288,23 @@ const projects = {
     projectTypes: ['Frontend', 'Documentation'],
     description: 'Built this portfolio website using Docusaurus and React • Custom component system for presenting projects, skills and experience • Integrated automated testing and CI/CD pipeline • Custom syntax highlighting and documentation features • Optimized for performance and SEO',
     technologies: [
-      'React',
       'Docusaurus',
-      'MDX',
+      'Vitest',
+      'Playwright',
+      'Docsify',
+      'HTML',
       'CSS',
-      'GitHub Actions',
-      'Jest',
+      'JavaScript',
+      'Github Pages',
+      'React',
+      'Next.js',
+      'TailwindCSS',
+      'FramerMotion',
       'Vercel'
     ],
     testResults: [
-      { framework: 'Jest', passed: 25, logo: 'jest' },
-      { framework: 'Lighthouse', passed: 95, logo: 'lighthouse' }
+      { framework: 'Vitest', passed: 33, logo: 'vitest' },
+      { framework: 'Playwright', passed: 12, logo: 'playwright' }
     ],
     githubInfo: {
       repo: 'lmcrean/lauriecrean',
@@ -353,32 +344,35 @@ const projects = {
   hoverboard: {
     id: 'hoverboard-project',
     name: 'Hoverboard',
-    projectTypes: ['Game', 'Frontend'],
-    description: 'Created an engaging browser-based game using vanilla JavaScript • Implemented physics simulation for hoverboard movement • Used the Canvas API for smooth rendering and animations • Added mobile controls with touch support • Implemented high score tracking with local storage',
+    projectTypes: ['Frontend'],
+    description: 'Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline',
     technologies: [
       'JavaScript',
-      'HTML5 Canvas',
+      'React',
+      'Next.js',
+      'TailwindCSS',
+      'Vercel',
+      'Figma',
+      'HTML',
       'CSS',
-      'LocalStorage API',
-      'Responsive Design'
+      'Bootstrap',
+      'Github Pages'
     ],
-    testResults: [
-      { framework: 'Jest', passed: 18, logo: 'jest' }
-    ],
+    testResults: [],
     githubInfo: {
-      repo: 'lmcrean/hoverboard-game',
+      repo: 'lmcrean/hoverboard-react',
       lastCommit: true,
       createdAt: true,
       commitActivity: true
     },
     buttons: {
       code: {
-        url: 'https://github.com/lmcrean/hoverboard-game',
+        url: 'https://github.com/lmcrean/hoverboard-react',
         icon: 'fa-code',
         text: 'code'
       },
       liveDemo: {
-        url: 'https://hoverboard-game.netlify.app',
+        url: 'https://hoverboard-react.vercel.app/',
         icon: 'fa-play',
         text: 'live demo'
       }
@@ -398,37 +392,38 @@ const projects = {
   crocodilekingdom: {
     id: 'crocodilekingdom-project',
     name: 'Crocodile Kingdom',
-    projectTypes: ['Mobile', 'Game'],
-    description: 'Developed a mobile game using Unity and C# • Implemented complex game mechanics and AI for enemies • Created custom artwork and animations • Built cross-platform support for iOS and Android • Added in-app purchase integration and analytics',
+    projectTypes: ['Frontend', 'LocalStorage'],
+    description: 'Refined gameplay logic to creative word association game with validation • Ported essential Javascript features into React • Integrated Tailwind CSS into workflow.',
     technologies: [
-      'Unity',
-      'C#',
-      'Firebase',
-      'iOS',
-      'Android',
-      'Blender',
-      'Adobe Illustrator'
+      'JavaScript',
+      'React',
+      'TailwindCSS',
+      'Vercel',
+      'Vitest',
+      'HTML',
+      'CSS',
+      'Bootstrap',
+      'Github Pages'
     ],
     testResults: [
-      { framework: 'Unity Test', passed: 40, logo: 'unity' },
-      { framework: 'Firebase', passed: 15, logo: 'firebase' }
+      { framework: 'Vitest', passed: 53, logo: 'vitest' }
     ],
     githubInfo: {
-      repo: 'lmcrean/crocodile-kingdom',
+      repo: 'lmcrean/crocodile-kingdom-mern',
       lastCommit: true,
       createdAt: true,
       commitActivity: true
     },
     buttons: {
       code: {
-        url: 'https://github.com/lmcrean/crocodile-kingdom',
+        url: 'https://github.com/lmcrean/crocodile-kingdom-mern',
         icon: 'fa-code',
         text: 'code'
       },
-      figma: {
-        url: 'https://www.figma.com/file/1234567890/CrocodileKingdom',
-        icon: 'fa-paint-brush',
-        text: 'mockup'
+      liveDemo: {
+        url: 'https://crocodilekingdom.lauriecrean.dev/',
+        icon: 'fa-play',
+        text: 'live demo'
       }
     },
     slides: [
