@@ -17,7 +17,7 @@ function initializeBasicCarousels() {
 
 // Initialize project carousels
 function initializeProjectCarousels() {
-    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard', 'crocodile-kingdom'];
+    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard', 'crocodile-kingdom', 'retrolympics', 'wealthquest'];
     
     projectCarousels.forEach(id => {
         const carousel = document.querySelector(`#${id}-carousel`);

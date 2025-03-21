@@ -19,6 +19,12 @@ export default function CarouselExample() {
       <h3>Buffalo Project</h3>
       <ProjectCarousel projectKey="buffalo" />
       
+      <h3>Retrolympics Rush Project</h3>
+      <ProjectCarousel projectKey="retrolympics" />
+      
+      <h3>Wealth Quest Project</h3>
+      <ProjectCarousel projectKey="wealthquest" />
+      
       {/* The SplideInit component needs to be included once in your app */}
       <SplideInit />
     </div>

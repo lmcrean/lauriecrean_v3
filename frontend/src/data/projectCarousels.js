@@ -9,11 +9,11 @@ const projectCarousels = {
     label: 'Odyssey Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/odyssey.png',
+        src: '/img/docs/screenshots/odyssey.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/docs/screenshots/odyssey-E.png',
+        src: '/img/docs/screenshots/odyssey-E.png',
         alt: 'Odyssey Screenshot'
       },
       {
@@ -124,31 +124,31 @@ const projectCarousels = {
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard2.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard3.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard4.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard5.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard6.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard7.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/docs/screenshots/hoverboard8.png',
         alt: 'Hoverboard Screenshot'
       }
     ]
@@ -177,6 +177,64 @@ const projectCarousels = {
       {
         src: '/docs/screenshots/crocodilegame.png',
         alt: 'Crocodile Kingdom Screenshot'
+      }
+    ]
+  },
+  
+  retrolympics: {
+    id: 'retrolympics-carousel',
+    label: 'Retrolympics Rush Screenshots',
+    slides: [
+      {
+        src: '/img/docs/screenshots/retrolympics.png',
+        alt: 'Retrolympic Rush Screenshot'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-A.png',
+        alt: 'Retrolympic Rush Screenshot A'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-B.png',
+        alt: 'Retrolympic Rush Screenshot B'
+      },
+      {
+        src: '/img/docs/screenshots/retrolympics-C.png',
+        alt: 'Retrolympic Rush Screenshot C'
+      }
+    ]
+  },
+  
+  wealthquest: {
+    id: 'wealthquest-carousel',
+    label: 'Wealth Quest Screenshots',
+    slides: [
+      {
+        src: '/img/docs/screenshots/wealthquest.png',
+        alt: 'Wealth Quest Screenshot'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest2.png',
+        alt: 'Wealth Quest Screenshot 2'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest3.png',
+        alt: 'Wealth Quest Screenshot 3'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest4.png',
+        alt: 'Wealth Quest Screenshot 4'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest5.png',
+        alt: 'Wealth Quest Screenshot 5'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest6.png',
+        alt: 'Wealth Quest Screenshot 6'
+      },
+      {
+        src: '/img/docs/screenshots/wealthquest7.png',
+        alt: 'Wealth Quest Screenshot 7'
       }
     ]
   }

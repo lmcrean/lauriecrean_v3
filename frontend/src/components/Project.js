@@ -30,17 +30,76 @@ const Project = ({ projectData }) => {
   // Extract project key for carousel ID
   const projectKey = id.split('-')[0];
 
+  // Helper function to get the correct logo name for shields.io
+  const getLogoName = (tech) => {
+    // Map technology names to their correct shields.io logo names based on index.md
+    const logoMap = {
+      'Node.js': 'node.js',
+      'JavaScript': 'javascript',
+      'React': 'react',
+      'React.js': 'react',
+      'Python': 'python',
+      'Django': 'django',
+      'PostgreSQL': 'postgresql',
+      'HTML': 'html5',
+      'CSS': 'css3',
+      'TailwindCSS': 'tailwind-css',
+      'FramerMotion': 'framer',
+      'AWS': 'amazon',
+      'Heroku': 'heroku',
+      'Vercel': 'vercel',
+      'Vite': 'vite',
+      'Amazon RDS': 'amazon',
+      'Azure App Services': 'azure',
+      'Azure': 'windows',
+      'OAuth2': 'python',  // Based on what's in index.md
+      'JWT': 'json',
+      'Django REST': 'django',
+      'GitHub Actions': 'github',
+      'Github Actions': 'github',
+      'Google Sheets': 'google-sheets',
+      'Playwright': 'playwright',
+      'Pytest': 'pytest',
+      'Jest': 'jest',
+      'Cypress': 'cypress',
+      'ASP.NET': 'asp.net',
+      'C#': 'c',
+      'Next.js': 'next.js'
+    };
+    
+    return logoMap[tech] || tech.toLowerCase();
+  };
+
+  // Function to generate a badge URL
+  const generateBadgeUrl = (label, value, color, logo = null, logoColor = 'white', style = null) => {
+    // Encode parts for URL
+    const encodedLabel = encodeURIComponent(label);
+    const encodedValue = encodeURIComponent(value);
+    
+    let url = `https://img.shields.io/badge/${encodedLabel}-${encodedValue}?color=${color}`;
+    
+    if (logo) {
+      url += `&logo=${encodeURIComponent(logo)}&logoColor=${logoColor}`;
+    }
+    
+    if (style) {
+      url += `&style=${style}`;
+    }
+    
+    return url;
+  };
+
   // Generate a shield URL based on the GitHub repo and shield type
   const generateShieldUrl = (repo, shieldType) => {
     if (!repo) return null;
     
     switch (shieldType) {
       case 'lastCommit':
-        return `https://img.shields.io/github/last-commit/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/last-commit/${repo}?color=blue`;
       case 'createdAt':
-        return `https://img.shields.io/github/created-at/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/created-at/${repo}?color=blue`;
       case 'commitActivity':
-        return `https://img.shields.io/github/commit-activity/m/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/commit-activity/t/${repo}?color=blue`;
       default:
         return null;
     }
@@ -58,9 +117,10 @@ const Project = ({ projectData }) => {
         href={url} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className={`project-button ${buttonType}-btn`}
       >
-        <i className={`fa ${icon}`}></i> {text}
+        <button className={`${buttonType}-btn`}>
+          <i className={`fa ${icon}`}></i> {text}
+        </button>
       </a>
     );
   };
@@ -91,19 +151,19 @@ const Project = ({ projectData }) => {
           {versionTechnologies.map(tech => (
             <img 
               key={tech} 
-              src={`/img/tech/${tech.toLowerCase()}.svg`} 
+              src={generateBadgeUrl(tech, '1C1C1C', '1C1C1C', getLogoName(tech), 'white')} 
               alt={tech} 
               className="tech-badge" 
             />
           ))}
         </div>
         
-        {/* Test result badges */}
+        {/* Test result badges for the version */}
         <div className="test-badges">
           {versionTestResults.map(test => (
             <img 
               key={test.framework} 
-              src={`/img/test/${test.logo}.svg`} 
+              src={generateBadgeUrl(test.framework, `${test.passed}_Passed`, 'blue', getLogoName(test.framework), 'white', 'flat-square')} 
               alt={`${test.framework} ${test.passed} Passed`} 
               className="test-badge" 
             />
@@ -157,7 +217,7 @@ const Project = ({ projectData }) => {
           {projectTypes.map(type => (
             <img 
               key={type} 
-              src={`/img/project-type/${type.toLowerCase()}.svg`} 
+              src={generateBadgeUrl(type, '1C1C1C', '1C1C1C')} 
               alt={type} 
               className="project-type-badge" 
             />
@@ -165,8 +225,8 @@ const Project = ({ projectData }) => {
         </div>
       </div>
       
-      {/* Responsive layout for single project content */}
-      <div className="responsive-one-to-two-columns">
+      {/* Single column layout */}
+      <div className="project-content">
         {/* Project carousel */}
         <div className="project-carousel">
           <ProjectCarousel projectKey={projectKey} slides={slides} />
@@ -192,7 +252,7 @@ const Project = ({ projectData }) => {
                 {technologies.map(tech => (
                   <img 
                     key={tech} 
-                    src={`/img/tech/${tech.toLowerCase()}.svg`} 
+                    src={generateBadgeUrl(tech, '1C1C1C', '1C1C1C', getLogoName(tech), 'white')} 
                     alt={tech} 
                     className="tech-badge" 
                   />
@@ -204,7 +264,7 @@ const Project = ({ projectData }) => {
                 {testResults.map(test => (
                   <img 
                     key={test.framework} 
-                    src={`/img/test/${test.logo}.svg`} 
+                    src={generateBadgeUrl(test.framework, `${test.passed}_Passed`, 'blue', getLogoName(test.framework), 'white', 'flat-square')} 
                     alt={`${test.framework} ${test.passed} Passed`} 
                     className="test-badge" 
                   />
