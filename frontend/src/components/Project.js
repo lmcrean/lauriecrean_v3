@@ -36,11 +36,11 @@ const Project = ({ projectData }) => {
     
     switch (shieldType) {
       case 'lastCommit':
-        return `https://img.shields.io/github/last-commit/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/last-commit/${repo}?color=blue`;
       case 'createdAt':
-        return `https://img.shields.io/github/created-at/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/created-at/${repo}?color=blue`;
       case 'commitActivity':
-        return `https://img.shields.io/github/commit-activity/m/${repo}?style=for-the-badge`;
+        return `https://img.shields.io/github/commit-activity/t/${repo}?color=blue`;
       default:
         return null;
     }
@@ -58,9 +58,10 @@ const Project = ({ projectData }) => {
         href={url} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className={`project-button ${buttonType}-btn`}
       >
-        <i className={`fa ${icon}`}></i> {text}
+        <button className={`${buttonType}-btn`}>
+          <i className={`fa ${icon}`}></i> {text}
+        </button>
       </a>
     );
   };
@@ -91,19 +92,19 @@ const Project = ({ projectData }) => {
           {versionTechnologies.map(tech => (
             <img 
               key={tech} 
-              src={`/img/tech/${tech.toLowerCase()}.svg`} 
+              src={`https://img.shields.io/badge/${tech.replace(/ /g, '_')}-1C1C1C?&logo=${tech.toLowerCase()}&logoColor=white`} 
               alt={tech} 
               className="tech-badge" 
             />
           ))}
         </div>
         
-        {/* Test result badges */}
+        {/* Test result badges for the version */}
         <div className="test-badges">
           {versionTestResults.map(test => (
             <img 
               key={test.framework} 
-              src={`/img/test/${test.logo}.svg`} 
+              src={`https://img.shields.io/badge/${test.framework}-${test.passed}_Passed-blue?style=flat-square&logo=${test.logo}&logoColor=white`} 
               alt={`${test.framework} ${test.passed} Passed`} 
               className="test-badge" 
             />
@@ -192,7 +193,7 @@ const Project = ({ projectData }) => {
                 {technologies.map(tech => (
                   <img 
                     key={tech} 
-                    src={`/img/tech/${tech.toLowerCase()}.svg`} 
+                    src={`https://img.shields.io/badge/${tech.replace(/ /g, '_')}-1C1C1C?&logo=${tech.toLowerCase()}&logoColor=white`} 
                     alt={tech} 
                     className="tech-badge" 
                   />
@@ -204,7 +205,7 @@ const Project = ({ projectData }) => {
                 {testResults.map(test => (
                   <img 
                     key={test.framework} 
-                    src={`/img/test/${test.logo}.svg`} 
+                    src={`https://img.shields.io/badge/${test.framework}-${test.passed}_Passed-blue?style=flat-square&logo=${test.logo}&logoColor=white`} 
                     alt={`${test.framework} ${test.passed} Passed`} 
                     className="test-badge" 
                   />
