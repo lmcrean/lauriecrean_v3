@@ -17,7 +17,7 @@ test('capture element screenshots', async ({ page }) => {
   
   // Take a screenshot of the viewport around the sidebar
   await page.screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-sidebar-element.png'),
+    path: path.join('tests-e2e', 'screenshots', 'components', 'sidebar-element.png'),
     clip: {
       x: boundingBox.x,
       y: boundingBox.y,
@@ -28,17 +28,17 @@ test('capture element screenshots', async ({ page }) => {
 
   // Capture right sidebar (table of contents)
   await page.locator('.table-of-contents').screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-toc-element.png')
+    path: path.join('tests-e2e', 'screenshots', 'components', 'toc-element.png')
   });
 
   // Capture h1 element
   await page.locator('h1').first().screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-h1-element.png')
+    path: path.join('tests-e2e', 'screenshots', 'elements', 'h1-element.png')
   });
 
   // Capture first paragraph
   await page.locator('p').first().screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-p-element.png')
+    path: path.join('tests-e2e', 'screenshots', 'elements', 'p-element.png')
   });
 });
 
@@ -90,7 +90,7 @@ test('capture project screenshot element', async ({ page }) => {
 
   // Take screenshot starting from the heading position
   await page.screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'project-screenshot-element.png'),
+    path: path.join('tests-e2e', 'screenshots', 'components', 'project-section.png'),
     clip: {
       x: boundingBox.x,
       y: finalHeadingBox.y, // Start exactly at the heading position
@@ -120,7 +120,7 @@ test('capture navbar screenshot element', async ({ page }) => {
   
   // Take screenshot of the navbar
   await page.screenshot({
-    path: path.join('tests-e2e', 'screenshots', 'elements', 'navbar-element.png'),
+    path: path.join('tests-e2e', 'screenshots', 'components', 'navbar.png'),
     clip: {
       x: boundingBox.x,
       y: boundingBox.y,

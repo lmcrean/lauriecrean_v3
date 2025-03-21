@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Visual verification test for sidebar toggle effect on carousels
@@ -40,21 +41,29 @@ test.describe('Sidebar Toggle Visual Verification', () => {
     console.log('Carousel arrows found, proceeding with test');
     
     // Take a screenshot of the initial state
-    await page.screenshot({ path: 'visual-test-full-page-initial.png' });
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-carousel-initial.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'full-page-initial.png') 
+    });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'carousel-initial.png') 
+    });
     console.log('Initial screenshots captured');
     
     // 1. First verify normal carousel navigation
     // Click on next arrow to verify normal carousel functionality
     await nextButton.click();
     await page.waitForTimeout(500);
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-next-click.png' });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'next-click.png') 
+    });
     console.log('Arrow click screenshot captured');
     
     // Return to original slide
     await prevButton.click();
     await page.waitForTimeout(500);
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-prev-click.png' });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'prev-click.png') 
+    });
     console.log('Return to original slide screenshot captured');
     
     // 2. Find and click the sidebar collapse button
@@ -73,21 +82,29 @@ test.describe('Sidebar Toggle Visual Verification', () => {
     await page.waitForTimeout(1000); // Wait for animation to complete
     
     // Take screenshots after sidebar collapse
-    await page.screenshot({ path: 'visual-test-full-page-after-collapse.png' });
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-carousel-after-collapse.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'full-page-after-collapse.png') 
+    });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'carousel-after-collapse.png') 
+    });
     console.log('After sidebar collapse screenshots captured');
     
     // 3. Verify carousel functionality still works after sidebar collapse
     // Click next arrow again after sidebar toggle
     await nextButton.click();
     await page.waitForTimeout(500);
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-next-after-collapse.png' });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'next-after-collapse.png') 
+    });
     console.log('Next arrow after collapse screenshot captured');
     
     // Click prev arrow to return to original slide
     await prevButton.click();
     await page.waitForTimeout(500);
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-prev-after-collapse.png' });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'prev-after-collapse.png') 
+    });
     console.log('Prev arrow after collapse screenshot captured');
     
     // 4. Uncollapse the sidebar to verify things work both ways
@@ -110,14 +127,20 @@ test.describe('Sidebar Toggle Visual Verification', () => {
     }
     
     // Take screenshots after sidebar expand
-    await page.screenshot({ path: 'visual-test-full-page-after-expand.png' });
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-carousel-after-expand.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'full-page-after-expand.png') 
+    });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'carousel-after-expand.png') 
+    });
     console.log('After sidebar expand screenshots captured');
     
     // 5. Final test - click next arrow after expand to verify everything still works
     await nextButton.click();
     await page.waitForTimeout(500);
-    await page.locator(carouselSelector).screenshot({ path: 'visual-test-next-after-expand.png' });
+    await page.locator(carouselSelector).screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'visual-regression', 'next-after-expand.png') 
+    });
     console.log('Final screenshot captured');
     
     // Test complete - these screenshots can be examined visually to confirm

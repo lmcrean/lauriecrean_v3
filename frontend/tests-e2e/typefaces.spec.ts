@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Tests to verify typeface styling across the site
@@ -20,7 +21,9 @@ test.describe('Typeface Styling', () => {
   // Test that the font files are loaded in the page
   test('should load font files', async ({ page }) => {
     // Take a screenshot for debugging
-    await page.screenshot({ path: 'tests-e2e/screenshots/typefaces-fonts.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'components', 'typefaces-fonts.png') 
+    });
     
     // Manually navigate to the font files to check if they exist
     for (const fontFile of ['FunnelDisplay-VariableFont_wght.ttf', 'GlacialIndifference-Regular.woff', 'GlacialIndifference-Bold.woff']) {
@@ -108,7 +111,10 @@ test.describe('Typeface Styling', () => {
     expect(pCount).toBeGreaterThan(0);
     
     // Take a screenshot of the page to visually verify fonts
-    await page.screenshot({ path: 'tests-e2e/screenshots/typefaces-page.png', fullPage: true });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'pages', 'typefaces-page.png'), 
+      fullPage: true 
+    });
     
     // Check if h1 has a computed style (this is a basic check that styling is applied)
     if (h1Count > 0) {

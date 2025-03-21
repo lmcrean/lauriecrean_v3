@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Test to verify carousel behavior when sidebar is toggled
@@ -67,7 +68,9 @@ test.describe('Sidebar Toggle Carousel Integrity', () => {
     console.log('Initial carousel metrics:', initialMetrics);
     
     // Take a screenshot before toggle
-    await testCarousel.screenshot({ path: 'carousel-before-toggle.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-before-toggle.png') 
+    });
     
     // 1. First verify arrows work by checking image changes, not just index
     // Click next arrow
@@ -84,7 +87,9 @@ test.describe('Sidebar Toggle Carousel Integrity', () => {
     console.log(`Slide index after next click: ${afterNextClickIndex}`);
     
     // Take screenshot after clicking next
-    await testCarousel.screenshot({ path: 'carousel-after-next.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-after-next.png') 
+    });
     
     // Verify either index or content changed
     const indexChanged = afterNextClickIndex !== initialActiveSlideIndex;
@@ -101,7 +106,9 @@ test.describe('Sidebar Toggle Carousel Integrity', () => {
     console.log('Image src after prev click:', afterPrevClickSrc);
     
     // Take screenshot after clicking prev
-    await testCarousel.screenshot({ path: 'carousel-after-prev.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-after-prev.png') 
+    });
     
     // Verify the content changed back (either same as initial or different from "next" state)
     expect(afterPrevClickSrc !== afterNextClickSrc || afterPrevClickSrc === initialImageSrc, 
@@ -133,7 +140,9 @@ test.describe('Sidebar Toggle Carousel Integrity', () => {
     console.log('After sidebar toggle metrics:', afterToggleMetrics);
     
     // Take a screenshot after toggle
-    await testCarousel.screenshot({ path: 'carousel-after-toggle.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-after-toggle.png') 
+    });
     
     // Get current slide image source after toggle
     const afterToggleImageSrc = await getActiveImageSrc(page, carouselId);
@@ -155,7 +164,9 @@ test.describe('Sidebar Toggle Carousel Integrity', () => {
     console.log('Final image src after next click:', finalNextSrc);
     
     // Take a final screenshot
-    await testCarousel.screenshot({ path: 'carousel-final.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-final.png') 
+    });
     
     // Verify content changed after clicking next
     expect(finalNextSrc !== afterToggleImageSrc, 'Arrows should still change content after sidebar toggle').toBeTruthy();

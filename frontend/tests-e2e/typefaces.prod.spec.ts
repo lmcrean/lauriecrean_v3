@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Production tests to verify typeface styling on the deployed site
@@ -20,7 +21,9 @@ test.describe('Production Typeface Styling', () => {
   // Test that font resources are loaded
   test('should load font resources', async ({ page }) => {
     // Take a screenshot for debugging
-    await page.screenshot({ path: 'tests-e2e/screenshots/prod-typefaces-fonts.png' });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'components', 'prod-typefaces-fonts.png') 
+    });
     
     // Check for resource requests in the network
     const fontRequests = await page.evaluate(() => {
@@ -74,7 +77,10 @@ test.describe('Production Typeface Styling', () => {
     expect(pCount).toBeGreaterThan(0);
     
     // Take a screenshot of the page to visually verify fonts
-    await page.screenshot({ path: 'tests-e2e/screenshots/prod-typefaces-page.png', fullPage: true });
+    await page.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'pages', 'prod-typefaces-page.png'), 
+      fullPage: true 
+    });
     
     // Test that h1 elements have styles applied
     if (h1Count > 0) {
@@ -123,7 +129,9 @@ test.describe('Production Typeface Styling', () => {
     const h1Element = page.locator('h1').first();
     if (await h1Element.count() > 0) {
       // Take screenshot of the h1 element for visual comparison
-      await h1Element.screenshot({ path: 'tests-e2e/screenshots/prod-h1-element.png' });
+      await h1Element.screenshot({ 
+        path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-h1-element.png') 
+      });
       
       // We're intentionally not doing a visual comparison here
       // as this would require a baseline screenshot to compare against
@@ -134,7 +142,9 @@ test.describe('Production Typeface Styling', () => {
     const pElement = page.locator('p').first();
     if (await pElement.count() > 0) {
       // Take screenshot of the paragraph element for visual comparison
-      await pElement.screenshot({ path: 'tests-e2e/screenshots/prod-p-element.png' });
+      await pElement.screenshot({ 
+        path: path.join('tests-e2e', 'screenshots', 'elements', 'prod-p-element.png') 
+      });
     }
   });
 }); 

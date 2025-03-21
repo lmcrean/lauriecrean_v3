@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import path from 'path';
 
 /**
  * Test to verify carousel arrow functionality
@@ -55,7 +56,9 @@ test.describe('Carousel Arrow Functionality', () => {
     await expect(prevButton, 'Previous button should be visible').toBeVisible();
     
     // Take screenshot of initial state
-    await testCarousel.screenshot({ path: 'carousel-initial.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-initial.png') 
+    });
     
     // Get current active slide info
     const initialActiveSlideIndex = await getActiveSlideIndex(page, carouselId);
@@ -66,7 +69,9 @@ test.describe('Carousel Arrow Functionality', () => {
     await page.waitForTimeout(300);
     
     // Take screenshot after next click
-    await testCarousel.screenshot({ path: 'carousel-after-next.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-after-next.png') 
+    });
     
     // Verify slide changed when arrow is clicked
     const afterNextClickIndex = await getActiveSlideIndex(page, carouselId);
@@ -83,7 +88,9 @@ test.describe('Carousel Arrow Functionality', () => {
     await page.waitForTimeout(300);
     
     // Take screenshot after prev click
-    await testCarousel.screenshot({ path: 'carousel-after-prev.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-after-prev.png') 
+    });
     
     // Verify we changed to a different slide
     const afterPrevClickIndex = await getActiveSlideIndex(page, carouselId);
@@ -135,7 +142,9 @@ test.describe('Carousel Arrow Functionality', () => {
     console.log('Initial slide image src:', initialImageSrc);
     
     // Capture screenshot of the initial state
-    await testCarousel.screenshot({ path: 'carousel-visual-initial.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-visual-initial.png') 
+    });
     
     // Click next and verify image changes
     await nextButton.click();
@@ -149,7 +158,9 @@ test.describe('Carousel Arrow Functionality', () => {
     expect(newImageSrc, 'Carousel should display a different image after next click').not.toBe(initialImageSrc);
     
     // Take screenshot of new state
-    await testCarousel.screenshot({ path: 'carousel-visual-next.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-visual-next.png') 
+    });
     
     // Click prev to go back to original slide
     await prevButton.click();
@@ -160,7 +171,9 @@ test.describe('Carousel Arrow Functionality', () => {
     console.log('Final slide image src:', finalImageSrc);
     
     // Take final screenshot
-    await testCarousel.screenshot({ path: 'carousel-visual-prev.png' });
+    await testCarousel.screenshot({ 
+      path: path.join('tests-e2e', 'screenshots', 'carousels', 'carousel-visual-prev.png') 
+    });
     
     // Verify we've returned to the original image or moved to a different one
     // Different carousels may behave differently on prev click
