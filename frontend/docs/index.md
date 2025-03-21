@@ -22,7 +22,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
-<section className="responsive-one-to-two-columns">
+<section>
 
 <ProjectCarousel projectKey="odyssey" />
 
@@ -49,7 +49,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
-<section className="responsive-one-to-two-columns">
+<section>
 
 <ProjectCarousel projectKey="coachmatrix" />
 
@@ -72,7 +72,7 @@ Social platform focused on professional development • Custom authentication an
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
-<section className="responsive-one-to-two-columns">
+<section>
 
 <ProjectCarousel projectKey="steamreport" />
 
