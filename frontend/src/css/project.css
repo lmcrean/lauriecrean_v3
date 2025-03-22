@@ -196,8 +196,8 @@
 }
 
 .project-description a {
+  text-decoration: underline;
   color: var(--ifm-color-primary);
-  text-decoration: none;
 }
 
 .project-description a:hover {
@@ -219,7 +219,9 @@
 /* Project description */
 .project-description a {
   text-decoration: underline;
-  color: var(--ifm-color=
+  color: var(--ifm-color-primary);
+}
+
 /* Technology badges */
 .tech-badges {
   display: flex;
