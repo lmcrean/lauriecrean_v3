@@ -69,7 +69,7 @@ Social platform focused on professional development • Custom authentication an
 ## Dottie
 
 <div style={{textAlign: 'center'}}>
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" /> <img src="https://img.shields.io/github/contributors/lmcrean/dottie" alt="Contributors" /> <img src="https://img.shields.io/badge/Hackathon-13_Days-blue" alt="Hackathon" /> <img src="https://img.shields.io/badge/Role-SQL_lead,_backend_&_Axios-blue" alt="Role" />
 </div>
 
 <section>
