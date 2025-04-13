@@ -26,19 +26,9 @@ const sidebars: SidebarsConfig = {
       label: 'Certifications',
     },
     {
-      type: 'doc',
-      id: 'experience',
-      label: 'Experience',
-    },
-    {
-      type: 'doc',
-      id: 'education',
-      label: 'Education',
-    },
-    {
-      type: 'doc',
-      id: 'agile',
-      label: 'Agile Development',
+      type: 'html',
+      value: '<a href="https://emerald-barbaraanne-47.tiiny.site" target="_blank" rel="noopener noreferrer" class="menu__link">Download CV</a>', // External link opening in new tab
+      defaultStyle: true, // Use the default menu link styling
     },
   ],
 };
