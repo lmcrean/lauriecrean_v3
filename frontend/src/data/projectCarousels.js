@@ -237,6 +237,45 @@ const projectCarousels = {
         alt: 'Wealth Quest Screenshot 7'
       }
     ]
+  },
+  
+  dottie: {
+    id: 'dottie-carousel',
+    label: 'Dottie Screenshots',
+    slides: [
+      {
+        src: '/img/docs/screenshots/dottie/dottie1.png',
+        alt: 'Dottie Screenshot 1'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie2.png',
+        alt: 'Dottie Screenshot 2'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie3.png',
+        alt: 'Dottie Screenshot 3'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie4.png',
+        alt: 'Dottie Screenshot 4'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie5.png',
+        alt: 'Dottie Screenshot 5'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie6.png',
+        alt: 'Dottie Screenshot 6'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie7.png',
+        alt: 'Dottie Screenshot 7'
+      },
+      {
+        src: '/img/docs/screenshots/dottie/dottie8.png',
+        alt: 'Dottie Screenshot 8'
+      }
+    ]
   }
 };
 

@@ -2,14 +2,16 @@
 (function() {
   // Track if initialization has already occurred
   let hasInitialized = false;
+  let retryCount = 0;
+  const MAX_RETRIES = 10;
   
   // Main initialization function
   function initSplide() {
-    console.log('DOM fully loaded - init-splide.js executing');
+    console.log('[init-splide.js] DOM fully loaded - executing');
     
     // Check if Splide is loaded
     if (typeof Splide === 'undefined') {
-      console.error('Splide not loaded. Loading now...');
+      console.log('[init-splide.js] Splide not loaded. Loading now...');
       
       // Load Splide CSS
       const splideCSS = document.createElement('link');
@@ -21,103 +23,143 @@
       const splideScript = document.createElement('script');
       splideScript.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js';
       splideScript.onload = function() {
-        console.log('Splide JS loaded successfully');
-        setTimeout(initializeSplideCarousels, 500); // Wait a bit after script loads
+        console.log('[init-splide.js] Splide JS loaded successfully');
+        setTimeout(initializeSplideCarousels, 100); // Wait a bit after script loads
       };
       document.body.appendChild(splideScript);
     } else {
-      console.log('Splide already loaded');
+      console.log('[init-splide.js] Splide already loaded');
       initializeSplideCarousels();
     }
   }
   
   function initializeSplideCarousels() {
-    console.log('Manual Splide initialization running');
+    console.log('[init-splide.js] Manual Splide initialization running');
     
     // Check if we have any uninitialized carousels
     const splideElements = document.querySelectorAll('.splide:not(.is-initialized)');
-    console.log(`Found ${splideElements.length} uninitialized splide elements with selector .splide:not(.is-initialized)`);
+    console.log(`[init-splide.js] Found ${splideElements.length} uninitialized splide elements`);
     
     // Log all splide elements for debugging
     const allSplideElements = document.querySelectorAll('.splide');
-    console.log(`Total splide elements found: ${allSplideElements.length}`);
-    allSplideElements.forEach((el, index) => {
-      console.log(`Splide element #${index}:`, el.id, el.className);
-    });
+    console.log(`[init-splide.js] Total splide elements found: ${allSplideElements.length}`);
     
+    // Log details of each element for debugging
+    if (allSplideElements.length > 0) {
+      allSplideElements.forEach((el, index) => {
+        console.log(`[init-splide.js] Splide element #${index}:`, el.id, el.className);
+      });
+    }
+    
+    // If no uninitialized elements found, retry a few times
     if (splideElements.length === 0) {
-      if (!hasInitialized) {
-        console.log('No splide elements found, will retry after a delay');
+      retryCount++;
+      if (retryCount <= MAX_RETRIES) {
+        console.log(`[init-splide.js] No splide elements found, will retry after a delay (${retryCount}/${MAX_RETRIES})`);
         setTimeout(initializeSplideCarousels, 1000); // Retry after 1 second
         return;
       }
-      console.log('No uninitialized splide elements found, skipping initialization');
+      console.log('[init-splide.js] Max retries reached. No splide elements found.');
       return;
     }
     
     hasInitialized = true;
+    let successCount = 0;
     
     // Initialize all carousels with consistent settings
-    // No special carousels - all use the same settings with linear progress bars and arrows
-    document.querySelectorAll('.splide:not(.is-initialized)').forEach(function(carousel, index) {
-      console.log(`Initializing carousel #${index} with ID: ${carousel.id}`);
+    splideElements.forEach(function(carousel, index) {
       try {
+        console.log(`[init-splide.js] Initializing carousel #${index} with ID: ${carousel.id}`);
+        
+        // Don't reinitialize if a React component already handled it
+        if (carousel.getAttribute('data-splide-initialized') === 'true') {
+          console.log(`[init-splide.js] Carousel ${carousel.id} already initialized by React component, skipping`);
+          return;
+        }
+        
+        // Check if we already have a progress bar
+        let progressBar = carousel.querySelector('.my-carousel-progress-bar');
+        let progressBarContainer = carousel.querySelector('.my-carousel-progress');
+        
+        // Create progress bar if it doesn't exist
+        if (!progressBar) {
+          console.log(`[init-splide.js] Adding progress bar to ${carousel.id}`);
+          progressBarContainer = document.createElement('div');
+          progressBarContainer.className = 'my-carousel-progress';
+          progressBar = document.createElement('div');
+          progressBar.className = 'my-carousel-progress-bar';
+          progressBarContainer.appendChild(progressBar);
+          carousel.appendChild(progressBarContainer);
+        }
+        
         const splide = new Splide(carousel, {
           type: 'loop',
           perPage: 1,
           perMove: 1,
           gap: '1rem',
-          pagination: false, // We're using our custom progress bar instead
+          pagination: false, // Using custom progress bar
           arrows: true,
           autoplay: false,
           arrowPath: 'm 15.5 0.932 l -4.3 4.38 l 14.5 14.6 l -14.5 14.5 l 4.3 4.4 l 14.6 -14.6 l 4.4 -4.3 l -4.4 -4.4 l -14.6 -14.6 Z',
           speed: 400,
         });
         
-        // Get the progress bar - all carousels should have this
-        const bar = carousel.querySelector('.my-carousel-progress-bar');
-        if (bar) {
-          // Update the progress bar when the carousel moves
-          splide.on('mounted move', function() {
+        // Update the progress bar when the carousel moves
+        splide.on('mounted move', function() {
+          try {
             const end = splide.Components.Controller.getEnd() + 1;
             const rate = Math.min((splide.index + 1) / end, 1);
-            bar.style.width = String(100 * rate) + '%';
-          });
-        } else {
-          console.warn(`Progress bar not found for ${carousel.id}`);
-        }
+            progressBar.style.width = String(100 * rate) + '%';
+          } catch (e) {
+            console.error(`[init-splide.js] Error updating progress bar for ${carousel.id}:`, e);
+          }
+        });
         
         splide.mount();
-        console.log(`Carousel ${carousel.id} initialized successfully`);
+        carousel.setAttribute('data-splide-initialized', 'true');
+        console.log(`[init-splide.js] Carousel ${carousel.id} initialized successfully`);
+        successCount++;
       } catch (e) {
-        console.error(`Error initializing carousel ${carousel.id}:`, e);
+        console.error(`[init-splide.js] Error initializing carousel ${carousel.id}:`, e);
       }
     });
+    
+    // If we still have more carousels to initialize, retry
+    if (successCount === 0 && retryCount < MAX_RETRIES) {
+      retryCount++;
+      console.log(`[init-splide.js] No carousels were initialized. Retrying (${retryCount}/${MAX_RETRIES})...`);
+      setTimeout(initializeSplideCarousels, 1000);
+    } else if (successCount > 0) {
+      console.log(`[init-splide.js] Successfully initialized ${successCount} carousels`);
+    }
   }
 
   // Set up mutation observer to detect when new content is added
   function setupMutationObserver() {
-    console.log('Setting up mutation observer for dynamic content');
+    console.log('[init-splide.js] Setting up mutation observer for dynamic content');
     const observer = new MutationObserver(function(mutations) {
+      let hasSplideElements = false;
+      
       mutations.forEach(function(mutation) {
         if (mutation.addedNodes.length) {
           // Check if any of the added nodes are splide elements or contain them
-          let hasSplideElements = false;
           mutation.addedNodes.forEach(function(node) {
             if (node.nodeType === 1) { // Element node
-              if (node.classList && node.classList.contains('splide') ||
-                  node.querySelector && node.querySelector('.splide')) {
+              if ((node.classList && node.classList.contains('splide') && !node.classList.contains('is-initialized')) ||
+                  (node.querySelector && node.querySelector('.splide:not(.is-initialized)'))) {
                 hasSplideElements = true;
               }
             }
           });
-          
-          if (hasSplideElements) {
-            console.log('New splide elements detected in DOM, initializing them');
-            initializeSplideCarousels();
-          }
         }
       });
+      
+      if (hasSplideElements) {
+        console.log('[init-splide.js] New splide elements detected in DOM, initializing them');
+        // Reset retry counter for new elements
+        retryCount = 0;
+        initializeSplideCarousels();
+      }
     });
     
     // Start observing the document with the configured parameters
@@ -126,55 +168,25 @@
 
   // Add sidebar toggle listener to handle sidebar collapse/expand
   function setupSidebarToggleListener() {
-    console.log('Setting up sidebar toggle listener');
+    console.log('[init-splide.js] Setting up sidebar toggle listener');
     
     // Function to refresh all splide carousels without changing slides
     function refreshSplideCarousels() {
-      console.log('Sidebar toggled, refreshing Splide carousels');
+      console.log('[init-splide.js] Sidebar toggled, refreshing Splide carousels');
       
       // Find all initialized splides
       document.querySelectorAll('.splide.is-initialized').forEach(function(carousel) {
         try {
-          console.log(`Refreshing carousel layout for ${carousel.id}`);
+          console.log(`[init-splide.js] Refreshing carousel layout for ${carousel.id}`);
           
-          // Force a reflow of the carousel by temporarily changing a CSS property
-          // This is a gentler approach than clicking arrows
-          const track = carousel.querySelector('.splide__track');
-          if (track) {
-            // Save current transform
-            const originalTransform = track.style.transform;
-            
-            // Apply a small padding change to force layout recalculation
-            const list = carousel.querySelector('.splide__list');
-            if (list) {
-              // Force a layout recalculation
-              const originalWidth = list.offsetWidth;
-              
-              // Apply and remove a class to trigger reflow without changing slides
-              carousel.classList.add('sidebar-toggle-refresh');
-              setTimeout(() => {
-                carousel.classList.remove('sidebar-toggle-refresh');
-                
-                // If we have Splide v4+, we can also try to dispatch a resize event
-                if (typeof Splide !== 'undefined' && typeof Splide.prototype.emit === 'function') {
-                  try {
-                    // For newer Splide versions with emit method
-                    const splideInstance = carousel.splide;
-                    if (splideInstance && typeof splideInstance.emit === 'function') {
-                      splideInstance.emit('resize');
-                    }
-                  } catch (e) {
-                    console.log('Could not emit resize event, continuing with DOM-based refresh');
-                  }
-                }
-                
-                // Dispatch a window resize event as a last resort
-                window.dispatchEvent(new Event('resize'));
-              }, 10);
-            }
+          // Dispatch a resize event to trigger Splide's internal resize handler
+          if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
+            setTimeout(() => {
+              window.dispatchEvent(new Event('resize'));
+            }, 100);
           }
         } catch (e) {
-          console.error(`Error refreshing carousel ${carousel.id}:`, e);
+          console.error(`[init-splide.js] Error refreshing carousel ${carousel.id}:`, e);
         }
       });
     }
@@ -187,9 +199,9 @@
                                    document.documentElement.classList.contains('navbar--sidebar-show') || 
                                    document.documentElement.classList.contains('navbar-sidebar--show');
           
-          console.log('Sidebar state changed, collapsed:', sidebarCollapsed);
+          console.log('[init-splide.js] Sidebar state changed, collapsed:', sidebarCollapsed);
           // Wait for the sidebar animation to start before refreshing
-          setTimeout(refreshSplideCarousels, 50);
+          setTimeout(refreshSplideCarousels, 300);
         }
       });
     });
@@ -201,9 +213,9 @@
     document.addEventListener('click', function(event) {
       const toggleButton = event.target.closest('.navbar__toggle, .navbar-sidebar__close, .navbar-sidebar__backdrop, .navbar__toggle');
       if (toggleButton) {
-        console.log('Sidebar toggle button clicked');
+        console.log('[init-splide.js] Sidebar toggle button clicked');
         // Wait a bit for the sidebar animation to start
-        setTimeout(refreshSplideCarousels, 50);
+        setTimeout(refreshSplideCarousels, 300);
       }
     });
   }
@@ -224,9 +236,10 @@
   // Handle Docusaurus page transitions - initialize carousels after page changes
   // This is needed because Docusaurus uses client-side routing
   document.addEventListener('docusaurus.routeDidUpdate', function() {
-    console.log('Route updated, reinitializing Splide carousels');
+    console.log('[init-splide.js] Route updated, reinitializing Splide carousels');
     // Reset initialization flag when route changes
     hasInitialized = false;
-    setTimeout(initializeSplideCarousels, 500); // Small delay to ensure DOM is updated
+    retryCount = 0;
+    setTimeout(initializeSplideCarousels, 300); // Small delay to ensure DOM is updated
   });
 })(); 

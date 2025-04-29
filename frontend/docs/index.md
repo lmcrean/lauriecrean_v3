@@ -66,6 +66,33 @@ Social platform focused on professional development • Custom authentication an
 </section>
 </section>
 
+## Dottie
+
+<div style={{textAlign: 'center'}}>
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" /> <img src="https://img.shields.io/github/contributors/lmcrean/dottie" alt="Contributors" /> <img src="https://img.shields.io/badge/Hackathon-13_Days-blue" alt="Hackathon" /> <img src="https://img.shields.io/badge/Role-SQL_lead,_backend_&_Axios-blue" alt="Role" />
+</div>
+
+<section>
+
+<ProjectCarousel projectKey="dottie" />
+
+</section>  
+
+<section>
+
+<a href="https://github.com/lmcrean/dottie" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://red-wave-06b6d6910.6.azurestaticapps.net/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie) ![Created at](https://img.shields.io/github/created-at/lmcrean/dottie?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie/commits/main)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Express](https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white) ![Knex](https://img.shields.io/badge/Knex-1C1C1C?&logo=knex&logoColor=white) ![Supertest](https://img.shields.io/badge/Supertest-1C1C1C?&logo=supertest&logoColor=white) ![Azure](https://img.shields.io/badge/Azure-1C1C1C?&logo=windows&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-1C1C1C?&logo=sql&logoColor=white) ![Azure App Services](https://img.shields.io/badge/Azure_App_Services-1C1C1C?&logo=windows&logoColor=white) ![Azure SQL](https://img.shields.io/badge/Azure_SQL-1C1C1C?&logo=windows&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-303_Passed-blue?style=flat-square&logo=vitest&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-40_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
+
+Collaborated with medical specialist with a researched business use case • Managed a team of 6 developers • Developed and tested the backend with SQL knex, vitest, supertest • Implemented a RESTful API with Express.js and Knex.js • Integrated Azure SQL and Azure App Services • Built responsive UI with TailwindCSS • Implemented automated testing with Vitest and Playwright • Deployed on Azure
+
+</section>
+
+
+
+
 ## Steam Report
 
 <div style={{textAlign: 'center'}}>
