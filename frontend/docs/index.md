@@ -54,7 +54,7 @@ Collaborated with medical specialist with a researched business use case • Man
 
 <section>
 
-<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://odyssey.lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <i class="fa fa-lock"></i> not currently available </button>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api/commits/main)
 
@@ -81,7 +81,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 <section>
 
-<a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://coach-matrix-d2cd1e717f81.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <button class="live-demo-btn"><i class="fa fa-lock"></i> not currently available </button>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix/commits/main)
 
@@ -209,7 +209,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool) ![Created at](https://img.shields.io/github/created-at/lmcrean/BudgetTool?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool/commits/main)
 
 
-<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-play locked"></i> live demo </button>
+<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
 
