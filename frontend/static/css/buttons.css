@@ -1,4 +1,4 @@
-.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn, .figma-btn {
+.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn, .figma-btn, .discord-btn {
     color: white;
     border: none;
     border-radius: 5px;
@@ -23,6 +23,7 @@
   .readme-btn { background-color: #3b0d4c;}
   .live-demo-btn { background-color: #043ca5;}
   .figma-btn { background-color: #643a0f;}
+  .discord-btn { background-color: #5865F2;}
 
 a {
     text-decoration: none;

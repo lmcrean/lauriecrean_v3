@@ -28,7 +28,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section>
 
-<a href="https://github.com/lmcrean/dottie" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button class="discord-btn"><i class="fa fa-discord"></i> join discord </button></a>
+<a href="https://github.com/lmcrean/dottie" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button class="discord-btn"><i class="fa fa-brands fa-discord"></i> join discord </button></a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie) ![Created at](https://img.shields.io/github/created-at/lmcrean/dottie?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie/commits/main)
 
