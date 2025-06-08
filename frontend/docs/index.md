@@ -167,7 +167,6 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 
-
 ## Buffalo
 
 <div class="header-badges">

@@ -34,6 +34,11 @@ const config: Config = {
       async: true,
       defer: true,
     },
+    {
+      src: '/js/locked-button.js',
+      async: true,
+      defer: true,
+    },
   ],
   stylesheets: [
     {
