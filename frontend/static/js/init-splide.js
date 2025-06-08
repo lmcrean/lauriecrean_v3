@@ -7,11 +7,8 @@
   
   // Main initialization function
   function initSplide() {
-    console.log('[init-splide.js] DOM fully loaded - executing');
-    
     // Check if Splide is loaded
     if (typeof Splide === 'undefined') {
-      console.log('[init-splide.js] Splide not loaded. Loading now...');
       
       // Load Splide CSS
       const splideCSS = document.createElement('link');
@@ -23,12 +20,10 @@
       const splideScript = document.createElement('script');
       splideScript.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js';
       splideScript.onload = function() {
-        console.log('[init-splide.js] Splide JS loaded successfully');
         setTimeout(initializeSplideCarousels, 100); // Wait a bit after script loads
       };
       document.body.appendChild(splideScript);
     } else {
-      console.log('[init-splide.js] Splide already loaded');
       initializeSplideCarousels();
     }
   }
