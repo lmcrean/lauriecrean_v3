@@ -6,16 +6,16 @@
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
+        <img src="/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+        <img src="/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/coachmatrix-v2.png" alt="Coach Matrix Screenshot">
+        <img src="/screenshots/coachmatrix-v2.png" alt="Coach Matrix Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
+        <img src="/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
       </li>
     </ul>
   </div>
@@ -30,13 +30,13 @@
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="/docs/screenshots/odyssey.png" alt="Thumbnail 1">
+        <img src="/screenshots/odyssey.png" alt="Thumbnail 1">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/coachmatrix.png" alt="Thumbnail 2">
+        <img src="/screenshots/coachmatrix.png" alt="Thumbnail 2">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Thumbnail 3">
+        <img src="/screenshots/steamreport-v2-A.png" alt="Thumbnail 3">
       </li>
     </ul>
   </div>
@@ -49,13 +49,13 @@
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
+        <img src="/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+        <img src="/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="/docs/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
+        <img src="/screenshots/steamreport-v2-A.png" alt="Steam Report Screenshot">
       </li>
     </ul>
   </div>

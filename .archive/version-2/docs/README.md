@@ -22,22 +22,22 @@ Welcome to my portfolio website! On this page you will find a guide to my select
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey.png" alt="Odyssey Screenshot">
+        <img src="http://lauriecrean.dev/screenshots/odyssey.png" alt="Odyssey Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey-E.png" alt="Odyssey Screenshot">
+        <img src="http://lauriecrean.dev/screenshots/odyssey-E.png" alt="Odyssey Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey-D.png" alt="Odyssey Screenshot D">
+        <img src="http://lauriecrean.dev/screenshots/odyssey-D.png" alt="Odyssey Screenshot D">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey-A.png" alt="Odyssey Screenshot A">
+        <img src="http://lauriecrean.dev/screenshots/odyssey-A.png" alt="Odyssey Screenshot A">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey-B.png" alt="Odyssey Screenshot B">
+        <img src="http://lauriecrean.dev/screenshots/odyssey-B.png" alt="Odyssey Screenshot B">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/odyssey-C.png" alt="Odyssey Screenshot C">
+        <img src="http://lauriecrean.dev/screenshots/odyssey-C.png" alt="Odyssey Screenshot C">
       </li>
     </ul>
   </div>
@@ -75,13 +75,13 @@ Developed Social Media application with Auth, messaging and media sharing featur
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/coachmatrix-A.png" alt="Coach Matrix Screenshot A">
+        <img src="http://lauriecrean.dev/screenshots/coachmatrix-A.png" alt="Coach Matrix Screenshot A">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
+        <img src="http://lauriecrean.dev/screenshots/coachmatrix.png" alt="Coach Matrix Screenshot">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/coachmatrix-B.png" alt="Coach Matrix Screenshot B">
+        <img src="http://lauriecrean.dev/screenshots/coachmatrix-B.png" alt="Coach Matrix Screenshot B">
       </li>
     </ul>
   </div>
@@ -116,13 +116,13 @@ Social platform focused on professional development • Custom authentication an
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A">
+        <img src="http://lauriecrean.dev/screenshots/steamreport-v2-A.png" alt="Steam Report v2 Screenshot A">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B">
+        <img src="http://lauriecrean.dev/screenshots/steamreport-v2-B.png" alt="Steam Report v2 Screenshot B">
       </li>
       <li class="splide__slide">
-        <img src="http://lauriecrean.dev/docs/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
+        <img src="http://lauriecrean.dev/screenshots/steamreport.png" alt="steamreport-v1" max-height="auto" width="600" style="margin:auto; display:flex"></img>
       </li>
     </ul>
   </div>
@@ -229,7 +229,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/screenshots/laurie-crean-v2.png" alt="laurie-crean-v2" width="500" height="auto" style="margin:auto; display:flex"></img>
 
 <center><b>version 2.0</b></center>
 
@@ -259,7 +259,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend">
 </div><br>
 
-<img src="http://lauriecrean.dev/docs/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
+<img src="http://lauriecrean.dev/screenshots/hoverboard.png" alt="hoverboard" max-height="auto" width="500" style="margin:auto; display:flex">
       
 <br>
 
@@ -294,7 +294,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/screenshots/crocodilegame.png" alt="crocodilegame-v1" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 
 <center><b>version 2.0</b></center>
@@ -326,7 +326,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
   <img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon">
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/screenshots/retrolympics.png" alt="retrolympicrush" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/retrolympics-rush"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
 
@@ -348,7 +348,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
   <img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon">
 </div>
 
-<img src="http://lauriecrean.dev/docs/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
+<img src="http://lauriecrean.dev/screenshots/wealthquest.png" alt="wealthquest" max-height="auto" width="450" style="margin:auto; display:flex"></img>
 
 <a href="https://github.com/lmcrean/Wealth-Quest"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/"><button class="live-demo-btn"> live demo </button></a>
 
