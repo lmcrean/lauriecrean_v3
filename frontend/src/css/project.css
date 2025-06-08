@@ -371,3 +371,10 @@
 .screenshot-project-element {
   margin-bottom: 2rem;
 } 
+
+
+.header-badges {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
