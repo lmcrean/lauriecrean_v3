@@ -244,24 +244,28 @@ const projectCarousels = {
     label: 'Dottie Screenshots',
     slides: [
       {
-        src: '/screenshots/dottie/dottie1.png',
-        alt: 'Dottie Screenshot 1'
+        src: '/screenshots/dottie/landing.png',
+        alt: 'Dottie Landing'
       },
       {
-        src: '/screenshots/dottie/dottie2.png',
-        alt: 'Dottie Screenshot 2'
+        src: '/screenshots/dottie/assessment_step3.png',
+        alt: 'Dottie Assessment Step 3'
       },
       {
-        src: '/screenshots/dottie/dottie3.png',
-        alt: 'Dottie Screenshot 3'
+        src: '/screenshots/dottie/assessment_list.png',
+        alt: 'Dottie Assessment List'
       },
       {
-        src: '/screenshots/dottie/dottie4.png',
-        alt: 'Dottie Screenshot 4'
+        src: '/screenshots/dottie/assessment_detail.png',
+        alt: 'Dottie Assessment Detail'
       },
       {
-        src: '/screenshots/dottie/dottie5.png',
-        alt: 'Dottie Screenshot 5'
+        src: '/screenshots/dottie/chat_detail_closed.png',
+        alt: 'Dottie Chat Detail Closed'
+      },
+      {
+        src: '/screenshots/dottie/chat_detail.png',
+        alt: 'Dottie Chat Detail'
       },
       {
         src: '/screenshots/dottie/dottie6.png',
