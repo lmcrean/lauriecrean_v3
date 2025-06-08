@@ -198,17 +198,6 @@ Developed an AWS authentication feature running on Amplify though TDD. Migrated 
 
 Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [AWS authentication feature](#aws-authentication-feature).
 
-## Azure Authentication Feature
-
-<div class="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br />
-
-![ASP.NET](https://img.shields.io/badge/ASP.NET-1C1C1C?&logo=asp.net&logoColor=white) ![C#](https://img.shields.io/badge/C%23-1C1C1C?&logo=c&logoColor=white) ![Azure](https://img.shields.io/badge/Azure-1C1C1C?&logo=windows&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Azure app services](https://img.shields.io/badge/Azure_App_Services-1C1C1C?&logo=azure&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![Github Actions](https://img.shields.io/badge/Github_Actions-1C1C1C?&logo=github&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-1_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool) ![Created at](https://img.shields.io/github/created-at/lmcrean/BudgetTool?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool/commits/main)
-
-
 <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
