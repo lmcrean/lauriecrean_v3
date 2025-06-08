@@ -9,11 +9,11 @@ const projectCarousels = {
     label: 'Odyssey Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/odyssey.png',
+        src: '/docs/screenshots/odyssey.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/img/docs/screenshots/odyssey-E.png',
+        src: '/docs/screenshots/odyssey-E.png',
         alt: 'Odyssey Screenshot'
       },
       {
@@ -78,19 +78,19 @@ const projectCarousels = {
     label: 'Buffalo Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/buffalo4.png',
+        src: '/docs/screenshots/buffalo4.png',
         alt: 'Buffalo Screenshot A'
       },
       {
-        src: '/img/docs/screenshots/buffalo.png',
+        src: '/docs/screenshots/buffalo.png',
         alt: 'Buffalo Screenshot'
       },
       {
-        src: '/img/docs/screenshots/buffalo3.png',
+        src: '/docs/screenshots/buffalo3.png',
         alt: 'Buffalo Screenshot D'
       },
       {
-        src: '/img/docs/screenshots/buffalo5.png',
+        src: '/docs/screenshots/buffalo5.png',
         alt: 'Buffalo Screenshot B'
       }
     ]
@@ -159,15 +159,15 @@ const projectCarousels = {
     label: 'Crocodile Kingdom Screenshots',
     slides: [
       {
+        src: '/docs/screenshots/crocodilegame-C.png',
+        alt: 'Crocodile Kingdom Screenshot'
+      },
+      {
         src: '/docs/screenshots/crocodilegame-A.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
         src: '/docs/screenshots/crocodilegame-B.png',
-        alt: 'Crocodile Kingdom Screenshot'
-      },
-      {
-        src: '/docs/screenshots/crocodilegame-C.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
@@ -186,19 +186,19 @@ const projectCarousels = {
     label: 'Retrolympics Rush Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/retrolympics.png',
+        src: '/docs/screenshots/retrolympics.png',
         alt: 'Retrolympic Rush Screenshot'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-A.png',
+        src: '/docs/screenshots/retrolympics-A.png',
         alt: 'Retrolympic Rush Screenshot A'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-B.png',
+        src: '/docs/screenshots/retrolympics-B.png',
         alt: 'Retrolympic Rush Screenshot B'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-C.png',
+        src: '/docs/screenshots/retrolympics-C.png',
         alt: 'Retrolympic Rush Screenshot C'
       }
     ]
@@ -209,31 +209,31 @@ const projectCarousels = {
     label: 'Wealth Quest Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/wealthquest.png',
+        src: '/docs/screenshots/wealthquest.png',
         alt: 'Wealth Quest Screenshot'
       },
       {
-        src: '/img/docs/screenshots/wealthquest2.png',
+        src: '/docs/screenshots/wealthquest2.png',
         alt: 'Wealth Quest Screenshot 2'
       },
       {
-        src: '/img/docs/screenshots/wealthquest3.png',
+        src: '/docs/screenshots/wealthquest3.png',
         alt: 'Wealth Quest Screenshot 3'
       },
       {
-        src: '/img/docs/screenshots/wealthquest4.png',
+        src: '/docs/screenshots/wealthquest4.png',
         alt: 'Wealth Quest Screenshot 4'
       },
       {
-        src: '/img/docs/screenshots/wealthquest5.png',
+        src: '/docs/screenshots/wealthquest5.png',
         alt: 'Wealth Quest Screenshot 5'
       },
       {
-        src: '/img/docs/screenshots/wealthquest6.png',
+        src: '/docs/screenshots/wealthquest6.png',
         alt: 'Wealth Quest Screenshot 6'
       },
       {
-        src: '/img/docs/screenshots/wealthquest7.png',
+        src: '/docs/screenshots/wealthquest7.png',
         alt: 'Wealth Quest Screenshot 7'
       }
     ]
@@ -244,35 +244,35 @@ const projectCarousels = {
     label: 'Dottie Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/dottie/dottie1.png',
+        src: '/docs/screenshots/dottie/dottie1.png',
         alt: 'Dottie Screenshot 1'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie2.png',
+        src: '/docs/screenshots/dottie/dottie2.png',
         alt: 'Dottie Screenshot 2'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie3.png',
+        src: '/docs/screenshots/dottie/dottie3.png',
         alt: 'Dottie Screenshot 3'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie4.png',
+        src: '/docs/screenshots/dottie/dottie4.png',
         alt: 'Dottie Screenshot 4'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie5.png',
+        src: '/docs/screenshots/dottie/dottie5.png',
         alt: 'Dottie Screenshot 5'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie6.png',
+        src: '/docs/screenshots/dottie/dottie6.png',
         alt: 'Dottie Screenshot 6'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie7.png',
+        src: '/docs/screenshots/dottie/dottie7.png',
         alt: 'Dottie Screenshot 7'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie8.png',
+        src: '/docs/screenshots/dottie/dottie8.png',
         alt: 'Dottie Screenshot 8'
       }
     ]

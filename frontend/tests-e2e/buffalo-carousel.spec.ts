@@ -58,8 +58,8 @@ test.describe('Buffalo Carousel', () => {
         expect(src, `Image ${i+1} should have a valid src path`).toBeTruthy();
         
         // Check if the path uses the expected structure
-        if (src.includes('/img/docs/screenshots/')) {
-          console.log(`Image ${i+1} uses /img/docs/screenshots/ path structure`);
+        if (src.includes('/docs/screenshots/')) {
+          console.log(`Image ${i+1} uses /docs/screenshots/ path structure`);
         } else {
           console.log(`Image ${i+1} uses a different path structure: ${src}`);
         }

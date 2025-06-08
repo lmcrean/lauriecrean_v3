@@ -32,12 +32,12 @@ test('buffalo image paths resolve correctly', async () => {
     '/docs/screenshots/buffalo3.png',
     '/docs/screenshots/buffalo4.png',
     '/docs/screenshots/buffalo5.png',
-    // Also test the static/img paths
-    '/img/docs/screenshots/buffalo.png',
-    '/img/docs/screenshots/buffalo2.png',
-    '/img/docs/screenshots/buffalo3.png',
-    '/img/docs/screenshots/buffalo4.png',
-    '/img/docs/screenshots/buffalo5.png',
+    // Also test the static/docs paths (now the standard)
+    '/docs/screenshots/buffalo.png',
+    '/docs/screenshots/buffalo2.png',
+    '/docs/screenshots/buffalo3.png',
+    '/docs/screenshots/buffalo4.png',
+    '/docs/screenshots/buffalo5.png',
   ];
   
   // Check each path
