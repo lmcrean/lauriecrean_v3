@@ -22,10 +22,11 @@
       
       console.log(`[locked-button.js] Setting up hover for locked button #${index}`);
       
-      // Store original classes
+      // Store original classes and text
       const originalClasses = icon.className;
+      const originalText = button.textContent.trim();
       
-      // Mouse enter event - change to lock icon
+      // Mouse enter event - change to lock icon and text
       button.addEventListener('mouseenter', function() {
         // Remove fa-play if it exists
         icon.classList.remove('fa-play');
@@ -38,13 +39,17 @@
           icon.classList.add('fa-lock');
         }
         
-        console.log(`[locked-button.js] Hover in - changed to lock icon: ${icon.className}`);
+        // Change button text (preserve the icon)
+        button.innerHTML = `<i class="${icon.className}"></i> not currently available`;
+        
+        console.log(`[locked-button.js] Hover in - changed to lock icon and text: ${icon.className}`);
       });
       
       // Mouse leave event - change back to original
       button.addEventListener('mouseleave', function() {
         icon.className = originalClasses;
-        console.log(`[locked-button.js] Hover out - restored original icon: ${icon.className}`);
+        button.innerHTML = `<i class="${originalClasses}"></i> ${originalText.replace(/^\s*/, '').trim()}`;
+        console.log(`[locked-button.js] Hover out - restored original icon and text: ${originalClasses}`);
       });
     });
   }
