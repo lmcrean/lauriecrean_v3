@@ -166,58 +166,6 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
-
-## Buffalo
-
-<div class="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br />
-
-<ProjectCarousel projectKey="buffalo" />
-
-<center><b>version 2.0</b></center>
-
-<a href="https://github.com/lmcrean/odyssey-v2-amplify-vite" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
-
-![Amplify](https://img.shields.io/badge/Amplify-1C1C1C?&logo=amazon&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![GraphQL](https://img.shields.io/badge/GraphQL-1C1C1C?&logo=graphql&logoColor=white) ![Cognito](https://img.shields.io/badge/Cognito-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-67_Passed-blue?style=flat-square&logo=vitest&logoColor=white) 
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2-amplify-vite?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2-amplify-vite?color=blue)](https://github.com/lmcrean/odyssey-v2-amplify-vite/commits/main)
-
-Developed an AWS authentication feature running on Amplify though TDD. Migrated version 1.0 to a more efficent framework in unified AWS ecosystem. Established robust test coverage with Vitest for unit tests and Playwright for E2E tests.
-
-
-<hr />
-
-<center><b>version 1.0</b></center>
-
-<a href="https://github.com/lmcrean/odyssey-v2" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
-
-![AWS](https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white) ![Lambda](https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white) ![API Gateway](https://img.shields.io/badge/API_Gateway-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-1C1C1C?&logo=django&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white) ![Python](https://img.shields.io/badge/Python-7_Passed-blue?style=flat-square&logo=python&logoColor=white)
-
-Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudinary-Django to a unified backend pipeline with AWS Lambda, DynamoDB, API Gateway, S3 and CloudFront. • Infused JWT layer and websocket connection • Improved python test code quality with vertical framework. Eventually developed into [AWS authentication feature](#aws-authentication-feature).
-
-<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
-
-Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
-
-## Antelope
-
-<div class="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
-</div><br />
-
-<img src="/docs/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
-
-<a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <button class="live-demo-btn"><i class="fa fa-lock"></i> not currently available </button>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope) ![Created at](https://img.shields.io/github/created-at/lmcrean/antelope?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope/commits/main)
-
-![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Javascript](https://img.shields.io/badge/Javascript-1C1C1C?&logo=javascript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![Axios](https://img.shields.io/badge/Axios-1C1C1C?&logo=axios&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-1C1C1C?&logo=supabase&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![NGINX](https://img.shields.io/badge/NGINX-1C1C1C?&logo=nginx&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-29_Passed-blue?style=flat-square&logo=pytest&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-80_Passed-blue?style=flat-square&logo=vitest&logoColor=white)
-
-Developed full-stack boilerplate with React JSX frontend and Django REST API • Implemented comprehensive testing with Playwright E2E, Vitest and Pytest unit tests • Integrated Supabase PostgreSQL database • Deployed frontend and API to Heroku with NGINX • Automated deployments with GitHub Actions and Heroku CLI
-
 ## Hoverboard
 
 <div class="header-badges">
