@@ -137,6 +137,36 @@ Social platform focused on professional development • Custom authentication an
 </section>
 
 
+## Laurie Crean
+
+<ProjectCarousel projectKey="lauriecrean" />
+
+<center><b>version 3.0</b></center>
+
+<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+
+![Docusaurus](https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-33_Passed-blue?style=flat-square&logo=vitest&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
+
+<center><b>version 2.0</b></center>
+
+![Docsify](https://img.shields.io/badge/Docsify.js-1C1C1C?&logo=docsify&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white)
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean_nextjs?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs/commits/main)
+
+Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
+
+<hr />
+<center><b>version 1.0</b></center>
+
+<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+
+[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean/commits/main)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![FramerMotion](https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
+
+Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
+
+
 
 ## Buffalo
 
@@ -199,36 +229,6 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Javascript](https://img.shields.io/badge/Javascript-1C1C1C?&logo=javascript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![Axios](https://img.shields.io/badge/Axios-1C1C1C?&logo=axios&logoColor=white) ![Python](https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-1C1C1C?&logo=supabase&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white) ![NGINX](https://img.shields.io/badge/NGINX-1C1C1C?&logo=nginx&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-29_Passed-blue?style=flat-square&logo=pytest&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-80_Passed-blue?style=flat-square&logo=vitest&logoColor=white)
 
 Developed full-stack boilerplate with React JSX frontend and Django REST API • Implemented comprehensive testing with Playwright E2E, Vitest and Pytest unit tests • Integrated Supabase PostgreSQL database • Deployed frontend and API to Heroku with NGINX • Automated deployments with GitHub Actions and Heroku CLI
-
-## Laurie Crean
-
-<ProjectCarousel projectKey="lauriecrean" />
-
-<center><b>version 3.0</b></center>
-
-<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
-
-![Docusaurus](https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-33_Passed-blue?style=flat-square&logo=vitest&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
-
-<center><b>version 2.0</b></center>
-
-![Docsify](https://img.shields.io/badge/Docsify.js-1C1C1C?&logo=docsify&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![Github Pages](https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white)
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean_nextjs?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs/commits/main)
-
-Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
-
-<hr />
-<center><b>version 1.0</b></center>
-
-<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
-
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean/commits/main)
-
-![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![FramerMotion](https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white) 
-
-Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
-
 
 ## Hoverboard
 
