@@ -54,7 +54,7 @@ Collaborated with medical specialist with a researched business use case • Man
 
 <section>
 
-<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <i class="fa fa-lock"></i> not currently available </button>
+<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button class="figma-btn"><i class="fa fa-brands fa-figma"></i> Figma </button></a> <button class="live-demo-btn"><i class="fa fa-lock"></i> not currently available </button>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api/commits/main)
 
@@ -124,7 +124,7 @@ Social platform focused on professional development • Custom authentication an
 
 <center><b>version 1.0</b><br/></center>
   
-<a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button class="live-demo-btn"><i class="fa fa-lock"></i> not currently available </button>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
 
@@ -221,7 +221,7 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 
 <img src="/docs/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
 
-<a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <button class="live-demo-btn"><i class="fa fa-lock"></i> not currently available </button>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope) ![Created at](https://img.shields.io/github/created-at/lmcrean/antelope?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope/commits/main)
 
