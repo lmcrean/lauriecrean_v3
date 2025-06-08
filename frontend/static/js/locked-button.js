@@ -27,11 +27,8 @@
       
       // Mouse enter event - change to lock icon
       button.addEventListener('mouseenter', function() {
-        // Remove fa-play if it exists and add fa-lock
-        icon.className = icon.className
-          .replace('fa-play', '')
-          .replace(/\s+/g, ' ')
-          .trim();
+        // Remove fa-play if it exists
+        icon.classList.remove('fa-play');
         
         // Add solid lock icon classes
         if (!icon.classList.contains('fa-solid')) {

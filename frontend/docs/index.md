@@ -209,7 +209,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool) ![Created at](https://img.shields.io/github/created-at/lmcrean/BudgetTool?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool/commits/main)
 
 
-<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button class="live-demo-btn"><i class="fa fa-play locked"></i> live demo </button>
+<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-play locked"></i> live demo </button>
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
 
