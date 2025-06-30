@@ -8,7 +8,7 @@ import React from 'react';
  */
 const LeftSection: React.FC = () => {
   return (
-    <div className="w-1/6 bg-blue-500 p-4 relative">
+    <div className="w-1/6 bg-blue-500 p-4 relative hidden md:block">
       <div className="absolute inset-0 p-6">
         {/* Code line representations */}
         <div className="flex flex-col h-full space-y-3">
