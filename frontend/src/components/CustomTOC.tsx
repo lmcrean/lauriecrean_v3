@@ -29,10 +29,12 @@ const CustomTOC: React.FC = () => {
   const scrollToElement = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start',
-        inline: 'nearest'
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - 40; // 40px offset to ensure heading is visible
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
       setActiveItem(id);
     }
