@@ -35,7 +35,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </button></a>
 
-<div className="github-badges"></div>
+<div className="github-badges">
 <a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=blue" alt="Last Commit" /></a>
 <img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=blue" alt="Created at" />
 <a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=blue" alt="Commit Activity" /></a>
