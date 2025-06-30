@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '../api/Core';
 import PullRequestFeedListCard from './PullRequestFeedListCard';
 import PullRequestFeedDetailCard from './PullRequestFeedDetailCard';
 
@@ -60,23 +60,6 @@ interface PullRequestFeedProps {
   className?: string;
 }
 
-// Get API base URL based on environment
-const getApiBaseUrl = (): string => {
-  if (typeof window === 'undefined') {
-    // Server-side: use localhost during build
-    return 'http://localhost:3001';
-  }
-  
-  // Client-side: check if we're on localhost or production
-  const hostname = window.location.hostname;
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:3001';
-  }
-  
-  // Production - use the consistent root URL format as per user rules
-  return 'https://api-github-lmcreans-projects.vercel.app';
-};
-
 export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   username = 'lmcrean',
   className = ''
@@ -94,44 +77,29 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   const [modalError, setModalError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const apiBaseUrl = getApiBaseUrl();
-
   // Fetch pull requests list
   const fetchPullRequests = async (page: number = 1) => {
     try {
       setLoading(true);
       setError(null);
       
-      const response = await axios.get<ApiResponse>(
-        `${apiBaseUrl}/api/github/pull-requests`,
+      const response = await apiClient.get<ApiResponse>(
+        '/api/github/pull-requests',
         {
           params: {
             username,
             page,
             per_page: 20
-          },
-          timeout: 10000 // 10 second timeout
+          }
         }
       );
 
       setPullRequests(response.data.data);
       setPagination(response.data.meta.pagination);
       setCurrentPage(page);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching pull requests:', err);
-      if (axios.isAxiosError(err)) {
-        if (err.code === 'ECONNABORTED') {
-          setError('Request timed out. Please try again.');
-        } else if (err.response?.status === 404) {
-          setError(`User "${username}" not found.`);
-        } else if (err.response?.status >= 500) {
-          setError('Server error. Please try again later.');
-        } else {
-          setError(err.response?.data?.message || 'Failed to load pull requests.');
-        }
-      } else {
-        setError('Network error. Please check your connection.');
-      }
+      setError(err.message || 'Failed to load pull requests.');
     } finally {
       setLoading(false);
     }
@@ -148,27 +116,14 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       const owner = urlParts[3];
       const repo = urlParts[4];
       
-      const response = await axios.get<DetailedPullRequestData>(
-        `${apiBaseUrl}/api/github/pull-requests/${owner}/${repo}/${pr.number}`,
-        {
-          timeout: 10000
-        }
+      const response = await apiClient.get<DetailedPullRequestData>(
+        `/api/github/pull-requests/${owner}/${repo}/${pr.number}`
       );
 
       setSelectedPR(response.data);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching PR details:', err);
-      if (axios.isAxiosError(err)) {
-        if (err.code === 'ECONNABORTED') {
-          setModalError('Request timed out. Please try again.');
-        } else if (err.response?.status === 404) {
-          setModalError('Pull request not found.');
-        } else {
-          setModalError(err.response?.data?.message || 'Failed to load pull request details.');
-        }
-      } else {
-        setModalError('Network error. Please check your connection.');
-      }
+      setModalError(err.message || 'Failed to load pull request details.');
     } finally {
       setModalLoading(false);
     }
