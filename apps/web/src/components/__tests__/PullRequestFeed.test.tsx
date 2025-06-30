@@ -5,16 +5,15 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 import PullRequestFeed from '../pull-request-feed/PullRequestFeed';
 import apiClient from '../api/Core';
 
 // Mock the API client
-vi.mock('../api/Core');
-const mockedApiClient = vi.mocked(apiClient);
+jest.mock('../api/Core');
+const mockedApiClient = apiClient as jest.Mocked<typeof apiClient>;
 
 // Mock child components
-vi.mock('../pull-request-feed/PullRequestFeedListCard', () => ({
+jest.mock('../pull-request-feed/PullRequestFeedListCard', () => ({
   default: ({ pullRequest, onClick }: any) => (
     <div data-testid={`pr-card-${pullRequest.id}`} onClick={onClick}>
       <h3>{pullRequest.title}</h3>
@@ -23,7 +22,7 @@ vi.mock('../pull-request-feed/PullRequestFeedListCard', () => ({
   )
 }));
 
-vi.mock('../pull-request-feed/PullRequestFeedDetailCard', () => ({
+jest.mock('../pull-request-feed/PullRequestFeedDetailCard', () => ({
   default: ({ isOpen, onClose, pullRequest }: any) => (
     isOpen ? (
       <div data-testid="detail-modal" onClick={onClose}>
@@ -107,11 +106,11 @@ const mockDetailedPRResponse = {
 
 describe('PullRequestFeed', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
   });
 
   afterEach(() => {
-    vi.resetAllMocks();
+    jest.resetAllMocks();
   });
 
   describe('Initial Loading', () => {

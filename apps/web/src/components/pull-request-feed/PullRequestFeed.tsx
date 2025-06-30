@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import apiClient from '../api/Core';
 import PullRequestFeedListCard from './PullRequestFeedListCard';
 import PullRequestFeedDetailCard from './PullRequestFeedDetailCard';
@@ -78,7 +78,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Fetch pull requests list
-  const fetchPullRequests = async (page: number = 1) => {
+  const fetchPullRequests = useCallback(async (page: number = 1) => {
     try {
       setLoading(true);
       setError(null);
@@ -103,10 +103,10 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     } finally {
       setLoading(false);
     }
-  };
+  }, [username]);
 
   // Fetch detailed pull request data
-  const fetchPullRequestDetails = async (pr: PullRequestListData) => {
+  const fetchPullRequestDetails = useCallback(async (pr: PullRequestListData) => {
     try {
       setModalLoading(true);
       setModalError(null);
@@ -127,41 +127,41 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     } finally {
       setModalLoading(false);
     }
-  };
+  }, []);
 
   // Handle card click - open modal and fetch details
-  const handleCardClick = async (pr: PullRequestListData) => {
+  const handleCardClick = useCallback(async (pr: PullRequestListData) => {
     setIsModalOpen(true);
     setSelectedPR(null); // Clear previous data
     await fetchPullRequestDetails(pr);
-  };
+  }, [fetchPullRequestDetails]);
 
   // Handle modal close
-  const handleModalClose = () => {
+  const handleModalClose = useCallback(() => {
     setIsModalOpen(false);
     setSelectedPR(null);
     setModalError(null);
     setModalLoading(false);
-  };
+  }, []);
 
   // Handle pagination
-  const handlePageChange = (newPage: number) => {
+  const handlePageChange = useCallback((newPage: number) => {
     if (newPage !== currentPage && pagination) {
       if (newPage >= 1 && newPage <= pagination.total_pages) {
         fetchPullRequests(newPage);
       }
     }
-  };
+  }, [currentPage, pagination, fetchPullRequests]);
+
+  // Retry function
+  const handleRetry = useCallback(() => {
+    fetchPullRequests(currentPage);
+  }, [fetchPullRequests, currentPage]);
 
   // Initial load
   useEffect(() => {
     fetchPullRequests();
-  }, [username]);
-
-  // Retry function
-  const handleRetry = () => {
-    fetchPullRequests(currentPage);
-  };
+  }, [fetchPullRequests]);
 
   // Loading state
   if (loading && pullRequests.length === 0) {

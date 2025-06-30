@@ -88,20 +88,20 @@ Object.defineProperty(navigator, 'share', {
 });
 
 describe('PullRequestFeedDetailCard', () => {
-  const mockOnClose = vi.fn();
+  const mockOnClose = jest.fn();
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
     // Mock Date for consistent time formatting
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2024-01-16T15:00:00Z'));
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2024-01-16T15:00:00Z'));
     
     // Reset body overflow style
     document.body.style.overflow = 'unset';
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
     document.body.style.overflow = 'unset';
   });
 
