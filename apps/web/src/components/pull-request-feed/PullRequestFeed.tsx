@@ -213,16 +213,16 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     return (
       <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Pull Request Activity</h2>
-          <p className="text-gray-600">Loading pull requests for {username}...</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
+          <p className="text-gray-600 dark:text-gray-300">Loading pull requests for {username}...</p>
         </div>
         <div className="space-y-4">
           {Array.from({ length: 3 }, (_, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 animate-pulse">
+            <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 animate-pulse">
               <div className="space-y-3">
-                <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-                <div className="h-6 bg-gray-200 rounded w-3/4"></div>
-                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
               </div>
             </div>
           ))}
@@ -236,15 +236,15 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     return (
       <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Pull Request Activity</h2>
-          <p className="text-gray-600">Error loading pull requests</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
+          <p className="text-gray-600 dark:text-gray-300">Error loading pull requests</p>
         </div>
-        <div className="bg-white border border-red-200 rounded-lg p-8 text-center">
+        <div className="bg-white dark:bg-gray-800 border border-red-200 dark:border-red-800 rounded-lg p-8 text-center">
           <div className="text-4xl mb-4">⚠️</div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Failed to Load Pull Requests</h3>
-          <p className="text-gray-600 mb-4">{error}</p>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Failed to Load Pull Requests</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">{error}</p>
           <button 
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
             onClick={handleRetry}
           >
             Try Again
@@ -258,8 +258,8 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Pull Request Activity</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
+        <p className="text-gray-600 dark:text-gray-300">
           {pagination 
             ? `Showing ${pullRequests.length} of ${pagination.total_count} pull requests for ${username}`
             : `Recent pull requests for ${username}`
@@ -280,9 +280,9 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
 
       {/* Pagination */}
       {pagination && pagination.total_pages > 1 && (
-        <div className="flex items-center justify-between bg-white border border-gray-200 rounded-lg p-4">
+        <div className="flex items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <button
-            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={!pagination.has_previous_page || loading}
           >
@@ -290,12 +290,12 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
             <span>Previous</span>
           </button>
           
-          <div className="text-sm text-gray-600 font-medium">
+          <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
             Page {currentPage} of {pagination.total_pages}
           </div>
           
           <button
-            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={!pagination.has_next_page || loading}
           >
@@ -308,8 +308,8 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       {/* Loading indicator for pagination */}
       {loading && pullRequests.length > 0 && (
         <div className="text-center py-4">
-          <div className="inline-flex items-center space-x-2 text-gray-600">
-            <div className="animate-spin w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+          <div className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+            <div className="animate-spin w-4 h-4 border-2 border-blue-600 dark:border-blue-500 border-t-transparent rounded-full"></div>
             <span>Loading...</span>
           </div>
         </div>
