@@ -64,27 +64,27 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/odyssey.png',
+        src: '/screenshots/odyssey.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/img/docs/screenshots/odyssey-E.png',
+        src: '/screenshots/odyssey-E.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/img/docs/screenshots/odyssey-D.png',
+        src: '/screenshots/odyssey-D.png',
         alt: 'Odyssey Screenshot D'
       },
       {
-        src: '/img/docs/screenshots/odyssey-A.png',
+        src: '/screenshots/odyssey-A.png',
         alt: 'Odyssey Screenshot A'
       },
       {
-        src: '/img/docs/screenshots/odyssey-B.png',
+        src: '/screenshots/odyssey-B.png',
         alt: 'Odyssey Screenshot B'
       },
       {
-        src: '/img/docs/screenshots/odyssey-C.png',
+        src: '/screenshots/odyssey-C.png',
         alt: 'Odyssey Screenshot C'
       }
     ]
@@ -138,11 +138,11 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/coachmatrix1.png',
+        src: '/screenshots/coachmatrix-A.png',
         alt: 'Coach Matrix Screenshot'
       },
       {
-        src: '/img/docs/screenshots/coachmatrix2.png',
+        src: '/screenshots/coachmatrix-B.png',
         alt: 'Coach Matrix Dashboard'
       }
     ]
@@ -204,11 +204,11 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/steamreport1.png',
+        src: '/screenshots/steamreport-v2-A.png',
         alt: 'Steam Report Dashboard'
       },
       {
-        src: '/img/docs/screenshots/steamreport2.png',
+        src: '/screenshots/steamreport-v2-B.png',
         alt: 'Steam Report Analysis Page'
       }
     ]
@@ -260,23 +260,23 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/buffalo.png',
+        src: '/screenshots/buffalo.png',
         alt: 'Buffalo Screenshot'
       },
       {
-        src: '/img/docs/screenshots/buffalo2.png',
+        src: '/screenshots/buffalo2.png',
         alt: 'Buffalo Components'
       },
       {
-        src: '/img/docs/screenshots/buffalo3.png',
+        src: '/screenshots/buffalo3.png',
         alt: 'Buffalo Mobile View'
       },
       {
-        src: '/img/docs/screenshots/buffalo4.png',
+        src: '/screenshots/buffalo4.png',
         alt: 'Buffalo Typography'
       },
       {
-        src: '/img/docs/screenshots/buffalo5.png',
+        src: '/screenshots/buffalo5.png',
         alt: 'Buffalo Grid System'
       }
     ]
@@ -331,11 +331,11 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/portfolio1.png',
+        src: '/screenshots/lauriecrean-v3.png',
         alt: 'Portfolio Homepage'
       },
       {
-        src: '/img/docs/screenshots/portfolio2.png',
+        src: '/screenshots/laurie-crean-v2.png',
         alt: 'Portfolio Projects Page'
       }
     ]
@@ -379,11 +379,11 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/hoverboard1.png',
+        src: '/screenshots/hoverboard.png',
         alt: 'Hoverboard Game Screenshot'
       },
       {
-        src: '/img/docs/screenshots/hoverboard2.png',
+        src: '/screenshots/hoverboard-v2.png',
         alt: 'Hoverboard High Scores'
       }
     ]
@@ -428,11 +428,11 @@ const projects = {
     },
     slides: [
       {
-        src: '/img/docs/screenshots/crocodile1.png',
+        src: '/screenshots/crocodilegame-A.png',
         alt: 'Crocodile Kingdom Gameplay'
       },
       {
-        src: '/img/docs/screenshots/crocodile2.png',
+        src: '/screenshots/crocodilegame-B.png',
         alt: 'Crocodile Kingdom Menu'
       }
     ]

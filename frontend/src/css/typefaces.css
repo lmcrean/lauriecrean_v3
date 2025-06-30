@@ -50,12 +50,24 @@ h1 {
     font-size: 3rem !important;
 }
 
+/* Default h2 headings - 3.5rem for main projects page */
 h2 {
+    font-size: 3.5rem !important;
+}
+
+/* Archive and Certifications pages h2 headings - 2.5rem */
+.archive-page h2,
+.certifications-page h2 {
     font-size: 2.5rem !important;
 }
 
+.banner-title span {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+    font-weight: 700;
+}
+
 h3, h4, h5, h6, span, li {
-    font-family: 'GlacialIndifference', 'Montserrat', sans-serif !important;
+    font-family: 'GlacialIndifference', 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
@@ -82,4 +94,11 @@ p {
 
 .theme-doc-sidebar-menu {
     font-family: 'Funnel Display', 'Alegreya', serif !important;
+}
+
+.navbar__title {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+    font-size: 1.5rem !important;
+    margin-left: 10px !important;
+    font-weight: 500 !important;
 }

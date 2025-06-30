@@ -1,28 +1,24 @@
-.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn, .figma-btn {
+.code-btn, .readme-btn, .live-demo-btn, .sidebar-btn, .figma-btn, .discord-btn {
     color: white;
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
     margin: 5px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500 !important;
     display: inline-block;
     transition: all 0.3s ease;
     text-decoration: none;
     font-size: 14px;
     line-height: 1.5;
+    opacity: 0.9;
   }
   
-  .code-btn:hover, .readme-btn:hover, .live-demo-btn:hover, .figma-btn:hover {
+  .code-btn:hover, .readme-btn:hover, .live-demo-btn:hover, .figma-btn:hover, .discord-btn:hover {
     filter: brightness(1.2);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  .code-btn { background-color: #3e8e41;}
-  .readme-btn { background-color: #3b0d4c;}
-  .live-demo-btn { background-color: #043ca5;}
-  .figma-btn { background-color: #643a0f;}
 
 a {
     text-decoration: none;

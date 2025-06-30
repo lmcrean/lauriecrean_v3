@@ -91,7 +91,7 @@
   font-size: 1.4rem;
   margin-bottom: 12px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Responsive styling */
@@ -269,15 +269,17 @@
   margin-top: 1rem;
 }
 
-.project-button {
+.project-button, .live-demo-btn, .discord-btn {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 500 !important;
   transition: background-color 0.2s, transform 0.1s;
+  background-color: #1C1C1C !important;
+  margin-bottom: 10px !important;
 }
 
 .project-button:hover {
@@ -287,35 +289,39 @@
 }
 
 .code-btn {
-  background-color: #0074d9;
+  background-color: #1C1C1C !important;
 }
 
 .code-btn:hover {
-  background-color: #0063b1;
+  background-color: #0063b1 !important;
 }
 
 .readme-btn {
-  background-color: #2ecc40;
+  background-color: #1C1C1C !important;
 }
 
 .readme-btn:hover {
-  background-color: #29b739;
+  background-color: #29b739 !important;
 }
 
 .figma-btn {
-  background-color: #f80;
+  background-color: #1C1C1C !important;
 }
 
 .figma-btn:hover {
-  background-color: #e67700;
+  background-color: #e67700 !important;
 }
 
 .liveDemo-btn {
-  background-color: #ff4136;
+  background-color: #1C1C1C !important;
 }
 
-.liveDemo-btn:hover {
-  background-color: #e03730;
+.live-demo-btn:hover {
+  background-color: #e03730 !important;
+}
+
+.discord-btn:hover {
+  background-color: #5865F2 !important;
 }
 
 /* Icon in buttons */
@@ -371,3 +377,14 @@
 .screenshot-project-element {
   margin-bottom: 2rem;
 } 
+
+
+.header-badges {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+
+.github-badges {
+  margin-top: 12px;
+}

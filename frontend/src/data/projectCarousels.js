@@ -9,27 +9,27 @@ const projectCarousels = {
     label: 'Odyssey Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/odyssey.png',
+        src: '/screenshots/odyssey.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/img/docs/screenshots/odyssey-E.png',
+        src: '/screenshots/odyssey-E.png',
         alt: 'Odyssey Screenshot'
       },
       {
-        src: '/docs/screenshots/odyssey-D.png',
+        src: '/screenshots/odyssey-D.png',
         alt: 'Odyssey Screenshot D'
       },
       {
-        src: '/docs/screenshots/odyssey-A.png',
+        src: '/screenshots/odyssey-A.png',
         alt: 'Odyssey Screenshot A'
       },
       {
-        src: '/docs/screenshots/odyssey-B.png',
+        src: '/screenshots/odyssey-B.png',
         alt: 'Odyssey Screenshot B'
       },
       {
-        src: '/docs/screenshots/odyssey-C.png',
+        src: '/screenshots/odyssey-C.png',
         alt: 'Odyssey Screenshot C'
       }
     ]
@@ -40,15 +40,15 @@ const projectCarousels = {
     label: 'Coach Matrix Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/coachmatrix-A.png',
+        src: '/screenshots/coachmatrix-A.png',
         alt: 'Coach Matrix Screenshot A'
       },
       {
-        src: '/docs/screenshots/coachmatrix.png',
+        src: '/screenshots/coachmatrix.png',
         alt: 'Coach Matrix Screenshot'
       },
       {
-        src: '/docs/screenshots/coachmatrix-B.png',
+        src: '/screenshots/coachmatrix-B.png',
         alt: 'Coach Matrix Screenshot B'
       }
     ]
@@ -59,15 +59,15 @@ const projectCarousels = {
     label: 'Steam Report Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/steamreport-v2-B.png',
+        src: '/screenshots/steamreport-v2-B.png',
         alt: 'Steam Report v2 Screenshot B'
       },
       {
-        src: '/docs/screenshots/steamreport-v2-A.png',
+        src: '/screenshots/steamreport-v2-A.png',
         alt: 'Steam Report v2 Screenshot A'
       },
       {
-        src: '/docs/screenshots/steamreport.png',
+        src: '/screenshots/steamreport.png',
         alt: 'steamreport-v1'
       }
     ]
@@ -78,19 +78,19 @@ const projectCarousels = {
     label: 'Buffalo Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/buffalo4.png',
+        src: '/screenshots/buffalo4.png',
         alt: 'Buffalo Screenshot A'
       },
       {
-        src: '/img/docs/screenshots/buffalo.png',
+        src: '/screenshots/buffalo.png',
         alt: 'Buffalo Screenshot'
       },
       {
-        src: '/img/docs/screenshots/buffalo3.png',
+        src: '/screenshots/buffalo3.png',
         alt: 'Buffalo Screenshot D'
       },
       {
-        src: '/img/docs/screenshots/buffalo5.png',
+        src: '/screenshots/buffalo5.png',
         alt: 'Buffalo Screenshot B'
       }
     ]
@@ -101,15 +101,15 @@ const projectCarousels = {
     label: 'Laurie Crean Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/lauriecrean-v3.png',
+        src: '/screenshots/lauriecrean-v3.png',
         alt: 'Laurie Crean Screenshot'
       },
       {
-        src: '/docs/screenshots/laurie-crean-v2.png',
+        src: '/screenshots/laurie-crean-v2.png',
         alt: 'Laurie Crean Screenshot'
       },
       {
-        src: '/docs/screenshots/lauriecrean-v1.png',
+        src: '/screenshots/lauriecrean-v1.png',
         alt: 'Laurie Crean Screenshot'
       }
     ]
@@ -120,35 +120,35 @@ const projectCarousels = {
     label: 'Hoverboard Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/hoverboard.png',
+        src: '/screenshots/hoverboard.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard2.png',
+        src: '/screenshots/hoverboard2.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard3.png',
+        src: '/screenshots/hoverboard3.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard4.png',
+        src: '/screenshots/hoverboard4.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard5.png',
+        src: '/screenshots/hoverboard5.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard6.png',
+        src: '/screenshots/hoverboard6.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard7.png',
+        src: '/screenshots/hoverboard7.png',
         alt: 'Hoverboard Screenshot'
       },
       {
-        src: '/docs/screenshots/hoverboard8.png',
+        src: '/screenshots/hoverboard8.png',
         alt: 'Hoverboard Screenshot'
       }
     ]
@@ -159,23 +159,23 @@ const projectCarousels = {
     label: 'Crocodile Kingdom Screenshots',
     slides: [
       {
-        src: '/docs/screenshots/crocodilegame-A.png',
+        src: '/screenshots/crocodilegame-C.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
-        src: '/docs/screenshots/crocodilegame-B.png',
+        src: '/screenshots/crocodilegame-A.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
-        src: '/docs/screenshots/crocodilegame-C.png',
+        src: '/screenshots/crocodilegame-B.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
-        src: '/docs/screenshots/crocodilegame-D.png',
+        src: '/screenshots/crocodilegame-D.png',
         alt: 'Crocodile Kingdom Screenshot'
       },
       {
-        src: '/docs/screenshots/crocodilegame.png',
+        src: '/screenshots/crocodilegame.png',
         alt: 'Crocodile Kingdom Screenshot'
       }
     ]
@@ -186,19 +186,19 @@ const projectCarousels = {
     label: 'Retrolympics Rush Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/retrolympics.png',
+        src: '/screenshots/retrolympics.png',
         alt: 'Retrolympic Rush Screenshot'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-A.png',
+        src: '/screenshots/retrolympics-A.png',
         alt: 'Retrolympic Rush Screenshot A'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-B.png',
+        src: '/screenshots/retrolympics-B.png',
         alt: 'Retrolympic Rush Screenshot B'
       },
       {
-        src: '/img/docs/screenshots/retrolympics-C.png',
+        src: '/screenshots/retrolympics-C.png',
         alt: 'Retrolympic Rush Screenshot C'
       }
     ]
@@ -209,31 +209,31 @@ const projectCarousels = {
     label: 'Wealth Quest Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/wealthquest.png',
+        src: '/screenshots/wealthquest.png',
         alt: 'Wealth Quest Screenshot'
       },
       {
-        src: '/img/docs/screenshots/wealthquest2.png',
+        src: '/screenshots/wealthquest2.png',
         alt: 'Wealth Quest Screenshot 2'
       },
       {
-        src: '/img/docs/screenshots/wealthquest3.png',
+        src: '/screenshots/wealthquest3.png',
         alt: 'Wealth Quest Screenshot 3'
       },
       {
-        src: '/img/docs/screenshots/wealthquest4.png',
+        src: '/screenshots/wealthquest4.png',
         alt: 'Wealth Quest Screenshot 4'
       },
       {
-        src: '/img/docs/screenshots/wealthquest5.png',
+        src: '/screenshots/wealthquest5.png',
         alt: 'Wealth Quest Screenshot 5'
       },
       {
-        src: '/img/docs/screenshots/wealthquest6.png',
+        src: '/screenshots/wealthquest6.png',
         alt: 'Wealth Quest Screenshot 6'
       },
       {
-        src: '/img/docs/screenshots/wealthquest7.png',
+        src: '/screenshots/wealthquest7.png',
         alt: 'Wealth Quest Screenshot 7'
       }
     ]
@@ -244,35 +244,39 @@ const projectCarousels = {
     label: 'Dottie Screenshots',
     slides: [
       {
-        src: '/img/docs/screenshots/dottie/dottie1.png',
-        alt: 'Dottie Screenshot 1'
+        src: '/screenshots/dottie/landing.png',
+        alt: 'Dottie Landing'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie2.png',
-        alt: 'Dottie Screenshot 2'
+        src: '/screenshots/dottie/assessment_step3.png',
+        alt: 'Dottie Assessment Step 3'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie3.png',
-        alt: 'Dottie Screenshot 3'
+        src: '/screenshots/dottie/assessment_list.png',
+        alt: 'Dottie Assessment List'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie4.png',
-        alt: 'Dottie Screenshot 4'
+        src: '/screenshots/dottie/assessment_detail.png',
+        alt: 'Dottie Assessment Detail'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie5.png',
-        alt: 'Dottie Screenshot 5'
+        src: '/screenshots/dottie/chat_detail_closed.png',
+        alt: 'Dottie Chat Detail Closed'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie6.png',
+        src: '/screenshots/dottie/chat_detail.png',
+        alt: 'Dottie Chat Detail'
+      },
+      {
+        src: '/screenshots/dottie/dottie6.png',
         alt: 'Dottie Screenshot 6'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie7.png',
+        src: '/screenshots/dottie/dottie7.png',
         alt: 'Dottie Screenshot 7'
       },
       {
-        src: '/img/docs/screenshots/dottie/dottie8.png',
+        src: '/screenshots/dottie/dottie8.png',
         alt: 'Dottie Screenshot 8'
       }
     ]

@@ -1,0 +1,100 @@
+/* Typewriter Title Animations */
+
+.typewriter-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.typewriter-title.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: var(--ifm-color-primary);
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Enhanced typewriter effect for different heading levels */
+.typewriter-title h1,
+.typewriter-title.h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+}
+
+.typewriter-title h2,
+.typewriter-title.h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-gray-300);
+}
+
+.typewriter-title h3,
+.typewriter-title.h3 {
+  font-size: 1.5rem;
+  font-weight: semibold;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .typewriter-cursor {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .typewriter-title h2,
+[data-theme='dark'] .typewriter-title.h2 {
+  border-top-color: var(--ifm-color-gray-600);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .typewriter-title h1,
+  .typewriter-title.h1 {
+    font-size: 2rem;
+  }
+  
+  .typewriter-title h2,
+  .typewriter-title.h2 {
+    font-size: 1.75rem;
+  }
+  
+  .typewriter-title h3,
+  .typewriter-title.h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Smooth transitions for all typewriter elements */
+.typewriter-title * {
+  transition: color 0.3s ease;
+}
+
+/* Special styling for project titles */
+.typewriter-title.project-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* First project title shouldn't have top border/margin */
+.typewriter-title.project-title:first-of-type {
+  border-top: none;
+  margin-top: 1rem;
+} 
