@@ -3,7 +3,7 @@ slug: /
 title: ""
 sidebar_label: Projects
 sidebar_position: 1
-hide_table_of_contents: false
+hide_table_of_contents: true
 ---
 
 import ProjectCarousel from '@site/src/components/ProjectCarousel';

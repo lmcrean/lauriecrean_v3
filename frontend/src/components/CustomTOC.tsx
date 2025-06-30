@@ -56,14 +56,10 @@ const CustomTOC: React.FC = () => {
 
     // Function to observe elements, with retry for TypewriterTitle components
     const observeElements = () => {
-      console.log('Attempting to observe TOC elements...');
       tocItems.forEach(item => {
         const element = document.getElementById(item.id);
         if (element) {
           observer.observe(element);
-          console.log(`✅ Found and observing: ${item.id}`);
-        } else {
-          console.log(`❌ Element not found: ${item.id}`);
         }
       });
     };
