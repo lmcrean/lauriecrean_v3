@@ -22,3 +22,5 @@ yarn-error.log*
 playwright-report
 test-results
 .vercel
+
+.env
