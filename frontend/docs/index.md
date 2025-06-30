@@ -35,7 +35,11 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie) ![Created at](https://img.shields.io/github/created-at/lmcrean/dottie?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=blue)](https://github.com/lmcrean/dottie/commits/main)
+<div className="github-badges"></div>
+<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/Typescript-1C1C1C?&logo=typescript&logoColor=white" alt="Typescript" />
@@ -48,6 +52,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <img src="https://img.shields.io/badge/Azure_SQL-1C1C1C?&logo=windows&logoColor=white" alt="Azure SQL" />
 <img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
 <img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+</div>
+
+<div className="test-badges">
 <img src="https://img.shields.io/badge/Vitest-303_Passed-blue?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
 <img src="https://img.shields.io/badge/Playwright-40_Passed-blue?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
@@ -74,7 +81,11 @@ Collaborated with medical specialist with a researched business use case • Man
 
 <a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
@@ -121,7 +132,11 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
@@ -135,6 +150,9 @@ Developed Social Media application with Auth, messaging and media sharing featur
 <img src="https://img.shields.io/badge/OAuth2-1C1C1C?&logo=python&logoColor=white" alt="OAuth2" />
 <img src="https://img.shields.io/badge/JWT-1C1C1C?&logo=json&logoColor=white" alt="JWT" />
 <img src="https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white" alt="Heroku" />
+</div>
+
+<div className="test-badges">
 <img src="https://img.shields.io/badge/Playwright-3_Passed-blue?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 <img src="https://img.shields.io/badge/Python-4_Passed-blue?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
 <img src="https://img.shields.io/badge/Pytest-6_Passed-blue?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
@@ -163,7 +181,11 @@ Social platform focused on professional development • Custom authentication an
 
 <a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=blue)](https://github.com/lmcrean/steam-report-mern) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=blue)](https://github.com/lmcrean/steam-report-mern/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
@@ -192,7 +214,11 @@ Social platform focused on professional development • Custom authentication an
   
 <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
@@ -218,6 +244,9 @@ Social platform focused on professional development • Custom authentication an
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white" alt="Docusaurus" />
+</div>
+
+<div className="test-badges">
 <img src="https://img.shields.io/badge/Vitest-33_Passed-blue?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
 <img src="https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
@@ -232,7 +261,11 @@ Social platform focused on professional development • Custom authentication an
 <img src="https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white" alt="Github Pages" />
 </div>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean_nextjs?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_nextjs?color=blue)](https://github.com/lmcrean/lauriecrean_nextjs/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/lauriecrean_nextjs"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_nextjs?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_nextjs?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean_nextjs/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_nextjs?color=blue" alt="Commit Activity" /></a>
+</div>
 
 Simplified project with Docsify framework for converting markdown to HTML, CSS and Javascript, providing better maintainability.
 
@@ -241,7 +274,11 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 <a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
@@ -268,7 +305,11 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 <a href="https://github.com/lmcrean/hoverboard-react" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://hoverboard-react.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
@@ -285,7 +326,11 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 
 <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
-[![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard/commits/main)
+<div className="github-badges">
+<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue" alt="Commit Activity" /></a>
+</div>
 
 <div className="tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
