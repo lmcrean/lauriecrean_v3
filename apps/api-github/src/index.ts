@@ -49,17 +49,21 @@ app.get('/health', (req, res) => {
 app.get('/api/github/pull-requests', async (req, res) => {
   try {
     const username = (req.query.username as string) || process.env.GITHUB_USERNAME || 'lmcrean';
-    const limit = Math.min(Number(req.query.limit) || 20, 50);
     
-    console.log(`Fetching ${limit} pull requests for ${username}`);
+    // Parse pagination parameters
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const perPage = Math.min(Math.max(1, Number(req.query.per_page) || 20), 50); // Max 50 per page
     
-    const data = await getPullRequests(username, limit);
+    console.log(`Fetching page ${page} (${perPage} PRs per page) for ${username}`);
+    
+    const result = await getPullRequests(username, page, perPage);
     
     const response: ApiResponse = {
-      data,
+      data: result.pullRequests,
       meta: {
         username,
-        count: data.length
+        count: result.pullRequests.length,
+        pagination: result.pagination
       }
     };
 

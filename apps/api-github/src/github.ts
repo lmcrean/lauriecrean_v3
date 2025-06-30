@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/rest';
-import { PullRequestResponse, DetailedPullRequestResponse } from './types';
+import { PullRequestResponse, DetailedPullRequestResponse, PaginationMeta } from './types';
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
@@ -9,7 +9,12 @@ const octokit = new Octokit({
 console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
 console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
 
-export async function getPullRequests(username: string, limit: number): Promise<PullRequestResponse[]> {
+export interface GetPullRequestsResult {
+  pullRequests: PullRequestResponse[];
+  pagination: PaginationMeta;
+}
+
+export async function getPullRequests(username: string, page: number = 1, perPage: number = 20): Promise<GetPullRequestsResult> {
   try {
     // Get user's repositories
     const { data: repos } = await octokit.rest.repos.listForUser({
@@ -65,13 +70,33 @@ export async function getPullRequests(username: string, limit: number): Promise<
       }
     }
 
-    // Sort by creation date (newest first) and limit results
-    const sortedPRs = allPRs
-      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-      .slice(0, limit);
+    // Sort by creation date (newest first) - chronological order
+    const sortedPRs = allPRs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
-    console.log(`Returning ${sortedPRs.length} total PRs for ${username}`);
-    return sortedPRs;
+    // Calculate pagination
+    const totalCount = sortedPRs.length;
+    const totalPages = Math.ceil(totalCount / perPage);
+    const startIndex = (page - 1) * perPage;
+    const endIndex = startIndex + perPage;
+    
+    // Get the page of results
+    const paginatedPRs = sortedPRs.slice(startIndex, endIndex);
+
+    const pagination: PaginationMeta = {
+      page,
+      per_page: perPage,
+      total_count: totalCount,
+      total_pages: totalPages,
+      has_next_page: page < totalPages,
+      has_previous_page: page > 1
+    };
+
+    console.log(`Returning ${paginatedPRs.length} PRs for ${username} (page ${page}/${totalPages}, total: ${totalCount})`);
+    
+    return {
+      pullRequests: paginatedPRs,
+      pagination
+    };
 
   } catch (error) {
     console.error(`Failed to fetch pull requests for ${username}:`, error);
