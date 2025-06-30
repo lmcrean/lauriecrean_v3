@@ -269,7 +269,7 @@
   margin-top: 1rem;
 }
 
-.project-button {
+.project-button, .live-demo-btn, .discord-btn {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -278,6 +278,8 @@
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.2s, transform 0.1s;
+  background-color: teal !important;
+  margin-bottom: 10px !important;
 }
 
 .project-button:hover {
@@ -287,35 +289,39 @@
 }
 
 .code-btn {
-  background-color: #0074d9;
+  background-color: teal !important;
 }
 
 .code-btn:hover {
-  background-color: #0063b1;
+  background-color: #0063b1 !important;
 }
 
 .readme-btn {
-  background-color: #2ecc40;
+  background-color: teal !important;
 }
 
 .readme-btn:hover {
-  background-color: #29b739;
+  background-color: #29b739 !important;
 }
 
 .figma-btn {
-  background-color: #f80;
+  background-color: teal !important;
 }
 
 .figma-btn:hover {
-  background-color: #e67700;
+  background-color: #e67700 !important;
 }
 
 .liveDemo-btn {
-  background-color: #ff4136;
+  background-color: teal !important;
 }
 
-.liveDemo-btn:hover {
-  background-color: #e03730;
+.live-demo-btn:hover {
+  background-color: #e03730 !important;
+}
+
+.discord-btn:hover {
+  background-color: #5865F2 !important;
 }
 
 /* Icon in buttons */
