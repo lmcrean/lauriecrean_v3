@@ -1,18 +1,14 @@
 {
   "version": 2,
-  "functions": {
-    "src/index.ts": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 30
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     {
-      "src": "/api/github/(.*)",
-      "dest": "/src/index.ts"
-    },
-    {
-      "src": "/health",
+      "src": "/(.*)",
       "dest": "/src/index.ts"
     }
   ]
