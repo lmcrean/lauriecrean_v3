@@ -12,7 +12,7 @@ const RightSection: React.FC = () => {
   const typewriterStyle = {
     overflow: 'hidden',
     whiteSpace: 'nowrap' as const,
-    borderRight: '14px solid white',
+    borderRight: '27px solid white',
     paddingRight: '2px',
     animation: 'typewriter-name 1.5s steps(12, end) 0.5s both, blink-white-caret 0.75s step-end 0.5s 2, hide-white-caret 0.1s 2s both'
   };
