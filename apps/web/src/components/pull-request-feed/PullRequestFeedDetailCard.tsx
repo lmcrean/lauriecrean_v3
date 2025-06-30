@@ -151,7 +151,13 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
   if (loading) {
     return (
       <div className={backdropClasses} onClick={onClose}>
-        <div className={containerClasses} onClick={(e) => e.stopPropagation()}>
+        <div 
+          className={containerClasses} 
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="loading-modal-title"
+        >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 sticky top-0 z-10">
             <button 
@@ -189,7 +195,13 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
   if (error) {
     return (
       <div className={backdropClasses} onClick={onClose}>
-        <div className={containerClasses} onClick={(e) => e.stopPropagation()}>
+        <div 
+          className={containerClasses} 
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="error-modal-title"
+        >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 sticky top-0 z-10">
             <button 

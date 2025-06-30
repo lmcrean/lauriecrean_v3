@@ -1,12 +1,18 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import axios from 'axios';
-import PullRequestFeed from '../../apps/web/src/components/pull-request-feed/PullRequestFeed';
+import { PullRequestFeed } from '../../apps/web/src/components/pull-request-feed/PullRequestFeed';
 
-// Mock axios
-vi.mock('axios');
-const mockedAxios = vi.mocked(axios);
+// Mock the entire Core API module since that's what the component imports
+vi.mock('../../apps/web/src/components/api/Core', () => ({
+  default: {
+    get: vi.fn(),
+  },
+}));
+
+// Import the mocked module to access the mock
+import apiClient from '../../apps/web/src/components/api/Core';
+const mockGet = vi.mocked(apiClient.get);
 
 // Mock data
 const mockPullRequests = [
@@ -92,7 +98,7 @@ describe('PullRequestFeed Integration Tests', () => {
   describe('API Integration', () => {
     it('should fetch and display pull requests from API', async () => {
       // Mock successful API response
-      mockedAxios.get.mockResolvedValueOnce({ data: mockApiResponse });
+      mockGet.mockResolvedValueOnce({ data: mockApiResponse });
 
       render(<PullRequestFeed username="lmcrean" />);
 
@@ -105,7 +111,7 @@ describe('PullRequestFeed Integration Tests', () => {
       });
 
       // Verify API was called with correct parameters
-      expect(mockedAxios.get).toHaveBeenCalledWith(
+      expect(mockGet).toHaveBeenCalledWith(
         expect.stringContaining('/api/github/pull-requests'),
         expect.objectContaining({
           params: {
@@ -124,7 +130,7 @@ describe('PullRequestFeed Integration Tests', () => {
 
     it('should handle API errors gracefully', async () => {
       // Mock API error
-      mockedAxios.get.mockRejectedValueOnce(new Error('Network error'));
+      mockGet.mockRejectedValueOnce(new Error('Network error'));
 
       render(<PullRequestFeed username="lmcrean" />);
 
@@ -139,7 +145,7 @@ describe('PullRequestFeed Integration Tests', () => {
 
     it('should retry API call when retry button is clicked', async () => {
       // Mock initial error then success
-      mockedAxios.get
+      mockGet
         .mockRejectedValueOnce(new Error('Network error'))
         .mockResolvedValueOnce({ data: mockApiResponse });
 
@@ -159,7 +165,7 @@ describe('PullRequestFeed Integration Tests', () => {
       });
 
       // Should have made 2 API calls
-      expect(mockedAxios.get).toHaveBeenCalledTimes(2);
+      expect(mockGet).toHaveBeenCalledTimes(2);
     });
   });
 

@@ -65,7 +65,7 @@ describe('PullRequestFeedListCard Integration Tests', () => {
 
       // Repository and language
       expect(screen.getByText('lauriecrean_v3')).toBeInTheDocument();
-      expect(screen.getByText('TypeScript')).toBeInTheDocument();
+      expect(screen.getByText(/🏷️\s*TypeScript/)).toBeInTheDocument();
 
       // PR number and action
       expect(screen.getByText('#20')).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe('PullRequestFeedListCard Integration Tests', () => {
     });
 
     it('should apply correct language styling', () => {
-      const languageElement = screen.getByText('TypeScript').closest('span');
+      const languageElement = screen.getByText(/🏷️\s*TypeScript/);
       expect(languageElement).toHaveClass('bg-blue-600', 'text-white');
     });
 
@@ -112,7 +112,9 @@ describe('PullRequestFeedListCard Integration Tests', () => {
     it('should show correct icon for documentation PR', () => {
       const docPR = { ...mockListPR, title: 'docs: update README' };
       render(<PullRequestFeedListCard pullRequest={docPR} onClick={mockOnClick} />);
-      expect(screen.getByText('📝')).toBeInTheDocument();
+      // Look for the title icon specifically (first occurrence in the title section)
+      const titleSection = screen.getByRole('heading').closest('div');
+      expect(titleSection).toHaveTextContent('📝');
     });
   });
 

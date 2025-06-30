@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// API Configuration
+// API Configuration -- not to be confused with branches e.g. api-github-34536dcg-...
 const API_BASE_URL = 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
 
 // Create axios instance with default configuration
