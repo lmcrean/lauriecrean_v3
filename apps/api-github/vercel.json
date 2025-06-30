@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "api-github",
   "functions": {
     "src/index.ts": {
       "runtime": "nodejs18.x",
@@ -16,9 +15,5 @@
       "src": "/health",
       "dest": "/src/index.ts"
     }
-  ],
-  "env": {
-    "GITHUB_TOKEN": "@github_token",
-    "GITHUB_USERNAME": "lmcrean"
-  }
+  ]
 } 

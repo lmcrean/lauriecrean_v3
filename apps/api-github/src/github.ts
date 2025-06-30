@@ -94,6 +94,7 @@ export async function getPullRequests(username: string, page: number = 1, perPag
 
         const prData: PullRequestResponse = {
           id: pr.id,
+          number: pr.number,
           title: pr.title,
           description: pr.body || null,
           created_at: pr.created_at,
@@ -153,11 +154,22 @@ export async function getPullRequestDetails(owner: string, repo: string, pullNum
   try {
     console.log(`Fetching PR #${pullNumber} from ${owner}/${repo}`);
     
-    const { data: pr } = await octokit.rest.pulls.get({
-      owner,
-      repo,
-      pull_number: pullNumber
-    });
+    // Fetch PR details and comments count in parallel for better performance
+    const [prResponse, commentsResponse] = await Promise.all([
+      octokit.rest.pulls.get({
+        owner,
+        repo,
+        pull_number: pullNumber
+      }),
+      octokit.rest.issues.listComments({
+        owner,
+        repo,
+        issue_number: pullNumber // PR comments are stored as issue comments
+      })
+    ]);
+
+    const pr = prResponse.data;
+    const commentsCount = commentsResponse.data.length;
 
     const detailedPR: DetailedPullRequestResponse = {
       id: pr.id,
@@ -175,6 +187,7 @@ export async function getPullRequestDetails(owner: string, repo: string, pullNum
       additions: pr.additions,
       deletions: pr.deletions,
       changed_files: pr.changed_files,
+      comments: commentsCount, // Include comments count for 💬 display
       author: {
         login: pr.user?.login || 'unknown',
         avatar_url: pr.user?.avatar_url || '',
@@ -188,7 +201,7 @@ export async function getPullRequestDetails(owner: string, repo: string, pullNum
       }
     };
 
-    console.log(`Successfully fetched PR #${pullNumber}: "${pr.title}"`);
+    console.log(`Successfully fetched PR #${pullNumber}: "${pr.title}" with ${commentsCount} comments`);
     return detailedPR;
 
   } catch (error) {

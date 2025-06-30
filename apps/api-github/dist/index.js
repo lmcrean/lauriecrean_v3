@@ -1,9 +1,56 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("dotenv/config");
+const dotenv = __importStar(require("dotenv"));
+const path = __importStar(require("path"));
+// Load .env file explicitly
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
+// Debug environment loading
+console.log('=== Environment Debug ===');
+console.log('Working directory:', process.cwd());
+console.log('__dirname:', __dirname);
+console.log('.env path:', path.join(__dirname, '..', '.env'));
+console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
+console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
+if (process.env.GITHUB_TOKEN) {
+    console.log('GITHUB_TOKEN starts with:', process.env.GITHUB_TOKEN.substring(0, 10) + '...');
+}
+console.log('=========================');
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const github_1 = require("./github");
@@ -30,14 +77,17 @@ app.get('/health', (req, res) => {
 app.get('/api/github/pull-requests', async (req, res) => {
     try {
         const username = req.query.username || process.env.GITHUB_USERNAME || 'lmcrean';
-        const limit = Math.min(Number(req.query.limit) || 20, 50);
-        console.log(`Fetching ${limit} pull requests for ${username}`);
-        const data = await (0, github_1.getPullRequests)(username, limit);
+        // Parse pagination parameters
+        const page = Math.max(1, Number(req.query.page) || 1);
+        const perPage = Math.min(Math.max(1, Number(req.query.per_page) || 20), 50); // Max 50 per page
+        console.log(`Fetching page ${page} (${perPage} PRs per page) for ${username}`);
+        const result = await (0, github_1.getPullRequests)(username, page, perPage);
         const response = {
-            data,
+            data: result.pullRequests,
             meta: {
                 username,
-                count: data.length
+                count: result.pullRequests.length,
+                pagination: result.pagination
             }
         };
         // Cache for 15 minutes

@@ -2,6 +2,7 @@
 
 export interface PullRequestResponse {
   id: number;
+  number: number; // PR number like #20
   title: string;
   description: string | null;
   created_at: string;
@@ -40,7 +41,6 @@ export interface ErrorResponse {
 }
 
 export interface DetailedPullRequestResponse extends PullRequestResponse {
-  number: number;
   author: {
     login: string;
     avatar_url: string;
@@ -53,4 +53,5 @@ export interface DetailedPullRequestResponse extends PullRequestResponse {
   additions: number;
   deletions: number;
   changed_files: number;
+  comments: number; // Comments count for 💬 display
 } 

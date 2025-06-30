@@ -1,5 +1,6 @@
 export interface PullRequestResponse {
     id: number;
+    number: number;
     title: string;
     description: string | null;
     created_at: string;
@@ -13,11 +14,20 @@ export interface PullRequestResponse {
         html_url: string;
     };
 }
+export interface PaginationMeta {
+    page: number;
+    per_page: number;
+    total_count: number;
+    total_pages: number;
+    has_next_page: boolean;
+    has_previous_page: boolean;
+}
 export interface ApiResponse {
     data: PullRequestResponse[];
     meta: {
         username: string;
         count: number;
+        pagination: PaginationMeta;
     };
 }
 export interface ErrorResponse {
@@ -25,7 +35,6 @@ export interface ErrorResponse {
     message: string;
 }
 export interface DetailedPullRequestResponse extends PullRequestResponse {
-    number: number;
     author: {
         login: string;
         avatar_url: string;
@@ -38,5 +47,6 @@ export interface DetailedPullRequestResponse extends PullRequestResponse {
     additions: number;
     deletions: number;
     changed_files: number;
+    comments: number;
 }
 //# sourceMappingURL=types.d.ts.map

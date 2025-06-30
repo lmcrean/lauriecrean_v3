@@ -9,33 +9,73 @@ const octokit = new rest_1.Octokit({
 // Debug logging
 console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
 console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
-async function getPullRequests(username, limit) {
+async function getPullRequests(username, page = 1, perPage = 20) {
     try {
-        // Get user's repositories
-        const { data: repos } = await octokit.rest.repos.listForUser({
-            username,
-            type: 'owner',
-            sort: 'updated',
-            per_page: 100
+        // Use GitHub search API to get the most recent PRs across ALL repositories
+        const searchQuery = `author:${username} type:pr`;
+        console.log(`Searching for PRs by ${username} using GitHub Search API (page ${page})`);
+        // Calculate how many results we need to fetch
+        const resultsNeeded = page * perPage;
+        const searchPage = Math.ceil(resultsNeeded / 100); // GitHub search returns max 100 per page
+        const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
+            q: searchQuery,
+            sort: 'created',
+            order: 'desc',
+            per_page: Math.min(100, resultsNeeded), // Get exactly what we need, up to 100
+            page: searchPage
         });
-        console.log(`Found ${repos.length} repositories for ${username}`);
+        console.log(`Found ${searchResults.total_count} total PRs for ${username} via search`);
+        // If we need more results for higher pages, fetch additional pages
+        let allSearchItems = [...searchResults.items];
+        if (resultsNeeded > 100 && searchResults.items.length === 100) {
+            // We need to fetch more pages
+            const additionalPagesNeeded = Math.ceil((resultsNeeded - 100) / 100);
+            for (let i = 2; i <= additionalPagesNeeded + 1; i++) {
+                try {
+                    const { data: additionalResults } = await octokit.rest.search.issuesAndPullRequests({
+                        q: searchQuery,
+                        sort: 'created',
+                        order: 'desc',
+                        per_page: 100,
+                        page: i
+                    });
+                    allSearchItems.push(...additionalResults.items);
+                    if (additionalResults.items.length < 100) {
+                        break; // No more results
+                    }
+                }
+                catch (error) {
+                    console.warn(`Failed to fetch search page ${i}:`, error);
+                    break;
+                }
+            }
+        }
+        // Convert search results to our format
         const allPRs = [];
-        // Get PRs from each repo (limit to first 20 repos for rate limiting)
-        for (const repo of repos.slice(0, 20)) {
+        // Only process the items we need for the current page
+        const startIndex = (page - 1) * perPage;
+        const endIndex = startIndex + perPage;
+        const itemsToProcess = allSearchItems.slice(0, endIndex);
+        for (const item of itemsToProcess) {
             try {
-                const { data: prs } = await octokit.rest.pulls.list({
-                    owner: repo.owner.login,
-                    repo: repo.name,
-                    state: 'all',
-                    sort: 'created',
-                    direction: 'desc',
-                    per_page: 10
+                // Extract owner and repo from the URL
+                const urlParts = item.html_url.split('/');
+                const owner = urlParts[3];
+                const repo = urlParts[4];
+                // Get the full PR details
+                const { data: pr } = await octokit.rest.pulls.get({
+                    owner,
+                    repo,
+                    pull_number: item.number
                 });
-                // Filter PRs by the target user and format response
-                const userPRs = prs
-                    .filter(pr => pr.user?.login === username)
-                    .map(pr => ({
+                // Get repository details
+                const { data: repoData } = await octokit.rest.repos.get({
+                    owner,
+                    repo
+                });
+                const prData = {
                     id: pr.id,
+                    number: pr.number,
                     title: pr.title,
                     description: pr.body || null,
                     created_at: pr.created_at,
@@ -43,28 +83,40 @@ async function getPullRequests(username, limit) {
                     html_url: pr.html_url,
                     state: pr.merged_at ? 'merged' : pr.state,
                     repository: {
-                        name: repo.name,
-                        description: repo.description,
-                        language: repo.language ?? null,
-                        html_url: repo.html_url
+                        name: repo,
+                        description: repoData.description,
+                        language: repoData.language ?? null,
+                        html_url: repoData.html_url
                     }
-                }));
-                allPRs.push(...userPRs);
-                if (userPRs.length > 0) {
-                    console.log(`Found ${userPRs.length} PRs in ${repo.name}`);
-                }
+                };
+                allPRs.push(prData);
             }
-            catch (repoError) {
-                console.warn(`Failed to fetch PRs for ${repo.name}:`, repoError);
+            catch (prError) {
+                console.warn(`Failed to fetch details for PR ${item.number}:`, prError);
                 continue;
             }
         }
-        // Sort by creation date (newest first) and limit results
-        const sortedPRs = allPRs
-            .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-            .slice(0, limit);
-        console.log(`Returning ${sortedPRs.length} total PRs for ${username}`);
-        return sortedPRs;
+        // Sort by creation date (newest first) - this should already be sorted by search API
+        const sortedPRs = allPRs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        // Get the correct page of results
+        const paginatedPRs = sortedPRs.slice(startIndex, endIndex);
+        // Calculate pagination metadata
+        const totalCount = searchResults.total_count; // Use actual total from search
+        const totalPages = Math.ceil(totalCount / perPage);
+        const pagination = {
+            page,
+            per_page: perPage,
+            total_count: totalCount,
+            total_pages: totalPages,
+            has_next_page: page < totalPages,
+            has_previous_page: page > 1
+        };
+        console.log(`Returning ${paginatedPRs.length} PRs for ${username} (page ${page}/${totalPages}, total: ${totalCount})`);
+        console.log(`Most recent PR: ${paginatedPRs[0]?.title} (${paginatedPRs[0]?.created_at})`);
+        return {
+            pullRequests: paginatedPRs,
+            pagination
+        };
     }
     catch (error) {
         console.error(`Failed to fetch pull requests for ${username}:`, error);
@@ -74,11 +126,21 @@ async function getPullRequests(username, limit) {
 async function getPullRequestDetails(owner, repo, pullNumber) {
     try {
         console.log(`Fetching PR #${pullNumber} from ${owner}/${repo}`);
-        const { data: pr } = await octokit.rest.pulls.get({
-            owner,
-            repo,
-            pull_number: pullNumber
-        });
+        // Fetch PR details and comments count in parallel for better performance
+        const [prResponse, commentsResponse] = await Promise.all([
+            octokit.rest.pulls.get({
+                owner,
+                repo,
+                pull_number: pullNumber
+            }),
+            octokit.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number: pullNumber // PR comments are stored as issue comments
+            })
+        ]);
+        const pr = prResponse.data;
+        const commentsCount = commentsResponse.data.length;
         const detailedPR = {
             id: pr.id,
             number: pr.number,
@@ -95,6 +157,7 @@ async function getPullRequestDetails(owner, repo, pullNumber) {
             additions: pr.additions,
             deletions: pr.deletions,
             changed_files: pr.changed_files,
+            comments: commentsCount, // Include comments count for 💬 display
             author: {
                 login: pr.user?.login || 'unknown',
                 avatar_url: pr.user?.avatar_url || '',
@@ -107,7 +170,7 @@ async function getPullRequestDetails(owner, repo, pullNumber) {
                 html_url: pr.base.repo.html_url
             }
         };
-        console.log(`Successfully fetched PR #${pullNumber}: "${pr.title}"`);
+        console.log(`Successfully fetched PR #${pullNumber}: "${pr.title}" with ${commentsCount} comments`);
         return detailedPR;
     }
     catch (error) {
