@@ -13,7 +13,7 @@ import CustomTOC from '@site/src/components/CustomTOC';
 
 <DeveloperBusinessCard />
 
-Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
+Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in back end development. Many projects are deployed in iterations, with improved business solutions over time, in which case the latest version is included at the top.
 
 <CustomTOC />
 
@@ -56,10 +56,8 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <div className="github-badges">
 <a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=gray" alt="Last Commit" /></a>
 <img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=gray" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=gray" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=gray" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie"></a>
 </div>
-
-Collaborated with medical specialist with a researched business use case • Managed a team of 6 developers • Developed and tested the backend with SQL knex, vitest, supertest • Implemented a RESTful API with Express.js and Knex.js • Integrated Azure SQL and Azure App Services • Built responsive UI with TailwindCSS • Implemented automated testing with Vitest and Playwright • Deployed on Azure
 
 </section>
 
@@ -111,8 +109,6 @@ Collaborated with medical specialist with a researched business use case • Man
 <a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=gray" alt="Commit Activity" /></a>
 </div>
 
-Developed Social Media application with Auth, messaging and media sharing features • Unified API and Frontend into a singular repository to improve security standards and ensure compatibility with Safari browsers • Integrated Cloudinary media storage; improved performance with cached rendering • 78 automated tests across four testing frameworks (see above) including comprehensive alert feeback • integrated automatic testing screenshots for enhanced insights into frontend alerts • OAuth2/JWT authentication • Automated Heroku deployments through CLI • integrated customised SVG logo • integrated dark mode toggle with animated transition  • customised highly responsive Navbar for each device size, including popout menu for further options 
-
 </section>
 </section>
 
@@ -158,8 +154,6 @@ Developed Social Media application with Auth, messaging and media sharing featur
 <img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=gray" alt="Created at" />
 <a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=gray" alt="Commit Activity" /></a>
 </div>
-
-Social platform focused on professional development • Custom authentication and permission system • OAuth2/JWT authentication • Content voting and ranking algorithm with Python • Automated Heroku deployment pipeline  • enhanced frontend animations with video landing and customised CSS logo 
 
 </section>
 </section>
@@ -207,8 +201,6 @@ Social platform focused on professional development • Custom authentication an
 <a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=gray" alt="Commit Activity" /></a>
 </div>
 
-  Implemented data aggregation system for career pathway analysis •  Achieved 100% test coverage (12 Playwright E2E, 2 Jest unit tests) • Architected scalable web client with React and Express.js • Implemented serverless backend using AWS Lambda and S3, reducing hosting costs • Built responsive UI with TailwindCSS improving mobile engagement • CI/CD pipeline with Vercel enabling automated deployments
-
 <hr />
 
 <center><b>version 1.0</b><br/></center>
@@ -227,9 +219,6 @@ Social platform focused on professional development • Custom authentication an
 <img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=gray" alt="Created at" />
 <a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=gray" alt="Commit Activity" /></a>
 </div>
-
- Implemented data aggregation system for career pathway analysis • Built Python/Node.js application integrating multiple external APIs including Google Sheets • Automated data collection and processing pipeline • Maintained code quality with PEP8 standards and comprehensive manual testing • Deployed on Heroku with continuous integration
-
 
 </section>
 </section>
@@ -277,8 +266,6 @@ Social platform focused on professional development • Custom authentication an
 <a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=gray" alt="Commit Activity" /></a>
 </div>
 
-Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
-
 <TypewriterTitle text="Hoverboard" level="h2" className="project-title" id="hoverboard" delay={400} speed={105} />
 
 <div className="header-badges">
@@ -309,8 +296,6 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 <a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=gray" alt="Commit Activity" /></a>
 </div>
 
-Ported HTML CSS to React • Integrated TailwindCSS into workflow for more efficient styling • integrated Vercel deployment pipeline
-
 <center><b>version 1.0</b></center>
 
 <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
@@ -329,13 +314,3 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 <img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=gray" alt="Created at" />
 <a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=gray" alt="Commit Activity" /></a>
 </div>
-
-Developed Responsive website with HTML and CSS • enhanced for all device sizes with CSS-Grid and Flexbox methods • enhanced design with Figma template
-
-
-
-
-
-
-
-

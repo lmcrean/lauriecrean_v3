@@ -12,7 +12,7 @@ import ProjectCarousel from '@site/src/components/ProjectCarousel';
 
 # Older Projects
 
-This page contains some of my earlier projects that showcase my learning journey and development skills.
+This page contains some of my earlier projects that showcase my learning journey and development skills. Wealth Quest and Retrolympic Rush were developed in a hackathon setting, with myself as the Scrum Master role. Crocodile Kingdom was developed with a focus on local storage and responsive design.
 
 ***
 
@@ -45,8 +45,6 @@ This page contains some of my earlier projects that showcase my learning journey
 <img src="https://img.shields.io/badge/Vitest-53_passed-blue?&logo=vitest&logoColor=white" alt="Vitest" />
 </div>
 
-Refined gameplay logic to creative word association game with validation • Ported essential Javascript features into React • Integrated Tailwind CSS into workflow.
-
 <center><b>version 1.0</b></center>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play" ></i> Live Demo </button></a>
@@ -64,8 +62,6 @@ Refined gameplay logic to creative word association game with validation • Por
 <img src="https://img.shields.io/badge/Bootstrap-1C1C1C?&logo=bootstrap&logoColor=white" alt="Bootstrap" />
 <img src="https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white" alt="Github Pages" />
 </div> 
-
-Developed Memory game with Javascript • dynamic progress bar to track progress • used LocalStorage to save high scores
 
 ## Retrolympic Rush {#retrolympic-rush}
 
@@ -94,9 +90,6 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 <img src="https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white" alt="Slack" />
 </div>
 
-Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • used agile methods with daily standups and sprint reviews over 5 days • Reviewed pull requests and merged code to main branch • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
-
-
 ## Wealth Quest {#wealth-quest}
 
 <div className="header-badges">
@@ -120,7 +113,5 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 <img src="https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white" alt="Github Pages" />
 <img src="https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white" alt="Slack" />
 </div>
-
-Took up role of Scrum Master in team of 6 • Contributed to front end development styling and typefaces • used agile methods with daily standups and sprint reviews to ensure project was shipped within 5 days
 
 </div>

@@ -11,10 +11,6 @@ My certifications have demonstrate a love of problem solving and a willingness t
 
 <center>
 
-## AWS Solutions Architect Associate
-
-Due to certify in May 2025. Mastering AWS core services, architecture, security, scaling, and cost optimization.
-
 ## Software Engineer Certificate
 
 <a href="https://www.hackerrank.com/certificates/5a88bb740325">
