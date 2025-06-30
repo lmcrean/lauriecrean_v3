@@ -21,7 +21,7 @@ const RightSection: React.FC = () => {
     overflow: 'hidden',
     whiteSpace: 'nowrap' as const,
     borderRight: '14px solid #fde047',
-    paddingRight: '2px',
+    paddingRight: '0px',
     animation: 'typewriter-subtitle 2s steps(25, end) 2s both, show-yellow-caret 0.1s 2s both, blink-yellow-caret 0.75s step-end 4s infinite'
   };
 
