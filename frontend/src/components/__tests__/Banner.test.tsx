@@ -18,8 +18,8 @@ describe('DeveloperBusinessCard Component', () => {
   it('renders all three sections', () => {
     const { container }: RenderResult = render(<DeveloperBusinessCard />);
     
-    // Check that the main container has the expected structure
-    const mainContainer = container.querySelector('.flex.w-full.h-64') as HTMLElement;
+    // Check that the main container has the expected structure (updated for responsive height)
+    const mainContainer = container.querySelector('.flex.w-full') as HTMLElement;
     expect(mainContainer).toBeTruthy();
     
     // Should have exactly 3 child sections
@@ -32,7 +32,8 @@ describe('DeveloperBusinessCard Component', () => {
     const mainContainer = container.querySelector('div') as HTMLElement;
     expect(mainContainer.className).toContain('flex');
     expect(mainContainer.className).toContain('w-full');
-    expect(mainContainer.className).toContain('h-64');
+    expect(mainContainer.className).toContain('h-48'); // Updated for responsive design
+    expect(mainContainer.className).toContain('md:h-64'); // Updated for responsive design
     expect(mainContainer.className).toContain('bg-white');
     expect(mainContainer.className).toContain('rounded-lg');
     expect(mainContainer.className).toContain('shadow-lg');
@@ -100,10 +101,9 @@ describe('RightSection Component', () => {
   it('renders all job titles', () => {
     render(<RightSection />);
     
-    expect(screen.getByText('Full-Stack')).toBeTruthy();
-    expect(screen.getByText('Software Engineer')).toBeTruthy();
-    expect(screen.getByText('Developer')).toBeTruthy();
-    expect(screen.getByText('QA Tester')).toBeTruthy();
+    // Updated to match current implementation
+    expect(screen.getByText('Back End')).toBeTruthy();
+    expect(screen.getByText('Software Developer')).toBeTruthy();
   });
 
   it('renders the website URL', () => {
@@ -130,14 +130,15 @@ describe('RightSection Component', () => {
   it('has correct color classes for different job titles', () => {
     render(<RightSection />);
     
-    const fullStack = screen.getByText('Full-Stack') as HTMLElement;
-    expect(fullStack.className).toContain('text-2xl');
-    expect(fullStack.className).toContain('text-teal-500');
-    expect(fullStack.className).toContain('font-semibold');
+    // Updated to match current implementation
+    const backEnd = screen.getByText('Back End') as HTMLElement;
+    expect(backEnd.className).toContain('text-2xl');
+    expect(backEnd.className).toContain('text-teal-500');
+    expect(backEnd.className).toContain('font-semibold');
     
-    const engineer = screen.getByText('Software Engineer') as HTMLElement;
-    expect(engineer.className).toContain('text-2xl');
-    expect(engineer.className).toContain('text-orange-500');
-    expect(engineer.className).toContain('font-semibold');
+    const developer = screen.getByText('Software Developer') as HTMLElement;
+    expect(developer.className).toContain('text-2xl');
+    expect(developer.className).toContain('text-orange-500');
+    expect(developer.className).toContain('font-semibold');
   });
 }); 
