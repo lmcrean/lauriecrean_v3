@@ -1,6 +1,8 @@
 # GitHub API - Simplified MVP
 
 > **Minimal viable API** for pull request portfolio feed
+>
+> aims to be a simple MVP for the github api.
 
 ## What We Actually Need (Phase 1)
 
