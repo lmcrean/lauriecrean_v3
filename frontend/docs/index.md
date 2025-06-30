@@ -8,8 +8,6 @@ hide_table_of_contents: false
 
 import ProjectCarousel from '@site/src/components/ProjectCarousel';
 
-<img src="/docs/banner.png" alt="banner" />
-
 Welcome to my portfolio website! On this page you will find a guide to my selected projects that demonstrate my skills in full-stack, frontend and backend development. All projects are developed with a focus on agile Many projects are deployed in iterations, with improved tech stack solutions over time, in which case the latest version is included at the top.
 
 ***

@@ -117,3 +117,54 @@ html {
 .breadcrumbs {
   display: none;
 }
+
+/* Global Banner Styling */
+.global-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.global-banner.show {
+  transform: translateY(0);
+}
+
+.global-banner.hide {
+  transform: translateY(-100%);
+}
+
+/* Ensure navbar stays below banner */
+.navbar {
+  z-index: 999;
+}
+
+/* Dark mode support for banner */
+[data-theme='dark'] .global-banner {
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Responsive banner padding */
+@media (max-width: 768px) {
+  .global-banner .max-w-6xl {
+    padding: 1rem;
+  }
+}
+
+/* Responsive layout padding adjustments */
+@media (max-width: 768px) {
+  .layout-with-banner[data-show-banner="true"] {
+    padding-top: 240px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .layout-with-banner[data-show-banner="true"] {
+    padding-top: 280px !important;
+  }
+}

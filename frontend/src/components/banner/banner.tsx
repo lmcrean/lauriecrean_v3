@@ -13,7 +13,7 @@ import RightSection from './sections/RightSection';
  */
 const DeveloperBusinessCard: React.FC = () => {
   return (
-    <div className="flex w-full h-64 bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="flex w-full h-48 md:h-64 bg-white rounded-lg shadow-lg overflow-hidden">
       <LeftSection />
       <MiddleSection />
       <RightSection />
