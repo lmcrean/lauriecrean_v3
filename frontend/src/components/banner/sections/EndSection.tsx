@@ -8,7 +8,7 @@ import React from 'react';
  */
 const MiddleSection: React.FC = () => {
   return (
-    <div className="w-1/3 bg-blue-600 p-4 relative hidden md:block">
+    <div className="w-1/3 lg:w-1/2 bg-blue-600 p-4 relative hidden md:block border-6 border-blue-600 sm:hidden">
       <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
         {/* Vertical dotted line with 12 squares */}
         <div className="absolute left-8 top-0 bottom-0 h-full flex flex-col justify-between py-4">
