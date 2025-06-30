@@ -9,13 +9,58 @@ import React from 'react';
  * - Website URL
  */
 const RightSection: React.FC = () => {
+  const typewriterStyle = {
+    overflow: 'hidden',
+    whiteSpace: 'nowrap' as const,
+    borderRight: '14px solid white',
+    paddingRight: '2px',
+    animation: 'typewriter-name 1.5s steps(12, end) 0.5s both'
+  };
+
+  const subtitleStyle = {
+    overflow: 'hidden',
+    whiteSpace: 'nowrap' as const,
+    borderRight: '14px solid #fde047',
+    paddingRight: '2px',
+    animation: 'typewriter-subtitle 2s steps(25, end) 2s both, blink-caret 0.75s step-end 4s infinite'
+  };
+
   return (
-    <div className="w-full md:w-3/6 lg:w-1/2 md:flex-shrink-0 md:min-w-120 bg-blue-400 p-6 flex flex-col justify-center">
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">Laurie Crean</div>
-      <div className="mt-1">
-        <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic text-yellow-300 font-semibold">Back End Software Developer</div>
+    <>
+      <style>
+        {`
+          @keyframes typewriter-name {
+            from { width: 0; }
+            to { width: 100%; }
+          }
+          
+          @keyframes typewriter-subtitle {
+            from { width: 0; }
+            to { width: 100%; }
+          }
+          
+          @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #fde047; }
+          }
+        `}
+      </style>
+      <div className="w-full md:w-3/6 lg:w-1/2 md:flex-shrink-0 md:min-w-120 bg-blue-400 p-6 flex flex-col justify-center">
+        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+          <span className="inline-block" style={typewriterStyle}>
+            Laurie Crean
+          </span>
+        </div>
+        <div className="mt-1">
+          <div 
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic text-yellow-300 font-semibold"
+            style={subtitleStyle}
+          >
+            Back End Software Developer
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
