@@ -378,3 +378,7 @@
   justify-content: center;
   gap: 11px;
 }
+
+.github-badges {
+  margin-top: 12px;
+}

@@ -199,3 +199,14 @@ html {
 .menu__list {
   margin-top: 20px;
 }
+
+.footer__link-item {
+  display: flex;
+  flex-direction: row; 
+}
+
+.iconExternalLink_nPIU {
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+}
+
