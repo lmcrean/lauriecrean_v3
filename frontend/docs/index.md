@@ -49,14 +49,14 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-303_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-40_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Vitest-303_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-40_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=gray" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=gray" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=gray" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/lmcrean/dottie?color=gray" /> </a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie?color=gray" /> </a>
+<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=1C1C1C" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=1C1C1C" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=1C1C1C" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/lmcrean/dottie?color=1C1C1C" /> </a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie?color=1C1C1C" /> </a>
 </div>
 
 </section>
@@ -96,17 +96,17 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-32_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-5_Passed-gray?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Cypress-3_passed-gray?style=flat-square&logo=cypress&logoColor=white" alt="Cypress" />
-<img src="https://img.shields.io/badge/Python-38_Passed-gray?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-20_Passed-gray?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
+<img src="https://img.shields.io/badge/Playwright-32_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Jest-5_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
+<img src="https://img.shields.io/badge/Cypress-3_passed-1C1C1C?style=flat-square&logo=cypress&logoColor=white" alt="Cypress" />
+<img src="https://img.shields.io/badge/Python-38_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
+<img src="https://img.shields.io/badge/Pytest-20_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -144,15 +144,15 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-3_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Python-4_Passed-gray?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-6_Passed-gray?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
+<img src="https://img.shields.io/badge/Playwright-3_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Python-4_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
+<img src="https://img.shields.io/badge/Pytest-6_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -190,15 +190,15 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-12_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-2_Passed-gray?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Vitest-19_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Jest-2_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
+<img src="https://img.shields.io/badge/Vitest-19_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <hr />
@@ -215,9 +215,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -237,14 +237,14 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-33_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-12_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Vitest-33_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean_v3"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_v3?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_v3?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean_v3/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_v3?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/lauriecrean_v3"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean_v3/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <center><b>version 1.0</b></center>
@@ -261,9 +261,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div> 
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <TypewriterTitle text="Hoverboard" level="h2" className="project-title" id="hoverboard" delay={400} speed={105} />
@@ -291,9 +291,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <center><b>version 1.0</b></center>
@@ -310,7 +310,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
