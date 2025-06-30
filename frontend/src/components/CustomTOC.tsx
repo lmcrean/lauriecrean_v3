@@ -44,16 +44,31 @@ const CustomTOC: React.FC = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+      rootMargin: '-10% 0px -80% 0px',
+      threshold: [0, 0.1, 0.5]
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveItem(entry.target.id);
-        }
-      });
+      // Filter for intersecting entries and sort by their position
+      const intersectingEntries = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => {
+          const aRect = a.boundingClientRect;
+          const bRect = b.boundingClientRect;
+          return aRect.top - bRect.top;
+        });
+
+      if (intersectingEntries.length > 0) {
+        // Get the topmost intersecting section that's within the active zone
+        const activeEntry = intersectingEntries.find(entry => {
+          const rect = entry.boundingClientRect;
+          const viewportHeight = window.innerHeight;
+          // Consider a section active if its top is within the upper 30% of viewport
+          return rect.top <= viewportHeight * 0.3;
+        }) || intersectingEntries[0]; // fallback to first intersecting entry
+
+        setActiveItem(activeEntry.target.id);
+      }
     }, observerOptions);
 
     // Function to observe elements, with retry for TypewriterTitle components
