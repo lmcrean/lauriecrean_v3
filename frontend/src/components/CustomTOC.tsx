@@ -40,58 +40,51 @@ const CustomTOC: React.FC = () => {
     }
   };
 
-  // Track which section is currently in view
+  // Track which section is currently in view using scroll events
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-10% 0px -80% 0px',
-      threshold: [0, 0.1, 0.5]
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      // Filter for intersecting entries and sort by their position
-      const intersectingEntries = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => {
-          const aRect = a.boundingClientRect;
-          const bRect = b.boundingClientRect;
-          return aRect.top - bRect.top;
-        });
-
-      if (intersectingEntries.length > 0) {
-        // Get the topmost intersecting section that's within the active zone
-        const activeEntry = intersectingEntries.find(entry => {
-          const rect = entry.boundingClientRect;
-          const viewportHeight = window.innerHeight;
-          // Consider a section active if its top is within the upper 30% of viewport
-          return rect.top <= viewportHeight * 0.3;
-        }) || intersectingEntries[0]; // fallback to first intersecting entry
-
-        setActiveItem(activeEntry.target.id);
-      }
-    }, observerOptions);
-
-    // Function to observe elements, with retry for TypewriterTitle components
-    const observeElements = () => {
-      tocItems.forEach(item => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 60; // 60px offset for better detection
+      
+      // Find all sections and their positions
+      const sectionPositions = tocItems.map(item => {
         const element = document.getElementById(item.id);
-        if (element) {
-          observer.observe(element);
+        if (!element) return null;
+        
+        return {
+          id: item.id,
+          offsetTop: element.offsetTop,
+          offsetBottom: element.offsetTop + element.offsetHeight
+        };
+      }).filter(Boolean);
+
+      // Find the section that contains the current scroll position
+      let currentSection = sectionPositions[0]?.id; // default to first section
+      
+      for (const section of sectionPositions) {
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = section.id;
+        } else {
+          break;
         }
-      });
+      }
+
+      setActiveItem(currentSection || '');
     };
 
-    // Initial observation
-    observeElements();
+    // Set initial active item
+    handleScroll();
 
-    // Retry after a delay to catch TypewriterTitle components that render later
-    const retryTimeout = setTimeout(observeElements, 1000);
-    const retryTimeout2 = setTimeout(observeElements, 3000);
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Also check after TypewriterTitle components have time to render
+    const delayedCheck = setTimeout(handleScroll, 1000);
+    const delayedCheck2 = setTimeout(handleScroll, 3000);
 
     return () => {
-      observer.disconnect();
-      clearTimeout(retryTimeout);
-      clearTimeout(retryTimeout2);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(delayedCheck);
+      clearTimeout(delayedCheck2);
     };
   }, []);
 
