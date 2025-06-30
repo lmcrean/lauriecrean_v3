@@ -95,7 +95,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
 
   return (
     <article 
-      className="w-full bg-white border border-gray-200 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50 hover:border-blue-500 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -113,7 +113,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
           <span>{status.emoji}</span>
           <span>{status.text}</span>
         </div>
-        <div className="text-gray-500 text-xs">
+        <div className="text-gray-500 dark:text-gray-400 text-xs">
           {relativeTime}
         </div>
       </div>
@@ -122,7 +122,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
       <div className="mb-3">
         <div className="flex items-start space-x-2">
           <span className="text-lg flex-shrink-0 mt-0.5">{titleIcon}</span>
-          <h3 className="font-bold text-gray-900 text-base leading-tight line-clamp-2">
+          <h3 className="font-bold text-gray-900 dark:text-white text-base leading-tight line-clamp-2">
             {pullRequest.title}
           </h3>
         </div>
@@ -133,7 +133,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
         <div className="mb-3">
           <div className="flex items-start space-x-2">
             <span className="text-sm flex-shrink-0 mt-0.5">📝</span>
-            <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-2">
               {truncateText(pullRequest.description, 80)}
             </p>
           </div>
@@ -144,7 +144,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center space-x-1">
           <span className="text-sm">📦</span>
-          <span className="text-gray-700 text-sm font-medium">
+          <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
             {pullRequest.repository.name}
           </span>
         </div>
@@ -161,10 +161,10 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
 
       {/* Bottom Row: PR Number & Action */}
       <div className="flex justify-between items-center">
-        <div className="text-gray-500 text-xs font-mono">
+        <div className="text-gray-500 dark:text-gray-400 text-xs font-mono">
           #{pullRequest.number}
         </div>
-        <div className="flex items-center space-x-1 text-blue-600 text-sm font-medium">
+        <div className="flex items-center space-x-1 text-blue-600 dark:text-blue-400 text-sm font-medium">
           <span>👆</span>
           <span>View PR</span>
         </div>
