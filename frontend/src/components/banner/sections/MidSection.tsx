@@ -17,21 +17,21 @@ const LeftSection: React.FC = () => {
           }
           
           .animate-line-1 { animation: expandLine 0.8s ease-out 1s both; --target-width: 3rem; }
-          .animate-line-2 { animation: expandLine 0.8s ease-out 1.1s both; --target-width: 5rem; }
-          .animate-line-3 { animation: expandLine 0.8s ease-out 1.2s both; --target-width: 2rem; }
-          .animate-line-4 { animation: expandLine 0.8s ease-out 1.3s both; --target-width: 1.5rem; }
-          .animate-line-5 { animation: expandLine 0.8s ease-out 1.4s both; --target-width: 2rem; }
-          .animate-line-6 { animation: expandLine 0.8s ease-out 1.5s both; --target-width: 4rem; }
-          .animate-line-7 { animation: expandLine 0.8s ease-out 1.6s both; --target-width: 6rem; }
-          .animate-line-8 { animation: expandLine 0.8s ease-out 1.7s both; --target-width: 2.5rem; }
-          .animate-line-9 { animation: expandLine 0.8s ease-out 1.8s both; --target-width: 1.5rem; }
-          .animate-line-10 { animation: expandLine 0.8s ease-out 1.9s both; --target-width: 7rem; }
-          .animate-line-11 { animation: expandLine 0.8s ease-out 2s both; --target-width: 1.5rem; }
-          .animate-line-12 { animation: expandLine 0.8s ease-out 2.1s both; --target-width: 4rem; }
-          .animate-line-13 { animation: expandLine 0.8s ease-out 2.2s both; --target-width: 2rem; }
-          .animate-line-14 { animation: expandLine 0.8s ease-out 2.3s both; --target-width: 2.5rem; }
-          .animate-line-15 { animation: expandLine 0.8s ease-out 2.4s both; --target-width: 2rem; }
-          .animate-line-16 { animation: expandLine 0.8s ease-out 2.5s both; --target-width: 3rem; }
+          .animate-line-2 { animation: expandLine 0.8s ease-out 2.1s both; --target-width: 4rem; }
+          .animate-line-3 { animation: expandLine 0.8s ease-out 2.2s both; --target-width: 2rem; }
+          .animate-line-4 { animation: expandLine 0.8s ease-out 2.3s both; --target-width: 2.5rem; }
+          .animate-line-5 { animation: expandLine 0.8s ease-out 2.4s both; --target-width: 2rem; }
+          .animate-line-6 { animation: expandLine 0.8s ease-out 2.5s both; --target-width: 4rem; }
+          .animate-line-7 { animation: expandLine 0.8s ease-out 2.6s both; --target-width: 6rem; }
+          .animate-line-8 { animation: expandLine 0.8s ease-out 2.7s both; --target-width: 3.5rem; }
+          .animate-line-9 { animation: expandLine 0.8s ease-out 2.8s both; --target-width: 2.5rem; }
+          .animate-line-10 { animation: expandLine 0.8s ease-out 2.9s both; --target-width: 7rem; }
+          .animate-line-11 { animation: expandLine 0.8s ease-out 2s both; --target-width: 2.5rem; }
+          .animate-line-12 { animation: expandLine 0.8s ease-out 3.1s both; --target-width: 4rem; }
+          .animate-line-13 { animation: expandLine 0.8s ease-out 3.2s both; --target-width: 2rem; }
+          .animate-line-14 { animation: expandLine 0.8s ease-out 3.3s both; --target-width: 3.5rem; }
+          .animate-line-15 { animation: expandLine 0.8s ease-out 3.4s both; --target-width: 2rem; }
+          .animate-line-16 { animation: expandLine 0.8s ease-out 3.5s both; --target-width: 3rem; }
         `}
       </style>
       <div className="w-1/6 bg-teal-700 p-4 relative hidden md:block md:min-w-40 lg:block">

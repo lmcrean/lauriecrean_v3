@@ -21,30 +21,30 @@ const MiddleSection: React.FC = () => {
             to { opacity: 1; transform: scale(1); }
           }
           
-          .animate-dot-1 { animation: fadeInDot 0.3s ease-out 0.8s both; }
-          .animate-dot-2 { animation: fadeInDot 0.3s ease-out 0.9s both; }
-          .animate-dot-3 { animation: fadeInDot 0.3s ease-out 1s both; }
-          .animate-dot-4 { animation: fadeInDot 0.3s ease-out 1.1s both; }
-          .animate-dot-5 { animation: fadeInDot 0.3s ease-out 1.2s both; }
-          .animate-dot-6 { animation: fadeInDot 0.3s ease-out 1.3s both; }
-          .animate-dot-7 { animation: fadeInDot 0.3s ease-out 1.4s both; }
-          .animate-dot-8 { animation: fadeInDot 0.3s ease-out 1.5s both; }
-          .animate-dot-9 { animation: fadeInDot 0.3s ease-out 1.6s both; }
-          .animate-dot-10 { animation: fadeInDot 0.3s ease-out 1.7s both; }
-          .animate-dot-11 { animation: fadeInDot 0.3s ease-out 1.8s both; }
-          .animate-dot-12 { animation: fadeInDot 0.3s ease-out 1.9s both; }
+          .animate-dot-1 { animation: fadeInDot 0.3s ease-out 2.8s both; }
+          .animate-dot-2 { animation: fadeInDot 0.3s ease-out 2.9s both; }
+          .animate-dot-3 { animation: fadeInDot 0.3s ease-out 3s both; }
+          .animate-dot-4 { animation: fadeInDot 0.3s ease-out 3.1s both; }
+          .animate-dot-5 { animation: fadeInDot 0.3s ease-out 3.2s both; }
+          .animate-dot-6 { animation: fadeInDot 0.3s ease-out 3.3s both; }
+          .animate-dot-7 { animation: fadeInDot 0.3s ease-out 3.4s both; }
+          .animate-dot-8 { animation: fadeInDot 0.3s ease-out 3.5s both; }
+          .animate-dot-9 { animation: fadeInDot 0.3s ease-out 3.6s both; }
+          .animate-dot-10 { animation: fadeInDot 0.3s ease-out 3.7s both; }
+          .animate-dot-11 { animation: fadeInDot 0.3s ease-out 3.8s both; }
+          .animate-dot-12 { animation: fadeInDot 0.3s ease-out 3.9s both; }
           
-          .animate-code-1 { animation: expandCodeLine 0.6s ease-out 1.4s both; --line-width: 6rem; }
-          .animate-code-2 { animation: expandCodeLine 0.6s ease-out 1.5s both; --line-width: 9rem; }
-          .animate-code-3 { animation: expandCodeLine 0.6s ease-out 1.6s both; --line-width: 4rem; }
-          .animate-code-4 { animation: expandCodeLine 0.6s ease-out 1.7s both; --line-width: 6rem; }
-          .animate-code-5 { animation: expandCodeLine 0.6s ease-out 1.8s both; --line-width: 8rem; }
-          .animate-code-6 { animation: expandCodeLine 0.6s ease-out 1.9s both; --line-width: 5rem; }
-          .animate-code-7 { animation: expandCodeLine 0.6s ease-out 2s both; --line-width: 7rem; }
-          .animate-code-8 { animation: expandCodeLine 0.6s ease-out 2.1s both; --line-width: 6rem; }
-          .animate-code-9 { animation: expandCodeLine 0.6s ease-out 2.2s both; --line-width: 8rem; }
-          .animate-code-10 { animation: expandCodeLine 0.6s ease-out 2.3s both; --line-width: 4rem; }
-          .animate-code-11 { animation: expandCodeLine 0.6s ease-out 2.4s both; --line-width: 8rem; }
+          .animate-code-1 { animation: expandCodeLine 0.6s ease-out 2.4s both; --line-width: 6rem; }
+          .animate-code-2 { animation: expandCodeLine 0.6s ease-out 2.5s both; --line-width: 9rem; }
+          .animate-code-3 { animation: expandCodeLine 0.6s ease-out 2.6s both; --line-width: 4rem; }
+          .animate-code-4 { animation: expandCodeLine 0.6s ease-out 2.7s both; --line-width: 6rem; }
+          .animate-code-5 { animation: expandCodeLine 0.6s ease-out 2.8s both; --line-width: 8rem; }
+          .animate-code-6 { animation: expandCodeLine 0.6s ease-out 2.9s both; --line-width: 5rem; }
+          .animate-code-7 { animation: expandCodeLine 0.6s ease-out 3s both; --line-width: 7rem; }
+          .animate-code-8 { animation: expandCodeLine 0.6s ease-out 3.1s both; --line-width: 6rem; }
+          .animate-code-9 { animation: expandCodeLine 0.6s ease-out 3.2s both; --line-width: 8rem; }
+          .animate-code-10 { animation: expandCodeLine 0.6s ease-out 3.3s both; --line-width: 4rem; }
+          .animate-code-11 { animation: expandCodeLine 0.6s ease-out 3.4s both; --line-width: 8rem; }
         `}
       </style>
       <div className="w-1/3 lg:w-1/2 bg-teal-600 p-4 relative hidden md:block border-6 border-teal-600 sm:hidden">
