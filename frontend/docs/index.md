@@ -16,7 +16,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 ***
 
-<TypewriterTitle text="Dottie" level="h2" className="project-title" delay={500} speed={120} />
+## Dottie
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" /> <img src="https://img.shields.io/github/contributors/lmcrean/dottie" alt="Contributors" /> <img src="https://img.shields.io/github/stars/lmcrean/dottie" alt="Github Stars" /> <img src="https://img.shields.io/badge/Role-SQL_&_Express_lead,_Code_Reviewer-blue" alt="Role" />
