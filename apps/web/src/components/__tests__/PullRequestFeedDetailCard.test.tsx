@@ -5,7 +5,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
+
 import PullRequestFeedDetailCard from '../pull-request-feed/PullRequestFeedDetailCard';
 
 // Mock detailed pull request data
@@ -71,20 +71,20 @@ const mockClosedPullRequest = {
 // Mock clipboard API
 Object.assign(navigator, {
   clipboard: {
-    writeText: vi.fn().mockResolvedValue(undefined),
+    writeText: jest.fn().mockResolvedValue(undefined),
   },
 });
 
 // Mock window.open
 Object.defineProperty(window, 'open', {
   writable: true,
-  value: vi.fn(),
+  value: jest.fn(),
 });
 
 // Mock navigator.share
 Object.defineProperty(navigator, 'share', {
   writable: true,
-  value: vi.fn().mockResolvedValue(undefined),
+  value: jest.fn().mockResolvedValue(undefined),
 });
 
 describe('PullRequestFeedDetailCard', () => {

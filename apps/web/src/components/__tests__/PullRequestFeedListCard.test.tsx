@@ -3,9 +3,8 @@
  */
 
 import React from 'react';
-import { render, screen, fireEvent, RenderResult } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { vi, describe, it, expect, beforeEach } from 'vitest';
 import PullRequestFeedListCard from '../pull-request-feed/PullRequestFeedListCard';
 
 // Mock data
@@ -45,17 +44,17 @@ const mockClosedPullRequest = {
 };
 
 describe('PullRequestFeedListCard', () => {
-  const mockOnClick = vi.fn();
+  const mockOnClick = jest.fn();
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    jest.clearAllMocks();
     // Mock Date for consistent time calculations
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2024-01-16T15:00:00Z'));
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2024-01-16T15:00:00Z'));
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   describe('Basic Rendering', () => {
