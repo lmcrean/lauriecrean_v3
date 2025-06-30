@@ -52,8 +52,34 @@ html {
 
 /* Custom sidebar styling for table of contents */
 .table-of-contents {
+  position: fixed;
+  top: var(--ifm-navbar-height);
+  right: 1rem;
+  width: 250px;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+  overflow-y: auto;
   font-size: 0.9rem;
   padding: 1rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Hide TOC on smaller screens */
+@media (max-width: 996px) {
+  .table-of-contents {
+    display: none;
+  }
+}
+
+/* Adjust main content margin to accommodate TOC */
+@media (min-width: 997px) {
+  .main-wrapper {
+    max-width: calc(100% - 280px);
+  }
 }
 
 .table-of-contents__title {
@@ -118,6 +144,13 @@ html {
 [data-theme='dark'] .table-of-contents__link--active {
   color: var(--ifm-color-primary-light);
   background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Dark theme support for fixed TOC */
+[data-theme='dark'] .table-of-contents {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-200);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 /* Custom project page styling */
