@@ -22,6 +22,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'pull-request-feed',
+      label: 'Pull Requests',
+      customProps: {
+        badge: 'live'
+      }
+    },
+    {
+      type: 'doc',
       id: 'archive',
       label: 'Older Projects',
     },
