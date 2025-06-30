@@ -1,6 +1,12 @@
 import React from 'react';
 
-const MiddleSection = () => {
+/**
+ * Middle Section Component
+ * 
+ * Displays a vertical dotted line with 12 dots and
+ * horizontal code snippet representations
+ */
+const MiddleSection: React.FC = () => {
   return (
     <div className="w-1/3 bg-blue-500 p-4 relative">
       <div className="absolute inset-0 flex flex-col justify-center items-center p-4">

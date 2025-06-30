@@ -1,6 +1,14 @@
 import React from 'react';
 
-const RightSection = () => {
+/**
+ * Right Section Component
+ * 
+ * Displays the developer's information including:
+ * - Name
+ * - Job titles/roles
+ * - Website URL
+ */
+const RightSection: React.FC = () => {
   return (
     <div className="w-1/3 bg-white p-6 flex flex-col justify-center">
       <h1 className="text-4xl font-bold text-blue-600">Laurie Crean</h1>

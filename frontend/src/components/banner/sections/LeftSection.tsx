@@ -1,6 +1,12 @@
 import React from 'react';
 
-const LeftSection = () => {
+/**
+ * Left Section Component
+ * 
+ * Displays a code visualization with colored bars representing
+ * lines of code in different syntax highlighting colors
+ */
+const LeftSection: React.FC = () => {
   return (
     <div className="w-1/3 bg-blue-600 p-4 relative">
       <div className="absolute inset-0 p-6">
