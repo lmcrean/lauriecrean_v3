@@ -45,9 +45,9 @@ const getRelativeTime = (dateString: string): string => {
 };
 
 const getStatusDisplay = (state: string, mergedAt: string | null) => {
-  if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600' };
-  if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600' };
-  return { emoji: '×', text: 'closed', color: 'text-red-600' };
+  if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600 dark:text-purple-400' };
+  if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600 dark:text-green-400' };
+  return { emoji: '×', text: 'closed', color: 'text-red-600 dark:text-red-400' };
 };
 
 const getTitleIcon = (title: string): string => {
@@ -95,7 +95,7 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
 
   return (
     <article 
-      className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+      className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
       onClick={onClick}
       role="button"
       tabIndex={0}

@@ -53,10 +53,10 @@ const formatAbsoluteDate = (dateString: string): string => {
 };
 
 const getStatusDisplay = (state: string, mergedAt: string | null, draft?: boolean) => {
-  if (draft) return { emoji: '•', text: 'draft', color: 'text-gray-600' };
-  if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600' };
-  if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600' };
-  return { emoji: '×', text: 'closed', color: 'text-red-600' };
+  if (draft) return { emoji: '•', text: 'draft', color: 'text-gray-600 dark:text-gray-400' };
+  if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600 dark:text-purple-400' };
+  if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600 dark:text-green-400' };
+  return { emoji: '×', text: 'closed', color: 'text-red-600 dark:text-red-400' };
 };
 
 const getTitleIcon = (title: string): string => {
@@ -216,7 +216,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Error Loading PR</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">{error}</p>
               <button 
-                className="bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+                className="bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
                 onClick={() => window.location.reload()}
               >
                 Try Again
@@ -383,19 +383,19 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Actions</h2>
             <div className="space-y-3">
               <button 
-                className="w-full bg-blue-600 dark:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                className="w-full bg-blue-600 dark:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
                 onClick={() => window.open(pullRequest.html_url, '_blank')}
               >
                 View on GitHub
               </button>
               <button 
-                className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
                 onClick={() => copyToClipboard(pullRequest.html_url)}
               >
                 Copy Link
               </button>
               <button 
-                className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
                 onClick={() => shareData(pullRequest)}
               >
                 Share
