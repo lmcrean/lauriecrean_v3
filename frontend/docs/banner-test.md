@@ -11,6 +11,12 @@ import SimpleTest from '@site/src/components/banner/SimpleTest';
 
 This is a test page to preview the developer business card banner component.
 
+## Tailwind CSS Test
+
+<div className="bg-red-500 text-white p-4 rounded-lg mb-4">
+  🔥 **If you see this red box with white text, Tailwind CSS is working!**
+</div>
+
 ## Debug Test
 
 <div style={{padding: '20px', border: '2px solid red', margin: '20px 0'}}>
