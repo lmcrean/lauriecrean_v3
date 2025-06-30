@@ -6,9 +6,9 @@ import React from 'react';
 import { render, screen, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DeveloperBusinessCard from '../banner/banner';
-import LeftSection from '../banner/sections/LeftSection';
-import MiddleSection from '../banner/sections/MiddleSection';
-import RightSection from '../banner/sections/RightSection';
+import LeftSection from '../banner/sections/MidSection';
+import MiddleSection from '../banner/sections/EndSection';
+import RightSection from '../banner/sections/TitleSection';
 
 describe('DeveloperBusinessCard Component', () => {
   it('renders without crashing', () => {

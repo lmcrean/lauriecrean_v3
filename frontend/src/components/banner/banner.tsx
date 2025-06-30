@@ -1,7 +1,7 @@
 import React from 'react';
-import LeftSection from './sections/LeftSection';
-import MiddleSection from './sections/MiddleSection';
-import RightSection from './sections/RightSection';
+import MidSection from './sections/MidSection';
+import EndSection from './sections/EndSection';
+import TitleSection from './sections/TitleSection';
 
 /**
  * Developer Business Card Banner Component
@@ -13,10 +13,10 @@ import RightSection from './sections/RightSection';
  */
 const DeveloperBusinessCard: React.FC = () => {
   return (
-    <div className="flex w-full h-48 md:h-64 bg-white rounded-lg shadow-lg overflow-hidden">
-      <LeftSection />
-      <MiddleSection />
-      <RightSection />
+    <div className="flex w-full h-48 md:h-64 bg-black rounded-lg shadow-lg overflow-hidden">
+      <TitleSection />
+      <MidSection />
+      <EndSection />
     </div>
   );
 };
