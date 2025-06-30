@@ -4,10 +4,7 @@
  * work well for content-centric websites.
  */
 
-/* Import Tailwind CSS */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS is imported via tailwind.css */
 
 /* You can override the default Infima variables here. */
 :root {
