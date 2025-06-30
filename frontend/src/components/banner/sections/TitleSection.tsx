@@ -14,7 +14,7 @@ const RightSection: React.FC = () => {
     whiteSpace: 'nowrap' as const,
     borderRight: '14px solid white',
     paddingRight: '2px',
-    animation: 'typewriter-name 1.5s steps(12, end) 0.5s both'
+    animation: 'typewriter-name 1.5s steps(12, end) 0.5s both, blink-white-caret 0.75s step-end 0.5s 2, hide-white-caret 0.1s 2s both'
   };
 
   const subtitleStyle = {
@@ -22,7 +22,7 @@ const RightSection: React.FC = () => {
     whiteSpace: 'nowrap' as const,
     borderRight: '14px solid #fde047',
     paddingRight: '2px',
-    animation: 'typewriter-subtitle 2s steps(25, end) 2s both, blink-caret 0.75s step-end 4s infinite'
+    animation: 'typewriter-subtitle 2s steps(25, end) 2s both, show-yellow-caret 0.1s 2s both, blink-yellow-caret 0.75s step-end 4s infinite'
   };
 
   return (
@@ -39,9 +39,23 @@ const RightSection: React.FC = () => {
             to { width: 100%; }
           }
           
-          @keyframes blink-caret {
+          @keyframes blink-white-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+          }
+          
+          @keyframes blink-yellow-caret {
             from, to { border-color: transparent; }
             50% { border-color: #fde047; }
+          }
+          
+          @keyframes hide-white-caret {
+            to { border-color: transparent; }
+          }
+          
+          @keyframes show-yellow-caret {
+            from { border-color: transparent; }
+            to { border-color: #fde047; }
           }
         `}
       </style>
