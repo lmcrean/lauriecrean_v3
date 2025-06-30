@@ -22,6 +22,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'archive',
+      label: 'Older Projects',
+    },
+    {
+      type: 'doc',
       id: 'certifications',
       label: 'Certifications',
     },

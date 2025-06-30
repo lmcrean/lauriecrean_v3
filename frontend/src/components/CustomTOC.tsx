@@ -13,9 +13,6 @@ const tocItems: TOCItem[] = [
   { id: 'steam-report', title: 'Steam Report', level: 2 },
   { id: 'laurie-crean', title: 'Laurie Crean', level: 2 },
   { id: 'hoverboard', title: 'Hoverboard', level: 2 },
-  { id: 'crocodile-kingdom', title: 'Crocodile Kingdom', level: 2 },
-  { id: 'retrolympic-rush', title: 'Retrolympic Rush', level: 2 },
-  { id: 'wealth-quest', title: 'Wealth Quest', level: 2 },
 ];
 
 /**

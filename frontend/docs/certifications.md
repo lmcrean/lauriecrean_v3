@@ -2,6 +2,9 @@
 sidebar_label: Certifications
 sidebar_position: 2
 ---
+
+<div className="certifications-page">
+
 # Certifications
 
 My certifications have demonstrate a love of problem solving and a willingness to take on new challenges. In addition, participation in hackathons demonstrate my ability to work in a team.
@@ -89,3 +92,5 @@ See **Retrolympic Rush** in [Projects](/projects) for more details.
 ![JavaScript](https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white)
 
 </center>
+
+</div>
