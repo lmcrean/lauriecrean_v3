@@ -230,6 +230,16 @@
   margin-bottom: 1rem;
 }
 
+.certificate-tech-badges {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 20px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
 .tech-badge {
   height: 1.5rem;
   border-radius: 4px;
