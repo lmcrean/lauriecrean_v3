@@ -22,7 +22,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 ## Dottie {#dottie}
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-teal" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-teal" alt="API" /><img src="https://img.shields.io/github/contributors/lmcrean/dottie" alt="Contributors" /><img src="https://img.shields.io/github/stars/lmcrean/dottie" alt="Github Stars" /><img src="https://img.shields.io/badge/Role-SQL_&_Express_lead,_Code_Reviewer-blue" alt="Role" />
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-1C1C1C" alt="API" /><img src="https://img.shields.io/github/contributors/lmcrean/dottie?color=white" alt="Contributors" /><img src="https://img.shields.io/github/stars/lmcrean/dottie" alt="Github Stars" /><img src="https://img.shields.io/badge/Role-SQL_&_Express_lead,_Code_Reviewer-white" alt="Role" />
 </div>
 
 <section>
@@ -68,7 +68,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <TypewriterTitle text="Odyssey" level="h2" className="project-title" id="odyssey" delay={300} speed={100} />
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-teal" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-teal" alt="API" />
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
 <section>
@@ -118,7 +118,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <TypewriterTitle text="Coach Matrix" level="h2" className="project-title" id="coach-matrix" delay={200} speed={90} />
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-teal" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-teal" alt="API" />
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
 <section>
@@ -163,7 +163,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <TypewriterTitle text="Steam Report" level="h2" className="project-title" id="steam-report" delay={250} speed={110} />
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Full--Stack-teal" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-teal" alt="API" />
+<img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /><img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
 </div>
 
 <section>
