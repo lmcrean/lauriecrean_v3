@@ -17,7 +17,7 @@ My certifications have demonstrate a love of problem solving and a willingness t
     <img src="http://lauriecrean.dev/screenshots/certifications/software-engineer.png" alt="Software Engineer" style={{width: "500px", height: "auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/SQL-1C1C1C?&logo=postgresql&logoColor=white" alt="SQL" />
 <img src="https://img.shields.io/badge/REST_API-1C1C1C?&logo=django&logoColor=white" alt="REST API" />
@@ -30,7 +30,7 @@ Undertook a proctored 75m Technical Test with 3 complex questions. 30 hours Stud
     <img src="http://lauriecrean.dev/screenshots/certifications/frontend-developer.png" alt="Software Development" style={{width: "500px", height: "auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
 <img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
@@ -43,7 +43,7 @@ Proctored 60 Minute Technical Test, solved 2 challenging technical problems.
     <img src="http://lauriecrean.dev/screenshots/certifications/diploma-software-development.png" alt="Diploma in Full Stack Software Development" style={{width: "500px", height: "auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/SQL-1C1C1C?&logo=postgresql&logoColor=white" alt="SQL" />
@@ -69,33 +69,33 @@ Proctored 60 Minute Technical Test, solved 2 challenging technical problems.
     <img src="http://lauriecrean.dev/screenshots/certifications/hackathon-3rd.png" alt="Hackathon Third Place" style={{width: "500px", display: "flex", margin: "0 auto", height: "auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white" alt="HTML" />
 <img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
 </div>
 
-See **Wealth Quest** in [Projects](/projects) for more details.
+See **Wealth Quest** in [Older Projects](/archive) for more details.
 
 ## Hackathon Participant
 <a href="https://api.eu.badgr.io/public/assertions/qdN_WpdfRL27rBvapCClvg?identity__email=lmcrean%40gmail.com">
     <img src="http://lauriecrean.dev/screenshots/certifications/hackathon-participant.png" alt="Hackathon Participant" style={{width: "500px", height: "auto", display: "flex", margin: "0 auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
 <img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 </div>
 
-See **Retrolympic Rush** in [Projects](/projects) for more details.
+See **Retrolympic Rush** in [Older Projects](/archive) for more details.
 
 ## Hackathon Participant
 <a href="https://api.eu.badgr.io/public/assertions/EE_rXje1Qq2PLTqcuD89XA?identity__email=lmcrean%40gmail.com">
     <img src="http://lauriecrean.dev/screenshots/certifications/hackathon-participant-2.png" alt="Hackathon Participant" style={{width: "500px", height: "auto", display: "flex", margin: "0 auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white" alt="HTML" />
 <img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
@@ -109,7 +109,7 @@ See **Retrolympic Rush** in [Projects](/projects) for more details.
     <img src="http://lauriecrean.dev/screenshots/certifications/channel-lead.png" alt="Channel Lead Python" style={{width: "500px", height: "auto", display: "flex", margin: "0 auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
 <img src="https://img.shields.io/badge/Slack-1C1C1C?&logo=slack&logoColor=white" alt="Slack" />
 </div>
@@ -119,7 +119,7 @@ See **Retrolympic Rush** in [Projects](/projects) for more details.
     <img src="http://lauriecrean.dev/screenshots/certifications/5-day-coding-challenge.png" alt="5 Day Coding Challenge" style={{width: "500px", height: "auto", display: "flex", margin: "0 auto"}} />
 </a>
 
-<div className="tech-badges">
+<div className="certificate-tech-badges">
 <img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white" alt="HTML" />
 <img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
