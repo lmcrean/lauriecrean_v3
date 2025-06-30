@@ -1,4 +1,21 @@
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+
+// Load .env file explicitly
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
+
+// Debug environment loading
+console.log('=== Environment Debug ===');
+console.log('Working directory:', process.cwd());
+console.log('__dirname:', __dirname);
+console.log('.env path:', path.join(__dirname, '..', '.env'));
+console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
+console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
+if (process.env.GITHUB_TOKEN) {
+  console.log('GITHUB_TOKEN starts with:', process.env.GITHUB_TOKEN.substring(0, 10) + '...');
+}
+console.log('=========================');
+
 import express from 'express';
 import cors from 'cors';
 import { getPullRequests, getPullRequestDetails } from './github';
