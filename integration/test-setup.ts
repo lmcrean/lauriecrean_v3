@@ -1,6 +1,11 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
-import { afterEach, beforeAll, afterAll } from 'vitest';
+import { afterEach, beforeAll, afterAll, vi } from 'vitest';
+
+// Add jest-dom matchers
+import { expect } from 'vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
+expect.extend(matchers);
 
 // Global test setup
 
