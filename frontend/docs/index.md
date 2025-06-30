@@ -36,27 +36,27 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </button></a>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/Typescript-teal?&logo=typescript&logoColor=white" alt="Typescript" />
-<img src="https://img.shields.io/badge/Express-teal?&logo=express&logoColor=white" alt="Express" />
-<img src="https://img.shields.io/badge/Knex-teal?&logo=knex&logoColor=white" alt="Knex" />
-<img src="https://img.shields.io/badge/Supertest-teal?&logo=supertest&logoColor=white" alt="Supertest" />
-<img src="https://img.shields.io/badge/Azure-teal?&logo=windows&logoColor=white" alt="Azure" />
-<img src="https://img.shields.io/badge/SQL-teal?&logo=sql&logoColor=white" alt="SQL" />
-<img src="https://img.shields.io/badge/Azure_App_Services-teal?&logo=windows&logoColor=white" alt="Azure App Services" />
-<img src="https://img.shields.io/badge/Azure_SQL-teal?&logo=windows&logoColor=white" alt="Azure SQL" />
-<img src="https://img.shields.io/badge/React-teal?&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/TailwindCSS-teal?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+<img src="https://img.shields.io/badge/Typescript-1C1C1C?&logo=typescript&logoColor=white" alt="Typescript" />
+<img src="https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white" alt="Express" />
+<img src="https://img.shields.io/badge/Knex-1C1C1C?&logo=knex&logoColor=white" alt="Knex" />
+<img src="https://img.shields.io/badge/Supertest-1C1C1C?&logo=supertest&logoColor=white" alt="Supertest" />
+<img src="https://img.shields.io/badge/Azure-1C1C1C?&logo=windows&logoColor=white" alt="Azure" />
+<img src="https://img.shields.io/badge/SQL-1C1C1C?&logo=sql&logoColor=white" alt="SQL" />
+<img src="https://img.shields.io/badge/Azure_App_Services-1C1C1C?&logo=windows&logoColor=white" alt="Azure App Services" />
+<img src="https://img.shields.io/badge/Azure_SQL-1C1C1C?&logo=windows&logoColor=white" alt="Azure SQL" />
+<img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-303_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-40_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Vitest-303_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-40_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=gray" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=gray" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=gray" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/lmcrean/dottie?color=gray" /> </a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie?color=gray" /> </a>
+<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=1C1C1C" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=1C1C1C" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=1C1C1C" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/lmcrean/dottie?color=1C1C1C" /> </a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie?color=1C1C1C" /> </a>
 </div>
 
 </section>
@@ -81,32 +81,32 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/Python-teal?&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/React-teal?&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/TailwindCSS-teal?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-<img src="https://img.shields.io/badge/Vercel-teal?&logo=vercel&logoColor=white" alt="Vercel" />
-<img src="https://img.shields.io/badge/Cloudinary-teal?&logo=cloudinary&logoColor=white" alt="Cloudinary" />
-<img src="https://img.shields.io/badge/PostgreSQL-teal?&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-<img src="https://img.shields.io/badge/Django_REST-teal?&logo=django&logoColor=white" alt="Django REST" />
-<img src="https://img.shields.io/badge/AWS-teal?&logo=amazon&logoColor=white" alt="AWS" />
-<img src="https://img.shields.io/badge/Heroku-teal?&logo=heroku&logoColor=white" alt="Heroku" />
-<img src="https://img.shields.io/badge/OAuth2-teal?&logo=oauth&logoColor=white" alt="OAuth2" />
-<img src="https://img.shields.io/badge/JWT-teal?&logo=json-web-token&logoColor=white" alt="JWT" />
-<img src="https://img.shields.io/badge/Amazon_RDS-teal?&logo=amazon&logoColor=white" alt="Amazon RDS" />
+<img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+<img src="https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white" alt="Vercel" />
+<img src="https://img.shields.io/badge/Cloudinary-1C1C1C?&logo=cloudinary&logoColor=white" alt="Cloudinary" />
+<img src="https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+<img src="https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white" alt="Django REST" />
+<img src="https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white" alt="AWS" />
+<img src="https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white" alt="Heroku" />
+<img src="https://img.shields.io/badge/OAuth2-1C1C1C?&logo=oauth&logoColor=white" alt="OAuth2" />
+<img src="https://img.shields.io/badge/JWT-1C1C1C?&logo=json-web-token&logoColor=white" alt="JWT" />
+<img src="https://img.shields.io/badge/Amazon_RDS-1C1C1C?&logo=amazon&logoColor=white" alt="Amazon RDS" />
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-32_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-5_Passed-gray?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Cypress-3_passed-gray?style=flat-square&logo=cypress&logoColor=white" alt="Cypress" />
-<img src="https://img.shields.io/badge/Python-38_Passed-gray?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-20_Passed-gray?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
+<img src="https://img.shields.io/badge/Playwright-32_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Jest-5_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
+<img src="https://img.shields.io/badge/Cypress-3_passed-1C1C1C?style=flat-square&logo=cypress&logoColor=white" alt="Cypress" />
+<img src="https://img.shields.io/badge/Python-38_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
+<img src="https://img.shields.io/badge/Pytest-20_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -130,29 +130,29 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/JavaScript-teal?&logo=javascript&logoColor=white" alt="JavaScript" />
-<img src="https://img.shields.io/badge/Python-teal?&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/HTML-teal?&logo=html5&logoColor=white" alt="HTML" />
-<img src="https://img.shields.io/badge/CSS-teal?&logo=css3&logoColor=white" alt="CSS" />
-<img src="https://img.shields.io/badge/PostgreSQL-teal?&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-<img src="https://img.shields.io/badge/Django_REST-teal?&logo=django&logoColor=white" alt="Django REST" />
-<img src="https://img.shields.io/badge/Amazon_RDS-teal?&logo=amazon&logoColor=white" alt="Amazon RDS" />
-<img src="https://img.shields.io/badge/AWS-teal?&logo=amazon&logoColor=white" alt="AWS" />
-<img src="https://img.shields.io/badge/OAuth2-teal?&logo=python&logoColor=white" alt="OAuth2" />
-<img src="https://img.shields.io/badge/JWT-teal?&logo=json&logoColor=white" alt="JWT" />
-<img src="https://img.shields.io/badge/Heroku-teal?&logo=heroku&logoColor=white" alt="Heroku" />
+<img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white" alt="HTML" />
+<img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
+<img src="https://img.shields.io/badge/PostgreSQL-1C1C1C?&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+<img src="https://img.shields.io/badge/Django_REST-1C1C1C?&logo=django&logoColor=white" alt="Django REST" />
+<img src="https://img.shields.io/badge/Amazon_RDS-1C1C1C?&logo=amazon&logoColor=white" alt="Amazon RDS" />
+<img src="https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white" alt="AWS" />
+<img src="https://img.shields.io/badge/OAuth2-1C1C1C?&logo=python&logoColor=white" alt="OAuth2" />
+<img src="https://img.shields.io/badge/JWT-1C1C1C?&logo=json&logoColor=white" alt="JWT" />
+<img src="https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white" alt="Heroku" />
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-3_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Python-4_Passed-gray?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-6_Passed-gray?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
+<img src="https://img.shields.io/badge/Playwright-3_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Python-4_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
+<img src="https://img.shields.io/badge/Pytest-6_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -177,28 +177,28 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/React-teal?&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/Next.js-teal?&logo=next.js&logoColor=white" alt="Next.js" />
-<img src="https://img.shields.io/badge/TailwindCSS-teal?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-<img src="https://img.shields.io/badge/JavaScript-teal?&logo=javascript&logoColor=white" alt="JavaScript" />
-<img src="https://img.shields.io/badge/Vite-teal?&logo=vite&logoColor=white" alt="Vite" />
-<img src="https://img.shields.io/badge/AWS-teal?&logo=amazon&logoColor=white" alt="AWS" />
-<img src="https://img.shields.io/badge/Lambda-teal?&logo=amazon&logoColor=white" alt="Lambda" />
-<img src="https://img.shields.io/badge/DynamoDB-teal?&logo=amazon&logoColor=white" alt="DynamoDB" />
-<img src="https://img.shields.io/badge/Express-teal?&logo=express&logoColor=white" alt="Express" />
-<img src="https://img.shields.io/badge/Vercel-teal?&logo=vercel&logoColor=white" alt="Vercel" />
+<img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white" alt="Next.js" />
+<img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+<img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white" alt="Vite" />
+<img src="https://img.shields.io/badge/AWS-1C1C1C?&logo=amazon&logoColor=white" alt="AWS" />
+<img src="https://img.shields.io/badge/Lambda-1C1C1C?&logo=amazon&logoColor=white" alt="Lambda" />
+<img src="https://img.shields.io/badge/DynamoDB-1C1C1C?&logo=amazon&logoColor=white" alt="DynamoDB" />
+<img src="https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white" alt="Express" />
+<img src="https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white" alt="Vercel" />
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-12_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-2_Passed-gray?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Vitest-19_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Jest-2_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
+<img src="https://img.shields.io/badge/Vitest-19_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <hr />
@@ -208,16 +208,16 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/Python-teal?&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/Node.js-teal?&logo=node.js&logoColor=white" alt="Node.js" />
-<img src="https://img.shields.io/badge/Heroku-teal?&logo=heroku&logoColor=white" alt="Heroku" />
-<img src="https://img.shields.io/badge/Google_Sheets-teal?&logo=google-sheets&logoColor=white" alt="Google Sheets" />
+<img src="https://img.shields.io/badge/Python-1C1C1C?&logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/Node.js-1C1C1C?&logo=node.js&logoColor=white" alt="Node.js" />
+<img src="https://img.shields.io/badge/Heroku-1C1C1C?&logo=heroku&logoColor=white" alt="Heroku" />
+<img src="https://img.shields.io/badge/Google_Sheets-1C1C1C?&logo=google-sheets&logoColor=white" alt="Google Sheets" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 </section>
@@ -233,18 +233,18 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/Docusaurus-teal?&logo=docusaurus&logoColor=white" alt="Docusaurus" /> <img src="https://img.shields.io/badge/typescript-teal?&logo=typescript&logoColor=white" alt="typescript" />
+<img src="https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white" alt="Docusaurus" /> <img src="https://img.shields.io/badge/typescript-1C1C1C?&logo=typescript&logoColor=white" alt="typescript" />
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-33_Passed-gray?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-12_Passed-gray?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+<img src="https://img.shields.io/badge/Vitest-33_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean_v3"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_v3?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_v3?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean_v3/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_v3?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/lauriecrean_v3"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean_v3/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <center><b>version 1.0</b></center>
@@ -252,24 +252,24 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/JavaScript-teal?&logo=javascript&logoColor=white" alt="JavaScript" />
-<img src="https://img.shields.io/badge/React-teal?&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/Next.js-teal?&logo=next.js&logoColor=white" alt="Next.js" />
-<img src="https://img.shields.io/badge/TailwindCSS-teal?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-<img src="https://img.shields.io/badge/FramerMotion-teal?&logo=framer&logoColor=white" alt="FramerMotion" />
-<img src="https://img.shields.io/badge/Vercel-teal?&logo=vercel&logoColor=white" alt="Vercel" />
+<img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white" alt="Next.js" />
+<img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+<img src="https://img.shields.io/badge/FramerMotion-1C1C1C?&logo=framer&logoColor=white" alt="FramerMotion" />
+<img src="https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white" alt="Vercel" />
 </div> 
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <TypewriterTitle text="Hoverboard" level="h2" className="project-title" id="hoverboard" delay={400} speed={105} />
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Frontend-teal" alt="Frontend" />
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />
 </div><br />
 
 <ProjectCarousel projectKey="hoverboard" />
@@ -281,19 +281,19 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 <a href="https://github.com/lmcrean/hoverboard-react" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://hoverboard-react.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/JavaScript-teal?&logo=javascript&logoColor=white" alt="JavaScript" />
-<img src="https://img.shields.io/badge/React-teal?&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/Next.js-teal?&logo=next.js&logoColor=white" alt="Next.js" />
-<img src="https://img.shields.io/badge/TailwindCSS-teal?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-<img src="https://img.shields.io/badge/Vercel-teal?&logo=vercel&logoColor=white" alt="Vercel" />
-<img src="https://img.shields.io/badge/Figma-teal?&logo=figma&logoColor=white" alt="Figma" />
+<img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/Next.js-1C1C1C?&logo=next.js&logoColor=white" alt="Next.js" />
+<img src="https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+<img src="https://img.shields.io/badge/Vercel-1C1C1C?&logo=vercel&logoColor=white" alt="Vercel" />
+<img src="https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white" alt="Figma" />
 </div>
 
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <center><b>version 1.0</b></center>
@@ -302,15 +302,15 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 
 <div className="tech-badges">
-<img src="https://img.shields.io/badge/JavaScript-teal?&logo=javascript&logoColor=white" alt="JavaScript" />
-<img src="https://img.shields.io/badge/HTML-teal?&logo=html5&logoColor=white" alt="HTML" />
-<img src="https://img.shields.io/badge/CSS-teal?&logo=css3&logoColor=white" alt="CSS" />
-<img src="https://img.shields.io/badge/Github_Pages-teal?&logo=github&logoColor=white" alt="Github Pages" />
-<img src="https://img.shields.io/badge/Figma-teal?&logo=figma&logoColor=white" alt="Figma" />
+<img src="https://img.shields.io/badge/JavaScript-1C1C1C?&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/HTML-1C1C1C?&logo=html5&logoColor=white" alt="HTML" />
+<img src="https://img.shields.io/badge/CSS-1C1C1C?&logo=css3&logoColor=white" alt="CSS" />
+<img src="https://img.shields.io/badge/Github_Pages-1C1C1C?&logo=github&logoColor=white" alt="Github Pages" />
+<img src="https://img.shields.io/badge/Figma-1C1C1C?&logo=figma&logoColor=white" alt="Figma" />
 </div>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=gray" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=gray" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=gray" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=1C1C1C" alt="Commit Activity" /></a>
 </div>

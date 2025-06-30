@@ -29,9 +29,9 @@ This page contains some of my earlier projects that showcase my learning journey
 <a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/crocodile-kingdom-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=blue" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom-mern?color=blue" alt="Created at" />
-<a href="https://github.com/lmcrean/crocodile-kingdom-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern?color=blue" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom-mern?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/crocodile-kingdom-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <div className="tech-badges">
@@ -42,7 +42,7 @@ This page contains some of my earlier projects that showcase my learning journey
 </div>
 
 <div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-53_passed-blue?&logo=vitest&logoColor=white" alt="Vitest" />
+<img src="https://img.shields.io/badge/Vitest-53_passed-1C1C1C?&logo=vitest&logoColor=white" alt="Vitest" />
 </div>
 
 <center><b>version 1.0</b></center>
@@ -50,9 +50,9 @@ This page contains some of my earlier projects that showcase my learning journey
 <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play" ></i> Live Demo </button></a>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/crocodile-kingdom"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom?color=blue" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom?color=blue" alt="Created at" />
-<a href="https://github.com/lmcrean/crocodile-kingdom/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom?color=blue" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/crocodile-kingdom/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 <div className="tech-badges">
@@ -66,7 +66,7 @@ This page contains some of my earlier projects that showcase my learning journey
 ## Retrolympic Rush {#retrolympic-rush}
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master-blue" alt="Hackathon" />
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-1C1C1C" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master-1C1C1C" alt="Hackathon" />
 </div>
 
 <ProjectCarousel projectKey="retrolympics" />
@@ -74,9 +74,9 @@ This page contains some of my earlier projects that showcase my learning journey
 <a href="https://github.com/lmcrean/retrolympics-rush" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a> 
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/retrolympics-rush"><img src="https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush?color=blue" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/retrolympics-rush?color=blue" alt="Created at" />
-<a href="https://github.com/lmcrean/retrolympics-rush/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush?color=blue" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/retrolympics-rush"><img src="https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/retrolympics-rush?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/retrolympics-rush/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush?color=1C1C1C" alt="Commit Activity" /></a>
 </div>
 
 
@@ -93,7 +93,7 @@ This page contains some of my earlier projects that showcase my learning journey
 ## Wealth Quest {#wealth-quest}
 
 <div className="header-badges">
-<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-blue" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-blue" alt="Hackathon" />
+<img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-1C1C1C" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-1C1C1C" alt="Hackathon" />
 </div>
 
 <ProjectCarousel projectKey="wealthquest" />
@@ -101,9 +101,9 @@ This page contains some of my earlier projects that showcase my learning journey
 <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank"><button className="live-demo-btn"> Live Demo </button></a>
 
 <div className="github-badges">
-<a href="https://github.com/lmcrean/Wealth-Quest"><img src="https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=blue" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/Wealth-Quest?color=blue" alt="Created at" />
-<a href="https://github.com/lmcrean/Wealth-Quest/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest?color=blue" alt="Commit Activity" /></a>
+<a href="https://github.com/lmcrean/Wealth-Quest"><img src="https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=1C1C1C" alt="Last Commit" /></a>
+<img src="https://img.shields.io/github/created-at/lmcrean/Wealth-Quest?color=1C1C1C" alt="Created at" />
+<a href="https://github.com/lmcrean/Wealth-Quest/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest?color=1C1C1C" alt="Commit Activity" /></a>
 </div> 
 
 <div className="tech-badges">
