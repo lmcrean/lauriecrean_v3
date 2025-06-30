@@ -54,16 +54,31 @@ const CustomTOC: React.FC = () => {
       });
     }, observerOptions);
 
-    // Observe all TOC target elements
-    tocItems.forEach(item => {
-      const element = document.getElementById(item.id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    // Function to observe elements, with retry for TypewriterTitle components
+    const observeElements = () => {
+      console.log('Attempting to observe TOC elements...');
+      tocItems.forEach(item => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          observer.observe(element);
+          console.log(`✅ Found and observing: ${item.id}`);
+        } else {
+          console.log(`❌ Element not found: ${item.id}`);
+        }
+      });
+    };
+
+    // Initial observation
+    observeElements();
+
+    // Retry after a delay to catch TypewriterTitle components that render later
+    const retryTimeout = setTimeout(observeElements, 1000);
+    const retryTimeout2 = setTimeout(observeElements, 3000);
 
     return () => {
       observer.disconnect();
+      clearTimeout(retryTimeout);
+      clearTimeout(retryTimeout2);
     };
   }, []);
 
