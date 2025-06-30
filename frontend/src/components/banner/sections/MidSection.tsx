@@ -34,27 +34,27 @@ const LeftSection: React.FC = () => {
           .animate-line-16 { animation: expandLine 0.8s ease-out 2.5s both; --target-width: 3rem; }
         `}
       </style>
-      <div className="w-1/6 bg-blue-500 p-4 relative hidden md:block md:min-w-40 lg:block">
+      <div className="w-1/6 bg-teal-700 p-4 relative hidden md:block md:min-w-40 lg:block">
         <div className="absolute inset-0 p-6">
           {/* Code line representations */}
           <div className="flex flex-col h-full space-y-3">
             <div className="flex space-x-2">
-              <div className="h-3 bg-blue-300 rounded animate-line-1"></div>
-              <div className="h-3 bg-blue-300 rounded animate-line-2"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-1"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-2"></div>
               <div className="h-3 bg-orange-400 rounded animate-line-3"></div>
-              <div className="h-3 bg-blue-800 rounded animate-line-4"></div>
+              <div className="h-3 bg-teal-800 rounded animate-line-4"></div>
             </div>
             <div className="flex space-x-2">
               <div className="h-3 bg-orange-400 rounded animate-line-5"></div>
-              <div className="h-3 bg-blue-300 rounded animate-line-6"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-6"></div>
             </div>
             <div className="flex space-x-2">
-              <div className="h-3 bg-blue-300 rounded animate-line-7"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-7"></div>
               <div className="h-3 bg-orange-400 rounded animate-line-8"></div>
             </div>
             <div className="flex space-x-2">
               <div className="h-3 bg-red-400 rounded animate-line-9"></div>
-              <div className="h-3 bg-blue-300 rounded animate-line-10"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-10"></div>
             </div>
             <div className="flex space-x-2">
               <div className="h-3 bg-red-400 rounded animate-line-11"></div>
@@ -62,13 +62,13 @@ const LeftSection: React.FC = () => {
             </div>
             <div className="flex space-x-2">
               <div className="h-3 bg-purple-600 rounded animate-line-13"></div>
-              <div className="h-3 bg-blue-300 rounded animate-line-14"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-14"></div>
             </div>
             <div className="h-10"></div>
             <div className="flex space-x-2">
               <div className="h-3 bg-red-400 rounded animate-line-9"></div>
               <div className="h-3 bg-orange-400 rounded animate-line-15"></div>
-              <div className="h-3 bg-blue-300 rounded animate-line-6"></div>
+              <div className="h-3 bg-teal-300 rounded animate-line-6"></div>
             </div>
             <div className="flex space-x-2">
               <div className="h-3 bg-purple-600 rounded animate-line-16"></div>

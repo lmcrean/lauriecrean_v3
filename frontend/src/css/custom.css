@@ -122,9 +122,8 @@ html {
 .table-of-contents__link--active {
   color: var(--ifm-color-primary);
   font-weight: 600;
-  border-left: 2px solid var(--ifm-color-primary);
   padding-left: 0.5rem;
-  background-color: var(--ifm-color-primary-lightest);
+  background-color: none;
 }
 
 /* Dark theme support */
@@ -143,7 +142,7 @@ html {
 
 [data-theme='dark'] .table-of-contents__link--active {
   color: var(--ifm-color-primary-light);
-  background-color: var(--ifm-color-primary-darkest);
+  background-color: none ;
 }
 
 /* Dark theme support for fixed TOC */

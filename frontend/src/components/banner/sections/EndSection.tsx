@@ -47,7 +47,7 @@ const MiddleSection: React.FC = () => {
           .animate-code-11 { animation: expandCodeLine 0.6s ease-out 2.4s both; --line-width: 8rem; }
         `}
       </style>
-      <div className="w-1/3 lg:w-1/2 bg-blue-600 p-4 relative hidden md:block border-6 border-blue-600 sm:hidden">
+      <div className="w-1/3 lg:w-1/2 bg-teal-600 p-4 relative hidden md:block border-6 border-teal-600 sm:hidden">
         <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
           {/* Vertical dotted line with 12 squares */}
           <div className="absolute left-8 top-0 bottom-0 h-full flex flex-col justify-between py-4">
@@ -72,9 +72,9 @@ const MiddleSection: React.FC = () => {
             <div className="h-2 bg-yellow-300 rounded ml-12 animate-code-3"></div>
             <div className="h-2 bg-teal-400 rounded ml-12 animate-code-4"></div>
             <div className="h-2 bg-teal-400 rounded ml-12 animate-code-5"></div>
-            <div className="h-2 bg-blue-300 rounded ml-12 animate-code-6"></div>
+            <div className="h-2 bg-teal-300 rounded ml-12 animate-code-6"></div>
             <div className="h-2 bg-orange-400 rounded ml-12 animate-code-7"></div>
-            <div className="h-2 bg-blue-300 rounded ml-12 animate-code-8"></div>
+            <div className="h-2 bg-teal-300 rounded ml-12 animate-code-8"></div>
             <div className="h-2 bg-teal-400 rounded ml-12 animate-code-9"></div>
             <div className="h-2 bg-yellow-300 rounded ml-12 animate-code-10"></div>
             <div className="h-2 bg-teal-400 rounded ml-12 animate-code-11"></div>
