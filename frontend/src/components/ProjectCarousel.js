@@ -18,22 +18,13 @@ const ProjectCarousel = ({ projectKey }) => {
   const slides = projectCarousels[projectKey]?.slides || [];
   const carouselId = projectCarousels[projectKey]?.id || `project-carousel-${projectKey}`;
   
-  useEffect(() => {
-    // Only run if we have slides and a valid DOM element
-    if (slides.length === 0 || !splideRef.current) {
-      console.log(`[ProjectCarousel] No slides found for ${projectKey} or no DOM element`);
-      return;
-    }
-
-    console.log(`[ProjectCarousel] Initializing carousel for ${projectKey} with id ${carouselId}`);
-    
+  useEffect(() => {    
     // Function to initialize Splide
     const initSplide = () => {
       if (splideRef.current) {
         // Only initialize if not already initialized
         if (!splideRef.current.classList.contains('is-initialized')) {
-          console.log(`[ProjectCarousel] Starting initialization for ${carouselId}`);
-          
+
           // Check if Splide is available in the window
           if (typeof window !== 'undefined' && window.Splide) {
             try {
@@ -69,15 +60,12 @@ const ProjectCarousel = ({ projectKey }) => {
               });
               
               splide.mount();
-              console.log(`[ProjectCarousel] Successfully mounted ${carouselId}`);
             } catch (e) {
               console.error(`[ProjectCarousel] Error initializing Splide for ${carouselId}:`, e.message);
             }
           } else {
             console.warn(`[ProjectCarousel] Splide not available in window for ${carouselId}`);
           }
-        } else {
-          console.log(`[ProjectCarousel] ${carouselId} already initialized`);
         }
       }
     };
@@ -86,7 +74,6 @@ const ProjectCarousel = ({ projectKey }) => {
     initSplide();
     const timeouts = [100, 500, 1000, 2000].map(delay => 
       setTimeout(() => {
-        console.log(`[ProjectCarousel] Retry initialization after ${delay}ms for ${carouselId}`);
         initSplide();
       }, delay)
     );
@@ -95,7 +82,6 @@ const ProjectCarousel = ({ projectKey }) => {
     return () => {
       timeouts.forEach(clearTimeout);
       if (splideRef.current && splideRef.current.classList.contains('is-initialized')) {
-        console.log(`[ProjectCarousel] Cleaning up ${carouselId}`);
         // If there's a stored instance, we could clean it up properly
       }
     };
@@ -103,7 +89,6 @@ const ProjectCarousel = ({ projectKey }) => {
 
   // Don't render if no slides
   if (!slides || slides.length === 0) {
-    console.log(`[ProjectCarousel] No slides found for ${projectKey}, not rendering`);
     return null;
   }
 
