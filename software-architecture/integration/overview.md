@@ -1,0 +1,1 @@
+this folder is for integration testing of the project - specifically for the web app.
