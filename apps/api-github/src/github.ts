@@ -37,6 +37,7 @@ export async function getPullRequests(username: string, limit: number): Promise<
           .map(pr => ({
             id: pr.id,
             title: pr.title,
+            description: pr.body || null,
             created_at: pr.created_at,
             merged_at: pr.merged_at,
             html_url: pr.html_url,
@@ -44,7 +45,7 @@ export async function getPullRequests(username: string, limit: number): Promise<
             repository: {
               name: repo.name,
               description: repo.description,
-              language: repo.language || null,
+              language: repo.language ?? null,
               html_url: repo.html_url
             }
           }));

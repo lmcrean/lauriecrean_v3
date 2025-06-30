@@ -3,6 +3,7 @@
 export interface PullRequestResponse {
   id: number;
   title: string;
+  description: string | null;
   created_at: string;
   merged_at: string | null;
   html_url: string;
