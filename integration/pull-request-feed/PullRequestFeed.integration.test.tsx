@@ -112,15 +112,14 @@ describe('PullRequestFeed Integration Tests', () => {
 
       // Verify API was called with correct parameters
       expect(mockGet).toHaveBeenCalledWith(
-        expect.stringContaining('/api/github/pull-requests'),
-        expect.objectContaining({
+        '/api/github/pull-requests',
+        {
           params: {
             username: 'lmcrean',
             page: 1,
             per_page: 20
-          },
-          timeout: 10000
-        })
+          }
+        }
       );
 
       // Verify both PRs are rendered
@@ -139,7 +138,7 @@ describe('PullRequestFeed Integration Tests', () => {
         expect(screen.getByText('Failed to Load Pull Requests')).toBeInTheDocument();
       });
 
-      expect(screen.getByText('Network error. Please check your connection.')).toBeInTheDocument();
+      expect(screen.getByText('Network error')).toBeInTheDocument();
       expect(screen.getByText('Try Again')).toBeInTheDocument();
     });
 
@@ -171,7 +170,7 @@ describe('PullRequestFeed Integration Tests', () => {
 
   describe('Component Interactions', () => {
     beforeEach(async () => {
-      mockedAxios.get.mockResolvedValueOnce({ data: mockApiResponse });
+      mockGet.mockResolvedValueOnce({ data: mockApiResponse });
       render(<PullRequestFeed username="lmcrean" />);
       
       // Wait for data to load
@@ -182,7 +181,7 @@ describe('PullRequestFeed Integration Tests', () => {
 
     it('should open detailed modal when card is clicked', async () => {
       // Mock detailed PR API response
-      mockedAxios.get.mockResolvedValueOnce({ data: mockDetailedPR });
+      mockGet.mockResolvedValueOnce({ data: mockDetailedPR });
 
       // Click on the first PR card
       const prCard = screen.getByText('refactor frontend dir to apps/web').closest('article');
@@ -202,18 +201,16 @@ describe('PullRequestFeed Integration Tests', () => {
         expect(screen.getByText('Timeline')).toBeInTheDocument();
       });
 
-      // Verify detailed API call was made
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        expect.stringContaining('/api/github/pull-requests/lmcrean/lauriecrean_v3/20'),
-        expect.objectContaining({
-          timeout: 10000
-        })
+      // Verify detailed API call was made - should be called twice: list + detail
+      expect(mockGet).toHaveBeenCalledTimes(2);
+      expect(mockGet).toHaveBeenNthCalledWith(2,
+        '/api/github/pull-requests/lmcrean/lauriecrean_v3/20'
       );
     });
 
     it('should close modal when close button is clicked', async () => {
       // Mock detailed PR API response
-      mockedAxios.get.mockResolvedValueOnce({ data: mockDetailedPR });
+      mockGet.mockResolvedValueOnce({ data: mockDetailedPR });
 
       // Open modal
       const prCard = screen.getByText('refactor frontend dir to apps/web').closest('article');
@@ -235,7 +232,7 @@ describe('PullRequestFeed Integration Tests', () => {
 
     it('should close modal when escape key is pressed', async () => {
       // Mock detailed PR API response
-      mockedAxios.get.mockResolvedValueOnce({ data: mockDetailedPR });
+      mockGet.mockResolvedValueOnce({ data: mockDetailedPR });
 
       // Open modal
       const prCard = screen.getByText('refactor frontend dir to apps/web').closest('article');
@@ -255,40 +252,36 @@ describe('PullRequestFeed Integration Tests', () => {
     });
   });
 
-  describe('Environment Detection', () => {
-    it('should use localhost URL in development', () => {
-      // Mock window.location for localhost
-      Object.defineProperty(window, 'location', {
-        value: {
-          hostname: 'localhost'
-        },
-        writable: true
-      });
-
-      mockedAxios.get.mockResolvedValueOnce({ data: mockApiResponse });
+  describe('API Integration', () => {
+    it('should use relative URLs (environment handled by API client)', () => {
+      mockGet.mockResolvedValueOnce({ data: mockApiResponse });
       render(<PullRequestFeed username="lmcrean" />);
 
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        'http://localhost:3001/api/github/pull-requests',
-        expect.any(Object)
+      expect(mockGet).toHaveBeenCalledWith(
+        '/api/github/pull-requests',
+        {
+          params: {
+            username: 'lmcrean',
+            page: 1,
+            per_page: 20
+          }
+        }
       );
     });
 
-    it('should use production URL in production', () => {
-      // Mock window.location for production
-      Object.defineProperty(window, 'location', {
-        value: {
-          hostname: 'lauriecrean.com'
-        },
-        writable: true
-      });
+    it('should handle different usernames', () => {
+      mockGet.mockResolvedValueOnce({ data: mockApiResponse });
+      render(<PullRequestFeed username="testuser" />);
 
-      mockedAxios.get.mockResolvedValueOnce({ data: mockApiResponse });
-      render(<PullRequestFeed username="lmcrean" />);
-
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        'https://api-github-lmcreans-projects.vercel.app/api/github/pull-requests',
-        expect.any(Object)
+      expect(mockGet).toHaveBeenCalledWith(
+        '/api/github/pull-requests',
+        {
+          params: {
+            username: 'testuser',
+            page: 1,
+            per_page: 20
+          }
+        }
       );
     });
   });
@@ -310,7 +303,7 @@ describe('PullRequestFeed Integration Tests', () => {
         }
       };
 
-      mockedAxios.get.mockResolvedValueOnce({ data: mockPaginatedResponse });
+      mockGet.mockResolvedValueOnce({ data: mockPaginatedResponse });
       render(<PullRequestFeed username="lmcrean" />);
 
       await waitFor(() => {
@@ -318,17 +311,17 @@ describe('PullRequestFeed Integration Tests', () => {
       });
 
       // Next button should be enabled, Previous should be disabled
-      const nextButton = screen.getByText('Next');
-      const prevButton = screen.getByText('Previous');
+      const nextButton = screen.getByRole('button', { name: /next/i });
+      const prevButton = screen.getByRole('button', { name: /previous/i });
       
-      expect(nextButton).not.toBeDisabled();
+      expect(nextButton).toBeEnabled();
       expect(prevButton).toBeDisabled();
     });
   });
 
   describe('Accessibility', () => {
     beforeEach(async () => {
-      mockedAxios.get.mockResolvedValueOnce({ data: mockApiResponse });
+      mockGet.mockResolvedValueOnce({ data: mockApiResponse });
       render(<PullRequestFeed username="lmcrean" />);
       
       await waitFor(() => {
@@ -344,7 +337,7 @@ describe('PullRequestFeed Integration Tests', () => {
     });
 
     it('should support keyboard navigation on cards', async () => {
-      mockedAxios.get.mockResolvedValueOnce({ data: mockDetailedPR });
+      mockGet.mockResolvedValueOnce({ data: mockDetailedPR });
 
       const prCard = screen.getByLabelText(/Pull request #20, merged/);
       
