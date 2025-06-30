@@ -4,6 +4,7 @@ interface TypewriterTitleProps {
   text: string;
   level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
+  id?: string;
   delay?: number;
   speed?: number;
 }
@@ -17,6 +18,7 @@ interface TypewriterTitleProps {
  * @param {string} props.text - The text to display with typewriter effect
  * @param {string} props.level - Heading level (h1, h2, h3, etc.)
  * @param {string} props.className - Additional CSS classes
+ * @param {string} props.id - ID for the heading element (for anchor links)
  * @param {number} props.delay - Delay before starting animation (in ms)
  * @param {number} props.speed - Speed of typewriter effect (characters per interval)
  * @returns {JSX.Element} The rendered typewriter title
@@ -25,6 +27,7 @@ const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
   text, 
   level = 'h2', 
   className = '', 
+  id,
   delay = 300, 
   speed = 100 
 }) => {
@@ -79,12 +82,13 @@ const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
   return (
     <HeadingTag
       ref={elementRef}
+      id={id}
       className={`typewriter-title ${isVisible ? 'fade-in' : ''} ${className}`}
       data-full-text={text}
     >
       {displayText}
       {hasStarted && currentIndex < text.length && (
-        <span className="typewriter-cursor">|</span>
+        <span className="typewriter-cursor"></span>
       )}
     </HeadingTag>
   );
