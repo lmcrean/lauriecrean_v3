@@ -5,6 +5,10 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
 });
 
+// Debug logging
+console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
+console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
+
 export async function getPullRequests(username: string, limit: number): Promise<PullRequestResponse[]> {
   try {
     // Get user's repositories
