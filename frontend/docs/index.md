@@ -8,6 +8,7 @@ hide_table_of_contents: false
 
 import ProjectCarousel from '@site/src/components/ProjectCarousel';
 import DeveloperBusinessCard from '@site/src/components/banner/banner';
+import TypewriterTitle from '@site/src/components/TypewriterTitle';
 
 <DeveloperBusinessCard />
 
@@ -15,7 +16,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 ***
 
-## Dottie
+<TypewriterTitle text="Dottie" level="h2" className="project-title" delay={500} speed={120} />
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" /> <img src="https://img.shields.io/github/contributors/lmcrean/dottie" alt="Contributors" /> <img src="https://img.shields.io/github/stars/lmcrean/dottie" alt="Github Stars" /> <img src="https://img.shields.io/badge/Role-SQL_&_Express_lead,_Code_Reviewer-blue" alt="Role" />
@@ -43,7 +44,7 @@ Collaborated with medical specialist with a researched business use case • Man
 
 <div className="screenshot-project-element">
 
-## Odyssey
+<TypewriterTitle text="Odyssey" level="h2" className="project-title" delay={300} speed={100} />
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
@@ -70,7 +71,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 </div>
 
 
-## Coach Matrix
+<TypewriterTitle text="Coach Matrix" level="h2" className="project-title" delay={200} speed={90} />
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
@@ -95,7 +96,7 @@ Social platform focused on professional development • Custom authentication an
 
 
 
-## Steam Report
+<TypewriterTitle text="Steam Report" level="h2" className="project-title" delay={250} speed={110} />
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Full--Stack-1C1C1C" alt="Full-Stack" /> <img src="https://img.shields.io/badge/API-1C1C1C" alt="API" />
@@ -138,7 +139,7 @@ Social platform focused on professional development • Custom authentication an
 </section>
 
 
-## Laurie Crean
+<TypewriterTitle text="Laurie Crean" level="h2" className="project-title" delay={350} speed={95} />
 
 <ProjectCarousel projectKey="lauriecrean" />
 
@@ -167,7 +168,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 
 Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
-## Hoverboard
+<TypewriterTitle text="Hoverboard" level="h2" className="project-title" delay={400} speed={105} />
 
 <div class="header-badges">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" />

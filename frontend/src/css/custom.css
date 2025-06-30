@@ -5,6 +5,7 @@
  */
 
 /* Tailwind CSS is imported via tailwind.css */
+@import './typewriter.css';
 
 /* You can override the default Infima variables here. */
 :root {
