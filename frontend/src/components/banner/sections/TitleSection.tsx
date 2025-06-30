@@ -36,7 +36,7 @@ const RightSection: React.FC = () => {
           
           @keyframes typewriter-subtitle {
             from { width: 0; }
-            to { width: 100%; }
+            to { width: 430px; }
           }
           
           @keyframes blink-white-caret {

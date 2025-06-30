@@ -61,7 +61,7 @@ const LeftSection: React.FC = () => {
               <div className="h-3 bg-orange-400 rounded animate-line-12"></div>
             </div>
             <div className="flex space-x-2">
-              <div className="h-3 bg-purple-600 rounded animate-line-13"></div>
+              <div className="h-3 bg-pink-600 rounded animate-line-13"></div>
               <div className="h-3 bg-teal-300 rounded animate-line-14"></div>
             </div>
             <div className="h-10"></div>
@@ -71,7 +71,7 @@ const LeftSection: React.FC = () => {
               <div className="h-3 bg-teal-300 rounded animate-line-6"></div>
             </div>
             <div className="flex space-x-2">
-              <div className="h-3 bg-purple-600 rounded animate-line-16"></div>
+              <div className="h-3 bg-pink-600 rounded animate-line-16"></div>
               <div className="h-3 bg-orange-400 rounded animate-line-7"></div>
             </div>
           </div>

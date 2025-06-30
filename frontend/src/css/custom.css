@@ -69,14 +69,14 @@ html {
 }
 
 /* Hide TOC on smaller screens */
-@media (max-width: 996px) {
+@media (max-width: 1100px) {
   .table-of-contents {
     display: none;
   }
 }
 
 /* Adjust main content margin to accommodate TOC */
-@media (min-width: 997px) {
+@media (min-width: 1101px) {
   .main-wrapper {
     max-width: calc(100% - 280px);
   }
