@@ -86,7 +86,7 @@ const CustomTOC: React.FC = () => {
   }, []);
 
   return (
-    <div className="table-of-contents">
+    <div className="table-of-contents mt-7">
       <div className="table-of-contents__title">On this page</div>
       <ul className="table-of-contents__list">
         {tocItems.map((item) => (

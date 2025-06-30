@@ -196,3 +196,6 @@ html {
   display: none;
 }
 
+.menu__list {
+  margin-top: 20px;
+}
