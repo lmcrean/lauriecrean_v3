@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/rest';
-import { PullRequestResponse } from './types';
+import { PullRequestResponse, DetailedPullRequestResponse } from './types';
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
@@ -71,6 +71,54 @@ export async function getPullRequests(username: string, limit: number): Promise<
 
   } catch (error) {
     console.error(`Failed to fetch pull requests for ${username}:`, error);
+    throw new Error(`GitHub API error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
+  }
+}
+
+export async function getPullRequestDetails(owner: string, repo: string, pullNumber: number): Promise<DetailedPullRequestResponse> {
+  try {
+    console.log(`Fetching PR #${pullNumber} from ${owner}/${repo}`);
+    
+    const { data: pr } = await octokit.rest.pulls.get({
+      owner,
+      repo,
+      pull_number: pullNumber
+    });
+
+    const detailedPR: DetailedPullRequestResponse = {
+      id: pr.id,
+      number: pr.number,
+      title: pr.title,
+      description: pr.body || null,
+      created_at: pr.created_at,
+      updated_at: pr.updated_at,
+      merged_at: pr.merged_at,
+      closed_at: pr.closed_at,
+      html_url: pr.html_url,
+      state: pr.merged_at ? 'merged' as const : pr.state as 'open' | 'closed',
+      draft: pr.draft || false,
+      commits: pr.commits,
+      additions: pr.additions,
+      deletions: pr.deletions,
+      changed_files: pr.changed_files,
+      author: {
+        login: pr.user?.login || 'unknown',
+        avatar_url: pr.user?.avatar_url || '',
+        html_url: pr.user?.html_url || ''
+      },
+      repository: {
+        name: repo,
+        description: pr.base.repo.description,
+        language: pr.base.repo.language ?? null,
+        html_url: pr.base.repo.html_url
+      }
+    };
+
+    console.log(`Successfully fetched PR #${pullNumber}: "${pr.title}"`);
+    return detailedPR;
+
+  } catch (error) {
+    console.error(`Failed to fetch PR #${pullNumber} from ${owner}/${repo}:`, error);
     throw new Error(`GitHub API error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
   }
 } 

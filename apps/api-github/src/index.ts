@@ -1,6 +1,7 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { getPullRequests } from './github';
+import { getPullRequests, getPullRequestDetails } from './github';
 import { ApiResponse, ErrorResponse } from './types';
 
 const app = express();
@@ -58,6 +59,41 @@ app.get('/api/github/pull-requests', async (req, res) => {
     };
     
     res.status(500).json(errorResponse);
+  }
+});
+
+// Detailed pull request endpoint
+app.get('/api/github/pull-requests/:owner/:repo/:number', async (req, res) => {
+  try {
+    const { owner, repo, number } = req.params;
+    const pullNumber = parseInt(number, 10);
+    
+    if (isNaN(pullNumber) || pullNumber <= 0) {
+      return res.status(400).json({
+        error: 'Invalid pull request number',
+        message: 'Pull request number must be a positive integer'
+      });
+    }
+    
+    console.log(`Fetching detailed PR #${pullNumber} from ${owner}/${repo}`);
+    
+    const data = await getPullRequestDetails(owner, repo, pullNumber);
+    
+    // Cache for 15 minutes
+    res.set('Cache-Control', 'public, max-age=900');
+    res.json(data);
+    
+  } catch (error) {
+    console.error('Error in pull-request details endpoint:', error);
+    
+    const errorResponse: ErrorResponse = {
+      error: 'Failed to fetch pull request details',
+      message: error instanceof Error ? error.message : 'Unknown error occurred'
+    };
+    
+    // Return 404 for not found, 500 for other errors
+    const statusCode = error instanceof Error && error.message.includes('Not Found') ? 404 : 500;
+    res.status(statusCode).json(errorResponse);
   }
 });
 

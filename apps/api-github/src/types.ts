@@ -27,4 +27,20 @@ export interface ApiResponse {
 export interface ErrorResponse {
   error: string;
   message: string;
+}
+
+export interface DetailedPullRequestResponse extends PullRequestResponse {
+  number: number;
+  author: {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+  };
+  updated_at: string;
+  closed_at: string | null;
+  draft: boolean;
+  commits: number;
+  additions: number;
+  deletions: number;
+  changed_files: number;
 } 
