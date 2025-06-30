@@ -44,7 +44,7 @@ export async function getPullRequests(username: string, limit: number): Promise<
             repository: {
               name: repo.name,
               description: repo.description,
-              language: repo.language,
+              language: repo.language || null,
               html_url: repo.html_url
             }
           }));
@@ -70,6 +70,6 @@ export async function getPullRequests(username: string, limit: number): Promise<
 
   } catch (error) {
     console.error(`Failed to fetch pull requests for ${username}:`, error);
-    throw new Error(`GitHub API error: ${error.message}`);
+    throw new Error(`GitHub API error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
   }
 } 

@@ -54,7 +54,7 @@ app.get('/api/github/pull-requests', async (req, res) => {
     
     const errorResponse: ErrorResponse = {
       error: 'Failed to fetch pull requests',
-      message: error.message
+      message: error instanceof Error ? error.message : 'Unknown error occurred'
     };
     
     res.status(500).json(errorResponse);
