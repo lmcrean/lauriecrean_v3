@@ -59,7 +59,7 @@ export class BrowserLogger {
       this.handleConsoleMessage(msg);
     });
 
-    page.on('pageerror', (error) => {
+    page.on('pageerror', (error: Error) => {
       this.logError(`❌ Page Error: ${error.message}`, 'browser', {
         stack: error.stack,
         name: error.name
@@ -67,7 +67,7 @@ export class BrowserLogger {
     });
 
     if (this.config.enableNetworkLogs) {
-      page.on('response', (response) => {
+      page.on('response', (response: any) => {
         this.logInfo(`📡 Response: ${response.status()} ${response.url()}`, 'network', {
           status: response.status(),
           url: response.url(),
@@ -75,7 +75,7 @@ export class BrowserLogger {
         });
       });
 
-      page.on('requestfailed', (request) => {
+      page.on('requestfailed', (request: any) => {
         this.logError(`❌ Request Failed: ${request.url()}`, 'network', {
           url: request.url(),
           method: request.method(),
