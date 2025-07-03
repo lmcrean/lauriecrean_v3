@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import apiClient from '../api/Core';
 import PullRequestFeedListCard from './PullRequestFeedListCard';
 import PullRequestFeedDetailCard from './PullRequestFeedDetailCard';
@@ -77,11 +77,26 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   const [modalError, setModalError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Fetch pull requests list
+  // Refs for request cancellation
+  const listAbortControllerRef = useRef<AbortController | null>(null);
+  const detailAbortControllerRef = useRef<AbortController | null>(null);
+  const isMountedRef = useRef(true);
+
+  // Fetch pull requests list with proper cancellation
   const fetchPullRequests = useCallback(async (page: number = 1) => {
     try {
+      // Cancel any existing request
+      if (listAbortControllerRef.current) {
+        listAbortControllerRef.current.abort();
+      }
+
+      // Create new abort controller
+      listAbortControllerRef.current = new AbortController();
+
       setLoading(true);
       setError(null);
+      
+      console.log(`🔄 Fetching pull requests page ${page} for ${username}...`);
       
       const response = await apiClient.get<ApiResponse>(
         '/api/github/pull-requests',
@@ -90,24 +105,43 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
             username,
             page,
             per_page: 20
-          }
+          },
+          signal: listAbortControllerRef.current.signal
         }
       );
 
-      setPullRequests(response.data.data);
-      setPagination(response.data.meta.pagination);
-      setCurrentPage(page);
+      // Only update state if component is still mounted
+      if (isMountedRef.current && !listAbortControllerRef.current.signal.aborted) {
+        console.log(`✅ Successfully fetched ${response.data.data.length} pull requests`);
+        setPullRequests(response.data.data);
+        setPagination(response.data.meta.pagination);
+        setCurrentPage(page);
+      }
     } catch (err: any) {
-      console.error('Error fetching pull requests:', err);
-      setError(err.message || 'Failed to load pull requests.');
+      // Only handle errors if component is still mounted and request wasn't cancelled
+      if (isMountedRef.current && err.name !== 'AbortError' && err.name !== 'CanceledError') {
+        console.error('Error fetching pull requests:', err);
+        setError(err.message || 'Failed to load pull requests.');
+      }
     } finally {
-      setLoading(false);
+      // Only update loading state if component is still mounted
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [username]);
 
-  // Fetch detailed pull request data
+  // Fetch detailed pull request data with proper cancellation
   const fetchPullRequestDetails = useCallback(async (pr: PullRequestListData) => {
     try {
+      // Cancel any existing detail request
+      if (detailAbortControllerRef.current) {
+        detailAbortControllerRef.current.abort();
+      }
+
+      // Create new abort controller
+      detailAbortControllerRef.current = new AbortController();
+
       setModalLoading(true);
       setModalError(null);
       
@@ -116,16 +150,31 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       const owner = urlParts[3];
       const repo = urlParts[4];
       
+      console.log(`🔄 Fetching details for PR #${pr.number} from ${owner}/${repo}...`);
+      
       const response = await apiClient.get<DetailedPullRequestData>(
-        `/api/github/pull-requests/${owner}/${repo}/${pr.number}`
+        `/api/github/pull-requests/${owner}/${repo}/${pr.number}`,
+        {
+          signal: detailAbortControllerRef.current.signal
+        }
       );
 
-      setSelectedPR(response.data);
+      // Only update state if component is still mounted
+      if (isMountedRef.current && !detailAbortControllerRef.current.signal.aborted) {
+        console.log(`✅ Successfully fetched details for PR #${pr.number}`);
+        setSelectedPR(response.data);
+      }
     } catch (err: any) {
-      console.error('Error fetching PR details:', err);
-      setModalError(err.message || 'Failed to load pull request details.');
+      // Only handle errors if component is still mounted and request wasn't cancelled
+      if (isMountedRef.current && err.name !== 'AbortError' && err.name !== 'CanceledError') {
+        console.error('Error fetching PR details:', err);
+        setModalError(err.message || 'Failed to load pull request details.');
+      }
     } finally {
-      setModalLoading(false);
+      // Only update loading state if component is still mounted
+      if (isMountedRef.current) {
+        setModalLoading(false);
+      }
     }
   }, []);
 
@@ -158,10 +207,41 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     fetchPullRequests(currentPage);
   }, [fetchPullRequests, currentPage]);
 
-  // Initial load
+  // Initial load with proper cleanup
   useEffect(() => {
+    // Reset mounted flag on mount
+    isMountedRef.current = true;
+    
+    // Fetch initial data
     fetchPullRequests();
+
+    // Cleanup function
+    return () => {
+      console.log('🧹 Component unmounting, cleaning up requests...');
+      
+      // Mark component as unmounted
+      isMountedRef.current = false;
+      
+      // Cancel any in-flight requests
+      if (listAbortControllerRef.current) {
+        listAbortControllerRef.current.abort();
+      }
+      
+      if (detailAbortControllerRef.current) {
+        detailAbortControllerRef.current.abort();
+      }
+    };
   }, [fetchPullRequests]);
+
+  // Additional cleanup on username change
+  useEffect(() => {
+    return () => {
+      // Cancel requests when username changes
+      if (listAbortControllerRef.current) {
+        listAbortControllerRef.current.abort();
+      }
+    };
+  }, [username]);
 
   // Loading state
   if (loading && pullRequests.length === 0) {
