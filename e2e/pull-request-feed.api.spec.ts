@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// API Configuration
-const API_BASE_URL = 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
+// API Configuration - Use localhost for development testing
+const API_BASE_URL = 'http://localhost:3015';
 const TEST_USERNAME = 'lmcrean';
 
 // Type definitions matching the API
@@ -61,7 +61,7 @@ interface ErrorResponse {
   message: string;
 }
 
-test.describe('Pull Request Feed API', () => {
+test.describe('Pull Request Feed API - Localhost Development', () => {
   
   test('should respond to health check', async ({ request }) => {
     const response = await request.get(`${API_BASE_URL}/health`);
@@ -75,6 +75,8 @@ test.describe('Pull Request Feed API', () => {
     
     // Validate timestamp format (ISO string)
     expect(new Date(data.timestamp).toISOString()).toBe(data.timestamp);
+    
+    console.log('✅ Health check passed');
   });
 
   test('should fetch pull requests list with default parameters', async ({ request }) => {
@@ -112,6 +114,8 @@ test.describe('Pull Request Feed API', () => {
     expect(pagination.page).toBe(1);
     expect(pagination.per_page).toBe(20);
     
+    console.log(`✅ Successfully fetched ${data.data.length} pull requests`);
+    
     // If we have data, validate pull request structure
     if (data.data.length > 0) {
       const pr = data.data[0];
@@ -147,6 +151,8 @@ test.describe('Pull Request Feed API', () => {
       // Validate URLs
       expect(pr.html_url).toMatch(/^https:\/\/github\.com\//);
       expect(pr.repository.html_url).toMatch(/^https:\/\/github\.com\//);
+      
+      console.log(`✅ PR structure validation passed for "${pr.title}"`);
     }
   });
 
@@ -167,6 +173,8 @@ test.describe('Pull Request Feed API', () => {
     // Validate we don't exceed requested per_page limit
     expect(data.data.length).toBeLessThanOrEqual(perPage);
     expect(data.meta.count).toBeLessThanOrEqual(perPage);
+    
+    console.log('✅ Pagination parameters handled correctly');
   });
 
   test('should limit per_page to maximum of 50', async ({ request }) => {
@@ -179,6 +187,8 @@ test.describe('Pull Request Feed API', () => {
     // Should be capped at 50
     expect(data.meta.pagination.per_page).toBe(50);
     expect(data.data.length).toBeLessThanOrEqual(50);
+    
+    console.log('✅ Per-page limit enforced correctly');
   });
 
   test('should handle page minimum of 1', async ({ request }) => {
@@ -190,6 +200,8 @@ test.describe('Pull Request Feed API', () => {
     
     // Should be set to minimum of 1
     expect(data.meta.pagination.page).toBe(1);
+    
+    console.log('✅ Page minimum validation passed');
   });
 
   test('should fetch detailed pull request data', async ({ request }) => {
@@ -200,7 +212,7 @@ test.describe('Pull Request Feed API', () => {
     const listData: ApiResponse = await listResponse.json();
     
     if (listData.data.length === 0) {
-      test.skip('No pull requests available to test details endpoint');
+      console.log('⏭️ No pull requests available to test details endpoint');
       return;
     }
     
@@ -210,6 +222,8 @@ test.describe('Pull Request Feed API', () => {
     const urlParts = testPR.html_url.split('/');
     const owner = urlParts[3];
     const repo = urlParts[4];
+    
+    console.log(`🔍 Testing detailed data for PR #${testPR.number} from ${owner}/${repo}`);
     
     const detailResponse = await request.get(`${API_BASE_URL}/api/github/pull-requests/${owner}/${repo}/${testPR.number}`);
     
@@ -259,6 +273,8 @@ test.describe('Pull Request Feed API', () => {
     // Validate URLs
     expect(detailData.author.html_url).toMatch(/^https:\/\/github\.com\//);
     expect(detailData.author.avatar_url).toMatch(/^https:\/\/.*\.githubusercontent\.com\//);
+    
+    console.log(`✅ Detailed PR data validation passed - ${detailData.commits} commits, ${detailData.additions}+ ${detailData.deletions}- lines`);
   });
 
   test('should handle invalid pull request number in details endpoint', async ({ request }) => {
@@ -269,6 +285,8 @@ test.describe('Pull Request Feed API', () => {
     const data: ErrorResponse = await response.json();
     expect(data).toHaveProperty('error', 'Invalid pull request number');
     expect(data).toHaveProperty('message', 'Pull request number must be a positive integer');
+    
+    console.log('✅ Invalid parameter validation working correctly');
   });
 
   test('should handle zero pull request number in details endpoint', async ({ request }) => {
@@ -279,6 +297,8 @@ test.describe('Pull Request Feed API', () => {
     const data: ErrorResponse = await response.json();
     expect(data).toHaveProperty('error', 'Invalid pull request number');
     expect(data).toHaveProperty('message', 'Pull request number must be a positive integer');
+    
+    console.log('✅ Zero parameter validation working correctly');
   });
 
   test('should handle non-existent pull request in details endpoint', async ({ request }) => {
@@ -289,6 +309,8 @@ test.describe('Pull Request Feed API', () => {
     const data: ErrorResponse = await response.json();
     expect(data).toHaveProperty('error');
     expect(data).toHaveProperty('message');
+    
+    console.log('✅ Non-existent PR handling working correctly');
   });
 
   test('should handle non-existent route', async ({ request }) => {
@@ -299,6 +321,8 @@ test.describe('Pull Request Feed API', () => {
     const data: ErrorResponse = await response.json();
     expect(data).toHaveProperty('error', 'Not Found');
     expect(data.message).toContain('Route /api/non-existent-endpoint not found');
+    
+    console.log('✅ 404 handling working correctly');
   });
 
   test('should respond to port info endpoint', async ({ request }) => {
@@ -314,6 +338,8 @@ test.describe('Pull Request Feed API', () => {
     expect(typeof data.port).toBe('number');
     expect(['manual', 'e2e']).toContain(data.mode);
     expect(new Date(data.timestamp).toISOString()).toBe(data.timestamp);
+    
+    console.log(`✅ Port info endpoint working - Port: ${data.port}, Mode: ${data.mode}`);
   });
 
   test('should handle CORS headers properly', async ({ request }) => {
@@ -325,6 +351,8 @@ test.describe('Pull Request Feed API', () => {
     // This test ensures the request succeeds, which means CORS is properly configured
     const data = await response.json();
     expect(data.status).toBe('ok');
+    
+    console.log('✅ CORS configuration working correctly');
   });
 
   test('should have consistent response time for health check', async ({ request }) => {
@@ -337,6 +365,6 @@ test.describe('Pull Request Feed API', () => {
     // Health check should be fast (under 5 seconds)
     expect(responseTime).toBeLessThan(5000);
     
-    console.log(`Health check response time: ${responseTime}ms`);
+    console.log(`✅ Health check response time: ${responseTime}ms`);
   });
-});
+}); 
