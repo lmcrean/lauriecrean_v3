@@ -24,12 +24,12 @@ const mockPullRequests = [
     created_at: '2024-06-30T10:39:00Z',
     merged_at: '2024-06-30T16:39:00Z',
     state: 'merged' as const,
-    html_url: 'https://github.com/lmcrean/lauriecrean_v3/pull/20',
+    html_url: 'https://github.com/lmcrean/developer-portfolio/pull/20',
     repository: {
-      name: 'lauriecrean_v3',
+      name: 'developer-portfolio',
       description: 'Portfolio website v3',
       language: 'TypeScript',
-      html_url: 'https://github.com/lmcrean/lauriecrean_v3'
+      html_url: 'https://github.com/lmcrean/developer-portfolio'
     }
   },
   {
@@ -40,12 +40,12 @@ const mockPullRequests = [
     created_at: '2024-06-29T14:20:00Z',
     merged_at: null,
     state: 'open' as const,
-    html_url: 'https://github.com/lmcrean/lauriecrean_v3/pull/19',
+    html_url: 'https://github.com/lmcrean/developer-portfolio/pull/19',
     repository: {
-      name: 'lauriecrean_v3',
+      name: 'developer-portfolio',
       description: 'Portfolio website v3',
       language: 'JavaScript',
-      html_url: 'https://github.com/lmcrean/lauriecrean_v3'
+      html_url: 'https://github.com/lmcrean/developer-portfolio'
     }
   }
 ];
@@ -204,7 +204,7 @@ describe('PullRequestFeed Integration Tests', () => {
       // Verify detailed API call was made - should be called twice: list + detail
       expect(mockGet).toHaveBeenCalledTimes(2);
       expect(mockGet).toHaveBeenNthCalledWith(2,
-        '/api/github/pull-requests/lmcrean/lauriecrean_v3/20'
+        '/api/github/pull-requests/lmcrean/developer-portfolio/20'
       );
     });
 

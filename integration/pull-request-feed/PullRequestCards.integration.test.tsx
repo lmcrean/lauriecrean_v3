@@ -13,12 +13,12 @@ const mockListPR = {
   created_at: '2024-06-30T10:39:00Z',
   merged_at: '2024-06-30T16:39:00Z',
   state: 'merged' as const,
-  html_url: 'https://github.com/lmcrean/lauriecrean_v3/pull/20',
+  html_url: 'https://github.com/lmcrean/developer-portfolio/pull/20',
   repository: {
-    name: 'lauriecrean_v3',
+    name: 'developer-portfolio',
     description: 'Portfolio website v3',
     language: 'TypeScript',
-    html_url: 'https://github.com/lmcrean/lauriecrean_v3'
+    html_url: 'https://github.com/lmcrean/developer-portfolio'
   }
 };
 
@@ -64,7 +64,7 @@ describe('PullRequestFeedListCard Integration Tests', () => {
       expect(screen.getByText(/this will be for greater sustainability/)).toBeInTheDocument();
 
       // Repository and language
-      expect(screen.getByText('lauriecrean_v3')).toBeInTheDocument();
+      expect(screen.getByText('developer-portfolio')).toBeInTheDocument();
       expect(screen.getByText(/🏷️\s*TypeScript/)).toBeInTheDocument();
 
       // PR number and action

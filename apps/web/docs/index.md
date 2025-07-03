@@ -150,7 +150,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TestBadges tests="vitest:33,playwright:12" />
 
-<GitHubBadges repo="lmcrean/lauriecrean_v3" badges="last-commit,created-at,commit-activity" />
+<GitHubBadges repo="lmcrean/developer-portfolio" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
 
