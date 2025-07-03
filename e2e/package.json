@@ -10,6 +10,8 @@
     "test:debug": "playwright test --debug",
     "test:dual-service": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts --headed",
     "test:dual-service:headless": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts",
+    "test:observability": "playwright test enhanced-pull-request-test.spec.ts example-with-logging.spec.ts",
+    "test:observability:headed": "playwright test enhanced-pull-request-test.spec.ts example-with-logging.spec.ts --headed",
     "dev:web:manual": "node scripts/find-web-port.js manual",
     "dev:api:manual": "powershell -Command \"cd ../apps/api-github; npm run dev:manual\"",
     "dev:web:e2e": "node scripts/find-web-port.js e2e",
@@ -18,6 +20,7 @@
     "dev:e2e": "concurrently --names \"WEB,API\" --prefix-colors \"cyan,magenta\" \"npm run dev:web:e2e\" \"npm run dev:api:e2e\"",
     "dev": "npm run dev:e2e",
     "test:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:dual-service:headless\"",
+    "test:observability:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:observability\"",
     "playwright:install": "playwright install",
     "playwright:install-deps": "playwright install-deps"
   },
