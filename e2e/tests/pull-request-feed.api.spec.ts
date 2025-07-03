@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { E2ELogger } from '@lauriecrean/observability';
 import { 
-  setupApiConnection, 
   getApiBaseUrl, 
   TEST_USERNAME,
   ApiResponse,
@@ -10,75 +8,33 @@ import {
   validatePaginationStructure,
   validateCacheHeaders
 } from './runners/operations';
+import { ObservabilityRunner } from './runners/observability-runner';
 
-// Global test metrics
-let testMetrics = {
-  totalTests: 0,
-  passedTests: 0,
-  failedTests: 0,
-  networkCalls: 0,
-  apiErrors: 0,
-  startTime: Date.now()
-};
-
-let logger: E2ELogger;
+const observability = new ObservabilityRunner('Pull Request Feed API');
 
 test.describe('Pull Request Feed API Tests', () => {
   
   test.beforeAll(async ({ request }) => {
-    logger = new E2ELogger('PR-FEED-API');
-    logger.logInfo('🚀 Starting Pull Request Feed API Test Suite', 'test-suite');
-    
-    await setupApiConnection(request);
-    testMetrics.startTime = Date.now();
-    
-    logger.logInfo(`🔧 Using API server at: ${getApiBaseUrl()}`, 'setup');
+    await observability.setup(request);
   });
 
   test.afterAll(async () => {
-    const duration = Date.now() - testMetrics.startTime;
-    
-    logger.logInfo('📊 TEST SUMMARY REPORT', 'summary');
-    logger.logInfo(`✅ Tests Passed: ${testMetrics.passedTests}`, 'summary');
-    logger.logInfo(`❌ Tests Failed: ${testMetrics.failedTests}`, 'summary');
-    logger.logInfo(`📡 Network Calls: ${testMetrics.networkCalls}`, 'summary');
-    logger.logInfo(`🚨 API Errors: ${testMetrics.apiErrors}`, 'summary');
-    logger.logInfo(`⏱️ Total Duration: ${duration}ms`, 'summary');
-    logger.logInfo(`🎯 Success Rate: ${Math.round((testMetrics.passedTests / testMetrics.totalTests) * 100)}%`, 'summary');
-    
-    console.log('\n=== PULL REQUEST FEED API TEST SUMMARY ===');
-    console.log(`✅ Tests Passed: ${testMetrics.passedTests}`);
-    console.log(`❌ Tests Failed: ${testMetrics.failedTests}`);
-    console.log(`📡 Network Calls: ${testMetrics.networkCalls}`);
-    console.log(`🚨 API Errors: ${testMetrics.apiErrors}`);
-    console.log(`⏱️ Duration: ${duration}ms`);
-    console.log(`🎯 Success Rate: ${Math.round((testMetrics.passedTests / testMetrics.totalTests) * 100)}%`);
-    console.log('============================================\n');
+    await observability.teardown();
   });
 
   test.beforeEach(async () => {
-    testMetrics.totalTests++;
+    observability.incrementTestCount();
   });
 
   test.afterEach(async ({ }, testInfo) => {
-    if (testInfo.status === 'passed') {
-      testMetrics.passedTests++;
-      logger.logInfo(`✅ ${testInfo.title}`, 'test-result');
-    } else {
-      testMetrics.failedTests++;
-      logger.logError(`❌ ${testInfo.title}`, 'test-result', { error: testInfo.error });
-    }
+    observability.recordTestResult(testInfo.title, testInfo.status === 'passed', testInfo.error);
   });
 
   test('should fetch pull requests list with default parameters', async ({ request }) => {
-    logger.logInfo('🔍 Testing pull requests list with default parameters', 'test');
+    observability.logTestStart('🔍 Testing pull requests list with default parameters');
     
     const response = await request.get(`${getApiBaseUrl()}/api/github/pull-requests?username=${TEST_USERNAME}`);
-    testMetrics.networkCalls++;
-    
-    if (response.status() !== 200) {
-      testMetrics.apiErrors++;
-    }
+    observability.recordNetworkCall(response.status() === 200);
     
     expect(response.status()).toBe(200);
     
@@ -101,28 +57,24 @@ test.describe('Pull Request Feed API Tests', () => {
     // Validate pagination structure
     validatePaginationStructure(data.meta.pagination);
     
-    logger.logInfo(`📋 Successfully fetched ${data.data.length} pull requests`, 'api-response');
+    observability.logNetworkActivity(`📋 Successfully fetched ${data.data.length} pull requests`);
     
     // If we have data, validate pull request structure
     if (data.data.length > 0) {
       const pr = data.data[0];
       validatePullRequestStructure(pr);
-      logger.logInfo(`📄 Validated PR structure for "${pr.title}"`, 'validation');
+      observability.logTestInfo(`📄 Validated PR structure for "${pr.title}"`);
     }
   });
 
   test('should handle pagination parameters correctly', async ({ request }) => {
-    logger.logInfo('📄 Testing pagination parameters', 'test');
+    observability.logTestStart('📄 Testing pagination parameters');
     
     const page = 1;
     const perPage = 5;
     
     const response = await request.get(`${getApiBaseUrl()}/api/github/pull-requests?username=${TEST_USERNAME}&page=${page}&per_page=${perPage}`);
-    testMetrics.networkCalls++;
-    
-    if (response.status() !== 200) {
-      testMetrics.apiErrors++;
-    }
+    observability.recordNetworkCall(response.status() === 200);
     
     expect(response.status()).toBe(200);
     
@@ -134,18 +86,14 @@ test.describe('Pull Request Feed API Tests', () => {
     expect(data.data.length).toBeLessThanOrEqual(perPage);
     expect(data.meta.count).toBeLessThanOrEqual(perPage);
     
-    logger.logInfo(`📊 Pagination working: page=${page}, per_page=${perPage}, returned=${data.data.length}`, 'pagination');
+    observability.logTestInfo(`📊 Pagination working: page=${page}, per_page=${perPage}, returned=${data.data.length}`);
   });
 
   test('should enforce per_page maximum limit', async ({ request }) => {
-    logger.logInfo('🔒 Testing per_page maximum limit enforcement', 'test');
+    observability.logTestStart('🔒 Testing per_page maximum limit enforcement');
     
     const response = await request.get(`${getApiBaseUrl()}/api/github/pull-requests?username=${TEST_USERNAME}&per_page=100`);
-    testMetrics.networkCalls++;
-    
-    if (response.status() !== 200) {
-      testMetrics.apiErrors++;
-    }
+    observability.recordNetworkCall(response.status() === 200);
     
     expect(response.status()).toBe(200);
     
@@ -155,26 +103,22 @@ test.describe('Pull Request Feed API Tests', () => {
     expect(data.meta.pagination.per_page).toBe(50);
     expect(data.data.length).toBeLessThanOrEqual(50);
     
-    logger.logInfo(`🛡️ Per-page limit enforced: requested=100, actual=${data.meta.pagination.per_page}`, 'validation');
+    observability.logTestInfo(`🛡️ Per-page limit enforced: requested=100, actual=${data.meta.pagination.per_page}`);
   });
 
   test('should fetch detailed pull request data', async ({ request }) => {
-    logger.logInfo('🔍 Testing detailed pull request data fetch', 'test');
+    observability.logTestStart('🔍 Testing detailed pull request data fetch');
     
     // First get a pull request from the list to test details
     const listResponse = await request.get(`${getApiBaseUrl()}/api/github/pull-requests?username=${TEST_USERNAME}&per_page=1`);
-    testMetrics.networkCalls++;
-    
-    if (listResponse.status() !== 200) {
-      testMetrics.apiErrors++;
-    }
+    observability.recordNetworkCall(listResponse.status() === 200);
     
     expect(listResponse.status()).toBe(200);
     
     const listData: ApiResponse = await listResponse.json();
     
     if (listData.data.length === 0) {
-      logger.logInfo('⏭️ No pull requests available to test details endpoint', 'skip');
+      observability.logTestInfo('⏭️ No pull requests available to test details endpoint');
       return;
     }
     
@@ -185,7 +129,7 @@ test.describe('Pull Request Feed API Tests', () => {
     const owner = urlParts[3];
     const repo = urlParts[4];
     
-    logger.logInfo(`📝 Testing detailed data for PR #${testPR.number} from ${owner}/${repo}`, 'detail-test');
+    observability.logTestInfo(`📝 Testing detailed data for PR #${testPR.number} from ${owner}/${repo}`);
     
     const detailResponse = await request.get(`${getApiBaseUrl()}/api/github/pull-requests/${owner}/${repo}/${testPR.number}`);
     testMetrics.networkCalls++;

@@ -11,14 +11,14 @@ export class HealthRunner {
   }
 
   async runHealthCheck(page: Page): Promise<void> {
-    this.logger.logInfo('🔧 Testing API server health directly...', 'health-runner');
+    this.logger.logInfo('🔧 Testing API server health directly...', 'test');
     
     // Direct API health check
     await page.goto(`http://localhost:${this.apiPort}/health`);
     
     // Check if we get JSON response
     const content = await page.textContent('body');
-    this.logger.logInfo('🏥 API Health Response:', 'health-runner', { content });
+    this.logger.logInfo('🏥 API Health Response:', 'network', { content });
     
     expect(content).toContain('ok');
     expect(content).toContain('api-github');
