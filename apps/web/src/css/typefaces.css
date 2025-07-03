@@ -36,13 +36,13 @@
 }
 
 /* Primary font */
-h1, h2, .sidebar-title, .menu__link, .navbar__link {
+h1, h2, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__link {
     font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
 /* Secondary Font */
 * {
-    font-family: 'Actor', 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', monospace;
 }
 
 
@@ -72,24 +72,7 @@ h2 {
 }
 
 .banner-title span {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
-}
-
-h3, h4, h5, h6, span, li {
-    font-family: 'GlacialIndifference', 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-p {
-    font-family: 'GlacialIndifference', 'Roboto Mono', monospace !important;
-    font-size: 1rem !important;
-    line-height: 1.5rem !important;
-}
-
-/* Sidebar styling */
-.theme-doc-sidebar-container {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
 .theme-doc-sidebar-item-link, 
@@ -102,12 +85,7 @@ p {
     font-weight: 700 !important;
 }
 
-.theme-doc-sidebar-menu {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
-}
-
 .navbar__title {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-size: 1.5rem !important;
     margin-left: 10px !important;
     font-weight: 500 !important;
