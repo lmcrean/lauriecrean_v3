@@ -5,6 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node src/index.ts",
+    "dev:manual": "cross-env-shell \"PORT=$PORT_MANUAL\" ts-node src/index.ts",
+    "dev:e2e": "cross-env-shell \"PORT=$PORT_E2E\" ts-node src/index.ts",
     "dev:vercel": "vercel dev",
     "build": "tsc",
     "start": "node dist/index.js",
@@ -21,6 +23,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.6",
+    "cross-env-shell": "^7.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "vercel": "^33.0.1"
