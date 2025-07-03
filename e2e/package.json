@@ -21,7 +21,7 @@
     "dev": "npm run dev:e2e",
     "test:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:dual-service:headless\"",
     "test:observability:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:observability\"",
-    "test:pr-feed": "playwright test pull-request-feed.web.spec.ts --config=playwright.dual-service.config.ts --headed",
+    "test:pr-feed": "playwright test web/api/github/pull-request-feed.web.spec.ts --config=playwright.dual-service.config.ts --headed",
     "test:pr-feed:api": "playwright test web/api/github/pull-request-feed.api.spec.ts --config=playwright.dual-service.config.ts --headed",
     "test:pr-feed:api:dev": "concurrently --kill-others --success first \"npm run dev:api:e2e\" \"wait-on http://localhost:3015 && npm run test:pr-feed:api\"",
     "cleanup": "powershell -Command \"taskkill /F /IM node.exe 2>$null; taskkill /F /IM playwright.exe 2>$null; echo 'Cleanup completed'\"",
