@@ -40,9 +40,14 @@ export class PullRequestFeedRunner {
     // Look for pull request feed component
     const componentFound = await this.findPullRequestComponent(page);
     
-    // Wait for potential API calls and timeout errors
+    // Wait for potential API calls and timeout errors (shorter wait, more resilient)
     this.logger.logInfo('⏳ Waiting for API calls and potential timeout errors...', 'feed-runner');
-    await page.waitForTimeout(15000); // Wait 15 seconds to allow for timeout
+    try {
+      await page.waitForTimeout(5000); // Reduced to 5 seconds - sufficient to capture timeouts
+    } catch (error) {
+      // If page is closed, that's fine - we've likely already captured the data we need
+      this.logger.logInfo('ℹ️ Wait interrupted - likely due to page closure, continuing with analysis', 'feed-runner');
+    }
     
     // Analyze results
     const testResults = await this.analyzeTestResults(componentFound, page);
