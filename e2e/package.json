@@ -1,0 +1,28 @@
+{
+  "name": "lauriecrean-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for lauriecrean portfolio website",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:dual-service": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts --headed",
+    "test:dual-service:headless": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts",
+    "dev:web": "cd ../apps/web && npm run start -- --port 3010",
+    "dev:api": "cd ../apps/api-github && PORT=3015 npm run dev",
+    "dev:both": "concurrently --names \"WEB,API\" --prefix-colors \"cyan,magenta\" \"npm run dev:web\" \"npm run dev:api\"",
+    "test:with-services": "concurrently --kill-others --success first \"npm run dev:both\" \"wait-on http://localhost:3010 http://localhost:3015 && npm run test:dual-service:headless\"",
+    "playwright:install": "playwright install",
+    "playwright:install-deps": "playwright install-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "concurrently": "^9.0.1",
+    "wait-on": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+} 

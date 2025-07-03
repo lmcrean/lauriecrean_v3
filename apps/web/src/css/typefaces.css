@@ -43,6 +43,10 @@
     font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
+code {
+    font-family: 'Roboto Mono', monospace !important;
+}
+
 /* Secondary Font */
 * {
     font-family: 'IBM Plex Serif', 'Roboto Mono', serif, monospace;

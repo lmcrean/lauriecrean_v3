@@ -26,7 +26,7 @@ const app = express();
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
+  : ['http://localhost:3000', 'http://localhost:3010', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
 
 app.use(cors({
   origin: allowedOrigins,
@@ -140,7 +140,7 @@ export default app;
 
 // For local development
 if (process.env.NODE_ENV !== 'production') {
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 3015;
   app.listen(port, () => {
     console.log(`GitHub API server running on port ${port}`);
     console.log(`Health check: http://localhost:${port}/health`);

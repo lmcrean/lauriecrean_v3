@@ -166,7 +166,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   // Loading state
   if (loading && pullRequests.length === 0) {
     return (
-      <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
+      <div className={`w-full max-w-4xl mx-auto p-4 ${className}`} data-testid="pull-request-feed">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
           <p className="text-gray-600 dark:text-gray-300">Loading pull requests for {username}...</p>
@@ -189,7 +189,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   // Error state
   if (error && pullRequests.length === 0) {
     return (
-      <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
+      <div className={`w-full max-w-4xl mx-auto p-4 ${className}`} data-testid="pull-request-feed">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
           <p className="text-gray-600 dark:text-gray-300">Error loading pull requests</p>
@@ -210,7 +210,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   }
 
   return (
-    <div className={`w-full max-w-4xl mx-auto p-4 ${className}`}>
+    <div className={`w-full max-w-4xl mx-auto p-4 ${className}`} data-testid="pull-request-feed">
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
