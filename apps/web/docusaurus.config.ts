@@ -23,11 +23,12 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Add splide scripts directly to the head
+  // Add splide scripts directly to the head with optimized loading
   scripts: [
     {
       src: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js',
       async: true,
+      defer: true,
     },
     {
       src: '/js/init-splide.js',
