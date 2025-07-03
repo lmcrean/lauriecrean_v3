@@ -12,22 +12,19 @@ describe('TechBadges', () => {
     
     // Check TypeScript badge
     const typescriptBadge = screen.getByAltText('Typescript');
-    expect(typescriptBadge).toHaveAttribute(
-      'src', 
+    expect(typescriptBadge.getAttribute('src')).toBe(
       'https://img.shields.io/badge/Typescript-1C1C1C?&logo=typescript&logoColor=white'
     );
     
     // Check React badge
     const reactBadge = screen.getByAltText('React');
-    expect(reactBadge).toHaveAttribute(
-      'src', 
+    expect(reactBadge.getAttribute('src')).toBe(
       'https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white'
     );
     
     // Check Express badge
     const expressBadge = screen.getByAltText('Express');
-    expect(expressBadge).toHaveAttribute(
-      'src', 
+    expect(expressBadge.getAttribute('src')).toBe(
       'https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white'
     );
   });
@@ -44,15 +41,14 @@ describe('TechBadges', () => {
       <TechBadges values="typescript" className="custom-tech-badges" />
     );
     
-    expect(container.firstChild).toHaveClass('custom-tech-badges');
+    expect(container.firstChild?.className).toBe('custom-tech-badges');
   });
 
   it('handles unknown technologies with fallback', () => {
     render(<TechBadges values="unknowntech" />);
     
     const badge = screen.getByAltText('Unknowntech');
-    expect(badge).toHaveAttribute(
-      'src', 
+    expect(badge.getAttribute('src')).toBe(
       'https://img.shields.io/badge/Unknowntech-1C1C1C?&logo=unknowntech&logoColor=white'
     );
   });
@@ -61,8 +57,7 @@ describe('TechBadges', () => {
     render(<TechBadges values="typescript" color="FF0000" logoColor="black" />);
     
     const badge = screen.getByAltText('Typescript');
-    expect(badge).toHaveAttribute(
-      'src', 
+    expect(badge.getAttribute('src')).toBe(
       'https://img.shields.io/badge/Typescript-FF0000?&logo=typescript&logoColor=black'
     );
   });
