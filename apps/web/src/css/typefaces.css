@@ -35,9 +35,19 @@
     font-display: swap;
 }
 
+/* Primary font */
+h1, h2, .sidebar-title, .menu__link, .navbar__link {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+}
+
+/* Secondary Font */
+* {
+    font-family: 'Actor', 'Roboto Mono', monospace;
+}
+
+
 /* Apply fonts to elements with fallbacks */
 h1, h2, .sidebar-title {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
     color: var(--text-color) !important;
 }
