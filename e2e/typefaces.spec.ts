@@ -9,7 +9,7 @@ test.describe('Typeface Styling', () => {
   // Before each test, navigate to the home page
   test.beforeEach(async ({ page }) => {
     // Navigate to the home page
-    await page.goto('http://localhost:3000');
+    await page.goto('http://localhost:3010');
     
     // Wait for the page to fully load
     await page.waitForLoadState('networkidle');
@@ -22,12 +22,12 @@ test.describe('Typeface Styling', () => {
   test('should load font files', async ({ page }) => {
     // Take a screenshot for debugging
     await page.screenshot({ 
-      path: path.join('tests-e2e', 'screenshots', 'components', 'typefaces-fonts.png') 
+      path: path.join('screenshots', 'components', 'typefaces-fonts.png') 
     });
     
     // Manually navigate to the font files to check if they exist
     for (const fontFile of ['FunnelDisplay-VariableFont_wght.ttf', 'GlacialIndifference-Regular.woff', 'GlacialIndifference-Bold.woff']) {
-      const fontUrl = `http://localhost:3000/fonts/${fontFile}`;
+      const fontUrl = `http://localhost:3010/fonts/${fontFile}`;
       const fontResponse = await page.evaluate(async (url) => {
         try {
           const response = await fetch(url);
@@ -112,7 +112,7 @@ test.describe('Typeface Styling', () => {
     
     // Take a screenshot of the page to visually verify fonts
     await page.screenshot({ 
-      path: path.join('tests-e2e', 'screenshots', 'pages', 'typefaces-page.png'), 
+      path: path.join('screenshots', 'pages', 'typefaces-page.png'), 
       fullPage: true 
     });
     

@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests-e2e',
+  testDir: './',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -14,7 +14,7 @@ export default defineConfig({
       name: 'safari',
       use: { 
         ...devices['Desktop Safari'],
-        baseURL: 'http://localhost:3000',
+        baseURL: 'http://localhost:3010',
         // Record videos for debugging if tests fail
         video: 'on-first-retry'
       },
@@ -23,8 +23,8 @@ export default defineConfig({
 
   // Run your local dev server before starting the tests
   webServer: {
-    command: 'npm run serve',
-    url: 'http://localhost:3000',
+    command: 'cd ../apps/web && npm run start -- --port 3010',
+    url: 'http://localhost:3010',
     reuseExistingServer: !process.env.CI,
     stdout: 'pipe',
   },

@@ -9,7 +9,7 @@ test.describe('Button Styling', () => {
   // Before each test, navigate to the projects page
   test.beforeEach(async ({ page }) => {
     // Navigate to the projects page - using the full URL pattern
-    await page.goto('http://localhost:3001/projects');
+    await page.goto('http://localhost:3010/projects');
     
     // Wait for the page to fully load
     await page.waitForLoadState('networkidle');
@@ -24,7 +24,7 @@ test.describe('Button Styling', () => {
     
     // Take a screenshot for debugging
     await page.screenshot({ 
-      path: path.join('tests-e2e', 'screenshots', 'components', 'buttons-page.png') 
+      path: path.join('screenshots', 'components', 'buttons-page.png') 
     });
     
     // Find all button types
