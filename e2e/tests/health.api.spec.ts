@@ -5,7 +5,7 @@ import {
   validateTimestamp,
   HealthResponse,
   PortInfoResponse 
-} from './operations';
+} from './runners/operations';
 
 test.describe('API Health Checks', () => {
   
