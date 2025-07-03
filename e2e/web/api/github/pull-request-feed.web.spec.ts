@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { spawn, ChildProcess } from 'child_process';
 import path from 'path';
 import { E2ELogger } from '@lauriecrean/observability';
-import { createTestCleanup, TestCleanup } from '../../utils/test-cleanup';
+import { createTestCleanup, TestCleanup } from '../../../utils/test-cleanup';
 
 /**
  * E2E test for Pull Request Feed API integration
