@@ -90,7 +90,7 @@ export class BrowserLogger {
     
     if (!this.config.logLevels.includes(level)) return;
 
-    const args = msg.args().map(arg => arg.toString());
+    const args = msg.args().map((arg: any) => arg.toString());
     const message = msg.text();
 
     // Apply filter patterns
