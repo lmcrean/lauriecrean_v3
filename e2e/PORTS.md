@@ -21,7 +21,7 @@ This document defines the port allocation for different testing modes to avoid c
 The API service reads port configuration from `apps/api-github/.env`:
 
 ```env
-GITHUB_TOKEN=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
+GITHUB_TOKEN=your_github_token_here
 GITHUB_USERNAME=lmcrean
 PORT_MANUAL=3005
 PORT_E2E=3015
