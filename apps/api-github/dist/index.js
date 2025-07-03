@@ -58,7 +58,7 @@ const app = (0, express_1.default)();
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',')
-    : ['http://localhost:3000', 'https://lauriecrean.com'];
+    : ['http://localhost:3000', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
 app.use((0, cors_1.default)({
     origin: allowedOrigins,
     credentials: true
