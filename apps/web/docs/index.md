@@ -11,6 +11,8 @@ import DeveloperBusinessCard from '@site/src/components/banner/banner';
 import TypewriterTitle from '@site/src/components/TypewriterTitle';
 import CustomTOC from '@site/src/components/CustomTOC';
 import TechBadges from '@site/src/components/project/TechBadges';
+import TestBadges from '@site/src/components/project/TestBadges';
+import GitHubBadges from '@site/src/components/project/GitHubBadges';
 
 <DeveloperBusinessCard />
 
@@ -38,16 +40,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TechBadges values="typescript,express,knex,supertest,azure,sql,azureappservices,azuresql,react,tailwindcss" />
 
-<div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-303_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-40_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-</div>
+<TestBadges tests="vitest:303,playwright:40" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/dottie"><img src="https://img.shields.io/github/last-commit/lmcrean/dottie?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/dottie?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/dottie/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/dottie?color=1C1C1C" alt="Commit Activity" /></a> <a href="https://github.com/lmcrean/dottie/issues-open"><img src="https://img.shields.io/github/issues/lmcrean/dottie?color=1C1C1C" alt="Issues" /></a> <a href="https://github.com/lmcrean/dottie/issues"><img src="https://img.shields.io/github/issues-closed/lmcrean/dottie?color=1C1C1C" alt="Issues Closed" /></a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/lmcrean/dottie?color=1C1C1C" /> </a> <a href="https://github.com/lmcrean/dottie/pulls"><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr-closed/lmcrean/dottie?color=1C1C1C" /> </a>
-</div>
+<GitHubBadges repo="lmcrean/dottie" badges="last-commit,created-at,commit-activity,issues,issues-closed,issues-pr,issues-pr-closed" />
 
 </section>
 
@@ -72,19 +67,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TechBadges values="python,react,tailwindcss,vercel,cloudinary,postgresql,django,aws,heroku,oauth2,jwt,amazonrds" />
 
-<div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-32_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-5_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Cypress-3_passed-1C1C1C?style=flat-square&logo=cypress&logoColor=white" alt="Cypress" />
-<img src="https://img.shields.io/badge/Python-38_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-20_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
-</div>
+<TestBadges tests="playwright:32,jest:5,cypress:3,python:38,pytest:20" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/odyssey-api"><img src="https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/odyssey-api/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/odyssey-api" badges="last-commit,created-at,commit-activity" />
 
 </section>
 </section>
@@ -108,17 +93,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TechBadges values="javascript,python,html,css,postgresql,django,amazonrds,aws,oauth2,jwt,heroku" />
 
-<div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-3_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Python-4_Passed-1C1C1C?style=flat-square&logo=python&logoColor=white" alt="Python Tests" />
-<img src="https://img.shields.io/badge/Pytest-6_Passed-1C1C1C?style=flat-square&logo=pytest&logoColor=white" alt="Pytest" />
-</div>
+<TestBadges tests="playwright:3,python:4,pytest:6" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/coach-matrix"><img src="https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/coach-matrix/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/coach-matrix" badges="last-commit,created-at,commit-activity" />
 
 </section>
 </section>
@@ -137,37 +114,25 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section>
 
-<center><b>version 2.0</b><br/></center>
+<b>version 2.0</b><br/>
 
 <a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <TechBadges values="react,nextjs,tailwindcss,javascript,vite,aws,lambda,dynamodb,express,vercel" />
 
-<div className="test-badges">
-<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-<img src="https://img.shields.io/badge/Jest-2_Passed-1C1C1C?style=flat-square&logo=jest&logoColor=white" alt="Jest" />
-<img src="https://img.shields.io/badge/Vitest-19_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-</div>
+<TestBadges tests="playwright:12,jest:2,vitest:19" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report-mern/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/steam-report-mern" badges="last-commit,created-at,commit-activity" />
 
 <hr />
 
-<center><b>version 1.0</b><br/></center>
+<b>version 1.0</b><br/>
   
 <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <TechBadges values="python,nodejs,heroku,googlesheets" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/steam-report"><img src="https://img.shields.io/github/last-commit/lmcrean/steam-report?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/steam-report?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/steam-report/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/steam-report" badges="last-commit,created-at,commit-activity" />
 
 </section>
 </section>
@@ -177,34 +142,23 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <ProjectCarousel projectKey="lauriecrean" />
 
-<center><b>version 2.0</b></center>
+<b>version 2.0</b>
 
 <a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <TechBadges values="docusaurus,typescript" />
 
-<div className="test-badges">
-<img src="https://img.shields.io/badge/Vitest-33_Passed-1C1C1C?style=flat-square&logo=vitest&logoColor=white" alt="Vitest" />
-<img src="https://img.shields.io/badge/Playwright-12_Passed-1C1C1C?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
-</div>
+<TestBadges tests="vitest:33,playwright:12" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean_v3"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean_v3/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean_v3?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/lauriecrean_v3" badges="last-commit,created-at,commit-activity" />
 
-<center><b>version 1.0</b></center>
+<b>version 1.0</b>
 
 <a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,framermotion,vercel" /> 
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/lauriecrean"><img src="https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/lauriecrean/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/lauriecrean" badges="last-commit,created-at,commit-activity" />
 
 <TypewriterTitle text="Hoverboard" level="h2" className="project-title" id="hoverboard" delay={400} speed={105} />
 
@@ -216,28 +170,20 @@ Welcome to my portfolio website! On this page you will find a guide to my select
       
 <br />
 
-<center><b>version 2.0</b></center>
+<b>version 2.0</b>
 
 <a href="https://github.com/lmcrean/hoverboard-react" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://hoverboard-react.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,vercel,figma" />
 
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard-react"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard-react/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/hoverboard-react" badges="last-commit,created-at,commit-activity" />
 
-<center><b>version 1.0</b></center>
+<b>version 1.0</b>
 
 <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
 
 
 <TechBadges values="javascript,html,css,githubpages,figma" />
 
-<div className="github-badges">
-<a href="https://github.com/lmcrean/hoverboard"><img src="https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=1C1C1C" alt="Last Commit" /></a>
-<img src="https://img.shields.io/github/created-at/lmcrean/hoverboard?color=1C1C1C" alt="Created at" />
-<a href="https://github.com/lmcrean/hoverboard/commits/main"><img src="https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=1C1C1C" alt="Commit Activity" /></a>
-</div>
+<GitHubBadges repo="lmcrean/hoverboard" badges="last-commit,created-at,commit-activity" />
