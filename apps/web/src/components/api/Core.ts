@@ -143,7 +143,7 @@ let API_BASE_URL = getInitialApiUrl();
 
 // Create axios instance with dynamic base URL
 const apiClient = axios.create({
-  timeout: 10000, // 10 second timeout
+  timeout: 30000, // 30 second timeout (increased for GitHub API calls)
   headers: {
     'Content-Type': 'application/json',
   },
