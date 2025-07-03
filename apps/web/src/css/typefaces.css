@@ -39,7 +39,7 @@
 }
 
 /* Primary font */
-.banner-title > span, .navbar__title, h1, h2, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__title {
+.banner-title > span, .navbar__title, h1, h2, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__title, .table-of-contents__link {
     font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
