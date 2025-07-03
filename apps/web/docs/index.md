@@ -154,7 +154,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <b>version 1.0</b>
 
-<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean-archive" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,framermotion,vercel" /> 
 
