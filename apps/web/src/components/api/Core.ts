@@ -1,9 +1,43 @@
 import axios from 'axios';
 
+// Browser-compatible environment variable access
+const getBrowserEnv = (key: string, defaultValue?: string): string | undefined => {
+  // Try different ways to access environment variables in browser
+  
+  // 1. Try window object (if available)
+  if (typeof window !== 'undefined' && (window as any).__ENV__) {
+    return (window as any).__ENV__[key] || defaultValue;
+  }
+  
+  // 2. Try import.meta.env (Vite/modern bundlers)
+  if (typeof import !== 'undefined' && import.meta && import.meta.env) {
+    return (import.meta.env as any)[key] || defaultValue;
+  }
+  
+  // 3. Try process.env only if in Node.js environment
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env[key] || defaultValue;
+  }
+  
+  // 4. Fallback to default
+  return defaultValue;
+};
+
+// Browser-safe environment checks
+const isManualTestMode = (): boolean => {
+  const testMode = getBrowserEnv('REACT_APP_TEST_MODE');
+  return testMode === 'manual';
+};
+
+const isDevelopment = (): boolean => {
+  const nodeEnv = getBrowserEnv('NODE_ENV', 'production');
+  return nodeEnv === 'development' || nodeEnv === 'dev';
+};
+
 // API Configuration with dynamic port discovery
 // Find the actual API port by trying different ports in order
 const findApiPort = async (): Promise<string> => {
-  const basePorts = process.env.REACT_APP_TEST_MODE === 'manual' 
+  const basePorts = isManualTestMode()
     ? [3005, 3006, 3007, 3008, 3009] // Try manual ports first
     : [3015, 3016, 3017, 3018, 3019]; // Try e2e ports first
   
@@ -25,7 +59,7 @@ const findApiPort = async (): Promise<string> => {
   }
   
   // Fallback to default ports if discovery fails
-  const fallbackPort = process.env.REACT_APP_TEST_MODE === 'manual' ? '3005' : '3015';
+  const fallbackPort = isManualTestMode() ? '3005' : '3015';
   console.warn(`⚠️ API port discovery failed, falling back to port ${fallbackPort}`);
   return fallbackPort;
 };
@@ -49,7 +83,7 @@ const getApiPort = async (): Promise<string> => {
   } catch (error) {
     console.error('API port discovery failed:', error);
     // Fallback to default
-    const fallback = process.env.REACT_APP_TEST_MODE === 'manual' ? '3005' : '3015';
+    const fallback = isManualTestMode() ? '3005' : '3015';
     cachedApiPort = fallback;
     return fallback;
   }
@@ -57,7 +91,7 @@ const getApiPort = async (): Promise<string> => {
 
 // Dynamic API base URL
 const getApiBaseUrl = async (): Promise<string> => {
-  if (process.env.NODE_ENV === 'development') {
+  if (isDevelopment()) {
     const port = await getApiPort();
     return `http://localhost:${port}`;
   }
@@ -65,7 +99,7 @@ const getApiBaseUrl = async (): Promise<string> => {
 };
 
 // For backwards compatibility - will be populated after discovery
-let API_BASE_URL = process.env.NODE_ENV === 'development' 
+let API_BASE_URL = isDevelopment()
   ? 'http://localhost:3015' // Default fallback
   : 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
 
