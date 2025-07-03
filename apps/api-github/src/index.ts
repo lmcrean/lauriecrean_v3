@@ -45,6 +45,16 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Port discovery endpoint
+app.get('/api/port-info', (req, res) => {
+  const actualPort = process.env.ACTUAL_PORT || process.env.PORT || '3015';
+  res.json({
+    port: parseInt(actualPort),
+    mode: process.env.PORT === '3005' ? 'manual' : 'e2e',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Main pull requests endpoint
 app.get('/api/github/pull-requests', async (req, res) => {
   try {
@@ -140,10 +150,27 @@ export default app;
 
 // For local development
 if (process.env.NODE_ENV !== 'production') {
-  const port = process.env.PORT || 3015;
-  app.listen(port, () => {
-    console.log(`GitHub API server running on port ${port}`);
-    console.log(`Health check: http://localhost:${port}/health`);
-    console.log(`Pull requests: http://localhost:${port}/api/github/pull-requests`);
+  import('./utils/portUtils').then(async ({ findAvailablePort, getPortConfig }) => {
+    try {
+      const { currentPort } = getPortConfig();
+      const availablePort = await findAvailablePort(currentPort);
+      
+      // Store the actual port being used for other services to discover
+      process.env.ACTUAL_PORT = availablePort.toString();
+      
+      app.listen(availablePort, () => {
+        console.log(`✅ GitHub API server running on port ${availablePort}`);
+        console.log(`🔗 Health check: http://localhost:${availablePort}/health`);
+        console.log(`📡 Pull requests: http://localhost:${availablePort}/api/github/pull-requests`);
+        
+        if (availablePort !== currentPort) {
+          console.log(`🔄 Note: Requested port ${currentPort} was in use, using port ${availablePort} instead`);
+        }
+      });
+      
+    } catch (error) {
+      console.error('❌ Failed to start server:', error);
+      process.exit(1);
+    }
   });
 } 
