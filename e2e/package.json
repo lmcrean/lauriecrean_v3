@@ -21,6 +21,7 @@
     "dev": "npm run dev:e2e",
     "test:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:dual-service:headless\"",
     "test:observability:with-services": "concurrently --kill-others --success first \"npm run dev:e2e\" \"wait-on http://localhost:3020 http://localhost:3015 && npm run test:observability\"",
+    "test:pr-feed": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts --headed",
     "playwright:install": "playwright install",
     "playwright:install-deps": "playwright install-deps"
   },
