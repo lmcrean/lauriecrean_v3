@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { spawn, ChildProcess } from 'child_process';
 import path from 'path';
 import { E2ELogger } from '@lauriecrean/observability';
+import { createTestCleanup, TestCleanup } from '../../utils/test-cleanup';
 
 /**
  * E2E test for Pull Request Feed API integration
@@ -11,9 +12,17 @@ test.describe('Pull Request Feed API Integration', () => {
   let webProcess: ChildProcess;
   let apiProcess: ChildProcess;
   let logger: E2ELogger;
+  let cleanup: TestCleanup;
   
   // Setup: Start both services before tests
   test.beforeAll(async () => {
+    // Initialize test cleanup utility
+    cleanup = createTestCleanup({
+      exitAfterCleanup: false, // Don't exit automatically in test context
+      logCleanupSteps: true,
+      forceKillTimeout: 5000
+    });
+
     // Initialize observability logger
     logger = new E2ELogger({
       enableBrowserLogs: true,
@@ -21,6 +30,11 @@ test.describe('Pull Request Feed API Integration', () => {
       logToFile: true,
       logToConsole: true,
       logFilePath: 'test-results/pull-request-feed-e2e-logs.json'
+    });
+
+    // Register logger finalization as cleanup handler
+    cleanup.registerCleanupHandler(async () => {
+      logger.finalize();
     });
 
     logger.logInfo('🚀 Starting both web and API services...', 'test');
@@ -32,6 +46,9 @@ test.describe('Pull Request Feed API Integration', () => {
       stdio: ['inherit', 'pipe', 'pipe'],
       env: { ...process.env, PORT: '3015' }
     });
+    
+    // Register API process for cleanup
+    cleanup.registerProcess(apiProcess, 'API Server');
     
     apiProcess.stdout?.on('data', (data) => {
       logger.logServiceOutput('API', data.toString());
@@ -47,6 +64,9 @@ test.describe('Pull Request Feed API Integration', () => {
       cwd: process.cwd(),
       stdio: ['inherit', 'pipe', 'pipe']
     });
+    
+    // Register web process for cleanup
+    cleanup.registerProcess(webProcess, 'Web Server');
     
     webProcess.stdout?.on('data', (data) => {
       logger.logServiceOutput('WEB', data.toString());
@@ -86,22 +106,14 @@ test.describe('Pull Request Feed API Integration', () => {
     }
   });
   
-  // Cleanup: Stop both services after tests
+  // Cleanup: Use the TestCleanup utility
   test.afterAll(async () => {
-    logger.logInfo('🛑 Stopping services...', 'test');
+    logger.logInfo('🛑 Starting comprehensive cleanup...', 'test');
     
-    if (apiProcess) {
-      apiProcess.kill('SIGTERM');
-      logger.logServiceStop('API');
-    }
+    // Use the cleanup utility for proper process management
+    await cleanup.cleanup();
     
-    if (webProcess) {
-      webProcess.kill('SIGTERM');
-      logger.logServiceStop('WEB');
-    }
-
-    // Finalize observability logging
-    logger.finalize();
+    logger.logInfo('✅ All services stopped and cleanup completed', 'test');
   });
 
   test('should reproduce timeout error when fetching pull requests', async ({ page }) => {
