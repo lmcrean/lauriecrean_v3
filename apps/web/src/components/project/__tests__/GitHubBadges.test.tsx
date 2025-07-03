@@ -28,13 +28,13 @@ describe('GitHubBadges', () => {
     
     // Check that last-commit badge is wrapped in a link
     const lastCommitLink = screen.getByRole('link', { name: /last commit/i });
-    expect(lastCommitLink).toHaveAttribute('href', 'https://github.com/lmcrean/dottie/');
-    expect(lastCommitLink).toHaveAttribute('target', '_blank');
-    expect(lastCommitLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(lastCommitLink.getAttribute('href')).toBe('https://github.com/lmcrean/dottie/');
+    expect(lastCommitLink.getAttribute('target')).toBe('_blank');
+    expect(lastCommitLink.getAttribute('rel')).toBe('noopener noreferrer');
     
     // Check that commit-activity badge is wrapped in a link
     const commitActivityLink = screen.getByRole('link', { name: /commit activity/i });
-    expect(commitActivityLink).toHaveAttribute('href', 'https://github.com/lmcrean/dottie/commits/main');
+    expect(commitActivityLink.getAttribute('href')).toBe('https://github.com/lmcrean/dottie/commits/main');
   });
 
   it('handles all badge types correctly', () => {
@@ -49,11 +49,11 @@ describe('GitHubBadges', () => {
     expect(badges).toHaveLength(7);
     
     // Check all badges are present
-    expect(screen.getByAltText('Last Commit')).toBeInTheDocument();
-    expect(screen.getByAltText('Created at')).toBeInTheDocument();
-    expect(screen.getByAltText('Commit Activity')).toBeInTheDocument();
-    expect(screen.getByAltText('Issues')).toBeInTheDocument();
-    expect(screen.getByAltText('Issues Closed')).toBeInTheDocument();
+    expect(screen.getByAltText('Last Commit')).toBeTruthy();
+    expect(screen.getByAltText('Created at')).toBeTruthy();
+    expect(screen.getByAltText('Commit Activity')).toBeTruthy();
+    expect(screen.getByAltText('Issues')).toBeTruthy();
+    expect(screen.getByAltText('Issues Closed')).toBeTruthy();
     
     // Note: issues-pr and issues-pr-closed both have the same alt text
     const prBadges = screen.getAllByAltText('GitHub Issues or Pull Requests');
@@ -93,7 +93,7 @@ describe('GitHubBadges', () => {
     // Should only render the known badge
     const badges = screen.getAllByRole('img');
     expect(badges).toHaveLength(1);
-    expect(screen.getByAltText('Last Commit')).toBeInTheDocument();
+    expect(screen.getByAltText('Last Commit')).toBeTruthy();
     
     // Should log warning for unknown badge
     expect(consoleSpy).toHaveBeenCalledWith('Unknown GitHub badge type: unknown-badge');

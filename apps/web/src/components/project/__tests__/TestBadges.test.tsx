@@ -44,13 +44,13 @@ describe('TestBadges', () => {
     const badges = screen.getAllByRole('img');
     expect(badges).toHaveLength(6);
     
-    // Check all badges are present
-    expect(screen.getByAltText('Vitest')).toBeInTheDocument();
-    expect(screen.getByAltText('Playwright')).toBeInTheDocument();
-    expect(screen.getByAltText('Jest')).toBeInTheDocument();
-    expect(screen.getByAltText('Cypress')).toBeInTheDocument();
-    expect(screen.getByAltText('Python')).toBeInTheDocument();
-    expect(screen.getByAltText('Pytest')).toBeInTheDocument();
+    // Check all badges are present by finding them
+    expect(screen.getByAltText('Vitest')).toBeTruthy();
+    expect(screen.getByAltText('Playwright')).toBeTruthy();
+    expect(screen.getByAltText('Jest')).toBeTruthy();
+    expect(screen.getByAltText('Cypress')).toBeTruthy();
+    expect(screen.getByAltText('Python')).toBeTruthy();
+    expect(screen.getByAltText('Pytest')).toBeTruthy();
   });
 
   it('renders with custom colors', () => {
