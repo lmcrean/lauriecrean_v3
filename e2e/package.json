@@ -27,6 +27,9 @@
     "cross-env": "^7.0.3",
     "wait-on": "^8.0.1"
   },
+  "dependencies": {
+    "@lauriecrean/observability": "file:../packages/observability"
+  },
   "engines": {
     "node": ">=18.0"
   }
