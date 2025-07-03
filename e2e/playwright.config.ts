@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
 
 export default defineConfig({
   testDir: './',
@@ -6,7 +7,17 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [
+    ['html', { 
+      open: 'never', // Don't automatically open browser
+      host: 'localhost',
+      port: 0 // Use random available port
+    }]
+  ],
+  
+  // Global setup and teardown hooks
+  globalSetup: path.resolve(__dirname, 'utils/global-setup.ts'),
+  globalTeardown: path.resolve(__dirname, 'utils/global-teardown.ts'),
   
   // Only using Safari as specified in custom instructions
   projects: [
