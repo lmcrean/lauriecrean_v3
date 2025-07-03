@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { createTestLogger, createPullRequestTestLogger } from '../packages/observability/src';
+import { createTestLogger, createPullRequestTestLogger } from '@lauriecrean/observability/src';
 
 /**
  * Example e2e test demonstrating the observability logging integration
