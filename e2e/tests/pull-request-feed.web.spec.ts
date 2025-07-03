@@ -20,7 +20,7 @@ test.describe('Pull Request Feed API Integration - Refactored', () => {
   
   // Configuration
   const config: ServiceManagerConfig = {
-    webPort: 3010,
+    webPort: 3020,
     apiPort: 3015,
     startupWaitTime: 15000,
     logFilePath: 'test-results/pull-request-feed-e2e-logs.json'

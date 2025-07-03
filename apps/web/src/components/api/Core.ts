@@ -10,8 +10,11 @@ const getBrowserEnv = (key: string, defaultValue?: string): string | undefined =
   }
   
   // 2. Try import.meta.env (Vite/modern bundlers)
-  if (typeof import !== 'undefined' && import.meta && import.meta.env) {
-    return (import.meta.env as any)[key] || defaultValue;
+  if (typeof globalThis !== 'undefined' && 'importMeta' in globalThis) {
+    const importMeta = (globalThis as any).importMeta;
+    if (importMeta && importMeta.env) {
+      return importMeta.env[key] || defaultValue;
+    }
   }
   
   // 3. Try process.env only if in Node.js environment
@@ -30,6 +33,15 @@ const isManualTestMode = (): boolean => {
 };
 
 const isDevelopment = (): boolean => {
+  // Check if we're running on localhost (most reliable for development)
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+      return true;
+    }
+  }
+  
+  // Check environment variables as secondary
   const nodeEnv = getBrowserEnv('NODE_ENV', 'production');
   return nodeEnv === 'development' || nodeEnv === 'dev';
 };
@@ -37,22 +49,30 @@ const isDevelopment = (): boolean => {
 // API Configuration with dynamic port discovery
 // Find the actual API port by trying different ports in order
 const findApiPort = async (): Promise<string> => {
+  console.log('🔍 Starting API port discovery...');
+  
   const basePorts = isManualTestMode()
     ? [3005, 3006, 3007, 3008, 3009] // Try manual ports first
     : [3015, 3016, 3017, 3018, 3019]; // Try e2e ports first
   
+  console.log(`🔍 Trying ports: ${basePorts.join(', ')}`);
+  
   for (const port of basePorts) {
     try {
+      console.log(`🔍 Checking port ${port}...`);
       const response = await fetch(`http://localhost:${port}/health`, {
         method: 'GET',
-        signal: AbortSignal.timeout(1000) // 1 second timeout
+        signal: AbortSignal.timeout(2000) // 2 second timeout (increased)
       });
       
       if (response.ok) {
-        console.log(`🔍 API discovered on port ${port}`);
+        console.log(`✅ API discovered on port ${port}`);
         return port.toString();
+      } else {
+        console.log(`⚠️ Port ${port} responded with status ${response.status}`);
       }
     } catch (error) {
+      console.log(`❌ Port ${port} failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
       // Port not responding, try next one
       continue;
     }
@@ -91,17 +111,35 @@ const getApiPort = async (): Promise<string> => {
 
 // Dynamic API base URL
 const getApiBaseUrl = async (): Promise<string> => {
-  if (isDevelopment()) {
+  const devMode = isDevelopment();
+  console.log(`🌐 getApiBaseUrl: isDevelopment=${devMode}, hostname=${typeof window !== 'undefined' ? window.location.hostname : 'undefined'}`);
+  
+  if (devMode) {
+    console.log('🔧 Development mode detected, using local API discovery');
     const port = await getApiPort();
-    return `http://localhost:${port}`;
+    const url = `http://localhost:${port}`;
+    console.log(`🎯 Using API URL: ${url}`);
+    return url;
+  }
+  
+  const prodUrl = 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
+  console.log(`🌍 Production mode, using: ${prodUrl}`);
+  return prodUrl;
+};
+
+// For backwards compatibility - will be populated after discovery
+// Use a function to ensure proper detection at runtime
+const getInitialApiUrl = (): string => {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+      return 'http://localhost:3015';
+    }
   }
   return 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
 };
 
-// For backwards compatibility - will be populated after discovery
-let API_BASE_URL = isDevelopment()
-  ? 'http://localhost:3015' // Default fallback
-  : 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
+let API_BASE_URL = getInitialApiUrl();
 
 // Create axios instance with dynamic base URL
 const apiClient = axios.create({

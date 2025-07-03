@@ -132,11 +132,7 @@ test.describe('Pull Request Feed API Tests', () => {
     observability.logTestInfo(`📝 Testing detailed data for PR #${testPR.number} from ${owner}/${repo}`);
     
     const detailResponse = await request.get(`${getApiBaseUrl()}/api/github/pull-requests/${owner}/${repo}/${testPR.number}`);
-    testMetrics.networkCalls++;
-    
-    if (detailResponse.status() !== 200) {
-      testMetrics.apiErrors++;
-    }
+    observability.recordNetworkCall(detailResponse.status() === 200);
     
     expect(detailResponse.status()).toBe(200);
     
@@ -157,22 +153,21 @@ test.describe('Pull Request Feed API Tests', () => {
     expect(detailData).toHaveProperty('deletions');
     expect(detailData).toHaveProperty('changed_files');
     
-    logger.logInfo(`📊 Detailed PR stats: ${detailData.commits} commits, ${detailData.additions}+ ${detailData.deletions}- lines, ${detailData.changed_files} files`, 'pr-stats');
+    observability.logTestInfo(`📊 Detailed PR stats: ${detailData.commits} commits, ${detailData.additions}+ ${detailData.deletions}- lines, ${detailData.changed_files} files`);
   });
 
   test('should handle API errors gracefully', async ({ request }) => {
-    logger.logInfo('🚨 Testing API error handling', 'test');
+    observability.logTestStart('🚨 Testing API error handling');
     
     const response = await request.get(`${getApiBaseUrl()}/api/github/pull-requests/invalid-user/invalid-repo/999`);
-    testMetrics.networkCalls++;
+    observability.recordNetworkCall(response.status() >= 400); // Error response is expected
     
     // This should be a 404 or similar error
     expect(response.status()).toBeGreaterThanOrEqual(400);
-    testMetrics.apiErrors++; // This is expected
     
     const data = await response.json();
     expect(data).toHaveProperty('error');
     
-    logger.logInfo(`🛡️ Error handling working: ${response.status()} - ${data.error}`, 'error-handling');
+    observability.logNetworkActivity(`🛡️ Error handling working: ${response.status()} - ${data.error}`);
   });
 });
