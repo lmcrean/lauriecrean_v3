@@ -11,7 +11,7 @@
     "test:dual-service": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts --headed",
     "test:dual-service:headless": "playwright test pull-request-feed-api.spec.ts --config=playwright.dual-service.config.ts",
     "dev:web": "cd ../apps/web && npm run start -- --port 3010",
-    "dev:api": "cd ../apps/api-github; $env:PORT=3015; npm run dev",
+    "dev:api": "powershell -Command \"cd ../apps/api-github; $env:PORT=3015; npm run dev\"",
     "dev": "concurrently --names \"WEB,API\" --prefix-colors \"cyan,magenta\" \"npm run dev:web\" \"npm run dev:api\"",
     "test:with-services": "concurrently --kill-others --success first \"npm run dev\" \"wait-on http://localhost:3010 http://localhost:3015 && npm run test:dual-service:headless\"",
     "playwright:install": "playwright install",
