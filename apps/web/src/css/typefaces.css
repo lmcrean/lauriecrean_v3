@@ -1,3 +1,6 @@
+/* Import custom fonts */
+@import url('./typefaces_import.css');
+
 /* Import Google Fonts for fallback */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Montserrat:wght@100..900&family=Roboto+Mono&display=swap');
 
@@ -36,13 +39,13 @@
 }
 
 /* Primary font */
-h1, h2, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__link {
+.banner-title > span, .navbar__title, h1, h2, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__title {
     font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
 /* Secondary Font */
 * {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'IBM Plex Serif', 'Roboto Mono', serif, monospace;
 }
 
 
