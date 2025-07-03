@@ -1,9 +1,18 @@
 import axios from 'axios';
 
 // API Configuration -- not to be confused with branches e.g. api-github-34536dcg-...
-// Use localhost for development, production URL for deployed environments
+// Use different ports for manual testing vs e2e testing
+const getApiPort = () => {
+  // Check if we're in manual testing mode
+  if (process.env.REACT_APP_TEST_MODE === 'manual') {
+    return '3005'; // PORT_MANUAL
+  }
+  // Default to e2e port for e2e testing and production development
+  return '3015'; // PORT_E2E
+};
+
 const API_BASE_URL = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:3015'
+  ? `http://localhost:${getApiPort()}`
   : 'https://api-github-lmcrean-lmcreans-projects.vercel.app';
 
 // Create axios instance with default configuration
