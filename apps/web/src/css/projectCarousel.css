@@ -1,14 +1,17 @@
 /* ProjectCarousel component styles */
 
 .splide-container {
-  width: 100%;
-  margin-bottom: 1rem;
+  margin: 3rem;
+  max-width: 700px !important;
+  display: block;
+  height: fit-content;
 }
 
 /* Splide carousel styling */
 .splide {
   border-radius: 8px;
   overflow: hidden;
+  height: fit-content;
 }
 
 .splide__slide {
@@ -64,8 +67,23 @@
 
 /* Make sure images are responsive */
 @media (max-width: 767px) {
+  .splide-container {
+    margin: 2rem 1rem;
+    height: 500px;
+  }
+  
   .project-image {
     max-height: 300px;
     object-fit: contain;
   }
+  
+  .splide {
+    height: 500px;
+  }
 } 
+
+@media (max-width: 480px) {
+  .splide-container {
+    height: 300px;
+  }
+}
