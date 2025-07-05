@@ -1,6 +1,6 @@
 import { E2ELogger } from '@lauriecrean/observability';
 import { APIRequestContext } from '@playwright/test';
-import { setupApiConnection, getApiBaseUrl } from './operations.api';
+import { setupApiConnection, getApiBaseUrl } from '../operations.api';
 
 export interface TestMetrics {
   totalTests: number;

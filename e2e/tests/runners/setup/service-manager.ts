@@ -14,7 +14,7 @@ export class ServiceManager {
 
   constructor(config: ServiceManagerConfig) {
     this.config = config;
-    this.logger = new E2ELogger('ServiceManager', config.logFilePath);
+    this.logger = new E2ELogger();
   }
 
   getLogger(): E2ELogger {
