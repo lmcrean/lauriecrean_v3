@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { ObservabilityRunner } from './runners/setup/observability-runner';
-import { PullRequestDetailWebRunner, PullRequestDetailConfig } from './runners/pull-request/pull-request-detail.web';
+import { ObservabilityRunner } from '../../runners/setup/observability-runner';
+import { PullRequestDetailWebRunner, PullRequestDetailConfig } from '../../runners/pull-request/pull-request-detail.web';
 import { E2ELogger } from '@lauriecrean/observability';
 
 const observability = new ObservabilityRunner('Pull Request Detail Web');

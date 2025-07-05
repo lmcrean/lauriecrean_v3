@@ -1,5 +1,3 @@
-// Service Management
-export { ServiceManager, ServiceManagerConfig } from './service-manager';
 
 // API Runners
 export { HealthRunner } from './health/health-runner.api';

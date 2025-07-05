@@ -1,9 +1,9 @@
 import { APIRequestContext, expect } from '@playwright/test';
 
 // API Configuration - Use localhost for development testing
-export const POSSIBLE_PORTS = [3015, 3016, 3017, 3018];
+export const POSSIBLE_PORTS = [3001, 3015, 3016, 3017, 3018];
 export const TEST_USERNAME = 'lmcrean';
-export let API_BASE_URL = 'http://localhost:3015'; // Default fallback
+export let API_BASE_URL = 'http://localhost:3001'; // Default fallback - updated to use port 3001
 
 // Function to find the active API server
 export async function findActiveApiPort(request: APIRequestContext): Promise<string> {

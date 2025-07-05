@@ -7,8 +7,8 @@ import {
   validatePullRequestStructure,
   validatePaginationStructure,
   validateCacheHeaders
-} from './runners/operations.api';
-import { ObservabilityRunner } from './runners/setup/observability-runner';
+} from '../../runners/utilities.api';
+import { ObservabilityRunner } from '../../runners/setup/observability-runner';
 
 const observability = new ObservabilityRunner('Pull Request Feed API');
 

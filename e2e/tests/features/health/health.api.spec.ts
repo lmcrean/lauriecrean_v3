@@ -4,8 +4,8 @@ import {
   validateTimestamp,
   HealthResponse,
   PortInfoResponse 
-} from './runners/operations.api';
-import { ObservabilityRunner } from './runners/observability-runner';
+} from '../../runners/utilities.api';
+import { ObservabilityRunner } from '../../runners/setup/observability-runner';
 
 const observability = new ObservabilityRunner('API Health Checks');
 

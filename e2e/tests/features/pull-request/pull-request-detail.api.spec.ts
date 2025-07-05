@@ -6,9 +6,9 @@ import {
   ErrorResponse,
   validateCacheHeaders,
   setupApiConnection
-} from './runners/operations.api';
-import { ObservabilityRunner } from './runners/setup/observability-runner';
-import { PullRequestDetailApiRunner, PullRequestDetailConfig } from './runners/pull-request/pull-request-detail.api';
+} from '../../runners/utilities.api';
+import { ObservabilityRunner } from '../../runners/setup/observability-runner';
+import { PullRequestDetailApiRunner, PullRequestDetailConfig } from '../../runners/pull-request/pull-request-detail.api';
 import { E2ELogger } from '@lauriecrean/observability';
 
 const observability = new ObservabilityRunner('Pull Request Detail API');

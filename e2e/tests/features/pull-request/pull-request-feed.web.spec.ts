@@ -6,7 +6,7 @@ import {
   HealthRunner,
   PullRequestApiRunner,
   PullRequestApiTestConfig
-} from './runners';
+} from '../../runners';
 
 /**
  * E2E test for Pull Request Feed API integration
