@@ -106,6 +106,9 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
         }
       }}
       aria-label={`Pull request #${pullRequest.number}, ${status.text} ${relativeTime}`}
+      data-testid="pull-request-card"
+      data-pr-number={pullRequest.number}
+      data-pr-title={pullRequest.title}
     >
       {/* Status & Timing Row */}
       <div className="flex justify-between items-center mb-3">

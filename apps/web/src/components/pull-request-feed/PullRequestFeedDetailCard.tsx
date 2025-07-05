@@ -251,14 +251,16 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
       role="dialog"
       aria-modal="true"
       aria-labelledby="pr-modal-title"
+      data-testid="pull-request-modal"
     >
-      <div className={containerClasses} onClick={(e) => e.stopPropagation()}>
+      <div className={containerClasses} onClick={(e) => e.stopPropagation()} data-testid="pull-request-detail">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 sticky top-0 z-10">
           <button 
             className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors" 
             onClick={onClose} 
             aria-label="Go back"
+            data-testid="close-modal"
           >
             <span>←</span>
             <span className="font-medium">Back</span>
@@ -267,6 +269,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
             className="w-8 h-8 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 text-xl transition-colors" 
             onClick={onClose} 
             aria-label="Close modal"
+            data-testid="modal-close-x"
           >
             ×
           </button>
@@ -292,7 +295,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
                 {pullRequest.title}
               </h1>
               
-              <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+              <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300" data-testid="pr-author">
                 <span className="text-lg">👤</span>
                 <span className="font-medium">{pullRequest.author.login}</span>
               </div>
@@ -336,16 +339,16 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Stats</h2>
             <div className="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-4">
               <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2" data-testid="pr-additions">
                   <span className="text-lg">📊</span>
                   <span className="text-sm text-gray-700 dark:text-gray-300">
                     <span className="text-green-600 dark:text-green-400 font-medium">+{pullRequest.additions}</span>
                     {' '}
-                    <span className="text-red-600 dark:text-red-400 font-medium">-{pullRequest.deletions}</span>
+                    <span className="text-red-600 dark:text-red-400 font-medium" data-testid="pr-deletions">-{pullRequest.deletions}</span>
                     {' '}changes
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2" data-testid="pr-changed-files">
                   <span className="text-lg">📁</span>
                   <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.changed_files} files changed</span>
                 </div>
@@ -353,7 +356,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
                   <span className="text-lg">💬</span>
                   <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.comments} comments</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2" data-testid="pr-commits">
                   <span className="text-lg">✅</span>
                   <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.commits} commits</span>
                 </div>
@@ -397,6 +400,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
               <button 
                 className="w-full bg-blue-600 dark:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
                 onClick={() => window.open(pullRequest.html_url, '_blank')}
+                data-testid="github-link"
               >
                 View on GitHub
               </button>
