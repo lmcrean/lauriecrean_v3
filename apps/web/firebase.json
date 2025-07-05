@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "lauriecrean-free-38256",
     "public": "build",
     "ignore": [
       "firebase.json",
