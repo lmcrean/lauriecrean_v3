@@ -54,7 +54,7 @@ export class PullRequestFeedRunner {
     
     // Take final screenshot
     await page.screenshot({ 
-      path: path.join('e2e', 'screenshots', 'pull-request-final.png'),
+      path: path.join('screenshots', 'pull-request-final.png'),
       fullPage: true 
     });
     
@@ -123,7 +123,7 @@ export class PullRequestFeedRunner {
       
       // Take screenshot for debugging
       await page.screenshot({ 
-        path: path.join('e2e', 'screenshots', 'pull-request-debug.png'),
+        path: path.join('screenshots', 'pull-request-debug.png'),
         fullPage: true 
       });
       

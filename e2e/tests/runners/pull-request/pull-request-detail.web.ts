@@ -62,7 +62,7 @@ export class PullRequestDetailWebRunner {
     
     // Take final screenshot
     await page.screenshot({ 
-      path: path.join('e2e', 'screenshots', 'pull-request-detail-final.png'),
+      path: path.join('screenshots', 'pull-request-detail-final.png'),
       fullPage: true 
     });
     
