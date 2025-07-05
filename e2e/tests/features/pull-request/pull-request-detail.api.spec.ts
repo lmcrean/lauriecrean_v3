@@ -6,7 +6,7 @@ import {
   ErrorResponse,
   validateCacheHeaders,
   setupApiConnection
-} from '../../runners/utilities.api';
+} from '../../runners/utilities/utilities.api';
 import { ObservabilityRunner } from '../../runners/setup/observability-runner';
 import { PullRequestDetailApiRunner, PullRequestDetailConfig } from '../../runners/pull-request/pull-request-detail.api';
 import { E2ELogger } from '@lauriecrean/observability';

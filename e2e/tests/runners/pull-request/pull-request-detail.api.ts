@@ -1,6 +1,6 @@
 import { APIRequestContext } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
-import { getApiBaseUrl, DetailedPullRequestResponse, ErrorResponse } from '../operations.api';
+import { getApiBaseUrl, DetailedPullRequestResponse, ErrorResponse } from '../utilities/utilities.api';
 
 export interface PullRequestDetailConfig {
   owner: string;
