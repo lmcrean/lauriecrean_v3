@@ -4,23 +4,25 @@ This directory contains modular test runners that organize E2E test functionalit
 
 ## Directory Structure
 
-```
-e2e/web/api/github/runners/
-├── index.ts                           # Main exports for all runners
-├── README.md                          # This documentation
-├── web/                              # Web UI test runners
-│   ├── landing/
-│   │   └── landing-runner.ts         # Landing page tests
-│   └── pull-request/
-│       ├── detail/                   # Pull request detail tests (future)
-│       └── feed/
-│           ├── service-manager.ts    # Service startup/teardown
-│           └── pull-request-feed-runner.ts # Feed UI tests
-└── api/                              # API endpoint test runners
-    ├── health/
-    │   └── health-runner.ts          # API health checks
-    └── pull-request/
-        └── pull-request-api-runner.ts # Direct API tests
+```bash
+e2e/tests/
+├── features/           # Master test operations
+│   ├── pull-request/
+│   │   ├── pull-request-detail.api.spec.ts
+│   │   ├── pull-request-detail.spec.ts
+│   │   └── pull-request-feed.api.spec.ts
+│   ├── health/
+│   └── frontend/
+├── runners/   # always <100 lines
+│   ├── utilities/        # not setup specific runners
+│   ├── setup/             # Setup files before each test <100 lines
+│   │   ├── observability-runner.ts
+│   │   └── service-manager.ts
+│   └── pull-request/          # Feature-specific runners
+│       ├── pull-request-detail.api.ts
+│       └── pull-request-detail.web.ts
+|   └── teardown/       # teardown files after each test <100 lines
+│   index.ts # exports all runners
 ```
 
 ## Available Runners
