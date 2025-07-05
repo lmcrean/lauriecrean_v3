@@ -25,7 +25,7 @@ export default defineConfig({
       name: 'safari',
       use: { 
         ...devices['Desktop Safari'],
-        baseURL: 'http://localhost:3010',
+        baseURL: 'http://localhost:3020',
         // Record videos for debugging if tests fail
         video: 'on-first-retry'
       },
@@ -34,8 +34,8 @@ export default defineConfig({
 
   // Run your local dev server before starting the tests
   webServer: {
-    command: 'cd ../apps/web && npm run start -- --port 3010',
-    url: 'http://localhost:3010',
+    command: 'cd ../apps/web && npm run start -- --port 3020',
+    url: 'http://localhost:3020',
     reuseExistingServer: !process.env.CI,
     stdout: 'pipe',
   },
