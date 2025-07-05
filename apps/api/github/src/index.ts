@@ -26,7 +26,7 @@ const app = express();
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
+  : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev', 'https://lauriecrean-free-38256.web.app'];
 
 app.use(cors({
   origin: allowedOrigins,
