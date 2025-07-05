@@ -26,7 +26,7 @@ const app = express();
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
+  : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev', 'https://lauriecrean-free-38256.web.app'];
 
 app.use(cors({
   origin: allowedOrigins,
@@ -148,8 +148,17 @@ app.use((error: Error, req: express.Request, res: express.Response, next: expres
 // For Vercel, export the app
 export default app;
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
+// Start server - handle both production (Cloud Run) and local development
+if (process.env.NODE_ENV === 'production') {
+  // Cloud Run production mode
+  const port = process.env.PORT || 8080;
+  app.listen(port, () => {
+    console.log(`✅ GitHub API server running on port ${port} (production)`);
+    console.log(`🔗 Health check: http://localhost:${port}/health`);
+    console.log(`📡 Pull requests: http://localhost:${port}/api/github/pull-requests`);
+  });
+} else {
+  // Local development mode
   import('./utils/portUtils').then(async ({ findAvailablePort, getPortConfig }) => {
     try {
       const { currentPort } = getPortConfig();
