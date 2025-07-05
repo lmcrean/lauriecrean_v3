@@ -23,7 +23,7 @@ spec:
     spec:
       containerConcurrency: 100
       containers:
-      - image: gcr.io/YOUR_PROJECT_ID/api-github:latest
+              - image: gcr.io/lauriecrean-free-38256/api-github:latest
         ports:
         - containerPort: 8080
         env:

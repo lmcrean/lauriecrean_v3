@@ -21,12 +21,24 @@ fi
 if ! command -v firebase &> /dev/null; then
     echo "❌ Firebase CLI is not installed. Installing..."
     npm install -g firebase-tools
+    # Add npm global bin to PATH for current session
+    export PATH="$PATH:$(npm config get prefix)/bin"
+    # Also try alternative path locations
+    export PATH="$PATH:$HOME/.npm-packages/bin:$HOME/AppData/Roaming/npm"
+fi
+
+# Use npx as fallback if firebase command not found
+if ! command -v firebase &> /dev/null; then
+    echo "🔄 Using npx firebase-tools as fallback..."
+    FIREBASE_CMD="npx firebase-tools"
+else
+    FIREBASE_CMD="firebase"
 fi
 
 # Check if logged in to Firebase
-if ! firebase projects:list &> /dev/null; then
+if ! $FIREBASE_CMD projects:list &> /dev/null; then
     echo "🔑 Please log in to Firebase first:"
-    firebase login
+    $FIREBASE_CMD login
 fi
 
 # Check project configuration
@@ -57,10 +69,10 @@ npm run build
 
 # Deploy to Firebase Hosting
 echo "📤 Deploying to Firebase Hosting..."
-firebase deploy --only hosting
+$FIREBASE_CMD deploy --only hosting
 
 # Get the hosting URL
-PROJECT_ID=$(firebase projects:list --json | jq -r '.[] | select(.state == "ACTIVE") | .projectId' | head -1)
+PROJECT_ID=$(gcloud config get-value project 2>/dev/null || echo "lauriecrean-free-38256")
 HOSTING_URL="https://${PROJECT_ID}.web.app"
 
 echo "✅ Deployment completed successfully!"

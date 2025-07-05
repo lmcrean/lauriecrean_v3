@@ -37,7 +37,7 @@ if [ -z "$PROJECT_ID" ]; then
     RANDOM_SUFFIX=$(date +%s | tail -c 6)
     PROJECT_ID="lauriecrean-free-${RANDOM_SUFFIX}"
     echo "Creating new project: $PROJECT_ID"
-    gcloud projects create $PROJECT_ID --name="Laurie Crean Portfolio (Free Tier)"
+    gcloud projects create $PROJECT_ID --name="Laurie Crean Portfolio"
 fi
 
 # Set the project
@@ -66,27 +66,13 @@ gcloud billing projects link $PROJECT_ID --billing-account=$BILLING_ACCOUNT_ID
 
 # Create $0 budget alert
 echo "🚨 Creating $0 budget alert..."
-cat > budget-config.yaml << EOF
-displayName: "Zero Cost Alert - $PROJECT_ID"
-budgetFilter:
-  projects:
-  - "projects/$PROJECT_ID"
-amount:
-  specifiedAmount:
-    currencyCode: "USD"
-    units: "0"
-    nanos: 10000000  # $0.01
-thresholdRules:
-- thresholdPercent: 0.5
-  spendBasis: CURRENT_SPEND
-- thresholdPercent: 1.0
-  spendBasis: CURRENT_SPEND
-allUpdatesRule:
-  monitoringNotificationChannels: []
-  disableDefaultIamRecipients: false
-EOF
-
-gcloud billing budgets create --billing-account=$BILLING_ACCOUNT_ID --budget-file=budget-config.yaml
+gcloud billing budgets create \
+    --billing-account=$BILLING_ACCOUNT_ID \
+    --display-name="Zero Cost Alert - $PROJECT_ID" \
+    --budget-amount=0.01 \
+    --filter-projects="projects/$PROJECT_ID" \
+    --threshold-rule=percent=50,basis=CURRENT_SPEND \
+    --threshold-rule=percent=100,basis=CURRENT_SPEND
 
 # Enable required APIs
 echo "🔧 Enabling required APIs..."
@@ -103,6 +89,8 @@ echo "🔥 Setting up Firebase..."
 if ! command -v firebase &> /dev/null; then
     echo "Installing Firebase CLI..."
     npm install -g firebase-tools
+    # Add npm global bin to PATH for current session
+    export PATH="$PATH:$(npm config get prefix)/bin"
 fi
 
 # Initialize Firebase project
@@ -196,7 +184,7 @@ echo "gcloud projects add-iam-policy-binding $PROJECT_ID --member='serviceAccoun
 echo "gcloud iam service-accounts keys create key.json --iam-account=github-actions@$PROJECT_ID.iam.gserviceaccount.com"
 
 # Clean up temporary files
-rm -f budget-config.yaml monitoring-config.json
+rm -f monitoring-config.json
 
 echo ""
 echo "✅ Google Cloud setup completed successfully!"
