@@ -208,5 +208,55 @@ html {
 .iconExternalLink_nPIU {
   margin-top: 10px !important;
   margin-left: 10px !important;
+  margin-left: 4px;
+}
+
+/* Pull Requests sidebar item with live badge */
+.menu__link[href*="pull-request-feed"] {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__link[href*="pull-request-feed"]:after {
+  content: "live";
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+/* Pulse animation for live badge */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+/* Dark theme support for live badge */
+[data-theme='dark'] .menu__link[href*="pull-request-feed"]:after {
+  background: linear-gradient(45deg, #f87171, #ef4444);
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+
+/* Ensure the link text doesn't interfere with badge */
+.menu__link[href*="pull-request-feed"] .menu__link-text {
+  flex: 1;
+  margin-right: 8px;
 }
 
