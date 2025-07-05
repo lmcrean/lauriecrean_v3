@@ -28,7 +28,7 @@ export class PullRequestFeedRunner {
     this.setupPageLogging(page);
     
     // Navigate to pull request feed page
-    this.logger.logInfo('📍 Navigating to page with pull request feed...', 'feed-runner');
+    this.logger.logInfo('📍 Navigating to page with pull request feed...', 'test');
     await page.goto(`${this.baseUrl}/pull-request-feed`, { 
       waitUntil: 'networkidle',
       timeout: 30000 
@@ -41,12 +41,12 @@ export class PullRequestFeedRunner {
     const componentFound = await this.findPullRequestComponent(page);
     
     // Wait for potential API calls and timeout errors (shorter wait, more resilient)
-    this.logger.logInfo('⏳ Waiting for API calls and potential timeout errors...', 'feed-runner');
+    this.logger.logInfo('⏳ Waiting for API calls and potential timeout errors...', 'test');
     try {
       await page.waitForTimeout(5000); // Reduced to 5 seconds - sufficient to capture timeouts
     } catch (error) {
       // If page is closed, that's fine - we've likely already captured the data we need
-      this.logger.logInfo('ℹ️ Wait interrupted - likely due to page closure, continuing with analysis', 'feed-runner');
+      this.logger.logInfo('ℹ️ Wait interrupted - likely due to page closure, continuing with analysis', 'test');
     }
     
     // Analyze results
@@ -104,7 +104,7 @@ export class PullRequestFeedRunner {
   }
 
   private async findPullRequestComponent(page: Page): Promise<boolean> {
-    this.logger.logInfo('🔍 Looking for pull request feed component...', 'feed-runner');
+    this.logger.logInfo('🔍 Looking for pull request feed component...', 'test');
     
     // Check if pull request feed component exists
     const pullRequestFeed = page.locator('[data-testid="pull-request-feed"]').first();
@@ -113,13 +113,13 @@ export class PullRequestFeedRunner {
     let foundComponent = false;
     
     if (await pullRequestFeed.isVisible({ timeout: 5000 }).catch(() => false)) {
-      this.logger.logInfo('✅ Found pull request feed component', 'feed-runner');
+      this.logger.logInfo('✅ Found pull request feed component', 'test');
       foundComponent = true;
     } else if (await pullRequestSection.isVisible({ timeout: 5000 }).catch(() => false)) {
-      this.logger.logInfo('✅ Found pull request section', 'feed-runner');
+      this.logger.logInfo('✅ Found pull request section', 'test');
       foundComponent = true;
     } else {
-      this.logger.logWarn('ℹ️ Pull request component not immediately visible, checking page content...', 'feed-runner');
+      this.logger.logWarn('ℹ️ Pull request component not immediately visible, checking page content...', 'test');
       
       // Take screenshot for debugging
       await page.screenshot({ 
@@ -129,7 +129,7 @@ export class PullRequestFeedRunner {
       
       // Log page content for debugging
       const pageContent = await page.content();
-      this.logger.logInfo('📄 Page analysis', 'feed-runner', {
+      this.logger.logInfo('📄 Page analysis', 'test', {
         containsPullRequestText: pageContent.includes('pull request'),
         containsAPIText: pageContent.includes('api')
       });
@@ -143,7 +143,7 @@ export class PullRequestFeedRunner {
     const networkLogs = this.logger.getLogsForSource('network');
     const browserLogs = this.logger.getLogsForSource('browser');
     
-    this.logger.logInfo('📊 Network Activity Summary', 'feed-runner', {
+    this.logger.logInfo('📊 Network Activity Summary', 'test', {
       totalNetworkLogs: networkLogs.length,
       totalBrowserLogs: browserLogs.length
     });
@@ -168,16 +168,16 @@ export class PullRequestFeedRunner {
       totalBrowserLogs: browserLogs.length
     };
     
-    this.logger.logInfo('📈 Test Results Analysis', 'feed-runner', testResults);
+    this.logger.logInfo('📈 Test Results Analysis', 'test', testResults);
     
     if (hasTimeoutError) {
-      this.logger.logInfo('✅ Successfully reproduced the timeout error', 'feed-runner');
+      this.logger.logInfo('✅ Successfully reproduced the timeout error', 'test');
     } else if (hasSuccessfulAPICall) {
-      this.logger.logInfo('✅ API calls are working - timeout issue resolved', 'feed-runner');
+      this.logger.logInfo('✅ API calls are working - timeout issue resolved', 'test');
     } else if (componentFound) {
-      this.logger.logInfo('✅ Component found and interaction captured', 'feed-runner');
+      this.logger.logInfo('✅ Component found and interaction captured', 'test');
     } else {
-      this.logger.logWarn('ℹ️ No specific timeout error reproduced, but captured activity', 'feed-runner');
+      this.logger.logWarn('ℹ️ No specific timeout error reproduced, but captured activity', 'test');
     }
 
     return testResults;

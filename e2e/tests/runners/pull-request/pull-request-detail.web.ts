@@ -105,47 +105,55 @@ export class PullRequestDetailWebRunner {
   }
 
   private async openPullRequestDetail(page: Page, config: PullRequestDetailConfig): Promise<boolean> {
-    this.logger.logInfo(`🔍 Looking for PR #${config.prNumber} in the list...`, 'test');
+    this.logger.logInfo(`🔍 Looking for pull request cards in the list...`, 'test');
     
     try {
-      // Look for pull request items
-      const pullRequestItems = page.locator('[data-testid="pull-request-item"]');
+      // Wait for pull request feed to load
+      await page.waitForSelector('[data-testid="pull-request-feed"]', { timeout: 10000 });
+      this.logger.logInfo('✅ Pull request feed loaded', 'test');
+      
+      // Look for pull request cards
       const pullRequestCards = page.locator('[data-testid="pull-request-card"]');
       
-      // Check if we have any PR items
-      const itemCount = await pullRequestItems.count();
+      // Wait for cards to appear
+      await page.waitForTimeout(2000);
       const cardCount = await pullRequestCards.count();
       
-      this.logger.logInfo(`📋 Found ${itemCount} PR items and ${cardCount} PR cards`, 'test');
+      this.logger.logInfo(`📋 Found ${cardCount} PR cards`, 'test');
       
-      if (itemCount > 0) {
-        // Click on the first PR item
-        await pullRequestItems.first().click();
-        this.logger.logInfo('🖱️ Clicked on first PR item', 'test');
-      } else if (cardCount > 0) {
-        // Click on the first PR card
-        await pullRequestCards.first().click();
-        this.logger.logInfo('🖱️ Clicked on first PR card', 'test');
+      if (cardCount > 0) {
+        // Try to find the specific PR if prNumber is provided, otherwise use first card
+        let targetCard = pullRequestCards.first();
+        
+        if (config.prNumber) {
+          const specificCard = page.locator(`[data-testid="pull-request-card"][data-pr-number="${config.prNumber}"]`);
+          if (await specificCard.count() > 0) {
+            targetCard = specificCard;
+            this.logger.logInfo(`🎯 Found specific PR #${config.prNumber}`, 'test');
+          } else {
+            this.logger.logInfo(`⚠️ PR #${config.prNumber} not found, using first available card`, 'test');
+          }
+        }
+        
+        // Click on the target card
+        await targetCard.click();
+        this.logger.logInfo('🖱️ Clicked on PR card', 'test');
       } else {
-        this.logger.logError('❌ No PR items or cards found to click', 'test');
+        this.logger.logError('❌ No PR cards found to click', 'test');
         return false;
       }
       
-      // Wait for modal or detail view to open
+      // Wait for modal to open
       await page.waitForTimeout(2000);
       
       // Check if modal opened
       const modal = page.locator('[data-testid="pull-request-modal"]');
-      const detailView = page.locator('[data-testid="pull-request-detail"]');
       
       if (await modal.isVisible({ timeout: 5000 }).catch(() => false)) {
         this.logger.logInfo('✅ PR detail modal opened', 'test');
         return true;
-      } else if (await detailView.isVisible({ timeout: 5000 }).catch(() => false)) {
-        this.logger.logInfo('✅ PR detail view opened', 'test');
-        return true;
       } else {
-        this.logger.logError('❌ PR detail modal/view did not open', 'test');
+        this.logger.logError('❌ PR detail modal did not open', 'test');
         return false;
       }
       
@@ -159,6 +167,9 @@ export class PullRequestDetailWebRunner {
     this.logger.logInfo('🔍 Testing detail data loading...', 'test');
     
     try {
+      // Wait for modal to be fully loaded
+      await page.waitForSelector('[data-testid="pull-request-modal"]', { timeout: 10000 });
+      
       // Wait for detailed data to load
       await page.waitForTimeout(3000);
       
@@ -178,8 +189,14 @@ export class PullRequestDetailWebRunner {
         if (await element.isVisible({ timeout: 2000 }).catch(() => false)) {
           fieldsFound++;
           this.logger.logInfo(`✅ Found detail field: ${field}`, 'test');
+        } else {
+          this.logger.logInfo(`⚠️ Detail field not found: ${field}`, 'test');
         }
       }
+      
+      // Check for modal content structure
+      const modalContent = page.locator('[data-testid="pull-request-detail"]');
+      const hasModalContent = await modalContent.isVisible({ timeout: 2000 }).catch(() => false);
       
       // Also check for text content that indicates detailed data
       const pageContent = await page.content();
@@ -188,11 +205,11 @@ export class PullRequestDetailWebRunner {
                                 pageContent.includes('deletions') ||
                                 pageContent.includes('changed files');
       
-      if (fieldsFound > 0 || hasDetailedContent) {
-        this.logger.logInfo(`✅ Detail data loaded - ${fieldsFound} fields found`, 'test');
+      if (fieldsFound >= 3 || (hasModalContent && hasDetailedContent)) {
+        this.logger.logInfo(`✅ Detail data loaded - ${fieldsFound} fields found, modal content: ${hasModalContent}`, 'test');
         return true;
       } else {
-        this.logger.logError('❌ No detail data found', 'test');
+        this.logger.logError(`❌ Insufficient detail data found - ${fieldsFound} fields, modal content: ${hasModalContent}`, 'test');
         return false;
       }
       
@@ -206,32 +223,47 @@ export class PullRequestDetailWebRunner {
     this.logger.logInfo('🔍 Testing component interactions...', 'test');
     
     try {
+      let interactionsFound = 0;
+      
       // Test close button if modal is open
       const closeButton = page.locator('[data-testid="close-modal"]');
       const closeX = page.locator('[data-testid="modal-close-x"]');
       
       if (await closeButton.isVisible({ timeout: 2000 }).catch(() => false)) {
         this.logger.logInfo('✅ Close button found', 'test');
-        return true;
-      } else if (await closeX.isVisible({ timeout: 2000 }).catch(() => false)) {
+        interactionsFound++;
+      }
+      
+      if (await closeX.isVisible({ timeout: 2000 }).catch(() => false)) {
         this.logger.logInfo('✅ Close X button found', 'test');
-        return true;
+        interactionsFound++;
       }
       
       // Test external links
       const githubLink = page.locator('[data-testid="github-link"]');
-      const prLink = page.locator('a[href*="github.com"]');
       
       if (await githubLink.isVisible({ timeout: 2000 }).catch(() => false)) {
         this.logger.logInfo('✅ GitHub link found', 'test');
-        return true;
-      } else if (await prLink.isVisible({ timeout: 2000 }).catch(() => false)) {
-        this.logger.logInfo('✅ PR link found', 'test');
-        return true;
+        interactionsFound++;
       }
       
-      this.logger.logInfo('ℹ️ No specific interactive elements found, but component rendered', 'test');
-      return true;
+      // Test for any GitHub-related links in the modal
+      const modalContent = page.locator('[data-testid="pull-request-detail"]');
+      const githubLinks = modalContent.locator('button:has-text("GitHub"), a[href*="github.com"]');
+      const githubLinkCount = await githubLinks.count();
+      
+      if (githubLinkCount > 0) {
+        this.logger.logInfo(`✅ Found ${githubLinkCount} GitHub-related links`, 'test');
+        interactionsFound++;
+      }
+      
+      if (interactionsFound > 0) {
+        this.logger.logInfo(`✅ Component interactions working - ${interactionsFound} interactive elements found`, 'test');
+        return true;
+      } else {
+        this.logger.logInfo('ℹ️ No specific interactive elements found, but component rendered', 'test');
+        return true; // Still consider it a success if modal is open
+      }
       
     } catch (error: any) {
       this.logger.logError(`❌ Error testing interactions: ${error.message}`, 'test');
