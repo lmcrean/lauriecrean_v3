@@ -9,7 +9,7 @@ class PullRequestDetailProdWebRunner {
 
   constructor(logger: E2ELogger) {
     this.logger = logger;
-    this.baseUrl = 'https://lauriecrean.dev';
+    this.baseUrl = 'https://lauriecrean-free-38256.web.app';
   }
 
   async runPullRequestDetailTest(page: any, config: any): Promise<any> {
@@ -291,7 +291,7 @@ test.describe('Production Pull Request Detail Tests', () => {
     };
 
     // Navigate to production site
-    await page.goto('https://lauriecrean.dev/pull-request-feed', { 
+    await page.goto('https://lauriecrean-free-38256.web.app/pull-request-feed', { 
       waitUntil: 'networkidle',
       timeout: config.timeout 
     });
