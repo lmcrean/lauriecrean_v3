@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
 
 export default defineConfig({
   testDir: './',
@@ -7,6 +8,10 @@ export default defineConfig({
   retries: 1,
   workers: 1,
   reporter: 'html',
+  
+  // Global setup and teardown hooks
+  globalSetup: path.resolve(__dirname, 'utils/global-setup.ts'),
+  globalTeardown: path.resolve(__dirname, 'utils/global-teardown.ts'),
   
   // Only using Safari as specified in custom instructions
   projects: [
