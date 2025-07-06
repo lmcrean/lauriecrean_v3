@@ -58,7 +58,7 @@ const app = (0, express_1.default)();
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',')
-    : ['http://localhost:3000', 'https://lauriecrean.com', 'https://www.lauriecrean.dev'];
+    : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev', 'https://lauriecrean-free-38256.web.app'];
 app.use((0, cors_1.default)({
     origin: allowedOrigins,
     credentials: true
@@ -71,6 +71,15 @@ app.get('/health', (req, res) => {
         status: 'ok',
         timestamp: new Date().toISOString(),
         service: 'api-github'
+    });
+});
+// Port discovery endpoint
+app.get('/api/port-info', (req, res) => {
+    const actualPort = process.env.ACTUAL_PORT || process.env.PORT || '3015';
+    res.json({
+        port: parseInt(actualPort),
+        mode: process.env.PORT === '3005' ? 'manual' : 'e2e',
+        timestamp: new Date().toISOString()
     });
 });
 // Main pull requests endpoint
@@ -148,13 +157,37 @@ app.use((error, req, res, next) => {
 });
 // For Vercel, export the app
 exports.default = app;
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-    const port = process.env.PORT || 3001;
+// Start server - handle both production (Cloud Run) and local development
+if (process.env.NODE_ENV === 'production') {
+    // Cloud Run production mode
+    const port = process.env.PORT || 8080;
     app.listen(port, () => {
-        console.log(`GitHub API server running on port ${port}`);
-        console.log(`Health check: http://localhost:${port}/health`);
-        console.log(`Pull requests: http://localhost:${port}/api/github/pull-requests`);
+        console.log(`✅ GitHub API server running on port ${port} (production)`);
+        console.log(`🔗 Health check: http://localhost:${port}/health`);
+        console.log(`📡 Pull requests: http://localhost:${port}/api/github/pull-requests`);
+    });
+}
+else {
+    // Local development mode
+    Promise.resolve().then(() => __importStar(require('./utils/portUtils'))).then(async ({ findAvailablePort, getPortConfig }) => {
+        try {
+            const { currentPort } = getPortConfig();
+            const availablePort = await findAvailablePort(currentPort);
+            // Store the actual port being used for other services to discover
+            process.env.ACTUAL_PORT = availablePort.toString();
+            app.listen(availablePort, () => {
+                console.log(`✅ GitHub API server running on port ${availablePort}`);
+                console.log(`🔗 Health check: http://localhost:${availablePort}/health`);
+                console.log(`📡 Pull requests: http://localhost:${availablePort}/api/github/pull-requests`);
+                if (availablePort !== currentPort) {
+                    console.log(`🔄 Note: Requested port ${currentPort} was in use, using port ${availablePort} instead`);
+                }
+            });
+        }
+        catch (error) {
+            console.error('❌ Failed to start server:', error);
+            process.exit(1);
+        }
     });
 }
 //# sourceMappingURL=index.js.map
