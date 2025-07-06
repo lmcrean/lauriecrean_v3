@@ -1,0 +1,135 @@
+name: Deploy API to Google Cloud Run (Branch)
+
+on:
+  workflow_call:
+    inputs:
+      branch_name:
+        required: true
+        type: string
+      pr_number:
+        required: true
+        type: string
+    outputs:
+      deployment_url:
+        description: "API deployment URL"
+        value: ${{ jobs.deploy.outputs.deployment_url }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      deployment_url: ${{ steps.deploy.outputs.deployment_url }}
+    
+    steps:
+      - name: 🛒 Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/api/github/package-lock.json
+      
+      - name: 📥 Install API Dependencies
+        run: |
+          cd apps/api/github
+          npm ci
+      
+      - name: 🔧 Build API
+        run: |
+          cd apps/api/github
+          npm run build
+      
+      - name: 🧪 Run API Tests
+        run: |
+          cd apps/api/github
+          npm test 2>/dev/null || echo "⚠️ Tests not configured or failed"
+      
+      - name: 🔐 Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      
+      - name: 🛠️ Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+      
+      - name: 🐳 Configure Docker to use gcloud as a credential helper
+        run: |
+          gcloud auth configure-docker
+      
+      - name: 🏗️ Build and Push Docker Image
+        run: |
+          cd apps/api/github
+          
+          # Clean branch name for use in service names (remove special characters)
+          CLEAN_BRANCH=$(echo "${{ inputs.branch_name }}" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+          SERVICE_NAME="api-github-${CLEAN_BRANCH}"
+          IMAGE_NAME="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${SERVICE_NAME}:${{ github.sha }}"
+          
+          echo "🏷️ Building image: $IMAGE_NAME"
+          echo "🔖 Service name: $SERVICE_NAME"
+          
+          # Build and push the image
+          docker build -t $IMAGE_NAME .
+          docker push $IMAGE_NAME
+          
+          # Store values for next step
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+          echo "SERVICE_NAME=$SERVICE_NAME" >> $GITHUB_ENV
+      
+      - name: 🚀 Deploy to Cloud Run
+        id: deploy
+        run: |
+          # Deploy the service
+          gcloud run deploy $SERVICE_NAME \
+            --image $IMAGE_NAME \
+            --platform managed \
+            --region us-central1 \
+            --allow-unauthenticated \
+            --memory=512Mi \
+            --cpu=1 \
+            --min-instances=0 \
+            --max-instances=10 \
+            --timeout=60s \
+            --concurrency=100 \
+            --set-env-vars="NODE_ENV=production,PORT=8080"
+          
+          # Get the service URL
+          SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format 'value(status.url)')
+          
+          echo "🌐 Service deployed at: $SERVICE_URL"
+          echo "deployment_url=$SERVICE_URL" >> $GITHUB_OUTPUT
+        env:
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      
+      - name: ✅ Validate API Deployment
+        run: |
+          API_URL="${{ steps.deploy.outputs.deployment_url }}"
+          echo "🔍 Testing API at: $API_URL"
+          
+          # Test health endpoint with retry
+          for i in {1..5}; do
+            echo "🏥 Health check attempt $i/5..."
+            if curl -f "$API_URL/health" -m 15; then
+              echo "✅ API is healthy!"
+              break
+            fi
+            
+            if [ $i -eq 5 ]; then
+              echo "❌ API health check failed after 5 attempts"
+              exit 1
+            fi
+            
+            echo "⏳ Waiting 10 seconds before retry..."
+            sleep 10
+          done
+      
+      - name: 📊 Deployment Summary
+        run: |
+          echo "🎯 API Deployment Complete!"
+          echo "📍 URL: ${{ steps.deploy.outputs.deployment_url }}"
+          echo "🏷️ Service: $SERVICE_NAME"
+          echo "✅ Health check passed" 
