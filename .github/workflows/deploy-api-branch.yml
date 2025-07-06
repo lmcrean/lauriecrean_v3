@@ -56,9 +56,17 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
       
-      - name: 🐳 Configure Docker to use gcloud as a credential helper
+      - name: 🐳 Configure Docker for Artifact Registry
         run: |
-          gcloud auth configure-docker
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+      
+      - name: 📦 Create Artifact Registry Repository
+        run: |
+          # Create repository if it doesn't exist (ignore error if already exists)
+          gcloud artifacts repositories create api-images \
+            --repository-format=docker \
+            --location=us-central1 \
+            --description="API Docker images for branch deployments" || echo "Repository already exists"
       
       - name: 🏗️ Build and Push Docker Image
         run: |
@@ -67,7 +75,7 @@ jobs:
           # Clean branch name for use in service names (remove special characters)
           CLEAN_BRANCH=$(echo "${{ inputs.branch_name }}" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
           SERVICE_NAME="api-github-${CLEAN_BRANCH}"
-          IMAGE_NAME="gcr.io/${{ secrets.GCP_PROJECT_ID }}/${SERVICE_NAME}:${{ github.sha }}"
+          IMAGE_NAME="us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/api-images/${SERVICE_NAME}:${{ github.sha }}"
           
           echo "🏷️ Building image: $IMAGE_NAME"
           echo "🔖 Service name: $SERVICE_NAME"
