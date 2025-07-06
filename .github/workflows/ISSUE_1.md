@@ -25,6 +25,15 @@ This tells us that the issue with GitHub Actions is likely one of:
 - Service account authentication - something with how the service account key is being used in the GitHub Actions environment
 - Permission propagation - the new artifactregistry.admin role might not have propagated to the GitHub Actions environment yet
 
+error line
+
+```
+denied: Permission "artifactregistry.repositories.uploadArtifacts" denied on resource "projects/***/locations/us-central1/repositories/api-images" (or it may not exist)
+```
+
+<details>
+<summary>github actions logs</summary>
+
 ```bash
 2025-07-06T15:47:22.7625827Z Current runner version: '2.325.0'
 2025-07-06T15:47:22.7653693Z ##[group]Runner Image Provisioner
@@ -500,3 +509,5 @@ This tells us that the issue with GitHub Actions is likely one of:
 2025-07-06T15:48:13.5160873Z Evaluate and set job outputs
 2025-07-06T15:48:13.5167075Z Cleaning up orphan processes
 ```
+
+</details>
