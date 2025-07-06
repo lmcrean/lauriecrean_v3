@@ -1,12 +1,39 @@
 import { APIRequestContext, expect } from '@playwright/test';
 
-// API Configuration - Use localhost for development testing
+// API Configuration - Use localhost for development testing, production URL for production testing
 export const POSSIBLE_PORTS = [3001, 3015, 3016, 3017, 3018];
 export const TEST_USERNAME = 'lmcrean';
-export let API_BASE_URL = 'http://localhost:3001'; // Default fallback - updated to use port 3001
+export const PRODUCTION_API_URL = 'https://api-github-329000596728.us-central1.run.app';
+
+// Initialize API_BASE_URL based on environment
+const getInitialApiUrl = (): string => {
+  const configFile = process.env.PLAYWRIGHT_CONFIG_FILE || '';
+  const isProd = configFile.includes('prod') || configFile.includes('production') || 
+                 process.env.NODE_ENV === 'production' ||
+                 process.argv.some(arg => arg.includes('prod.spec') || arg.includes('production'));
+  
+  return isProd ? PRODUCTION_API_URL : 'http://localhost:3001';
+};
+
+export let API_BASE_URL = getInitialApiUrl();
+
+// Function to detect if we're running production tests
+export function isProductionTest(): boolean {
+  // Check if we're using the production Playwright config
+  const configFile = process.env.PLAYWRIGHT_CONFIG_FILE || '';
+  return configFile.includes('prod') || configFile.includes('production') || 
+         process.env.NODE_ENV === 'production' ||
+         process.argv.some(arg => arg.includes('prod.spec') || arg.includes('production'));
+}
 
 // Function to find the active API server
 export async function findActiveApiPort(request: APIRequestContext): Promise<string> {
+  // If running production tests, use production API URL
+  if (isProductionTest()) {
+    console.log(`🌍 Production test detected, using production API: ${PRODUCTION_API_URL}`);
+    return PRODUCTION_API_URL;
+  }
+  
   for (const port of POSSIBLE_PORTS) {
     try {
       const response = await request.get(`http://localhost:${port}/health`);
@@ -156,6 +183,12 @@ export async function setupApiConnection(request: APIRequestContext): Promise<vo
     setApiBaseUrl(detectedUrl);
     console.log(`🔧 Using API server at: ${getApiBaseUrl()}`);
   } catch (error) {
-    console.log(`⚠️ Could not auto-detect API server, using default: ${getApiBaseUrl()}`);
+    if (isProductionTest()) {
+      // For production tests, always use the production URL even if detection fails
+      setApiBaseUrl(PRODUCTION_API_URL);
+      console.log(`🌍 Production test mode, using production API: ${getApiBaseUrl()}`);
+    } else {
+      console.log(`⚠️ Could not auto-detect API server, using default: ${getApiBaseUrl()}`);
+    }
   }
 } 
