@@ -14,7 +14,7 @@ export default defineConfig({
       name: 'safari',
       use: { 
         ...devices['Desktop Safari'],
-        baseURL: 'https://lauriecrean.dev',
+        baseURL: 'https://lauriecrean-free-38256.web.app/',
         // Record videos for debugging if tests fail
         video: 'on-first-retry',
         // Set a longer timeout for network operations in production
