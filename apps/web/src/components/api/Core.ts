@@ -122,7 +122,7 @@ const getApiBaseUrl = async (): Promise<string> => {
     return url;
   }
   
-  const prodUrl = 'https://api-github-329000596728.us-central1.run.app';
+  const prodUrl = 'https://api-github-main-329000596728.us-central1.run.app';
   console.log(`🌍 Production mode, using: ${prodUrl}`);
   return prodUrl;
 };
@@ -136,7 +136,7 @@ const getInitialApiUrl = (): string => {
       return 'http://localhost:3015';
     }
   }
-  return 'https://api-github-329000596728.us-central1.run.app';
+  return 'https://api-github-main-329000596728.us-central1.run.app';
 };
 
 let API_BASE_URL = getInitialApiUrl();

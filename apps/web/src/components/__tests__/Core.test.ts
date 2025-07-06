@@ -14,7 +14,7 @@ describe('Core API Client', () => {
 
   describe('Configuration', () => {
     it('should have correct base URL', () => {
-      expect(API_BASE_URL).toBe('https://api-github-329000596728.us-central1.run.app');
+      expect(API_BASE_URL).toBe('https://api-github-main-329000596728.us-central1.run.app');
     });
 
     it('should have axios create method available', () => {
@@ -28,7 +28,7 @@ describe('Core API Client', () => {
     });
 
     it('should export API_BASE_URL constant', () => {
-      expect(API_BASE_URL).toBe('https://api-github-329000596728.us-central1.run.app');
+      expect(API_BASE_URL).toBe('https://api-github-main-329000596728.us-central1.run.app');
     });
   });
 

@@ -3,7 +3,7 @@ import { APIRequestContext, expect } from '@playwright/test';
 // API Configuration - Use localhost for development testing, production URL for production testing
 export const POSSIBLE_PORTS = [3001, 3015, 3016, 3017, 3018];
 export const TEST_USERNAME = 'lmcrean';
-export const PRODUCTION_API_URL = 'https://api-github-329000596728.us-central1.run.app';
+export const PRODUCTION_API_URL = 'https://api-github-main-329000596728.us-central1.run.app';
 
 // Initialize API_BASE_URL based on environment
 const getInitialApiUrl = (): string => {
