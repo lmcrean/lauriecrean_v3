@@ -22,58 +22,77 @@ export async function getPullRequests(username: string, page: number = 1, perPag
     
     console.log(`Searching for PRs by ${username} using GitHub Search API (page ${page})`);
     
-    // Calculate how many results we need to fetch
-    const resultsNeeded = page * perPage;
-    const searchPage = Math.ceil(resultsNeeded / 100); // GitHub search returns max 100 per page
+    // Calculate how many results we need to fetch to serve this page
+    const startIndex = (page - 1) * perPage;
+    const endIndex = startIndex + perPage;
     
-    const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
-      q: searchQuery,
-      sort: 'created',
-      order: 'desc',
-      per_page: Math.min(100, resultsNeeded), // Get exactly what we need, up to 100
-      page: searchPage
-    });
-
-    console.log(`Found ${searchResults.total_count} total PRs for ${username} via search`);
+    // We need to fetch enough items from GitHub to serve this page
+    // GitHub search API returns max 100 per page, so we need to determine how many pages to fetch
+    const itemsNeededFromGitHub = endIndex; // Total items needed from start
+    const githubPagesNeeded = Math.ceil(itemsNeededFromGitHub / 100);
     
-    // If we need more results for higher pages, fetch additional pages
-    let allSearchItems = [...searchResults.items];
+    // Fetch all necessary GitHub search pages
+    let allSearchItems: any[] = [];
     
-    if (resultsNeeded > 100 && searchResults.items.length === 100) {
-      // We need to fetch more pages
-      const additionalPagesNeeded = Math.ceil((resultsNeeded - 100) / 100);
+    for (let githubPage = 1; githubPage <= githubPagesNeeded; githubPage++) {
+      const itemsToFetchThisPage = Math.min(100, itemsNeededFromGitHub - ((githubPage - 1) * 100));
       
-      for (let i = 2; i <= additionalPagesNeeded + 1; i++) {
-        try {
-          const { data: additionalResults } = await octokit.rest.search.issuesAndPullRequests({
-            q: searchQuery,
-            sort: 'created',
-            order: 'desc',
-            per_page: 100,
-            page: i
-          });
-          
-          allSearchItems.push(...additionalResults.items);
-          
-          if (additionalResults.items.length < 100) {
-            break; // No more results
-          }
-        } catch (error) {
-          console.warn(`Failed to fetch search page ${i}:`, error);
+      if (itemsToFetchThisPage <= 0) break;
+      
+      try {
+        const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
+          q: searchQuery,
+          sort: 'created',
+          order: 'desc',
+          per_page: itemsToFetchThisPage,
+          page: githubPage
+        });
+
+        allSearchItems.push(...searchResults.items);
+        
+        // Store total count from first page response
+        if (githubPage === 1) {
+          console.log(`Found ${searchResults.total_count} total PRs for ${username} via search`);
+        }
+        
+        // If this page returned fewer items than requested, we've hit the end
+        if (searchResults.items.length < itemsToFetchThisPage) {
           break;
         }
+      } catch (error) {
+        console.warn(`Failed to fetch GitHub search page ${githubPage}:`, error);
+        break;
       }
+    }
+    
+    // Get total count from first search (we need to do at least one search to get this)
+    let totalCount = 0;
+    if (allSearchItems.length === 0) {
+      // If we haven't fetched anything yet, do a minimal search just to get total count
+      const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
+        q: searchQuery,
+        sort: 'created',
+        order: 'desc',
+        per_page: 1,
+        page: 1
+      });
+      totalCount = searchResults.total_count;
+    } else {
+      // Use a fresh search to get accurate total count
+      const { data: countSearch } = await octokit.rest.search.issuesAndPullRequests({
+        q: searchQuery,
+        sort: 'created',
+        order: 'desc',
+        per_page: 1,
+        page: 1
+      });
+      totalCount = countSearch.total_count;
     }
     
     // Convert search results to our format
     const allPRs: PullRequestResponse[] = [];
     
-    // Only process the items we need for the current page
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
-    const itemsToProcess = allSearchItems.slice(0, endIndex);
-    
-    for (const item of itemsToProcess) {
+    for (const item of allSearchItems) {
       try {
         // Extract owner and repo from the URL
         const urlParts = item.html_url.split('/');
@@ -121,11 +140,10 @@ export async function getPullRequests(username: string, page: number = 1, perPag
     // Sort by creation date (newest first) - this should already be sorted by search API
     const sortedPRs = allPRs.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
-    // Get the correct page of results
+    // Get the correct page of results - SINGLE SLICE, NO DOUBLE SLICING
     const paginatedPRs = sortedPRs.slice(startIndex, endIndex);
 
     // Calculate pagination metadata
-    const totalCount = searchResults.total_count; // Use actual total from search
     const totalPages = Math.ceil(totalCount / perPage);
 
     const pagination: PaginationMeta = {
@@ -138,7 +156,10 @@ export async function getPullRequests(username: string, page: number = 1, perPag
     };
 
     console.log(`Returning ${paginatedPRs.length} PRs for ${username} (page ${page}/${totalPages}, total: ${totalCount})`);
-    console.log(`Most recent PR: ${paginatedPRs[0]?.title} (${paginatedPRs[0]?.created_at})`);
+    console.log(`Fetched ${allPRs.length} total items, slicing ${startIndex}-${endIndex}`);
+    if (paginatedPRs.length > 0) {
+      console.log(`First PR on this page: ${paginatedPRs[0]?.title} (${paginatedPRs[0]?.created_at})`);
+    }
     
     return {
       pullRequests: paginatedPRs,
