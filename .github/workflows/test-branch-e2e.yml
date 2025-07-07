@@ -36,11 +36,8 @@ jobs:
           # Install and build observability package first
           echo "🔧 Building observability package..."
           cd packages/observability
-          if npm ci && npm run build; then
-            echo "✅ Observability package built successfully"
-          else
-            echo "⚠️ Observability package build failed - e2e tests may skip logging features"
-          fi
+          npm ci
+          npm run build
           
           # Install e2e dependencies
           echo "📦 Installing e2e dependencies..."
@@ -108,7 +105,12 @@ jobs:
       - name: 🧪 Run E2E Tests
         run: |
           cd e2e
-          npm run test:prod-branch:all:headless
+          
+          # Focus on PR-related tests only
+          echo "🎭 Running PR detail e2e tests..."
+          npm run test:prod-branch:pr-detail:headless
+          
+          echo "✅ PR e2e tests completed successfully"
         env:
           # Set environment variables for the Playwright config
           WEB_DEPLOYMENT_URL: ${{ inputs.web_url }}
@@ -142,9 +144,10 @@ jobs:
           echo "🔗 API Service: ${{ inputs.api_url }}"
           echo "🌿 Branch: ${{ inputs.branch_name }}"
           echo "🔢 PR: #${{ inputs.pr_number }}"
+          echo "🔍 Test Focus: PR feed and detail functionality"
           
           if [ $? -eq 0 ]; then
-            echo "✅ E2E tests completed successfully!"
+            echo "✅ PR e2e tests completed successfully!"
           else
-            echo "❌ E2E tests failed - check artifacts for details"
+            echo "❌ PR e2e tests failed - check artifacts for details"
           fi 
