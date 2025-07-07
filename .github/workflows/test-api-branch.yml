@@ -59,8 +59,8 @@ jobs:
           cd e2e
           echo "🎯 Testing API at: ${{ inputs.api_deployment_url }}"
           
-          # Run the API tests specifically for pull request feed
-          npx playwright test tests/features/pull-request/pull-request-feed.api.spec.ts --config=playwright.config.ts --reporter=list
+          # Run the API tests specifically for pull request feed (using API-only config)
+          npx playwright test tests/features/pull-request/pull-request-feed.api.spec.ts --config=playwright.prod.api.pr-branch.config.ts --reporter=list
         env:
           API_BASE_URL: ${{ inputs.api_deployment_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
