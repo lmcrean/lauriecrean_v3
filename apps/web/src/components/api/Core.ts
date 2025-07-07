@@ -132,25 +132,52 @@ const getApiBaseUrl = async (): Promise<string> => {
       
       console.log(`🌿 Detected Firebase branch deployment: PR #${prNumber}`);
       
-      // The API uses pattern: api-github-{clean-branch-name}.us-central1.run.app
-      // Common branch patterns to try based on PR number and typical naming
-      const branchPatterns = [
-        `bug-fix-gh-actions`, // Current branch
-        `fix-gh-actions`,
-        `gh-actions-fix`,
-        `branch-${prNumber}`,
-        `pr-${prNumber}`,
-        `fix-cors`,
-        `cors-fix`
-      ];
+      // Function to clean branch name the same way GitHub Actions does
+      // Equivalent to: sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g'
+      const cleanBranchName = (branchName: string): string => {
+        return branchName
+          .replace(/[^a-zA-Z0-9-]/g, '-')  // Replace non-alphanumeric/hyphen with hyphen
+          .toLowerCase()                    // Convert to lowercase
+          .replace(/-+/g, '-')             // Replace multiple hyphens with single hyphen
+          .replace(/^-|-$/g, '');          // Remove leading/trailing hyphens
+      };
       
-      console.log(`🔍 Trying branch API patterns for PR #${prNumber}...`);
-      
-      // Try each pattern to find the working API
-      for (const branchPattern of branchPatterns) {
-        const apiUrl = `https://api-github-${branchPattern}.us-central1.run.app`;
+      // Try to determine the actual branch name
+      // Common branch naming patterns to try (these will be cleaned)
+      const potentialBranchNames = [
+        // Try to extract from URL hash if possible
+        window.location.search.includes('branch=') ? 
+          new URLSearchParams(window.location.search).get('branch') : null,
         
-        console.log(`🧪 Testing: ${apiUrl}`);
+        // Common branch patterns for this type of work
+        'bug-fix-gh-actions',
+        'fix-gh-actions', 
+        'gh-actions-fix',
+        'cors-fix',
+        'api-fix',
+        'deployment-fix',
+        'branch-deployment-fix',
+        
+        // Generic patterns
+        `pr-${prNumber}`,
+        `branch-${prNumber}`,
+        `fix-${prNumber}`,
+        
+        // Try getting from document title or meta tags
+        document.title.includes('branch:') ? 
+          document.title.split('branch:')[1]?.trim().split(' ')[0] : null,
+      ].filter(Boolean); // Remove null values
+      
+      console.log(`🔍 Trying to find branch API for PR #${prNumber}...`);
+      
+      // Try each potential branch name after cleaning it
+      for (const rawBranchName of potentialBranchNames) {
+        if (!rawBranchName) continue;
+        
+        const cleanedBranch = cleanBranchName(rawBranchName);
+        const apiUrl = `https://api-github-${cleanedBranch}.us-central1.run.app`;
+        
+        console.log(`🧪 Testing branch "${rawBranchName}" → "${cleanedBranch}": ${apiUrl}`);
         
         try {
           const testResponse = await fetch(`${apiUrl}/health`, {
@@ -169,7 +196,45 @@ const getApiBaseUrl = async (): Promise<string> => {
         }
       }
       
+      // If we still can't find it, try a more systematic approach
+      // Since integration tests passed, the API must exist - try listing Cloud Run services
+      console.log(`🔍 Systematic search: trying pattern variations for PR #${prNumber}...`);
+      
+      // Try variations of branch names that might result from different branch naming conventions
+      const systematicPatterns = [
+        `bug-fix-gh-actions`, // Current known branch
+        `feature-branch-${prNumber}`,
+        `hotfix-${prNumber}`, 
+        `bugfix-${prNumber}`,
+        `fix-branch-${prNumber}`,
+        `dev-branch-${prNumber}`,
+        cleanBranchName(`bug/fix-gh-actions-${prNumber}`),
+        cleanBranchName(`feature/gh-actions-${prNumber}`),
+        cleanBranchName(`fix/cors-issues-${prNumber}`),
+      ];
+      
+      for (const pattern of systematicPatterns) {
+        const apiUrl = `https://api-github-${pattern}.us-central1.run.app`;
+        
+        console.log(`🔄 Systematic test: ${apiUrl}`);
+        
+        try {
+          const testResponse = await fetch(`${apiUrl}/health`, {
+            method: 'GET',
+            signal: AbortSignal.timeout(2000) // Shorter timeout for systematic search
+          });
+          
+          if (testResponse.ok) {
+            console.log(`✅ Found branch API via systematic search: ${apiUrl}`);
+            return apiUrl;
+          }
+        } catch (error) {
+          // Silent fail for systematic search
+        }
+      }
+      
       console.log(`⚠️ Could not find working branch API for PR #${prNumber}, falling back to production API`);
+      console.log(`💡 If you know the branch name, you can set REACT_APP_API_BASE_URL manually`);
     }
   }
   
