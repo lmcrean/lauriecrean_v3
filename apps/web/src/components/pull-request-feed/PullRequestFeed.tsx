@@ -64,9 +64,12 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   username = 'lmcrean',
   className = ''
 }) => {
+  // SSR-safe hydration check
+  const [isClient, setIsClient] = useState(false);
+  
   // State management
   const [pullRequests, setPullRequests] = useState<PullRequestListData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Start as false for SSR
   const [error, setError] = useState<string | null>(null);
   const [pagination, setPagination] = useState<PaginationMeta | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -207,8 +210,15 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     fetchPullRequests(currentPage);
   }, [fetchPullRequests, currentPage]);
 
-  // Initial load with proper cleanup
+  // Hydration-safe effect to detect client-side rendering
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Initial load with proper cleanup - only run on client side
+  useEffect(() => {
+    if (!isClient) return; // Skip on server side
+    
     // Reset mounted flag on mount
     isMountedRef.current = true;
     
@@ -231,7 +241,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
         detailAbortControllerRef.current.abort();
       }
     };
-  }, [fetchPullRequests]);
+  }, [fetchPullRequests, isClient]);
 
   // Additional cleanup on username change
   useEffect(() => {
@@ -243,13 +253,15 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     };
   }, [username]);
 
-  // Loading state
-  if (loading && pullRequests.length === 0) {
+  // Show loading state during SSR and initial client load
+  if (!isClient || (loading && pullRequests.length === 0)) {
     return (
       <div className={`w-full max-w-4xl mx-auto p-4 ${className}`} data-testid="pull-request-feed">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pull Request Activity</h2>
-          <p className="text-gray-600 dark:text-gray-300">Loading pull requests for {username}...</p>
+          <p className="text-gray-600 dark:text-gray-300">
+            {!isClient ? 'Initializing...' : `Loading pull requests for ${username}...`}
+          </p>
         </div>
         <div className="space-y-4">
           {Array.from({ length: 3 }, (_, index) => (
