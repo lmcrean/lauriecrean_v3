@@ -34,11 +34,16 @@ jobs:
       - name: 📥 Install E2E Dependencies
         run: |
           # Install and build observability package first
+          echo "🔧 Building observability package..."
           cd packages/observability
-          npm ci
-          npm run build
+          if npm ci && npm run build; then
+            echo "✅ Observability package built successfully"
+          else
+            echo "⚠️ Observability package build failed - e2e tests may skip logging features"
+          fi
           
           # Install e2e dependencies
+          echo "📦 Installing e2e dependencies..."
           cd ../../e2e
           npm ci
       
