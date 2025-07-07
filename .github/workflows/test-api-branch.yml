@@ -33,6 +33,12 @@ jobs:
           cd e2e
           npm ci
       
+      - name: 🔧 Build Observability Package
+        run: |
+          cd packages/observability
+          npm ci
+          npm run build
+      
       - name: 🧪 Test API Health Check
         run: |
           echo "🏥 Testing API health at: ${{ inputs.api_deployment_url }}"
