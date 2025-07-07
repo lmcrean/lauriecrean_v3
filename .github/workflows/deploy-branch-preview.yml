@@ -36,8 +36,19 @@ jobs:
       web_url: ${{ needs.deploy-web.outputs.deployment_url }}
       api_url: ${{ needs.deploy-api.outputs.deployment_url }}
 
-  update-pr:
+  test-e2e:
     needs: [deploy-api, deploy-web, test-integration]
+    if: needs.test-integration.result == 'success'
+    uses: ./.github/workflows/test-branch-e2e.yml
+    secrets: inherit
+    with:
+      web_url: ${{ needs.deploy-web.outputs.deployment_url }}
+      api_url: ${{ needs.deploy-api.outputs.deployment_url }}
+      branch_name: ${{ github.head_ref }}
+      pr_number: ${{ github.event.number }}
+
+  update-pr:
+    needs: [deploy-api, deploy-web, test-integration, test-e2e]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -47,12 +58,15 @@ jobs:
           script: |
             const webUrl = '${{ needs.deploy-web.outputs.deployment_url }}';
             const apiUrl = '${{ needs.deploy-api.outputs.deployment_url }}';
-            const testStatus = '${{ needs.test-integration.result }}';
+            const integrationStatus = '${{ needs.test-integration.result }}';
+            const e2eStatus = '${{ needs.test-e2e.result }}';
             const apiStatus = '${{ needs.deploy-api.result }}';
             const webStatus = '${{ needs.deploy-web.result }}';
             
-            const statusEmoji = testStatus === 'success' ? '✅' : '⚠️';
-            const statusText = testStatus === 'success' ? 'All tests passed!' : 'Some tests failed';
+            // Determine overall test status
+            const allTestsPassed = integrationStatus === 'success' && e2eStatus === 'success';
+            const statusEmoji = allTestsPassed ? '✅' : '⚠️';
+            const statusText = allTestsPassed ? 'All tests passed!' : 'Some tests failed';
             
             // Handle deployment failures
             let deploymentSection = '';
@@ -70,7 +84,10 @@ jobs:
             - [❤️ API Health](${apiUrl}/health) - Verify API status
             - [🔗 Click here to test!](${webUrl})
 
-            ### 🔄 Integration Status
+            ### 🧪 Test Results
+            - **Integration Tests**: ${integrationStatus === 'success' ? '✅ Passed' : '❌ Failed'}
+            - **E2E Tests**: ${e2eStatus === 'success' ? '✅ Passed' : e2eStatus === 'skipped' ? '⏭️ Skipped' : '❌ Failed'}
+            
             ${statusEmoji} ${statusText}`;
             } else {
               deploymentSection = `## ❌ FAILED
