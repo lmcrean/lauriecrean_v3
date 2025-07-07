@@ -257,9 +257,9 @@ test.describe('Production Pull Request Detail Tests', () => {
   test('should click on PR and open detail modal in production', async ({ page }) => {
     logger.logInfo('🚀 Starting production PR detail test', 'test');
     
-    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or Playwright config
+    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or test config
     const envWebUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
-    const baseUrl = envWebUrl || page.context().baseURL || 'https://lauriecrean-free-38256.web.app';
+    const baseUrl = envWebUrl || 'https://lauriecrean-free-38256.web.app';
     logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
     
     const webRunner = new PullRequestDetailProdWebRunner(logger, baseUrl);
@@ -286,9 +286,9 @@ test.describe('Production Pull Request Detail Tests', () => {
   test('should handle production environment gracefully', async ({ page }) => {
     logger.logInfo('🌐 Testing production environment handling', 'test');
     
-    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or Playwright config
+    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or test config
     const envWebUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
-    const baseUrl = envWebUrl || page.context().baseURL || 'https://lauriecrean-free-38256.web.app';
+    const baseUrl = envWebUrl || 'https://lauriecrean-free-38256.web.app';
     logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
     
     const config: PullRequestDetailConfig = {
