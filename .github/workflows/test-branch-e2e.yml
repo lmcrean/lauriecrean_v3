@@ -33,7 +33,13 @@ jobs:
       
       - name: 📥 Install E2E Dependencies
         run: |
-          cd e2e
+          # Install and build observability package first
+          cd packages/observability
+          npm ci
+          npm run build
+          
+          # Install e2e dependencies
+          cd ../../e2e
           npm ci
       
       - name: 🎭 Install Playwright Browsers
