@@ -32,7 +32,7 @@
     "test:prod-branch:web:pr-feed:detail": "playwright test tests/features/pull-request/pull-request-detail.prod.spec.ts --config=playwright.prod.pr-branch.ts --headed",
     "test:prod-branch:web:pr-feed:detail:headless": "playwright test tests/features/pull-request/pull-request-detail.prod.spec.ts --config=playwright.prod.pr-branch.ts",
     "test:prod-branch:all": "playwright test --config=playwright.prod.pr-branch.ts",
-    "test:prod-branch:all:headless": "playwright test --config=playwright.prod.pr-branch.ts --reporter=github-actions",
+    "test:prod-branch:all:headless": "playwright test --config=playwright.prod.pr-branch.ts --reporter=list",
     "test:prod:web:pr-feed:detail:headless": "playwright test tests/features/pull-request/pull-request-detail.prod.spec.ts --config=playwright.prod.config.ts",
     "test:prod:web:landing": "to be implemented, do not test this yet",
     "cleanup": "powershell -Command \"taskkill /F /IM node.exe 2>$null; taskkill /F /IM playwright.exe 2>$null; echo 'Cleanup completed'\"",

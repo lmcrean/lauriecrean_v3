@@ -69,7 +69,11 @@ export default defineConfig({
   forbidOnly: true,
   retries: 1,
   workers: 1,
-  reporter: 'html',
+  reporter: [
+    ['list'],
+    ['html', { open: 'never' }],
+    ['junit', { outputFile: 'test-results/results.xml' }]
+  ],
   
   // Global setup and teardown hooks
   globalSetup: path.resolve(__dirname, 'utils/global-setup.ts'),
