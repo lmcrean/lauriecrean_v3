@@ -28,10 +28,36 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',')
   : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev', 'https://lauriecrean-free-38256.web.app'];
 
-app.use(cors({
-  origin: allowedOrigins,
+// Enhanced CORS configuration to handle Firebase preview URLs
+const corsOptions = {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check exact matches first
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    
+    // Allow Firebase hosting preview URLs (pattern: lauriecrean-free-38256--*.web.app)
+    if (origin.match(/^https:\/\/lauriecrean-free-38256--[a-zA-Z0-9-]+\.web\.app$/)) {
+      console.log(`✅ Allowing Firebase preview URL: ${origin}`);
+      return callback(null, true);
+    }
+    
+    // Allow localhost with any port for development
+    if (origin.match(/^https?:\/\/localhost(:\d+)?$/)) {
+      console.log(`✅ Allowing localhost: ${origin}`);
+      return callback(null, true);
+    }
+    
+    console.log(`❌ CORS blocked origin: ${origin}`);
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
 
 // JSON parsing
 app.use(express.json());

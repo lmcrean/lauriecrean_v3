@@ -114,6 +114,13 @@ const getApiBaseUrl = async (): Promise<string> => {
   const devMode = isDevelopment();
   console.log(`🌐 getApiBaseUrl: isDevelopment=${devMode}, hostname=${typeof window !== 'undefined' ? window.location.hostname : 'undefined'}`);
   
+  // Check for branch deployment API URL first (set during build)
+  const branchApiUrl = getBrowserEnv('REACT_APP_API_BASE_URL', null) || getBrowserEnv('DOCUSAURUS_API_BASE_URL', null);
+  if (branchApiUrl && branchApiUrl !== 'undefined') {
+    console.log(`🌿 Branch deployment detected, using: ${branchApiUrl}`);
+    return branchApiUrl;
+  }
+  
   if (devMode) {
     console.log('🔧 Development mode detected, using local API discovery');
     const port = await getApiPort();
