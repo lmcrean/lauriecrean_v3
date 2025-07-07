@@ -5,7 +5,8 @@
   "main": "issue-triage.js",
   "scripts": {
     "start": "node issue-triage.js",
-    "test": "echo \"No tests yet\" && exit 0"
+    "setup-labels": "node setup-labels.js",
+    "test": "node test-triage.js"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2",

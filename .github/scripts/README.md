@@ -20,6 +20,20 @@ Add these secrets to your GitHub repository settings:
    - Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
    - Add it to repository secrets in Settings > Secrets and variables > Actions
 
+### Repository Labels Setup (Optional)
+
+For better issue categorization, you can set up recommended labels:
+
+1. Navigate to the `.github/scripts` directory
+2. Run the label setup script:
+   ```bash
+   cd .github/scripts
+   npm install
+   GITHUB_TOKEN=your_token REPOSITORY_OWNER=your_username REPOSITORY_NAME=your_repo node setup-labels.js
+   ```
+
+This will create labels for common issue types, priorities, and areas specific to developer portfolios.
+
 ### Configuration
 
 The workflow can be customized by modifying `.github/workflows/issue-triage.yml`:

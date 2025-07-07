@@ -34,4 +34,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         REPOSITORY_OWNER: ${{ github.repository_owner }}
-        REPOSITORY_NAME: ${{ github.event.repository.name }}
+        REPOSITORY_NAME: ${{ github.event.repository.name || 'developer-portfolio' }}

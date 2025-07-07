@@ -141,8 +141,9 @@ Instructions:
 2. Only suggest labels that exist in the available labels list
 3. Consider the issue type (bug, feature, documentation, etc.)
 4. Consider the technology/area mentioned in the issue
-5. Return only the label names, separated by commas
-6. If no suitable labels are found, return "none"
+5. Focus on the issue title if the body is empty or minimal
+6. Return only the label names, separated by commas
+7. If no suitable labels are found, return "none"
 
 Response format: label1, label2, label3 (or "none")
 `;
