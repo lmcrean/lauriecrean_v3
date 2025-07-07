@@ -117,8 +117,60 @@ const getApiBaseUrl = async (): Promise<string> => {
   // Check for branch deployment API URL first (set during build)
   const branchApiUrl = getBrowserEnv('REACT_APP_API_BASE_URL', null) || getBrowserEnv('DOCUSAURUS_API_BASE_URL', null);
   if (branchApiUrl && branchApiUrl !== 'undefined') {
-    console.log(`🌿 Branch deployment detected, using: ${branchApiUrl}`);
+    console.log(`🌿 Branch deployment detected from env vars, using: ${branchApiUrl}`);
     return branchApiUrl;
+  }
+  
+  // If not in development mode, check if this is a branch deployment by parsing the hostname
+  if (!devMode && typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    
+    // Check for Firebase branch deployment pattern: project--branch-PR-hash.web.app
+    const branchMatch = hostname.match(/^([^-]+)--branch-(\d+)-([^.]+)\.web\.app$/);
+    if (branchMatch) {
+      const [, projectId, prNumber] = branchMatch;
+      
+      console.log(`🌿 Detected Firebase branch deployment: PR #${prNumber}`);
+      
+      // The API uses pattern: api-github-{clean-branch-name}.us-central1.run.app
+      // Common branch patterns to try based on PR number and typical naming
+      const branchPatterns = [
+        `bug-fix-gh-actions`, // Current branch
+        `fix-gh-actions`,
+        `gh-actions-fix`,
+        `branch-${prNumber}`,
+        `pr-${prNumber}`,
+        `fix-cors`,
+        `cors-fix`
+      ];
+      
+      console.log(`🔍 Trying branch API patterns for PR #${prNumber}...`);
+      
+      // Try each pattern to find the working API
+      for (const branchPattern of branchPatterns) {
+        const apiUrl = `https://api-github-${branchPattern}.us-central1.run.app`;
+        
+        console.log(`🧪 Testing: ${apiUrl}`);
+        
+        try {
+          const testResponse = await fetch(`${apiUrl}/health`, {
+            method: 'GET',
+            signal: AbortSignal.timeout(3000) // 3 second timeout per attempt
+          });
+          
+          if (testResponse.ok) {
+            console.log(`✅ Successfully connected to branch API: ${apiUrl}`);
+            return apiUrl;
+          } else {
+            console.log(`⚠️ API ${apiUrl} responded with status ${testResponse.status}`);
+          }
+        } catch (error) {
+          console.log(`❌ Failed to connect to ${apiUrl}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+      }
+      
+      console.log(`⚠️ Could not find working branch API for PR #${prNumber}, falling back to production API`);
+    }
   }
   
   if (devMode) {
