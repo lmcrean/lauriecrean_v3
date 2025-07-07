@@ -129,9 +129,9 @@ const getApiBaseUrl = async (): Promise<string> => {
     // Updated regex to handle project names with hyphens (e.g., lauriecrean-free-38256)
     const branchMatch = hostname.match(/^(.+?)--branch-(\d+)-([^.]+)\.web\.app$/);
     if (branchMatch) {
-      const [, projectId, prNumber] = branchMatch;
+      const [, projectId, prNumber, branchHash] = branchMatch;
       
-      console.log(`🌿 Detected Firebase branch deployment: PR #${prNumber}`);
+      console.log(`🌿 Detected Firebase branch deployment: PR #${prNumber}, hash: ${branchHash}`);
       
       // Function to clean branch name the same way GitHub Actions does
       // Equivalent to: sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g'
@@ -146,6 +146,9 @@ const getApiBaseUrl = async (): Promise<string> => {
       // Try to determine the actual branch name
       // Common branch naming patterns to try (these will be cleaned)
       const potentialBranchNames = [
+        // First try the hash extracted from the URL (most likely to work)
+        branchHash,
+        
         // Try to extract from URL hash if possible
         window.location.search.includes('branch=') ? 
           new URLSearchParams(window.location.search).get('branch') : null,
