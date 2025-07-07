@@ -511,3 +511,7 @@ denied: Permission "artifactregistry.repositories.uploadArtifacts" denied on res
 ```
 
 </details>
+
+## Double checked Google Cloud Setup and Firebase Setup
+
+logged in gcp-setep/.gcp-setup-details.txt
