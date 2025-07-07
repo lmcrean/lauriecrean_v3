@@ -126,7 +126,8 @@ const getApiBaseUrl = async (): Promise<string> => {
     const hostname = window.location.hostname;
     
     // Check for Firebase branch deployment pattern: project--branch-PR-hash.web.app
-    const branchMatch = hostname.match(/^([^-]+)--branch-(\d+)-([^.]+)\.web\.app$/);
+    // Updated regex to handle project names with hyphens (e.g., lauriecrean-free-38256)
+    const branchMatch = hostname.match(/^(.+?)--branch-(\d+)-([^.]+)\.web\.app$/);
     if (branchMatch) {
       const [, projectId, prNumber] = branchMatch;
       
