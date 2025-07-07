@@ -257,10 +257,20 @@ test.describe('Production Pull Request Detail Tests', () => {
   test('should click on PR and open detail modal in production', async ({ page }) => {
     logger.logInfo('🚀 Starting production PR detail test', 'test');
     
-    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or test config
+    // Get the dynamic URLs from environment variables (set by GitHub Actions) or test config
     const envWebUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
+    const envApiUrl = process.env.API_DEPLOYMENT_URL || process.env.CLOUD_RUN_URL;
     const baseUrl = envWebUrl || 'https://lauriecrean-free-38256.web.app';
+    const apiUrl = envApiUrl || 'https://api-github-main-329000596728.us-central1.run.app';
+    
     logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
+    logger.logInfo(`🔗 Using API URL: ${apiUrl}`, 'test');
+    
+    // QUICK FIX: Inject API URL into browser window for frontend to use
+    await page.addInitScript((testApiUrl) => {
+      (window as any).__TEST_API_URL__ = testApiUrl;
+      console.log(`🧪 Injected test API URL: ${testApiUrl}`);
+    }, apiUrl);
     
     const webRunner = new PullRequestDetailProdWebRunner(logger, baseUrl);
     
@@ -286,10 +296,20 @@ test.describe('Production Pull Request Detail Tests', () => {
   test('should handle production environment gracefully', async ({ page }) => {
     logger.logInfo('🌐 Testing production environment handling', 'test');
     
-    // Get the dynamic baseURL from environment variables (set by GitHub Actions) or test config
+    // Get the dynamic URLs from environment variables (set by GitHub Actions) or test config
     const envWebUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
+    const envApiUrl = process.env.API_DEPLOYMENT_URL || process.env.CLOUD_RUN_URL;
     const baseUrl = envWebUrl || 'https://lauriecrean-free-38256.web.app';
+    const apiUrl = envApiUrl || 'https://api-github-main-329000596728.us-central1.run.app';
+    
     logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
+    logger.logInfo(`🔗 Using API URL: ${apiUrl}`, 'test');
+    
+    // QUICK FIX: Inject API URL into browser window for frontend to use
+    await page.addInitScript((testApiUrl) => {
+      (window as any).__TEST_API_URL__ = testApiUrl;
+      console.log(`🧪 Injected test API URL: ${testApiUrl}`);
+    }, apiUrl);
     
     const config: PullRequestDetailConfig = {
       owner: 'lmcrean',

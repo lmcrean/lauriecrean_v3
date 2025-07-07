@@ -114,6 +114,13 @@ const getApiBaseUrl = async (): Promise<string> => {
   const devMode = isDevelopment();
   console.log(`🌐 getApiBaseUrl: isDevelopment=${devMode}, hostname=${typeof window !== 'undefined' ? window.location.hostname : 'undefined'}`);
   
+  // QUICK FIX: Check for test environment API override first
+  if (typeof window !== 'undefined' && (window as any).__TEST_API_URL__) {
+    const testApiUrl = (window as any).__TEST_API_URL__;
+    console.log(`🧪 Test API URL override detected: ${testApiUrl}`);
+    return testApiUrl;
+  }
+  
   // Check for branch deployment API URL first (set during build)
   const branchApiUrl = getBrowserEnv('REACT_APP_API_BASE_URL', null) || getBrowserEnv('DOCUSAURUS_API_BASE_URL', null);
   if (branchApiUrl && branchApiUrl !== 'undefined') {
