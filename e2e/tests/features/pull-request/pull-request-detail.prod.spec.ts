@@ -7,9 +7,9 @@ class PullRequestDetailProdWebRunner {
   private logger: E2ELogger;
   private baseUrl: string;
 
-  constructor(logger: E2ELogger) {
+  constructor(logger: E2ELogger, baseUrl: string) {
     this.logger = logger;
-    this.baseUrl = 'https://lauriecrean-free-38256.web.app';
+    this.baseUrl = baseUrl;
   }
 
   async runPullRequestDetailTest(page: any, config: any): Promise<any> {
@@ -20,7 +20,7 @@ class PullRequestDetailProdWebRunner {
     this.setupPageLogging(page);
     
     // Navigate to pull request feed page first
-    this.logger.logInfo('📍 Navigating to production pull request feed...', 'test');
+    this.logger.logInfo(`📍 Navigating to ${this.baseUrl}/pull-request-feed...`, 'test');
     await page.goto(`${this.baseUrl}/pull-request-feed`, { 
       waitUntil: 'networkidle',
       timeout: config.timeout 
@@ -253,14 +253,15 @@ interface PullRequestDetailConfig {
 const logger = new E2ELogger();
 
 test.describe('Production Pull Request Detail Tests', () => {
-  let webRunner: PullRequestDetailProdWebRunner;
-
-  test.beforeAll(async () => {
-    webRunner = new PullRequestDetailProdWebRunner(logger);
-  });
 
   test('should click on PR and open detail modal in production', async ({ page }) => {
     logger.logInfo('🚀 Starting production PR detail test', 'test');
+    
+    // Get the dynamic baseURL from the Playwright config
+    const baseUrl = page.context().baseURL || 'https://lauriecrean-free-38256.web.app';
+    logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
+    
+    const webRunner = new PullRequestDetailProdWebRunner(logger, baseUrl);
     
     const config: PullRequestDetailConfig = {
       owner: 'lmcrean',
@@ -284,14 +285,18 @@ test.describe('Production Pull Request Detail Tests', () => {
   test('should handle production environment gracefully', async ({ page }) => {
     logger.logInfo('🌐 Testing production environment handling', 'test');
     
+    // Get the dynamic baseURL from the Playwright config
+    const baseUrl = page.context().baseURL || 'https://lauriecrean-free-38256.web.app';
+    logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
+    
     const config: PullRequestDetailConfig = {
       owner: 'lmcrean',
       repo: 'lauriecrean',
       timeout: 60000
     };
 
-    // Navigate to production site
-    await page.goto('https://lauriecrean-free-38256.web.app/pull-request-feed', { 
+    // Navigate to the dynamic base site (could be branch or production)
+    await page.goto(`${baseUrl}/pull-request-feed`, { 
       waitUntil: 'networkidle',
       timeout: config.timeout 
     });
