@@ -3,11 +3,32 @@
 // Test script for issue triage functionality
 // This script can be used to test the issue triage logic locally
 
-const { Octokit } = require('@octokit/rest');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+import { Octokit } from '@octokit/rest';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+// Type definitions
+interface MockLabel {
+  name: string;
+  description: string;
+  color: string;
+}
+
+interface MockIssue {
+  number: number;
+  title: string;
+  body: string;
+  labels: any[];
+}
+
+interface TestEnvironment {
+  GITHUB_TOKEN: string;
+  GEMINI_API_KEY: string;
+  REPOSITORY_OWNER: string;
+  REPOSITORY_NAME: string;
+}
 
 // Mock environment variables for testing
-const testEnv = {
+const testEnv: TestEnvironment = {
   GITHUB_TOKEN: 'test-token',
   GEMINI_API_KEY: 'test-key',  
   REPOSITORY_OWNER: 'test-owner',
@@ -15,7 +36,7 @@ const testEnv = {
 };
 
 // Test data
-const mockLabels = [
+const mockLabels: MockLabel[] = [
   { name: 'bug', description: 'Something isn\'t working', color: 'd73a4a' },
   { name: 'feature', description: 'New feature or request', color: 'a2eeef' },
   { name: 'documentation', description: 'Improvements or additions to documentation', color: '0075ca' },
@@ -23,7 +44,7 @@ const mockLabels = [
   { name: 'help wanted', description: 'Extra attention is needed', color: '008672' }
 ];
 
-const mockIssue = {
+const mockIssue: MockIssue = {
   number: 123,
   title: 'Add user authentication to the application',
   body: 'We need to implement user authentication using OAuth 2.0. This should include login, logout, and session management.',
@@ -31,12 +52,12 @@ const mockIssue = {
 };
 
 // Test functions
-function testLabelAnalysis() {
+function testLabelAnalysis(): void {
   console.log('Testing label analysis logic...');
   
   // Test prompt generation
-  const labelNames = mockLabels.map(label => label.name);
-  const labelDescriptions = mockLabels.map(label => 
+  const labelNames: string[] = mockLabels.map(label => label.name);
+  const labelDescriptions: string = mockLabels.map(label => 
     `${label.name}: ${label.description || 'No description'}`
   ).join('\n');
   
@@ -65,10 +86,10 @@ Response format: label1, label2, label3 (or "none")
   console.log('\n--- Expected labels for this issue: feature ---\n');
 }
 
-function testResponseParsing() {
+function testResponseParsing(): void {
   console.log('Testing response parsing...');
   
-  const testResponses = [
+  const testResponses: string[] = [
     'feature, documentation',
     'bug',
     'none',
@@ -76,7 +97,7 @@ function testResponseParsing() {
     'bug, feature, help wanted'
   ];
   
-  const labelNames = mockLabels.map(label => label.name);
+  const labelNames: string[] = mockLabels.map(label => label.name);
   
   testResponses.forEach(response => {
     console.log(`Response: "${response}"`);
@@ -84,8 +105,8 @@ function testResponseParsing() {
     if (response.toLowerCase() === 'none') {
       console.log('  Parsed labels: []');
     } else {
-      const suggestedLabels = response.split(',').map(label => label.trim());
-      const validLabels = suggestedLabels.filter(label => 
+      const suggestedLabels: string[] = response.split(',').map(label => label.trim());
+      const validLabels: string[] = suggestedLabels.filter(label => 
         labelNames.includes(label)
       );
       console.log(`  Parsed labels: [${validLabels.join(', ')}]`);
@@ -94,7 +115,7 @@ function testResponseParsing() {
   });
 }
 
-function runTests() {
+function runTests(): void {
   console.log('=== Issue Triage Bot Test Suite ===\n');
   
   testLabelAnalysis();
@@ -108,7 +129,7 @@ if (require.main === module) {
   runTests();
 }
 
-module.exports = {
+export {
   testLabelAnalysis,
   testResponseParsing,
   runTests

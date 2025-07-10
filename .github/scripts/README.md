@@ -25,11 +25,15 @@ Add these secrets to your GitHub repository settings:
 For better issue categorization, you can set up recommended labels:
 
 1. Navigate to the `.github/scripts` directory
-2. Run the label setup script:
+2. Install dependencies and build TypeScript:
    ```bash
    cd .github/scripts
    npm install
-   GITHUB_TOKEN=your_token REPOSITORY_OWNER=your_username REPOSITORY_NAME=your_repo node setup-labels.js
+   npm run build
+   ```
+3. Run the label setup script:
+   ```bash
+   GITHUB_TOKEN=your_token REPOSITORY_OWNER=your_username REPOSITORY_NAME=your_repo npm run setup-labels
    ```
 
 This will create labels for common issue types, priorities, and areas specific to developer portfolios.
@@ -52,12 +56,13 @@ The workflow can be customized by modifying `.github/workflows/issue-triage.yml`
 
 ## Script Details
 
-The main script (`issue-triage.js`) includes:
+The main script (`src/issue-triage.ts`) includes:
 
 - **Error handling** for API failures
-- **Rate limiting** with delays between API calls
+- **Rate limiting** with delays between API calls  
 - **Validation** to ensure only existing labels are applied
 - **Detailed logging** for monitoring and debugging
+- **TypeScript types** for improved code safety and maintainability
 
 ## Monitoring
 

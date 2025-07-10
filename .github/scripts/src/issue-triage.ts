@@ -1,9 +1,30 @@
-const { Octokit } = require('@octokit/rest');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+import { Octokit } from '@octokit/rest';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+// Type definitions
+interface Label {
+  name: string;
+  description: string | null;
+  color: string;
+}
+
+interface Issue {
+  number: number;
+  title: string;
+  body: string | null | undefined;
+  labels: any[];
+  pull_request?: any;
+}
+
+interface ProcessedLabel {
+  name: string;
+  description: string | null;
+  color: string;
+}
 
 // Validate required environment variables
-const requiredEnvVars = ['GITHUB_TOKEN', 'GEMINI_API_KEY', 'REPOSITORY_OWNER', 'REPOSITORY_NAME'];
-const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+const requiredEnvVars: string[] = ['GITHUB_TOKEN', 'GEMINI_API_KEY', 'REPOSITORY_OWNER', 'REPOSITORY_NAME'];
+const missingVars: string[] = requiredEnvVars.filter(varName => !process.env[varName]);
 
 if (missingVars.length > 0) {
   console.error('Missing required environment variables:', missingVars.join(', '));
@@ -17,28 +38,28 @@ const octokit = new Octokit({
 });
 
 // Initialize Gemini AI client
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
-const REPOSITORY_OWNER = process.env.REPOSITORY_OWNER;
-const REPOSITORY_NAME = process.env.REPOSITORY_NAME;
+const REPOSITORY_OWNER: string = process.env.REPOSITORY_OWNER!;
+const REPOSITORY_NAME: string = process.env.REPOSITORY_NAME!;
 
-async function main() {
+async function main(): Promise<void> {
   try {
     console.log('Starting issue triage process...');
     
     // Step 1: Fetch all available labels
-    const labels = await fetchRepositoryLabels();
+    const labels: ProcessedLabel[] = await fetchRepositoryLabels();
     console.log(`Found ${labels.length} labels in repository`);
     
     // Step 2: Fetch issues without labels
-    const unlabeledIssues = await fetchUnlabeledIssues();
+    const unlabeledIssues: Issue[] = await fetchUnlabeledIssues();
     console.log(`Found ${unlabeledIssues.length} unlabeled issues`);
     
     // Step 3: Process each unlabeled issue
     for (const issue of unlabeledIssues) {
       await processIssue(issue, labels);
       // Add a small delay to avoid overwhelming the APIs
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise<void>(resolve => setTimeout(resolve, 2000));
     }
     
     console.log('Issue triage completed successfully');
@@ -48,14 +69,14 @@ async function main() {
   }
 }
 
-async function fetchRepositoryLabels() {
+async function fetchRepositoryLabels(): Promise<ProcessedLabel[]> {
   try {
     const response = await octokit.rest.issues.listLabelsForRepo({
       owner: REPOSITORY_OWNER,
       repo: REPOSITORY_NAME,
     });
     
-    return response.data.map(label => ({
+    return response.data.map((label): ProcessedLabel => ({
       name: label.name,
       description: label.description,
       color: label.color
@@ -66,7 +87,7 @@ async function fetchRepositoryLabels() {
   }
 }
 
-async function fetchUnlabeledIssues() {
+async function fetchUnlabeledIssues(): Promise<Issue[]> {
   try {
     const response = await octokit.rest.issues.listForRepo({
       owner: REPOSITORY_OWNER,
@@ -78,7 +99,7 @@ async function fetchUnlabeledIssues() {
     // Filter out pull requests and issues that already have labels
     const unlabeledIssues = response.data.filter(issue => 
       !issue.pull_request && (!issue.labels || issue.labels.length === 0)
-    );
+    ) as Issue[];
     
     return unlabeledIssues;
   } catch (error) {
@@ -87,12 +108,12 @@ async function fetchUnlabeledIssues() {
   }
 }
 
-async function processIssue(issue, availableLabels) {
+async function processIssue(issue: Issue, availableLabels: ProcessedLabel[]): Promise<void> {
   try {
     console.log(`Processing issue #${issue.number}: "${issue.title}"`);
     
     // Use Gemini AI to analyze the issue and suggest labels
-    const suggestedLabels = await analyzeIssueWithAI(issue, availableLabels);
+    const suggestedLabels: string[] = await analyzeIssueWithAI(issue, availableLabels);
     
     if (suggestedLabels.length > 0) {
       console.log(`Suggested labels for issue #${issue.number}: ${suggestedLabels.join(', ')}`);
@@ -108,7 +129,7 @@ async function processIssue(issue, availableLabels) {
   }
 }
 
-async function analyzeIssueWithAI(issue, availableLabels) {
+async function analyzeIssueWithAI(issue: Issue, availableLabels: ProcessedLabel[]): Promise<string[]> {
   const maxRetries = 3;
   let retryCount = 0;
   
@@ -122,8 +143,8 @@ async function analyzeIssueWithAI(issue, availableLabels) {
         }
       });
       
-      const labelNames = availableLabels.map(label => label.name);
-      const labelDescriptions = availableLabels.map(label => 
+      const labelNames: string[] = availableLabels.map(label => label.name);
+      const labelDescriptions: string = availableLabels.map(label => 
         `${label.name}: ${label.description || 'No description'}`
       ).join('\n');
       
@@ -157,15 +178,16 @@ Response format: label1, label2, label3 (or "none")
       }
       
       // Parse the response and validate against available labels
-      const suggestedLabels = text.split(',').map(label => label.trim());
-      const validLabels = suggestedLabels.filter(label => 
+      const suggestedLabels: string[] = text.split(',').map(label => label.trim());
+      const validLabels: string[] = suggestedLabels.filter(label => 
         labelNames.includes(label)
       );
       
       return validLabels;
     } catch (error) {
       retryCount++;
-      console.error(`AI analysis attempt ${retryCount} failed for issue #${issue.number}:`, error.message);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`AI analysis attempt ${retryCount} failed for issue #${issue.number}:`, errorMessage);
       
       if (retryCount >= maxRetries) {
         console.error(`Max retries reached for issue #${issue.number}`);
@@ -173,14 +195,14 @@ Response format: label1, label2, label3 (or "none")
       }
       
       // Wait before retry (exponential backoff)
-      await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, retryCount - 1)));
+      await new Promise<void>(resolve => setTimeout(resolve, 1000 * Math.pow(2, retryCount - 1)));
     }
   }
   
   return [];
 }
 
-async function applyLabelsToIssue(issueNumber, labels) {
+async function applyLabelsToIssue(issueNumber: number, labels: string[]): Promise<void> {
   try {
     await octokit.rest.issues.addLabels({
       owner: REPOSITORY_OWNER,

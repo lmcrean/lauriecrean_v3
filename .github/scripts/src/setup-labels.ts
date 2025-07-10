@@ -1,8 +1,21 @@
-const { Octokit } = require('@octokit/rest');
+import { Octokit } from '@octokit/rest';
+
+// Type definitions
+interface LabelDefinition {
+  name: string;
+  description: string;
+  color: string;
+}
+
+interface ExistingLabel {
+  name: string;
+  description: string | null;
+  color: string;
+}
 
 // Validate required environment variables
-const requiredEnvVars = ['GITHUB_TOKEN', 'REPOSITORY_OWNER', 'REPOSITORY_NAME'];
-const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+const requiredEnvVars: string[] = ['GITHUB_TOKEN', 'REPOSITORY_OWNER', 'REPOSITORY_NAME'];
+const missingVars: string[] = requiredEnvVars.filter(varName => !process.env[varName]);
 
 if (missingVars.length > 0) {
   console.error('Missing required environment variables:', missingVars.join(', '));
@@ -15,11 +28,11 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-const REPOSITORY_OWNER = process.env.REPOSITORY_OWNER;
-const REPOSITORY_NAME = process.env.REPOSITORY_NAME;
+const REPOSITORY_OWNER: string = process.env.REPOSITORY_OWNER!;
+const REPOSITORY_NAME: string = process.env.REPOSITORY_NAME!;
 
 // Recommended labels for developer portfolio repositories
-const recommendedLabels = [
+const recommendedLabels: LabelDefinition[] = [
   // Issue Types
   { name: 'bug', description: 'Something isn\'t working', color: 'd73a4a' },
   { name: 'feature', description: 'New feature or request', color: '0e8a16' },
@@ -54,13 +67,13 @@ const recommendedLabels = [
   { name: 'performance', description: 'Performance optimization issues', color: 'e74c3c' }
 ];
 
-async function setupRepositoryLabels() {
+async function setupRepositoryLabels(): Promise<void> {
   try {
     console.log('Setting up repository labels...');
     
     // Get existing labels
-    const existingLabels = await getExistingLabels();
-    const existingLabelNames = existingLabels.map(label => label.name);
+    const existingLabels: ExistingLabel[] = await getExistingLabels();
+    const existingLabelNames: string[] = existingLabels.map(label => label.name);
     
     console.log(`Found ${existingLabels.length} existing labels`);
     
@@ -79,9 +92,10 @@ async function setupRepositoryLabels() {
           createdCount++;
           
           // Add delay to avoid rate limiting
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise<void>(resolve => setTimeout(resolve, 500));
         } catch (error) {
-          console.error(`Failed to create label ${label.name}:`, error.message);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`Failed to create label ${label.name}:`, errorMessage);
         }
       }
     }
@@ -97,7 +111,7 @@ async function setupRepositoryLabels() {
   }
 }
 
-async function getExistingLabels() {
+async function getExistingLabels(): Promise<ExistingLabel[]> {
   try {
     const response = await octokit.rest.issues.listLabelsForRepo({
       owner: REPOSITORY_OWNER,
@@ -111,7 +125,7 @@ async function getExistingLabels() {
   }
 }
 
-async function createLabel(label) {
+async function createLabel(label: LabelDefinition): Promise<void> {
   try {
     await octokit.rest.issues.createLabel({
       owner: REPOSITORY_OWNER,
@@ -131,7 +145,7 @@ if (require.main === module) {
   setupRepositoryLabels();
 }
 
-module.exports = {
+export {
   setupRepositoryLabels,
   recommendedLabels
 };

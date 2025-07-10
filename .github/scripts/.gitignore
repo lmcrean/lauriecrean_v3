@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+*.tsbuildinfo
+
 # Logs
 *.log
 

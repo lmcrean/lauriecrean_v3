@@ -9,14 +9,16 @@ This implementation adds automated issue triage using Gemini AI to the `lmcrean/
 - `.github/workflows/issue-triage.yml` - Main workflow file that runs every 10 minutes
 
 ### Scripts Directory (`.github/scripts/`)
-- `issue-triage.js` - Main script that performs the AI-powered issue triage
-- `setup-labels.js` - Script to set up recommended repository labels
-- `test-triage.js` - Test script to verify functionality locally
-- `package.json` - Node.js dependencies and scripts
+- `src/issue-triage.ts` - Main TypeScript script that performs the AI-powered issue triage
+- `src/setup-labels.ts` - TypeScript script to set up recommended repository labels
+- `src/test-triage.ts` - TypeScript test script to verify functionality locally
+- `dist/` - Compiled JavaScript output from TypeScript source
+- `tsconfig.json` - TypeScript configuration
+- `package.json` - Node.js dependencies and scripts (including TypeScript)
 - `package-lock.json` - Locked dependency versions
 - `README.md` - Complete documentation and setup instructions
 - `SUGGESTED_LABELS.md` - List of recommended labels for developer portfolios
-- `.gitignore` - Excludes node_modules and other files from version control
+- `.gitignore` - Excludes node_modules, dist, and other files from version control
 
 ## Key Features
 
@@ -50,7 +52,14 @@ This implementation adds automated issue triage using Gemini AI to the `lmcrean/
 - `GEMINI_API_KEY` - Must be added to repository secrets
 
 ### Optional: Label Setup
-Repository owners can run the `setup-labels.js` script to create recommended labels for better categorization.
+Repository owners can run the TypeScript setup script to create recommended labels for better categorization:
+
+```bash
+cd .github/scripts
+npm install
+npm run build
+npm run setup-labels
+```
 
 ## Benefits
 1. **Automated Organization** - Issues are automatically categorized without manual intervention

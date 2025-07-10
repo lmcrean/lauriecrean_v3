@@ -26,10 +26,15 @@ jobs:
         cd .github/scripts
         npm install
         
+    - name: Build TypeScript
+      run: |
+        cd .github/scripts
+        npm run build
+        
     - name: Run issue triage
       run: |
         cd .github/scripts
-        node issue-triage.js
+        npm run start
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

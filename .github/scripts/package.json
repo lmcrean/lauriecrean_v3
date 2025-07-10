@@ -2,16 +2,23 @@
   "name": "issue-triage-bot",
   "version": "1.0.0",
   "description": "GitHub Actions script for AI-powered issue triage",
-  "main": "issue-triage.js",
+  "main": "dist/issue-triage.js",
   "scripts": {
-    "start": "node issue-triage.js",
-    "setup-labels": "node setup-labels.js",
-    "test": "node test-triage.js"
+    "build": "tsc",
+    "start": "npm run build && node dist/issue-triage.js",
+    "setup-labels": "npm run build && node dist/setup-labels.js",
+    "test": "npm run build && node dist/test-triage.js",
+    "dev": "ts-node src/issue-triage.ts"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2",
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.0"
   },
   "engines": {
     "node": ">=18.0.0"
