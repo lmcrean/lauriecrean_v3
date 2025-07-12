@@ -101,12 +101,12 @@ test.describe('Pull Request Feed API Tests', () => {
     
     const data: ApiResponse = await response.json();
     
-    // Should reflect the requested per_page value (API doesn't enforce hard limits)
-    expect(data.meta.pagination.per_page).toBe(100);
-    // But the actual returned data might be less due to available PRs
-    expect(data.data.length).toBeLessThanOrEqual(100);
+    // API should cap per_page at 50 to prevent rate limiting issues
+    expect(data.meta.pagination.per_page).toBe(50);
+    // The actual returned data might be less due to available PRs
+    expect(data.data.length).toBeLessThanOrEqual(50);
     
-    observability.logTestInfo(`📊 Large per_page handled: requested=100, actual=${data.meta.pagination.per_page}, returned=${data.data.length}`);
+    observability.logTestInfo(`📊 Large per_page handled: requested=100, capped=${data.meta.pagination.per_page}, returned=${data.data.length}`);
   });
 
   test('should fetch detailed pull request data', async ({ request }) => {

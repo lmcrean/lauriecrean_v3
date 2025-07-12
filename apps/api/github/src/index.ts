@@ -64,7 +64,30 @@ app.get('/api/github/pull-requests/:username?', async (req, res) => {
     }
     
     const page = parseInt(req.query.page as string) || 1;
-    const perPage = parseInt(req.query.per_page as string) || 10;
+    let perPage = parseInt(req.query.per_page as string) || 10;
+    
+    // Validate page parameter
+    if (page < 1) {
+      return res.status(400).json({ 
+        error: 'Invalid page parameter',
+        message: 'Page must be a positive integer' 
+      });
+    }
+    
+    // Validate and limit per_page parameter to prevent rate limiting
+    if (perPage < 1) {
+      return res.status(400).json({ 
+        error: 'Invalid per_page parameter',
+        message: 'per_page must be a positive integer' 
+      });
+    }
+    
+    // Cap per_page at 50 to prevent rate limiting and performance issues
+    const maxPerPage = 50;
+    if (perPage > maxPerPage) {
+      perPage = maxPerPage;
+      console.log(`⚠️ per_page parameter ${req.query.per_page} capped at ${maxPerPage} for user ${username}`);
+    }
     
     const result = await githubService.getPullRequests(username, page, perPage);
     res.json(result);

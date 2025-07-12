@@ -10,8 +10,8 @@
 
 # production branch testing checklist
 
-- [ ] `npm run test:prod-branch:api:health`
-- [ ] `npm run test:prod-branch:api:pr-feed`
+- [x] `npm run test:prod-branch:api:health` (✅ Fixed - now accepts 'ok' and 'warning' statuses)
+- [x] `npm run test:prod-branch:api:pr-feed` (✅ Fixed - added per_page validation and capping at 50)
 - [ ] `npm run test:prod-branch:api:pr-detail`
 - [ ] `npm run test:prod-branch:web:landing`
 - [ ] `npm run test:prod-branch:web:pr-feed`
