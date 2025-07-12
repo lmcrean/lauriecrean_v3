@@ -2,7 +2,11 @@ import React from 'react';
 import Layout from '@theme-original/Layout';
 import Head from '@docusaurus/Head';
 
-export default function LayoutWrapper(props) {
+interface LayoutWrapperProps {
+  [key: string]: any;
+}
+
+const LayoutWrapper: React.FC<LayoutWrapperProps> = (props) => {
   return (
     <>
       <Head>
@@ -20,4 +24,6 @@ export default function LayoutWrapper(props) {
       <Layout {...props} />
     </>
   );
-} 
+};
+
+export default LayoutWrapper; 

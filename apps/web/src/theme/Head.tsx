@@ -1,20 +1,15 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
-import {useThemeConfig} from '@docusaurus/theme-common';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+interface HeadCustomProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  [key: string]: any;
+}
 
 // This component will extend the default Head component of Docusaurus
-export default function HeadCustom(props) {
-  const {
-    i18n: {currentLocale},
-  } = useDocusaurusContext();
-  const {title, description, image} = props;
-  const {
-    metadata: {charSet, viewport},
-    metadatas,
-    favicon,
-  } = useThemeConfig();
-
+const HeadCustom: React.FC<HeadCustomProps> = (props) => {
   return (
     <>
       <Head {...props}>
@@ -32,4 +27,6 @@ export default function HeadCustom(props) {
       </Head>
     </>
   );
-} 
+};
+
+export default HeadCustom; 
