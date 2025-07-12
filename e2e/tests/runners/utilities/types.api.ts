@@ -56,9 +56,15 @@ export interface ErrorResponse {
 }
 
 export interface HealthResponse {
-  status: string;
+  status: 'ok' | 'warning';
   timestamp: string;
   service: string;
+  github_token?: {
+    present: boolean;
+    length: number;
+    valid_format: boolean;
+    status: string;
+  };
 }
 
 export interface PortInfoResponse {
