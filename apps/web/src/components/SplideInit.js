@@ -1,8 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // This is a client-side only component
 export default function SplideInit({ testMode = false, onInitializeStart = null }) {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    // Set client-side flag
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    // Only run on client side
+    if (!isClient) return;
+
     // Check if we're running in a browser environment
     if (typeof window === 'undefined') {
       return;
@@ -150,7 +160,7 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
     return () => {
       // We don't need to clean up carousels here since they'll be removed with the DOM
     };
-  }, [testMode, onInitializeStart]);
+  }, [isClient, testMode, onInitializeStart]);
 
   // This component doesn't render anything visible
   return null;

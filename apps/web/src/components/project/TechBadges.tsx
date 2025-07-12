@@ -19,6 +19,7 @@ const TechBadges: React.FC<TechBadgesProps> = ({
 
   return (
     <div className={className}>
+      <span>Technologies: </span>
       {techList.map((tech) => {
         const { url, alt } = generateBadgeUrl(tech, color, logoColor);
         return (

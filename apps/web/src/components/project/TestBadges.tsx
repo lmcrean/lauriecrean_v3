@@ -48,6 +48,7 @@ const TestBadges: React.FC<TestBadgesProps> = ({
 
   return (
     <div className={className}>
+      <span>Testing: </span>
       {testBadges.map((test, index) => {
         const badgeText = `${test.framework}-${test.count}_Passed`;
         const url = `https://img.shields.io/badge/${badgeText}-${color}?style=flat-square&logo=${test.logo}&logoColor=${logoColor}`;

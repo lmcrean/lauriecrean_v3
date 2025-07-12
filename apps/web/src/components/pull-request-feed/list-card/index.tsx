@@ -1,97 +1,33 @@
-import React from 'react';
-
-// Types based on the API GitHub types
-interface PullRequestListData {
-  id: number;
-  number: number;
-  title: string;
-  description: string | null;
-  created_at: string;
-  merged_at: string | null;
-  state: 'open' | 'closed' | 'merged';
-  html_url: string;
-  repository: {
-    name: string;
-    description: string | null;
-    language: string | null;
-    html_url: string;
-  };
-}
-
-interface PullRequestFeedListCardProps {
-  pullRequest: PullRequestListData;
-  onClick: () => void;
-}
-
-// Helper functions
-const getRelativeTime = (dateString: string): string => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-  
-  if (diffInSeconds < 60) return 'just now';
-  
-  const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes} min${diffInMinutes !== 1 ? 's' : ''} ago`;
-  
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`;
-  
-  const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 7) return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
-  
-  const diffInWeeks = Math.floor(diffInDays / 7);
-  return `${diffInWeeks} week${diffInWeeks !== 1 ? 's' : ''} ago`;
-};
-
-const getStatusDisplay = (state: string, mergedAt: string | null) => {
-  if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600 dark:text-purple-400' };
-  if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600 dark:text-green-400' };
-  return { emoji: '×', text: 'closed', color: 'text-red-600 dark:text-red-400' };
-};
-
-const getTitleIcon = (title: string): string => {
-  const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('refactor')) return '🔄';
-  if (lowerTitle.includes('feat') || lowerTitle.includes('feature')) return '✨';
-  if (lowerTitle.includes('fix') || lowerTitle.includes('bug')) return '🐛';
-  if (lowerTitle.includes('doc')) return '📝';
-  if (lowerTitle.includes('test')) return '🧪';
-  if (lowerTitle.includes('style')) return '💄';
-  return '📝';
-};
-
-const getLanguageColor = (language: string | null): string => {
-  if (!language) return 'bg-gray-500';
-  
-  const colors: Record<string, string> = {
-    'TypeScript': 'bg-blue-600',
-    'JavaScript': 'bg-yellow-400',
-    'Python': 'bg-blue-500',
-    'Java': 'bg-orange-600',
-    'CSS': 'bg-purple-600',
-    'HTML': 'bg-red-500',
-    'React': 'bg-cyan-400',
-    'Vue': 'bg-green-500',
-  };
-  
-  return colors[language] || 'bg-gray-500';
-};
-
-const truncateText = (text: string | null, maxLength: number): string => {
-  if (!text) return '';
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength) + '...';
-};
+import React, { useState, useEffect } from 'react';
+import { 
+  PullRequestFeedListCardProps,
+  PullRequestListData 
+} from '@shared/types/pull-requests';
+import {
+  getRelativeTime,
+  getStatusDisplay,
+  getTitleIcon,
+  getLanguageColor,
+  truncateText
+} from '@shared/types/pull-requests/utilities';
 
 export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = ({
   pullRequest,
   onClick
 }) => {
   const status = getStatusDisplay(pullRequest.state, pullRequest.merged_at);
-  const relativeTime = getRelativeTime(pullRequest.created_at);
   const titleIcon = getTitleIcon(pullRequest.title);
   const languageColor = getLanguageColor(pullRequest.repository.language);
+
+  // Add client-side only time calculation
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Only calculate relative time on client side
+  const relativeTime = isClient ? getRelativeTime(pullRequest.created_at) : 'Loading...';
 
   return (
     <article 
@@ -116,8 +52,9 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
           <span>{status.emoji}</span>
           <span>{status.text}</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-xs">
-          {relativeTime}
+        <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
+          <i className="fas fa-clock"></i>
+          <span>{relativeTime}</span>
         </div>
       </div>
 
@@ -176,4 +113,4 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
   );
 };
 
-export default PullRequestFeedListCard;
+export default PullRequestFeedListCard; 

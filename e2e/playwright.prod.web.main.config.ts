@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
 
 export default defineConfig({
   testDir: './',
@@ -8,13 +9,17 @@ export default defineConfig({
   workers: 1,
   reporter: 'html',
   
+  // Global setup and teardown hooks
+  globalSetup: path.resolve(__dirname, 'utils/global-setup.ts'),
+  globalTeardown: path.resolve(__dirname, 'utils/global-teardown.ts'),
+  
   // Only using Safari as specified in custom instructions
   projects: [
     {
       name: 'safari',
       use: { 
         ...devices['Desktop Safari'],
-        baseURL: 'https://lauriecrean.dev',
+        baseURL: 'https://lauriecrean-free-38256.web.app/',
         // Record videos for debugging if tests fail
         video: 'on-first-retry',
         // Set a longer timeout for network operations in production

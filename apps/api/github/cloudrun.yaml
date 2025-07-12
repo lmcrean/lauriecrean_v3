@@ -1,0 +1,54 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: api-github
+  annotations:
+    run.googleapis.com/ingress: all
+    run.googleapis.com/execution-environment: gen2
+spec:
+  template:
+    metadata:
+      annotations:
+        # Free tier limits - NEVER EXCEED THESE
+        run.googleapis.com/cpu-throttling: "true"
+        run.googleapis.com/memory: "512Mi"
+        run.googleapis.com/cpu: "1000m"
+        run.googleapis.com/max-instances: "10"
+        run.googleapis.com/min-instances: "0"
+        # Keep costs down with aggressive scaling
+        autoscaling.knative.dev/maxScale: "10"
+        autoscaling.knative.dev/minScale: "0"
+        # Timeout to prevent long-running requests
+        run.googleapis.com/timeout: "60s"
+    spec:
+      containerConcurrency: 100
+      containers:
+              - image: gcr.io/lauriecrean-free-38256/api-github:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          limits:
+            # Stay within free tier limits
+            cpu: "1000m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        # Health check
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10 

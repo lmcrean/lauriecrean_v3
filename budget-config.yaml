@@ -1,0 +1,17 @@
+displayName: "Zero Cost Alert - lauriecrean-free-37957"
+budgetFilter:
+  projects:
+  - "projects/lauriecrean-free-37957"
+amount:
+  specifiedAmount:
+    currencyCode: "USD"
+    units: "0"
+    nanos: 10000000  # ./gcp-setup/setup.sh.01
+thresholdRules:
+- thresholdPercent: 0.5
+  spendBasis: CURRENT_SPEND
+- thresholdPercent: 1.0
+  spendBasis: CURRENT_SPEND
+allUpdatesRule:
+  monitoringNotificationChannels: []
+  disableDefaultIamRecipients: false
