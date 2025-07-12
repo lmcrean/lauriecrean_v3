@@ -6,7 +6,7 @@ import SplideInit from '../SplideInit';
 /**
  * Example component showing how to use the Project component
  */
-export default function ProjectExample() {
+const ProjectExample: React.FC = () => {
   return (
     <div className="project-examples">
       <h2>Project Examples</h2>
@@ -29,4 +29,6 @@ export default function ProjectExample() {
       <SplideInit />
     </div>
   );
-} 
+};
+
+export default ProjectExample; 

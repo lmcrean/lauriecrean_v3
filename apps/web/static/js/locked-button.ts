@@ -1,13 +1,13 @@
 // Locked Button Hover Interaction
-(function() {
+(function(): void {
   'use strict';
   
   console.log('[locked-button.js] Initializing locked button interactions');
   
   // Function to initialize locked button hover effects
-  function initializeLockedButtons() {
+  function initializeLockedButtons(): void {
     // Find all buttons that contain icons with 'locked' class
-    const lockedButtons = document.querySelectorAll('button i.locked');
+    const lockedButtons: NodeListOf<Element> = document.querySelectorAll('button i.locked');
     
     if (lockedButtons.length === 0) {
       console.log('[locked-button.js] No locked buttons found');
@@ -16,17 +16,17 @@
     
     console.log(`[locked-button.js] Found ${lockedButtons.length} locked button(s)`);
     
-    lockedButtons.forEach(function(icon, index) {
-      const button = icon.closest('button');
+    lockedButtons.forEach(function(icon: Element, index: number): void {
+      const button = icon.closest('button') as HTMLButtonElement;
       if (!button) return;
       
       console.log(`[locked-button.js] Setting up hover for locked button #${index}`);
       
       // Store original button content
-      const originalContent = button.innerHTML;
+      const originalContent: string = button.innerHTML;
       
       // Mouse enter event - change to lock icon and text
-      button.addEventListener('mouseenter', function() {
+      button.addEventListener('mouseenter', function(): void {
         // Change to lock icon and text
         button.innerHTML = `<i class="fa-solid fa-lock locked"></i> not currently available`;
         
@@ -34,7 +34,7 @@
       });
       
       // Mouse leave event - change back to original
-      button.addEventListener('mouseleave', function() {
+      button.addEventListener('mouseleave', function(): void {
         button.innerHTML = originalContent;
         console.log(`[locked-button.js] Hover out - restored original content`);
       });
@@ -42,7 +42,7 @@
   }
   
   // Initialize when DOM is ready
-  function initialize() {
+  function initialize(): void {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initializeLockedButtons);
     } else {
@@ -54,17 +54,18 @@
   }
   
   // Set up mutation observer to detect when new locked buttons are added
-  function setupMutationObserver() {
-    const observer = new MutationObserver(function(mutations) {
-      let hasNewLockedButtons = false;
+  function setupMutationObserver(): void {
+    const observer: MutationObserver = new MutationObserver(function(mutations: MutationRecord[]): void {
+      let hasNewLockedButtons: boolean = false;
       
-      mutations.forEach(function(mutation) {
+      mutations.forEach(function(mutation: MutationRecord): void {
         if (mutation.addedNodes.length) {
-          mutation.addedNodes.forEach(function(node) {
+          mutation.addedNodes.forEach(function(node: Node): void {
             if (node.nodeType === 1) { // Element node
+              const element = node as Element;
               // Check if the node itself or its children contain locked buttons
-              if ((node.classList && node.classList.contains('locked')) ||
-                  (node.querySelector && node.querySelector('i.locked'))) {
+              if ((element.classList && element.classList.contains('locked')) ||
+                  (element.querySelector && element.querySelector('i.locked'))) {
                 hasNewLockedButtons = true;
               }
             }
