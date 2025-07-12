@@ -60,16 +60,29 @@ jobs:
             sleep 10
           done
       
-      - name: 🧪 Run Pull Request Feed API Tests
+      - name: 🧪 Run API Health Tests
         run: |
           cd e2e
-          echo "🎯 Testing API at: ${{ inputs.api_deployment_url }}"
-          
-          # Run the API tests specifically for pull request feed (using API-only config)
-          npx playwright test tests/features/pull-request/pull-request-feed.api.spec.ts --config=playwright.prod.api.branch.config.ts --reporter=list
+          echo "🏥 Running API health tests at: ${{ inputs.api_deployment_url }}"
+          npm run test:prod-branch:api:health
         env:
           API_BASE_URL: ${{ inputs.api_deployment_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
+          CLOUD_RUN_URL: ${{ inputs.api_deployment_url }}
+          GITHUB_USERNAME: lmcrean
+          TEST_USERNAME: lmcrean
+          BRANCH_NAME: ${{ inputs.branch_name }}
+          GITHUB_HEAD_REF: ${{ inputs.branch_name }}
+      
+      - name: 🧪 Run Pull Request Feed API Tests
+        run: |
+          cd e2e
+          echo "🎯 Running PR Feed API tests at: ${{ inputs.api_deployment_url }}"
+          npm run test:prod-branch:api:pr-feed
+        env:
+          API_BASE_URL: ${{ inputs.api_deployment_url }}
+          API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
+          CLOUD_RUN_URL: ${{ inputs.api_deployment_url }}
           GITHUB_USERNAME: lmcrean
           TEST_USERNAME: lmcrean
           BRANCH_NAME: ${{ inputs.branch_name }}
@@ -78,10 +91,8 @@ jobs:
       - name: 🧪 Run Pull Request Detail API Tests
         run: |
           cd e2e
-          echo "🎯 Testing PR Detail API at: ${{ inputs.api_deployment_url }}"
-          
-          # Run the API tests specifically for pull request detail (using API-only config)
-          npx playwright test tests/features/pull-request/pull-request-detail.api.spec.ts --config=playwright.prod.api.branch.config.ts --reporter=list
+          echo "🎯 Running PR Detail API tests at: ${{ inputs.api_deployment_url }}"
+          npm run test:prod-branch:api:pr-detail
         env:
           API_BASE_URL: ${{ inputs.api_deployment_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}

@@ -106,7 +106,7 @@ jobs:
         run: |
           cd e2e
           
-          # Focus on PR-related tests only
+          # Focus on PR-related web tests using package.json command
           echo "🎭 Running PR detail e2e tests..."
           npm run test:prod-branch:pr-detail:headless
           
@@ -115,6 +115,8 @@ jobs:
           # Set environment variables for the Playwright config
           WEB_DEPLOYMENT_URL: ${{ inputs.web_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_url }}
+          FIREBASE_HOSTING_URL: ${{ inputs.web_url }}
+          CLOUD_RUN_URL: ${{ inputs.api_url }}
           BRANCH_NAME: ${{ inputs.branch_name }}
           PR_NUMBER: ${{ inputs.pr_number }}
           GITHUB_HEAD_REF: ${{ inputs.branch_name }}
