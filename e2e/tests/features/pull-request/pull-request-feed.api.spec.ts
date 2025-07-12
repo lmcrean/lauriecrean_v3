@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { 
   getApiBaseUrl, 
+  initializeApiUrl,
   TEST_USERNAME,
   ApiResponse,
   DetailedPullRequestResponse,
@@ -16,6 +17,7 @@ test.describe('Pull Request Feed API Tests', () => {
   
   test.beforeAll(async ({ request }) => {
     await observability.setup(request);
+    await initializeApiUrl(request);
   });
 
   test.afterAll(async () => {
