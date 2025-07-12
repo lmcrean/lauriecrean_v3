@@ -66,7 +66,7 @@ jobs:
           echo "🎯 Testing API at: ${{ inputs.api_deployment_url }}"
           
           # Run the API tests specifically for pull request feed (using API-only config)
-          npx playwright test tests/features/pull-request/pull-request-feed.api.spec.ts --config=playwright.prod.api.pr-branch.config.ts --reporter=list
+          npx playwright test tests/features/pull-request/pull-request-feed.api.spec.ts --config=playwright.prod.api.branch.config.ts --reporter=list
         env:
           API_BASE_URL: ${{ inputs.api_deployment_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
@@ -81,7 +81,7 @@ jobs:
           echo "🎯 Testing PR Detail API at: ${{ inputs.api_deployment_url }}"
           
           # Run the API tests specifically for pull request detail (using API-only config)
-          npx playwright test tests/features/pull-request/pull-request-detail.api.spec.ts --config=playwright.prod.api.pr-branch.config.ts --reporter=list
+          npx playwright test tests/features/pull-request/pull-request-detail.api.spec.ts --config=playwright.prod.api.branch.config.ts --reporter=list
         env:
           API_BASE_URL: ${{ inputs.api_deployment_url }}
           API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
