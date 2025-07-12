@@ -18,10 +18,19 @@ console.log('📏 GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
+  const hasGitHubToken = !!process.env.GITHUB_TOKEN;
+  const tokenLength = process.env.GITHUB_TOKEN?.length || 0;
+  
   res.json({ 
-    status: 'ok', 
+    status: hasGitHubToken ? 'ok' : 'warning',
     timestamp: new Date().toISOString(),
-    service: 'api-github'
+    service: 'api-github',
+    github_token: {
+      present: hasGitHubToken,
+      length: tokenLength,
+      valid_format: hasGitHubToken && (process.env.GITHUB_TOKEN?.startsWith('ghp_') || process.env.GITHUB_TOKEN?.startsWith('github_pat_')),
+      status: hasGitHubToken ? 'configured' : 'missing'
+    }
   });
 });
 

@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   testDir: './',
-  fullyParallel: false, // Run sequentially for service management
+  fullyParallel: false, // Run sequentially for API service management
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   workers: 1, // Only one worker to avoid port conflicts
@@ -20,13 +20,12 @@ export default defineConfig({
   globalSetup: path.resolve(__dirname, 'utils/global-setup.ts'),
   globalTeardown: path.resolve(__dirname, 'utils/global-teardown.ts'),
   
-  // Only using Safari as specified in custom instructions
+  // API testing doesn't need specific browsers - just use one for the request context
   projects: [
     {
-      name: 'safari',
+      name: 'api',
       use: { 
-        ...devices['Desktop Safari'],
-        // No base URL since we'll manage servers manually
+        // No base URL since we'll manage API server manually
         video: 'on-first-retry',
         // Increased timeouts for service startup
         actionTimeout: 30000,
@@ -35,5 +34,5 @@ export default defineConfig({
     },
   ],
 
-  // No webServer config - tests will manage services manually
+  // No webServer config - tests will manage API service manually
 }); 
