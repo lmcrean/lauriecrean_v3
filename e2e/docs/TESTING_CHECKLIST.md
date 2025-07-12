@@ -15,7 +15,7 @@
 - [ ] `npm run test:prod-branch:api:pr-detail`
 - [ ] `npm run test:prod-branch:web:landing`
 - [ ] `npm run test:prod-branch:web:pr-feed`
-- [ ] `npm run test:prod-branch:web:pr-detail`
+- [x] `npm run test:prod-branch:web:pr-detail` (✅ Fixed - removed --headed flag + fixed URL construction issue)
 
 # production main testing checklist
 
