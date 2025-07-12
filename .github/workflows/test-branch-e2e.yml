@@ -107,8 +107,8 @@ jobs:
           cd e2e
           
           # Focus on PR-related web tests using package.json command
-          echo "🎭 Running PR detail e2e tests..."
-          npm run test:prod-branch:pr-detail:headless
+          echo "🎭 Running PR detail web e2e tests..."
+          npm run test:prod-branch:web:pr-detail
           
           echo "✅ PR e2e tests completed successfully"
         env:
