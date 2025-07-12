@@ -1,6 +1,7 @@
 import { APIRequestContext } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
 import { getApiBaseUrl, DetailedPullRequestResponse, ErrorResponse } from '../utilities/utilities.api';
+import { PullRequestDetailApiValidators } from './helpers/api-validators';
 
 export interface PullRequestDetailConfig {
   owner: string;
@@ -11,9 +12,11 @@ export interface PullRequestDetailConfig {
 
 export class PullRequestDetailApiRunner {
   private logger: E2ELogger;
+  private validators: PullRequestDetailApiValidators;
 
   constructor(logger: E2ELogger) {
     this.logger = logger;
+    this.validators = new PullRequestDetailApiValidators(logger);
   }
 
   async fetchPullRequestDetails(
@@ -58,63 +61,7 @@ export class PullRequestDetailApiRunner {
   }
 
   async validatePullRequestDetailStructure(data: DetailedPullRequestResponse): Promise<boolean> {
-    this.logger.logInfo('🔍 Validating pull request detail structure...', 'test');
-    
-    try {
-      // Basic PR fields
-      const basicFields = ['id', 'number', 'title', 'description', 'created_at', 'merged_at', 'html_url', 'state', 'repository'];
-      
-      // Detailed fields
-      const detailedFields = ['author', 'updated_at', 'closed_at', 'draft', 'commits', 'additions', 'deletions', 'changed_files', 'comments'];
-      
-      // Check all fields are present
-      for (const field of [...basicFields, ...detailedFields]) {
-        if (!data.hasOwnProperty(field)) {
-          this.logger.logError(`❌ Missing field: ${field}`, 'test');
-          return false;
-        }
-      }
-      
-      // Validate author structure
-      if (!data.author.login || !data.author.avatar_url || !data.author.html_url) {
-        this.logger.logError('❌ Invalid author structure', 'test');
-        return false;
-      }
-      
-      // Validate repository structure
-      if (!data.repository.name || !data.repository.html_url) {
-        this.logger.logError('❌ Invalid repository structure', 'test');
-        return false;
-      }
-      
-      // Validate number types
-      const numericFields = ['id', 'number', 'commits', 'additions', 'deletions', 'changed_files', 'comments'];
-      for (const field of numericFields) {
-        if (typeof data[field as keyof DetailedPullRequestResponse] !== 'number') {
-          this.logger.logError(`❌ Field ${field} should be a number`, 'test');
-          return false;
-        }
-      }
-      
-      // Validate state
-      if (!['open', 'closed', 'merged'].includes(data.state)) {
-        this.logger.logError(`❌ Invalid state: ${data.state}`, 'test');
-        return false;
-      }
-      
-      // Validate URLs
-      if (!data.html_url.startsWith('https://github.com/') || !data.repository.html_url.startsWith('https://github.com/')) {
-        this.logger.logError('❌ Invalid GitHub URLs', 'test');
-        return false;
-      }
-      
-      this.logger.logInfo('✅ Pull request detail structure validation passed', 'test');
-      return true;
-      
-    } catch (err: any) {
-      this.logger.logError(`❌ Validation failed`, 'test', { error: err.message });
-      return false;
-    }
+    return this.validators.validateStructure(data);
   }
 
   async testErrorHandling(
