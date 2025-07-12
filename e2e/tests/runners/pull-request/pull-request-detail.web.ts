@@ -19,14 +19,19 @@ export class PullRequestDetailWebRunner {
   private modalInteraction: ModalInteractionHelper;
   private testAnalysis: TestAnalysisHelper;
 
-  constructor(logger: E2ELogger, webPort: number) {
+  constructor(logger: E2ELogger, baseUrl?: string, webPort?: number) {
     this.logger = logger;
-    // Handle production vs local URLs
-    if (webPort === 443 || process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL) {
-      this.baseUrl = ''; // Will be set dynamically
+    
+    // Use provided baseUrl first, then fallback to construction from environment/port
+    if (baseUrl) {
+      this.baseUrl = baseUrl;
+    } else if (webPort === 443 || process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL) {
+      // Use production URL from environment variables
+      this.baseUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL || '';
     } else {
-      this.baseUrl = `http://localhost:${webPort}`;
+      this.baseUrl = `http://localhost:${webPort || 3000}`;
     }
+    
     this.pageSetup = new PageSetupHelper(logger);
     this.modalInteraction = new ModalInteractionHelper(logger);
     this.testAnalysis = new TestAnalysisHelper(logger);
@@ -40,8 +45,9 @@ export class PullRequestDetailWebRunner {
     this.pageSetup.setupPageLogging(page);
     
     // Navigate to pull request feed
-    const baseUrl = this.baseUrl || page.url().split('/')[0] + '//' + page.url().split('/')[2];
-    await this.pageSetup.navigateToPullRequestFeed(page, baseUrl, config.timeout);
+    this.logger.logInfo(`🌐 Using baseURL: ${this.baseUrl}`, 'test');
+    
+    await this.pageSetup.navigateToPullRequestFeed(page, this.baseUrl, config.timeout);
     
     // Open PR detail modal
     const modalOpened = await this.modalInteraction.openPullRequestDetail(page, config.prNumber);

@@ -25,7 +25,7 @@ test.describe('Pull Request Detail Web Tests', () => {
     }, apiUrl);
     
     // Create runner with appropriate base URL
-    const runner = new PullRequestDetailWebRunner(logger, isProduction ? 443 : webPort);
+    const runner = new PullRequestDetailWebRunner(logger, baseUrl, isProduction ? 443 : webPort);
     
     // Run the test
     const testResults = await runner.runPullRequestDetailTest(page, {
