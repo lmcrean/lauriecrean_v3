@@ -11,3 +11,4 @@ export { LandingRunner } from './landing/landing-runner.web';
 
 // Setup/Teardown Runners
 export { ObservabilityRunner } from './setup/observability-runner';
+export { ServiceManager, ServiceManagerConfig } from './setup/service-manager';

@@ -134,8 +134,15 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     }
   }, [username]);
 
-  // Fetch detailed pull request data with proper cancellation
-  const fetchPullRequestDetails = useCallback(async (pr: PullRequestListData) => {
+
+
+  // Handle card click - open modal and fetch details
+  const handleCardClick = useCallback(async (pr: PullRequestListData) => {
+    setSelectedPR(null); // Clear previous data
+    setModalError(null);
+    setModalLoading(true);
+    
+    // Fetch details first, then open modal
     try {
       // Cancel any existing detail request
       if (detailAbortControllerRef.current) {
@@ -145,9 +152,6 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       // Create new abort controller
       detailAbortControllerRef.current = new AbortController();
 
-      setModalLoading(true);
-      setModalError(null);
-      
       // Extract owner and repo from HTML URL
       const urlParts = pr.html_url.split('/');
       const owner = urlParts[3];
@@ -165,13 +169,25 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       // Only update state if component is still mounted
       if (isMountedRef.current && !detailAbortControllerRef.current.signal.aborted) {
         console.log(`✅ Successfully fetched details for PR #${pr.number}`);
+        console.log('🔍 PR Detail Data:', response.data);
+        console.log('📊 PR Title:', response.data.title);
+        console.log('👤 PR Author:', response.data.author?.login);
+        console.log('📈 PR Stats:', {
+          commits: response.data.commits,
+          additions: response.data.additions,
+          deletions: response.data.deletions,
+          changed_files: response.data.changed_files,
+          comments: response.data.comments
+        });
         setSelectedPR(response.data);
+        setIsModalOpen(true); // Open modal only after successful fetch
       }
     } catch (err: any) {
       // Only handle errors if component is still mounted and request wasn't cancelled
       if (isMountedRef.current && err.name !== 'AbortError' && err.name !== 'CanceledError') {
         console.error('Error fetching PR details:', err);
         setModalError(err.message || 'Failed to load pull request details.');
+        setIsModalOpen(true); // Open modal to show error
       }
     } finally {
       // Only update loading state if component is still mounted
@@ -180,13 +196,6 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
       }
     }
   }, []);
-
-  // Handle card click - open modal and fetch details
-  const handleCardClick = useCallback(async (pr: PullRequestListData) => {
-    setIsModalOpen(true);
-    setSelectedPR(null); // Clear previous data
-    await fetchPullRequestDetails(pr);
-  }, [fetchPullRequestDetails]);
 
   // Handle modal close
   const handleModalClose = useCallback(() => {
@@ -364,7 +373,7 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
 
       {/* Detail Modal */}
       <PullRequestFeedDetailCard
-        pullRequest={selectedPR!}
+        pullRequest={selectedPR}
         isOpen={isModalOpen}
         onClose={handleModalClose}
         loading={modalLoading}

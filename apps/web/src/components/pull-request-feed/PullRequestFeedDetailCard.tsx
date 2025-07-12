@@ -32,7 +32,7 @@ interface DetailedPullRequestData {
 }
 
 interface PullRequestFeedDetailCardProps {
-  pullRequest: DetailedPullRequestData;
+  pullRequest: DetailedPullRequestData | null;
   isOpen: boolean;
   onClose: () => void;
   loading?: boolean;
@@ -40,8 +40,10 @@ interface PullRequestFeedDetailCardProps {
 }
 
 // Helper functions
-const formatAbsoluteDate = (dateString: string): string => {
+const formatAbsoluteDate = (dateString: string | null | undefined): string => {
+  if (!dateString) return 'Unknown date';
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return 'Invalid date';
   return date.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -52,14 +54,15 @@ const formatAbsoluteDate = (dateString: string): string => {
   });
 };
 
-const getStatusDisplay = (state: string, mergedAt: string | null, draft?: boolean) => {
+const getStatusDisplay = (state: string | null | undefined, mergedAt: string | null, draft?: boolean) => {
   if (draft) return { emoji: '•', text: 'draft', color: 'text-gray-600 dark:text-gray-400' };
   if (mergedAt) return { emoji: '•', text: 'merged', color: 'text-purple-600 dark:text-purple-400' };
   if (state === 'open') return { emoji: '○', text: 'open', color: 'text-green-600 dark:text-green-400' };
   return { emoji: '×', text: 'closed', color: 'text-red-600 dark:text-red-400' };
 };
 
-const getTitleIcon = (title: string): string => {
+const getTitleIcon = (title: string | null | undefined): string => {
+  if (!title) return '📝';
   const lowerTitle = title.toLowerCase();
   if (lowerTitle.includes('refactor')) return '🔄';
   if (lowerTitle.includes('feat') || lowerTitle.includes('feature')) return '✨';
@@ -144,9 +147,14 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
 
   if (!isOpen) return null;
 
+  // Show loading state if data is not yet available
+  if (!pullRequest && !loading && !error) {
+    return null;
+  }
+
   // Modal backdrop and container classes
   const backdropClasses = "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center";
-  const containerClasses = "w-full max-w-full sm:max-w-2xl bg-white dark:bg-gray-800 rounded-t-lg sm:rounded-lg shadow-xl transform transition-all duration-300 ease-out max-h-full overflow-hidden animate-slide-up sm:animate-fade-in";
+  const containerClasses = "w-full max-w-full sm:max-w-2xl bg-white dark:bg-gray-800 rounded-t-lg sm:rounded-lg shadow-xl transform transition-all duration-300 ease-out max-h-full overflow-hidden";
 
   if (loading) {
     return (
@@ -240,9 +248,30 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
     );
   }
 
-  const status = getStatusDisplay(pullRequest.state, pullRequest.merged_at, pullRequest.draft);
-  const titleIcon = getTitleIcon(pullRequest.title);
-  const languageColor = getLanguageColor(pullRequest.repository.language);
+  // Return null if no pull request data
+  if (!pullRequest) {
+    return null;
+  }
+
+  // Debug logging for modal data
+  React.useEffect(() => {
+    if (pullRequest && isOpen) {
+      console.log('🔍 Modal received PR data:', pullRequest);
+      console.log('📊 Modal PR Title:', pullRequest.title);
+      console.log('👤 Modal PR Author:', pullRequest.author?.login);
+      console.log('📈 Modal PR Stats:', {
+        commits: pullRequest.commits,
+        additions: pullRequest.additions,
+        deletions: pullRequest.deletions,
+        changed_files: pullRequest.changed_files,
+        comments: pullRequest.comments
+      });
+    }
+  }, [pullRequest, isOpen]);
+
+  const status = getStatusDisplay(pullRequest?.state, pullRequest?.merged_at, pullRequest?.draft);
+  const titleIcon = getTitleIcon(pullRequest?.title);
+  const languageColor = getLanguageColor(pullRequest?.repository?.language);
 
   return (
     <div 
@@ -285,28 +314,28 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
                 <span className="capitalize">{status.text}</span>
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {formatAbsoluteDate(pullRequest.merged_at || pullRequest.created_at)}
+                {formatAbsoluteDate(pullRequest?.merged_at || pullRequest?.created_at)}
               </div>
             </div>
 
             <div className="space-y-3">
               <h1 id="pr-modal-title" className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
                 <span className="text-2xl mr-2">{titleIcon}</span>
-                {pullRequest.title}
+                {pullRequest?.title || 'Untitled'}
               </h1>
               
               <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300" data-testid="pr-author">
                 <span className="text-lg">👤</span>
-                <span className="font-medium">{pullRequest.author.login}</span>
+                <span className="font-medium">{pullRequest?.author?.login || 'Unknown'}</span>
               </div>
               
               <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
-                <span className="font-mono">#{pullRequest.number}</span>
+                <span className="font-mono">#{pullRequest?.number || 'N/A'}</span>
                 <span>•</span>
-                <span>{pullRequest.repository.name}</span>
+                <span>{pullRequest?.repository?.name || 'Unknown'}</span>
               </div>
               
-              {pullRequest.repository.language && (
+              {pullRequest?.repository?.language && (
                 <div>
                   <span 
                     className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white ${languageColor}`}
@@ -319,7 +348,7 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
           </div>
 
           {/* Description Section */}
-          {pullRequest.description && (
+          {pullRequest?.description && (
             <div>
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Description</h2>
               <div className="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-4">
@@ -342,23 +371,23 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
                 <div className="flex items-center space-x-2" data-testid="pr-additions">
                   <span className="text-lg">📊</span>
                   <span className="text-sm text-gray-700 dark:text-gray-300">
-                    <span className="text-green-600 dark:text-green-400 font-medium">+{pullRequest.additions}</span>
+                    <span className="text-green-600 dark:text-green-400 font-medium">+{pullRequest?.additions || 0}</span>
                     {' '}
-                    <span className="text-red-600 dark:text-red-400 font-medium" data-testid="pr-deletions">-{pullRequest.deletions}</span>
+                    <span className="text-red-600 dark:text-red-400 font-medium" data-testid="pr-deletions">-{pullRequest?.deletions || 0}</span>
                     {' '}changes
                   </span>
                 </div>
                 <div className="flex items-center space-x-2" data-testid="pr-changed-files">
                   <span className="text-lg">📁</span>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.changed_files} files changed</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest?.changed_files || 0} files changed</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">💬</span>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.comments} comments</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest?.comments || 0} comments</span>
                 </div>
                 <div className="flex items-center space-x-2" data-testid="pr-commits">
                   <span className="text-lg">✅</span>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest.commits} commits</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{pullRequest?.commits || 0} commits</span>
                 </div>
               </div>
             </div>
@@ -371,19 +400,19 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
               <div className="space-y-2">
                 <div className="flex justify-between items-center py-1">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Created:</span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest.created_at)}</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest?.created_at)}</span>
                 </div>
                 <div className="flex justify-between items-center py-1">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Updated:</span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest.updated_at)}</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest?.updated_at)}</span>
                 </div>
-                {pullRequest.merged_at && (
+                {pullRequest?.merged_at && (
                   <div className="flex justify-between items-center py-1">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Merged:</span>
                     <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest.merged_at)}</span>
                   </div>
                 )}
-                {pullRequest.closed_at && !pullRequest.merged_at && (
+                {pullRequest?.closed_at && !pullRequest?.merged_at && (
                   <div className="flex justify-between items-center py-1">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Closed:</span>
                     <span className="text-sm text-gray-600 dark:text-gray-400">{formatAbsoluteDate(pullRequest.closed_at)}</span>
@@ -399,20 +428,23 @@ export const PullRequestFeedDetailCard: React.FC<PullRequestFeedDetailCardProps>
             <div className="space-y-3">
               <button 
                 className="w-full bg-blue-600 dark:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
-                onClick={() => window.open(pullRequest.html_url, '_blank')}
+                onClick={() => pullRequest?.html_url && window.open(pullRequest.html_url, '_blank')}
                 data-testid="github-link"
+                disabled={!pullRequest?.html_url}
               >
                 View on GitHub
               </button>
               <button 
                 className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
-                onClick={() => copyToClipboard(pullRequest.html_url)}
+                onClick={() => pullRequest?.html_url && copyToClipboard(pullRequest.html_url)}
+                disabled={!pullRequest?.html_url}
               >
                 Copy Link
               </button>
               <button 
                 className="w-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
-                onClick={() => shareData(pullRequest)}
+                onClick={() => pullRequest && shareData(pullRequest)}
+                disabled={!pullRequest}
               >
                 Share
               </button>

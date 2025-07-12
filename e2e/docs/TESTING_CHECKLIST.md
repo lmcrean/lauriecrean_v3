@@ -1,12 +1,12 @@
 # development testing checklist
 
 - [x] `npm run test:api:health`
-- [x] `npm run test:api:pr-feed` ✅ **PASSED** (5/5 tests, 100% success rate) - ✨ **CLEAN OUTPUT** (Fixed verbose error logging)
+- [x] `npm run test:api:pr-feed` 
 - [x] `npm run test:api:pr-detail`
-- [ ] `npm run test:web:health`
-- [ ] `npm run test:web:landing`
-- [ ] `npm run test:web:pr-feed`
-- [ ] `npm run test:web:pr-detail`
+- [ ] `npm run test:web:health` (nice to have)
+- [ ] `npm run test:web:landing` (nice to have)
+- [x] `npm run test:web:pr-feed` 
+- [x] `npm run test:web:pr-detail`
 
 # production branch testing checklist
 
