@@ -1,19 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../css/project.css';
 import ProjectCarousel from './ProjectCarousel';
+import { ProjectData, ButtonData, ProjectVersion } from '../data/projects';
+
+interface ProjectProps {
+  projectData: ProjectData;
+}
 
 /**
  * Project Component
  * 
  * Renders a project with header, description, technologies, links and carousel
  * based on the structure in index.md
- * 
- * @param {Object} props
- * @param {Object} props.projectData - Project data from projects.js
- * @returns {JSX.Element} The rendered project
  */
-const Project = ({ projectData }) => {
+const Project: React.FC<ProjectProps> = ({ projectData }) => {
   const {
     id,
     name,
@@ -31,7 +31,7 @@ const Project = ({ projectData }) => {
   const projectKey = id.split('-')[0];
 
   // Helper function to get the correct logo name for shields.io
-  const getLogoName = (tech) => {
+  const getLogoName = (tech: string): string => {
     // Map technology names to their correct shields.io logo names based on index.md
     const logoMap = {
       'Node.js': 'node.js',
@@ -71,7 +71,14 @@ const Project = ({ projectData }) => {
   };
 
   // Function to generate a badge URL
-  const generateBadgeUrl = (label, value, color, logo = null, logoColor = 'white', style = null) => {
+  const generateBadgeUrl = (
+    label: string, 
+    value: string, 
+    color: string, 
+    logo: string | null = null, 
+    logoColor: string = 'white', 
+    style: string | null = null
+  ): string => {
     // Encode parts for URL
     const encodedLabel = encodeURIComponent(label);
     const encodedValue = encodeURIComponent(value);
@@ -90,7 +97,7 @@ const Project = ({ projectData }) => {
   };
 
   // Generate a shield URL based on the GitHub repo and shield type
-  const generateShieldUrl = (repo, shieldType) => {
+  const generateShieldUrl = (repo: string, shieldType: string): string | null => {
     if (!repo) return null;
     
     switch (shieldType) {
@@ -106,7 +113,7 @@ const Project = ({ projectData }) => {
   };
 
   // Function to render a single button
-  const renderButton = (buttonType, buttonData) => {
+  const renderButton = (buttonType: string, buttonData: ButtonData | undefined): JSX.Element | null => {
     if (!buttonData || !buttonData.url) return null;
     
     const { url, icon, text } = buttonData;
@@ -126,7 +133,7 @@ const Project = ({ projectData }) => {
   };
 
   // Function to render a single version of the project
-  const renderVersion = (versionData, index) => {
+  const renderVersion = (versionData: ProjectVersion, index: number): JSX.Element => {
     const {
       version,
       description: versionDescription,
@@ -311,100 +318,6 @@ const Project = ({ projectData }) => {
       </div>
     </div>
   );
-};
-
-Project.propTypes = {
-  projectData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    projectTypes: PropTypes.arrayOf(PropTypes.string),
-    description: PropTypes.string,
-    technologies: PropTypes.arrayOf(PropTypes.string),
-    testResults: PropTypes.arrayOf(
-      PropTypes.shape({
-        framework: PropTypes.string.isRequired,
-        passed: PropTypes.number.isRequired,
-        logo: PropTypes.string.isRequired
-      })
-    ),
-    commitId: PropTypes.string,
-    githubInfo: PropTypes.shape({
-      repo: PropTypes.string.isRequired,
-      lastCommit: PropTypes.bool,
-      createdAt: PropTypes.bool,
-      commitActivity: PropTypes.bool
-    }),
-    buttons: PropTypes.shape({
-      code: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-      }),
-      readme: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-      }),
-      figma: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-      }),
-      liveDemo: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-      })
-    }),
-    versions: PropTypes.arrayOf(
-      PropTypes.shape({
-        version: PropTypes.string.isRequired,
-        description: PropTypes.string,
-        technologies: PropTypes.arrayOf(PropTypes.string),
-        testResults: PropTypes.arrayOf(
-          PropTypes.shape({
-            framework: PropTypes.string.isRequired,
-            passed: PropTypes.number.isRequired,
-            logo: PropTypes.string.isRequired
-          })
-        ),
-        githubInfo: PropTypes.shape({
-          repo: PropTypes.string.isRequired,
-          lastCommit: PropTypes.bool,
-          createdAt: PropTypes.bool,
-          commitActivity: PropTypes.bool
-        }),
-        buttons: PropTypes.shape({
-          code: PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired
-          }),
-          readme: PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired
-          }),
-          figma: PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired
-          }),
-          liveDemo: PropTypes.shape({
-            url: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired
-          })
-        })
-      })
-    ),
-    slides: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired
-      })
-    )
-  }).isRequired
 };
 
 export default Project; 

@@ -6,7 +6,65 @@
 // Import existing slides data
 import projectCarousels from './projectCarousels';
 
-const projects = {
+export interface ButtonData {
+  url: string;
+  icon: string;
+  text: string;
+}
+
+export interface ProjectButtons {
+  code?: ButtonData;
+  readme?: ButtonData;
+  figma?: ButtonData;
+  liveDemo?: ButtonData;
+}
+
+export interface TestResult {
+  framework: string;
+  passed: number;
+  logo: string;
+}
+
+export interface GitHubInfo {
+  repo: string;
+  lastCommit?: boolean;
+  createdAt?: boolean;
+  commitActivity?: boolean;
+}
+
+export interface ProjectSlide {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectVersion {
+  version: string;
+  description?: string;
+  technologies?: string[];
+  testResults?: TestResult[];
+  githubInfo?: GitHubInfo;
+  buttons?: ProjectButtons;
+}
+
+export interface ProjectData {
+  id: string;
+  name: string;
+  projectTypes?: string[];
+  description?: string;
+  technologies?: string[];
+  testResults?: TestResult[];
+  commitId?: string;
+  githubInfo?: GitHubInfo;
+  buttons?: ProjectButtons;
+  versions?: ProjectVersion[];
+  slides?: ProjectSlide[];
+}
+
+export interface Projects {
+  [key: string]: ProjectData;
+}
+
+const projects: Projects = {
   odyssey: {
     id: 'odyssey-project',
     name: 'Odyssey',
