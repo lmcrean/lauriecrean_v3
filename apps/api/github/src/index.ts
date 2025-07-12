@@ -1,7 +1,11 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import { GitHubService } from './github';
 import { findAvailablePort } from './utils/portUtils';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
