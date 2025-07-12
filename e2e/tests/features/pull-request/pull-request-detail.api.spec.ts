@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
 import { PullRequestDetailApiRunner } from '../../runners/pull-request/pull-request-detail.api';
-import { setupApiConnection, setApiBaseUrl } from '../../runners/utilities/utilities.api';
+import { setupApiConnection, setApiBaseUrl, getApiUrl } from '../../runners/utilities/utilities.api';
 
 const logger = new E2ELogger();
 
@@ -11,10 +11,8 @@ test.describe('PR Detail API Tests', () => {
   test.beforeAll(async ({ request }) => {
     runner = new PullRequestDetailApiRunner(logger);
     
-    // Manually set API URL based on environment
-    const apiUrl = process.env.API_DEPLOYMENT_URL || 
-                   process.env.CLOUD_RUN_URL || 
-                   'https://api-github-main-329000596728.us-central1.run.app';
+    // Set API URL using centralized configuration
+    const apiUrl = getApiUrl();
     setApiBaseUrl(apiUrl);
     logger.logInfo(`🔧 Configured API URL: ${apiUrl}`, 'test');
   });
@@ -22,10 +20,8 @@ test.describe('PR Detail API Tests', () => {
   test('should fetch PR list and then fetch PR details', async ({ request }) => {
     logger.logInfo('🚀 Starting PR Detail API Test', 'test');
     
-    // Get the API URL
-    const apiUrl = process.env.API_DEPLOYMENT_URL || 
-                   process.env.CLOUD_RUN_URL || 
-                   'https://api-github-main-329000596728.us-central1.run.app';
+    // Get the API URL from centralized configuration
+    const apiUrl = getApiUrl();
     
     logger.logInfo(`🔗 Using API URL: ${apiUrl}`, 'test');
     

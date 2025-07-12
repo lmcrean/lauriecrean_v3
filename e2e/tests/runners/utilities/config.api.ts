@@ -5,6 +5,15 @@ export const POSSIBLE_PORTS = [3015, 3001, 3016, 3017, 3018];
 export const TEST_USERNAME = 'lmcrean';
 export const PRODUCTION_API_URL = 'https://api-github-main-329000596728.us-central1.run.app';
 
+// Web/Frontend Configuration
+export const DEFAULT_WEB_PORT = 3020;
+export const PRODUCTION_WEB_URL = 'https://lauriecrean-free-38256.web.app';
+
+// Test Configuration
+export const DEFAULT_API_PORT = 3015;
+export const DEFAULT_LOCAL_API_URL = 'http://localhost:3015';
+export const DEFAULT_LOCAL_WEB_URL = 'http://localhost:3020';
+
 // Get branch deployment URL if available, otherwise fallback to production
 export const getBranchApiUrl = (): string | null => {
   // Check for branch deployment environment variables (set by GitHub Actions or manually)
@@ -110,4 +119,37 @@ export async function initializeApiUrl(request: APIRequestContext): Promise<void
       throw error;
     }
   }
+}
+
+// Function to get the appropriate API URL based on environment
+export function getApiUrl(): string {
+  // Check for branch deployment environment variables
+  const branchApiUrl = process.env.API_DEPLOYMENT_URL || process.env.CLOUD_RUN_URL;
+  if (branchApiUrl && branchApiUrl !== 'undefined') {
+    return branchApiUrl;
+  }
+  
+  // Return production URL for production tests, local for development
+  return isLocalDevelopmentTest() ? DEFAULT_LOCAL_API_URL : PRODUCTION_API_URL;
+}
+
+// Function to get the appropriate Web URL based on environment
+export function getWebUrl(): string {
+  // Check for branch deployment environment variables
+  const branchWebUrl = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
+  if (branchWebUrl && branchWebUrl !== 'undefined') {
+    return branchWebUrl;
+  }
+  
+  // Return production URL for production tests, local for development
+  return isLocalDevelopmentTest() ? DEFAULT_LOCAL_WEB_URL : PRODUCTION_WEB_URL;
+}
+
+// Function to detect if running in production environment
+export function isProductionTest(): boolean {
+  return !isLocalDevelopmentTest() || 
+         Boolean(process.env.WEB_DEPLOYMENT_URL) || 
+         Boolean(process.env.FIREBASE_HOSTING_URL) ||
+         Boolean(process.env.API_DEPLOYMENT_URL) ||
+         Boolean(process.env.CLOUD_RUN_URL);
 } 

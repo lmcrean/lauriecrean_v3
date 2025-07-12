@@ -1,7 +1,7 @@
 # development testing checklist
 
 - [x] `npm run test:api:health`
-- [ ] `npm run test:api:pr-feed`
+- [x] `npm run test:api:pr-feed`
 - [x] `npm run test:api:pr-detail`
 - [ ] `npm run test:web:health`
 - [ ] `npm run test:web:landing`

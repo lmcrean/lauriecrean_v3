@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
 import { PullRequestDetailWebRunner } from '../../runners/pull-request/pull-request-detail.web';
+import { getApiUrl, getWebUrl, isProductionTest, DEFAULT_WEB_PORT } from '../../runners/utilities/utilities.api';
 
 const logger = new E2ELogger();
 
@@ -9,30 +10,13 @@ test.describe('Pull Request Detail Web Tests', () => {
   test('should click on PR and open detail modal', async ({ page }) => {
     logger.logInfo('🚀 Starting PR detail web test', 'test');
     
-    // Determine if this is a production test based on environment
-    const isProduction = process.env.WEB_DEPLOYMENT_URL || process.env.FIREBASE_HOSTING_URL;
+    // Get URLs from centralized configuration
+    const isProduction = isProductionTest();
+    const baseUrl = getWebUrl();
+    const apiUrl = getApiUrl();
+    const webPort = isProduction ? 443 : DEFAULT_WEB_PORT;
     
-    let baseUrl: string;
-    let apiUrl: string;
-    let webPort = 3020; // Default E2E web port
-    
-    if (isProduction) {
-      // Production deployment
-      baseUrl = process.env.WEB_DEPLOYMENT_URL || 
-                process.env.FIREBASE_HOSTING_URL || 
-                'https://lauriecrean-free-38256.web.app';
-      apiUrl = process.env.API_DEPLOYMENT_URL || 
-               process.env.CLOUD_RUN_URL || 
-               'https://api-github-main-329000596728.us-central1.run.app';
-               
-      logger.logInfo(`🌐 Production test - Web: ${baseUrl}, API: ${apiUrl}`, 'test');
-    } else {
-      // Local E2E test
-      baseUrl = `http://localhost:${webPort}`;
-      apiUrl = 'http://localhost:3015'; // E2E API port
-      
-      logger.logInfo(`🏠 Local E2E test - Web: ${baseUrl}, API: ${apiUrl}`, 'test');
-    }
+    logger.logInfo(`${isProduction ? '🌐 Production' : '🏠 Local'} test - Web: ${baseUrl}, API: ${apiUrl}`, 'test');
     
     // Inject API URL into browser window for frontend to use
     await page.addInitScript((testApiUrl) => {
@@ -61,12 +45,9 @@ test.describe('Pull Request Detail Web Tests', () => {
   test('should handle production environment gracefully', async ({ page }) => {
     logger.logInfo('🌐 Testing production environment handling', 'test');
     
-    const baseUrl = process.env.WEB_DEPLOYMENT_URL || 
-                    process.env.FIREBASE_HOSTING_URL || 
-                    'https://lauriecrean-free-38256.web.app';
-    const apiUrl = process.env.API_DEPLOYMENT_URL || 
-                   process.env.CLOUD_RUN_URL || 
-                   'https://api-github-main-329000596728.us-central1.run.app';
+    // Get URLs from centralized configuration
+    const baseUrl = getWebUrl();
+    const apiUrl = getApiUrl();
     
     logger.logInfo(`🌐 Using baseURL: ${baseUrl}`, 'test');
     logger.logInfo(`🔗 Using API URL: ${apiUrl}`, 'test');
