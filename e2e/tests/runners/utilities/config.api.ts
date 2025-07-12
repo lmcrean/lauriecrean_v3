@@ -1,7 +1,7 @@
 import { APIRequestContext } from '@playwright/test';
 
 // API Configuration - Use localhost for development testing, production URL for production testing
-export const POSSIBLE_PORTS = [3001, 3015, 3016, 3017, 3018];
+export const POSSIBLE_PORTS = [3015, 3001, 3016, 3017, 3018];
 export const TEST_USERNAME = 'lmcrean';
 export const PRODUCTION_API_URL = 'https://api-github-main-329000596728.us-central1.run.app';
 
@@ -44,7 +44,7 @@ const getInitialApiUrl = (): string => {
                     process.env.NODE_ENV !== 'production' &&
                     !process.argv.some(arg => arg.includes('prod.spec') || arg.includes('production'));
   
-  return isLocalDev ? 'http://localhost:3001' : PRODUCTION_API_URL;
+  return isLocalDev ? 'http://localhost:3015' : PRODUCTION_API_URL;
 };
 
 export let API_BASE_URL = getInitialApiUrl();
