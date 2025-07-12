@@ -36,7 +36,10 @@ export class PullRequestDetailApiRunner {
       const status = response.status();
       
       if (status === 200) {
-        const data: DetailedPullRequestResponse = await response.json();
+        const responseData = await response.json();
+        
+        // Extract the actual PR data from the response
+        const data: DetailedPullRequestResponse = responseData.data || responseData;
         this.logger.logInfo(`✅ Successfully fetched PR details`, 'network', { 
           title: data.title,
           commits: data.commits,

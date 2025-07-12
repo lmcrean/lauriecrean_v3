@@ -160,8 +160,9 @@ test.describe('Pull Request Feed API Tests', () => {
     observability.logTestInfo(`📊 Detailed PR stats: ${detailData.commits} commits, ${detailData.additions}+ ${detailData.deletions}- lines, ${detailData.changed_files} files`);
   });
 
-  test('should handle API errors gracefully', async ({ request }) => {
+  test('should handle API errors gracefully (intentional 404 test)', async ({ request }) => {
     observability.logTestStart('🚨 Testing API error handling');
+    observability.logTestInfo('🧪 Intentionally requesting non-existent repository to test error handling');
     
     const response = await request.get(`${getApiBaseUrl()}/api/github/pull-requests/invalid-user/invalid-repo/999`);
     observability.recordNetworkCall(response.status() >= 400); // Error response is expected
