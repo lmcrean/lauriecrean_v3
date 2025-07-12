@@ -18,13 +18,38 @@ console.log('📏 GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    service: 'api-github'
+  });
 });
 
-// Get pull requests for a user
-app.get('/api/github/pull-requests/:username', async (req, res) => {
+// Port info endpoint
+app.get('/api/port-info', (req, res) => {
+  const port = parseInt(process.env.PORT || '3000');
+  const mode = process.env.NODE_ENV === 'test' ? 'e2e' : 'manual';
+  
+  res.json({
+    port,
+    mode,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Get pull requests for a user - support both path and query parameters
+app.get('/api/github/pull-requests/:username?', async (req, res) => {
   try {
-    const { username } = req.params;
+    // Support both path parameter (:username) and query parameter (?username=...)
+    const username = req.params.username || req.query.username as string;
+    
+    if (!username) {
+      return res.status(400).json({ 
+        error: 'Username is required',
+        message: 'Please provide username either as path parameter or query parameter' 
+      });
+    }
+    
     const page = parseInt(req.query.page as string) || 1;
     const perPage = parseInt(req.query.per_page as string) || 10;
     
@@ -68,6 +93,14 @@ app.get('/api/github/rate-limit', async (req, res) => {
       message: error instanceof Error ? error.message : 'Unknown error occurred' 
     });
   }
+});
+
+// 404 handler - must be after all other routes
+app.use('*', (req, res) => {
+  res.status(404).json({
+    error: 'Not Found',
+    message: `Route ${req.originalUrl} not found`
+  });
 });
 
 // Start server

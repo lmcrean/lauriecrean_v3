@@ -23,7 +23,11 @@ export class GitHubService {
       
       return {
         data: result.pullRequests,
-        pagination: result.pagination
+        meta: {
+          username,
+          count: result.pullRequests.length,
+          pagination: result.pagination
+        }
       };
     } catch (error) {
       console.error('❌ Error fetching pull requests:', error);
