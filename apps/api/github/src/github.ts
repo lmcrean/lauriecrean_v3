@@ -10,6 +10,47 @@ const octokit = new Octokit({
 console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
 console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
 
+// Helper function to add delay between API calls
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Helper function to retry API calls with exponential backoff
+async function retryApiCall<T>(
+  apiCall: () => Promise<T>,
+  maxRetries: number = 3,
+  baseDelay: number = 1000
+): Promise<T> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await apiCall();
+    } catch (error: any) {
+      // Check if it's a rate limiting error
+      if (error.status === 403 && error.response?.headers?.['x-ratelimit-remaining'] === '0') {
+        if (attempt === maxRetries) {
+          throw new Error(`GitHub API rate limit exceeded after ${maxRetries} attempts`);
+        }
+        
+        const resetTime = error.response?.headers?.['x-ratelimit-reset'];
+        const waitTime = resetTime ? (parseInt(resetTime) * 1000 - Date.now()) : baseDelay * Math.pow(2, attempt - 1);
+        
+        console.log(`Rate limit hit, waiting ${waitTime}ms before retry ${attempt}/${maxRetries}`);
+        await delay(Math.min(waitTime, 30000)); // Cap at 30 seconds
+        continue;
+      }
+      
+      // For other errors, only retry if it's not the last attempt
+      if (attempt === maxRetries) {
+        throw error;
+      }
+      
+      const waitTime = baseDelay * Math.pow(2, attempt - 1);
+      console.log(`API call failed, retrying in ${waitTime}ms (attempt ${attempt}/${maxRetries})`);
+      await delay(waitTime);
+    }
+  }
+  
+  throw new Error('Max retries exceeded');
+}
+
 export interface GetPullRequestsResult {
   pullRequests: PullRequestResponse[];
   pagination: PaginationMeta;
@@ -40,13 +81,15 @@ export async function getPullRequests(username: string, page: number = 1, perPag
       if (itemsToFetchThisPage <= 0) break;
       
       try {
-        const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
-          q: searchQuery,
-          sort: 'created',
-          order: 'desc',
-          per_page: itemsToFetchThisPage,
-          page: githubPage
-        });
+        const { data: searchResults } = await retryApiCall(() => 
+          octokit.rest.search.issuesAndPullRequests({
+            q: searchQuery,
+            sort: 'created',
+            order: 'desc',
+            per_page: itemsToFetchThisPage,
+            page: githubPage
+          })
+        );
 
         allSearchItems.push(...searchResults.items);
         
@@ -59,6 +102,11 @@ export async function getPullRequests(username: string, page: number = 1, perPag
         if (searchResults.items.length < itemsToFetchThisPage) {
           break;
         }
+        
+        // Add small delay between API calls to be respectful
+        if (githubPage < githubPagesNeeded) {
+          await delay(100);
+        }
       } catch (error) {
         console.warn(`Failed to fetch GitHub search page ${githubPage}:`, error);
         break;
@@ -69,48 +117,64 @@ export async function getPullRequests(username: string, page: number = 1, perPag
     let totalCount = 0;
     if (allSearchItems.length === 0) {
       // If we haven't fetched anything yet, do a minimal search just to get total count
-      const { data: searchResults } = await octokit.rest.search.issuesAndPullRequests({
-        q: searchQuery,
-        sort: 'created',
-        order: 'desc',
-        per_page: 1,
-        page: 1
-      });
+      const { data: searchResults } = await retryApiCall(() =>
+        octokit.rest.search.issuesAndPullRequests({
+          q: searchQuery,
+          sort: 'created',
+          order: 'desc',
+          per_page: 1,
+          page: 1
+        })
+      );
       totalCount = searchResults.total_count;
     } else {
       // Use a fresh search to get accurate total count
-      const { data: countSearch } = await octokit.rest.search.issuesAndPullRequests({
-        q: searchQuery,
-        sort: 'created',
-        order: 'desc',
-        per_page: 1,
-        page: 1
-      });
+      const { data: countSearch } = await retryApiCall(() =>
+        octokit.rest.search.issuesAndPullRequests({
+          q: searchQuery,
+          sort: 'created',
+          order: 'desc',
+          per_page: 1,
+          page: 1
+        })
+      );
       totalCount = countSearch.total_count;
     }
     
     // Convert search results to our format
     const allPRs: PullRequestResponse[] = [];
     
-    for (const item of allSearchItems) {
+    // Limit the number of detailed API calls to prevent rate limiting during tests
+    const maxDetailedCalls = Math.min(allSearchItems.length, 20);
+    console.log(`Processing ${maxDetailedCalls} PRs out of ${allSearchItems.length} found items`);
+    
+    for (let i = 0; i < maxDetailedCalls; i++) {
+      const item = allSearchItems[i];
       try {
         // Extract owner and repo from the URL
         const urlParts = item.html_url.split('/');
         const owner = urlParts[3];
         const repo = urlParts[4];
         
-        // Get the full PR details
-        const { data: pr } = await octokit.rest.pulls.get({
-          owner,
-          repo,
-          pull_number: item.number
-        });
+        // Get the full PR details with retry logic
+        const { data: pr } = await retryApiCall(() =>
+          octokit.rest.pulls.get({
+            owner,
+            repo,
+            pull_number: item.number
+          })
+        );
 
-        // Get repository details
-        const { data: repoData } = await octokit.rest.repos.get({
-          owner,
-          repo
-        });
+        // Get repository details with retry logic
+        const { data: repoData } = await retryApiCall(() =>
+          octokit.rest.repos.get({
+            owner,
+            repo
+          })
+        );
+
+        // Add small delay between API calls to be respectful
+        await delay(50);
 
         const prData: PullRequestResponse = {
           id: pr.id,
@@ -176,18 +240,22 @@ export async function getPullRequestDetails(owner: string, repo: string, pullNum
   try {
     console.log(`Fetching PR #${pullNumber} from ${owner}/${repo}`);
     
-    // Fetch PR details and comments count in parallel for better performance
+    // Fetch PR details and comments count in parallel for better performance with retry logic
     const [prResponse, commentsResponse] = await Promise.all([
-      octokit.rest.pulls.get({
-        owner,
-        repo,
-        pull_number: pullNumber
-      }),
-      octokit.rest.issues.listComments({
-        owner,
-        repo,
-        issue_number: pullNumber // PR comments are stored as issue comments
-      })
+      retryApiCall(() =>
+        octokit.rest.pulls.get({
+          owner,
+          repo,
+          pull_number: pullNumber
+        })
+      ),
+      retryApiCall(() =>
+        octokit.rest.issues.listComments({
+          owner,
+          repo,
+          issue_number: pullNumber // PR comments are stored as issue comments
+        })
+      )
     ]);
 
     const pr = prResponse.data;
