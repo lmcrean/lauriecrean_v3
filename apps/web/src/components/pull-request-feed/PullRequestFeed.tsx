@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import { PullRequestFeedProps, PullRequestListData } from '@shared/types/pull-requests';
 import { usePullRequestState } from './hooks/usePullRequestState';
 import { usePullRequestApi } from './hooks/usePullRequestApi';
@@ -24,6 +24,8 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     setModalLoading: state.setModalLoading
   });
 
+  // Track if initial fetch has been performed
+  const initialFetchRef = useRef(false);
 
   // Handle card click with API hook
   const handleCardClick = useCallback((pr: PullRequestListData) => {
@@ -49,9 +51,12 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     state.setIsClient(true);
   }, [state]);
 
-  // Initial load with proper cleanup - only run on client side
+  // Initial load with proper cleanup - only run once on client side
   useEffect(() => {
-    if (!state.isClient) return; // Skip on server side
+    if (!state.isClient || initialFetchRef.current) return;
+    
+    // Mark that initial fetch is starting
+    initialFetchRef.current = true;
     
     // Reset mounted flag on mount
     api.resetMountedFlag();
@@ -63,14 +68,14 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
     return () => {
       api.cleanup();
     };
-  }, [api, state.isClient]);
+  }, [state.isClient]); // Only depend on isClient
 
-  // Additional cleanup on username change
+  // Cleanup on unmount and username change
   useEffect(() => {
     return () => {
       api.cleanup();
     };
-  }, [username, api]);
+  }, [username, api.cleanup]); // Only depend on username and cleanup function
 
   // Show loading state during SSR and initial client load
   const loadingErrorComponent = (

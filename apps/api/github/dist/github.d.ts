@@ -7,7 +7,11 @@ export declare class GitHubService {
      */
     getPullRequests(username: string, page?: number, perPage?: number): Promise<{
         data: import("./types").PullRequestResponse[];
-        pagination: PaginationMeta;
+        meta: {
+            username: string;
+            count: number;
+            pagination: PaginationMeta;
+        };
     }>;
     /**
      * Get detailed information for a specific pull request

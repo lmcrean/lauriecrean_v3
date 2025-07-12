@@ -62,12 +62,13 @@ async function checkRateLimit(octokit) {
     }
     catch (error) {
         console.warn('⚠️ Failed to check rate limit:', error);
-        // Return conservative defaults based on authenticated user limits
+        // Return optimistic defaults based on authenticated user limits
+        // This allows the API to continue functioning even if rate limit checks fail
         return {
-            remaining: 0,
+            remaining: 4000, // Assume we have plenty of calls available
             limit: 5000, // Authenticated user limit
-            resetTime: new Date(),
-            used: 5000
+            resetTime: new Date(Date.now() + 60 * 60 * 1000), // Reset in 1 hour
+            used: 1000
         };
     }
 }
@@ -98,14 +99,22 @@ function estimateApiCalls(operation, itemCount = 1) {
 }
 // Helper function to check if we have enough API calls remaining
 async function ensureSufficientRateLimit(octokit, operation, itemCount = 1) {
-    const estimatedCalls = estimateApiCalls(operation, itemCount);
-    const rateLimit = await checkRateLimit(octokit);
-    logRateLimitStatus(rateLimit.remaining, rateLimit.limit, operation);
-    if (rateLimit.remaining < estimatedCalls) {
-        const resetTime = rateLimit.resetTime.toLocaleTimeString();
-        console.warn(`🚨 Insufficient API calls: need ${estimatedCalls}, have ${rateLimit.remaining}. Resets at ${resetTime}`);
-        return false;
+    try {
+        const estimatedCalls = estimateApiCalls(operation, itemCount);
+        const rateLimit = await checkRateLimit(octokit);
+        logRateLimitStatus(rateLimit.remaining, rateLimit.limit, operation);
+        if (rateLimit.remaining < estimatedCalls) {
+            const resetTime = rateLimit.resetTime.toLocaleTimeString();
+            console.warn(`🚨 Insufficient API calls: need ${estimatedCalls}, have ${rateLimit.remaining}. Resets at ${resetTime}`);
+            return false;
+        }
+        return true;
     }
-    return true;
+    catch (error) {
+        console.warn('⚠️ Failed to check rate limit for operation, proceeding with caution:', error);
+        // If rate limit check fails, proceed with the operation
+        // This prevents rate limit check failures from blocking API functionality
+        return true;
+    }
 }
 //# sourceMappingURL=rateLimitUtils.js.map

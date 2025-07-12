@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useMemo } from 'react';
 import apiClient from '../../api/Core';
 import {
   PullRequestListData,
@@ -69,7 +69,7 @@ export const usePullRequestApi = ({
     } catch (err: any) {
       // Only handle errors if component is still mounted and request wasn't cancelled
       if (isMountedRef.current && err.name !== 'AbortError' && err.name !== 'CanceledError') {
-        console.error('Error fetching pull requests:', err);
+        console.error('❌ Request Failed:', err.config?.url || 'Unknown URL');
         onListError(err.message || 'Failed to load pull requests.');
       }
     } finally {
@@ -156,10 +156,11 @@ export const usePullRequestApi = ({
     isMountedRef.current = true;
   }, []);
 
-  return {
+  // Memoize the return object to prevent unnecessary re-renders
+  return useMemo(() => ({
     fetchPullRequests,
     fetchPullRequestDetails,
     cleanup,
     resetMountedFlag
-  };
+  }), [fetchPullRequests, fetchPullRequestDetails, cleanup, resetMountedFlag]);
 }; 
