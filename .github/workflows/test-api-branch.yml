@@ -75,6 +75,22 @@ jobs:
           BRANCH_NAME: ${{ inputs.branch_name }}
           GITHUB_HEAD_REF: ${{ inputs.branch_name }}
       
+      - name: 🧪 Run Pull Request Detail API Tests
+        run: |
+          cd e2e
+          echo "🎯 Testing PR Detail API at: ${{ inputs.api_deployment_url }}"
+          
+          # Run the API tests specifically for pull request detail (using API-only config)
+          npx playwright test tests/features/pull-request/pull-request-detail.api.spec.ts --config=playwright.prod.api.pr-branch.config.ts --reporter=list
+        env:
+          API_BASE_URL: ${{ inputs.api_deployment_url }}
+          API_DEPLOYMENT_URL: ${{ inputs.api_deployment_url }}
+          CLOUD_RUN_URL: ${{ inputs.api_deployment_url }}
+          GITHUB_USERNAME: lmcrean
+          TEST_USERNAME: lmcrean
+          BRANCH_NAME: ${{ inputs.branch_name }}
+          GITHUB_HEAD_REF: ${{ inputs.branch_name }}
+      
       - name: 📊 Test Summary
         if: always()
         run: |
