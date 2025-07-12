@@ -98,8 +98,8 @@ class PullRequestDetailProdWebRunner {
       // Look for pull request cards
       const pullRequestCards = page.locator('[data-testid="pull-request-card"]');
       
-      // Wait for cards to appear
-      await page.waitForTimeout(3000);
+      // Wait for cards to appear and API to stabilize
+      await page.waitForTimeout(5000);
       const cardCount = await pullRequestCards.count();
       
       this.logger.logInfo(`📋 Found ${cardCount} PR cards`, 'test');
@@ -118,17 +118,25 @@ class PullRequestDetailProdWebRunner {
         return false;
       }
       
-      // Wait for modal to open
-      await page.waitForTimeout(3000);
+      // Wait for modal to open and API call to complete
+      await page.waitForTimeout(8000);
       
       // Check if modal opened
       const modal = page.locator('[data-testid="pull-request-modal"]');
       
-      if (await modal.isVisible({ timeout: 10000 }).catch(() => false)) {
+      if (await modal.isVisible({ timeout: 15000 }).catch(() => false)) {
         this.logger.logInfo('✅ PR detail modal opened', 'test');
         return true;
       } else {
         this.logger.logError('❌ PR detail modal did not open', 'test');
+        
+        // Check for error modal
+        const errorModal = page.locator('[data-testid="error-modal"]');
+        if (await errorModal.isVisible({ timeout: 2000 }).catch(() => false)) {
+          const errorText = await errorModal.textContent();
+          this.logger.logError(`❌ Error modal detected: ${errorText}`, 'test');
+        }
+        
         return false;
       }
       
@@ -145,8 +153,8 @@ class PullRequestDetailProdWebRunner {
       // Wait for modal to be fully loaded
       await page.waitForSelector('[data-testid="pull-request-modal"]', { timeout: 15000 });
       
-      // Wait for detailed data to load
-      await page.waitForTimeout(5000);
+      // Wait for detailed data to load and API call to complete
+      await page.waitForTimeout(8000);
       
       // Check for detailed fields that should be present
       const detailFields = [
