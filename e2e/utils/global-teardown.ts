@@ -17,11 +17,12 @@ async function globalTeardown(config: FullConfig) {
 
   // Force cleanup of any remaining processes
   if (process.platform === 'win32') {
-    // Windows-specific cleanup
+    // Windows-specific cleanup - but don't kill the current process!
     try {
       const { execSync } = await import('child_process');
-      // Kill any lingering Node.js processes that might be serving reports
-      execSync('taskkill /F /IM node.exe 2>nul || echo "No Node processes to kill"', { stdio: 'inherit' });
+      // Only kill specific processes, not all node.exe processes
+      // Use cmd /c to ensure exit code 0 regardless of taskkill result
+      execSync('cmd /c "taskkill /F /IM playwright.exe 2>nul & exit 0"', { stdio: 'pipe' });
     } catch (error) {
       // Ignore errors, just log them
       console.log('Note: Error during Windows process cleanup (this is usually safe to ignore)');
