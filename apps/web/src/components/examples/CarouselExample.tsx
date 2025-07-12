@@ -5,7 +5,7 @@ import SplideInit from '../SplideInit';
 /**
  * Example component showing how to use the ProjectCarousel component
  */
-export default function CarouselExample() {
+const CarouselExample: React.FC = () => {
   return (
     <div className="carousel-examples">
       <h2>Project Carousels</h2>
@@ -29,4 +29,6 @@ export default function CarouselExample() {
       <SplideInit />
     </div>
   );
-} 
+};
+
+export default CarouselExample; 

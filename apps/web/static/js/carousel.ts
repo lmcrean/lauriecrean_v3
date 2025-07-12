@@ -1,5 +1,33 @@
+// Type definitions for Splide
+interface SplideOptions {
+  type?: string;
+  perPage?: number;
+  perMove?: number;
+  gap?: string;
+  pagination?: boolean;
+  arrows?: boolean;
+  autoplay?: boolean;
+  interval?: number;
+  pauseOnHover?: boolean;
+  speed?: number;
+  arrowPath?: string;
+}
+
+interface SplideInstance {
+  index: number;
+  Components: {
+    Controller: {
+      getEnd(): number;
+    };
+  };
+  on(event: string, callback: () => void): void;
+  mount(): void;
+}
+
+declare const Splide: new (element: Element, options: SplideOptions) => SplideInstance;
+
 // Initialize basic carousels
-function initializeBasicCarousels() {
+function initializeBasicCarousels(): void {
     document.querySelectorAll('.splide:not(#odyssey-carousel):not(#coachmatrix-carousel):not(#steamreport-carousel):not(#buffalo-carousel):not(#laurie-crean-carousel):not(#hoverboard-carousel):not(#crocodile-kingdom-carousel)').forEach(carousel => {
         new Splide(carousel, {
             type: 'loop',
@@ -16,8 +44,8 @@ function initializeBasicCarousels() {
 }
 
 // Initialize project carousels
-function initializeProjectCarousels() {
-    const projectCarousels = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard', 'crocodile-kingdom', 'retrolympics', 'wealthquest'];
+function initializeProjectCarousels(): void {
+    const projectCarousels: string[] = ['odyssey', 'coachmatrix', 'steamreport', 'buffalo', 'laurie-crean', 'hoverboard', 'crocodile-kingdom', 'retrolympics', 'wealthquest'];
     
     projectCarousels.forEach(id => {
         const carousel = document.querySelector(`#${id}-carousel`);
@@ -35,7 +63,7 @@ function initializeProjectCarousels() {
             });
 
             // Get the progress bar
-            const bar = carousel.querySelector('.my-carousel-progress-bar');
+            const bar = carousel.querySelector('.my-carousel-progress-bar') as HTMLElement;
             if (bar) {
                 // Update the progress bar when the carousel moves
                 splide.on('mounted move', function () {

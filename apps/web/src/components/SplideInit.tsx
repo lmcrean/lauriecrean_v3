@@ -1,7 +1,29 @@
 import React, { useEffect } from 'react';
 
+interface SplideInitProps {
+  testMode?: boolean;
+  onInitializeStart?: (() => void) | null;
+}
+
+interface SplideInstance {
+  index: number;
+  Components: {
+    Controller: {
+      getEnd(): number;
+    };
+  };
+  on(event: string, callback: () => void): void;
+  mount(): void;
+}
+
+declare global {
+  interface Window {
+    Splide?: new (element: HTMLElement, options: any) => SplideInstance;
+  }
+}
+
 // This is a client-side only component
-export default function SplideInit({ testMode = false, onInitializeStart = null }) {
+const SplideInit: React.FC<SplideInitProps> = ({ testMode = false, onInitializeStart = null }) => {
   useEffect(() => {
     // Check if we're running in a browser environment
     if (typeof window === 'undefined') {
@@ -70,8 +92,8 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
       uninitializedCarousels.forEach((carousel, index) => {
         try {
           // Check if we already have a progress bar
-          let progressBar = carousel.querySelector('.my-carousel-progress-bar');
-          let progressBarContainer = carousel.querySelector('.my-carousel-progress');
+          let progressBar = carousel.querySelector('.my-carousel-progress-bar') as HTMLElement;
+          let progressBarContainer = carousel.querySelector('.my-carousel-progress') as HTMLElement;
           
           // Create progress bar if it doesn't exist
           if (!progressBar) {
@@ -83,7 +105,7 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
             carousel.appendChild(progressBarContainer);
           }
           
-          const splide = new window.Splide(carousel, {
+          const splide = new window.Splide(carousel as HTMLElement, {
             type: 'loop',
             perPage: 1,
             perMove: 1,
@@ -154,4 +176,6 @@ export default function SplideInit({ testMode = false, onInitializeStart = null 
 
   // This component doesn't render anything visible
   return null;
-} 
+};
+
+export default SplideInit; 

@@ -1,21 +1,38 @@
 import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import '../css/projectCarousel.css';
 import projectCarousels from '../data/projectCarousels';
+
+interface ProjectCarouselProps {
+  projectKey: string;
+  slides?: { src: string; alt: string }[];
+}
+
+interface SplideInstance {
+  index: number;
+  Components: {
+    Controller: {
+      getEnd(): number;
+    };
+  };
+  on(event: string, callback: () => void): void;
+  mount(): void;
+}
+
+declare global {
+  interface Window {
+    Splide?: new (element: HTMLElement, options: any) => SplideInstance;
+  }
+}
 
 /**
  * ProjectCarousel Component
  * 
  * Renders a project carousel for the given project key
- * 
- * @param {Object} props
- * @param {string} props.projectKey - Key of the project from projectCarousels data
- * @returns {JSX.Element} The rendered carousel
  */
-const ProjectCarousel = ({ projectKey }) => {
-  const splideRef = useRef(null);
-  // Get slides from project carousels data
-  const slides = projectCarousels[projectKey]?.slides || [];
+const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projectKey, slides: propSlides }) => {
+  const splideRef = useRef<HTMLDivElement>(null);
+  // Get slides from project carousels data or use passed slides
+  const slides = propSlides || projectCarousels[projectKey]?.slides || [];
   const carouselId = projectCarousels[projectKey]?.id || `project-carousel-${projectKey}`;
   
   useEffect(() => {    
@@ -118,10 +135,6 @@ const ProjectCarousel = ({ projectKey }) => {
       </div>
     </div>
   );
-};
-
-ProjectCarousel.propTypes = {
-  projectKey: PropTypes.string.isRequired
 };
 
 export default ProjectCarousel; 

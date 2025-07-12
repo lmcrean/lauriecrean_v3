@@ -1,25 +1,53 @@
 // Manual Splide initialization with retry logic and mutation observer
-(function() {
+(function(): void {
   // Track if initialization has already occurred
-  let hasInitialized = false;
-  let retryCount = 0;
-  const MAX_RETRIES = 10;
+  let hasInitialized: boolean = false;
+  let retryCount: number = 0;
+  const MAX_RETRIES: number = 10;
+  
+  // Type definitions for Splide
+  interface SplideOptions {
+    type?: string;
+    perPage?: number;
+    perMove?: number;
+    gap?: string;
+    pagination?: boolean;
+    arrows?: boolean;
+    autoplay?: boolean;
+    interval?: number;
+    pauseOnHover?: boolean;
+    speed?: number;
+    arrowPath?: string;
+  }
+
+  interface SplideInstance {
+    index: number;
+    Components: {
+      Controller: {
+        getEnd(): number;
+      };
+    };
+    on(event: string, callback: () => void): void;
+    mount(): void;
+  }
+
+  const Splide = (window as any).Splide as new (element: Element, options: SplideOptions) => SplideInstance;
   
   // Main initialization function
-  function initSplide() {
+  function initSplide(): void {
     // Check if Splide is loaded
     if (typeof Splide === 'undefined') {
       
       // Load Splide CSS
-      const splideCSS = document.createElement('link');
+      const splideCSS: HTMLLinkElement = document.createElement('link');
       splideCSS.rel = 'stylesheet';
       splideCSS.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css';
       document.head.appendChild(splideCSS);
       
       // Load Splide JS
-      const splideScript = document.createElement('script');
+      const splideScript: HTMLScriptElement = document.createElement('script');
       splideScript.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js';
-      splideScript.onload = function() {
+      splideScript.onload = function(): void {
         setTimeout(initializeSplideCarousels, 100); // Wait a bit after script loads
       };
       document.body.appendChild(splideScript);
@@ -28,9 +56,9 @@
     }
   }
   
-  function initializeSplideCarousels() {
+  function initializeSplideCarousels(): void {
     // Check if we have any uninitialized carousels
-    const splideElements = document.querySelectorAll('.splide:not(.is-initialized)');
+    const splideElements: NodeListOf<Element> = document.querySelectorAll('.splide:not(.is-initialized)');
     
     // If no uninitialized elements found, retry a few times
     if (splideElements.length === 0) {
@@ -43,10 +71,10 @@
     }
     
     hasInitialized = true;
-    let successCount = 0;
+    let successCount: number = 0;
     
     // Initialize all carousels with consistent settings
-    splideElements.forEach(function(carousel, index) {
+    splideElements.forEach(function(carousel: Element, index: number): void {
       try {
         // Don't reinitialize if a React component already handled it
         if (carousel.getAttribute('data-splide-initialized') === 'true') {
@@ -54,8 +82,8 @@
         }
         
         // Check if we already have a progress bar
-        let progressBar = carousel.querySelector('.my-carousel-progress-bar');
-        let progressBarContainer = carousel.querySelector('.my-carousel-progress');
+        let progressBar = carousel.querySelector('.my-carousel-progress-bar') as HTMLElement;
+        let progressBarContainer = carousel.querySelector('.my-carousel-progress') as HTMLElement;
         
         // Create progress bar if it doesn't exist
         if (!progressBar) {
@@ -80,7 +108,7 @@
         });
         
         // Update the progress bar when the carousel moves
-        splide.on('mounted move', function() {
+        splide.on('mounted move', function(): void {
           try {
             const end = splide.Components.Controller.getEnd() + 1;
             const rate = Math.min((splide.index + 1) / end, 1);
@@ -106,17 +134,18 @@
   }
 
   // Set up mutation observer to detect when new content is added
-  function setupMutationObserver() {
-    const observer = new MutationObserver(function(mutations) {
-      let hasSplideElements = false;
+  function setupMutationObserver(): void {
+    const observer: MutationObserver = new MutationObserver(function(mutations: MutationRecord[]): void {
+      let hasSplideElements: boolean = false;
       
-      mutations.forEach(function(mutation) {
+      mutations.forEach(function(mutation: MutationRecord): void {
         if (mutation.addedNodes.length) {
           // Check if any of the added nodes are splide elements or contain them
-          mutation.addedNodes.forEach(function(node) {
+          mutation.addedNodes.forEach(function(node: Node): void {
             if (node.nodeType === 1) { // Element node
-              if ((node.classList && node.classList.contains('splide') && !node.classList.contains('is-initialized')) ||
-                  (node.querySelector && node.querySelector('.splide:not(.is-initialized)'))) {
+              const element = node as Element;
+              if ((element.classList && element.classList.contains('splide') && !element.classList.contains('is-initialized')) ||
+                  (element.querySelector && element.querySelector('.splide:not(.is-initialized)'))) {
                 hasSplideElements = true;
               }
             }
@@ -136,12 +165,12 @@
   }
 
   // Add sidebar toggle listener to handle sidebar collapse/expand
-  function setupSidebarToggleListener() {
+  function setupSidebarToggleListener(): void {
     // Function to refresh all splide carousels without changing slides
-    function refreshSplideCarousels() {
+    function refreshSplideCarousels(): void {
       
       // Find all initialized splides
-      document.querySelectorAll('.splide.is-initialized').forEach(function(carousel) {
+      document.querySelectorAll('.splide.is-initialized').forEach(function(carousel: Element): void {
         try {
           // Dispatch a resize event to trigger Splide's internal resize handler
           if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
@@ -156,8 +185,8 @@
     }
     
     // Use MutationObserver to detect sidebar toggle
-    const sidebarObserver = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
+    const sidebarObserver: MutationObserver = new MutationObserver(function(mutations: MutationRecord[]): void {
+      mutations.forEach(function(mutation: MutationRecord): void {
         if (mutation.attributeName === 'class') {
           const sidebarCollapsed = document.documentElement.classList.contains('sidebar-hidden') || 
                                    document.documentElement.classList.contains('navbar--sidebar-show') || 
@@ -173,8 +202,9 @@
     sidebarObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     
     // Also listen for Docusaurus sidebar toggle button clicks directly
-    document.addEventListener('click', function(event) {
-      const toggleButton = event.target.closest('.navbar__toggle, .navbar-sidebar__close, .navbar-sidebar__backdrop, .navbar__toggle');
+    document.addEventListener('click', function(event: Event): void {
+      const target = event.target as Element;
+      const toggleButton = target.closest('.navbar__toggle, .navbar-sidebar__close, .navbar-sidebar__backdrop, .navbar__toggle');
       if (toggleButton) {
         // Wait a bit for the sidebar animation to start
         setTimeout(refreshSplideCarousels, 300);
@@ -184,7 +214,7 @@
 
   // Initialize on first load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function(): void {
       initSplide();
       setupMutationObserver();
       setupSidebarToggleListener();
@@ -197,7 +227,7 @@
 
   // Handle Docusaurus page transitions - initialize carousels after page changes
   // This is needed because Docusaurus uses client-side routing
-  document.addEventListener('docusaurus.routeDidUpdate', function() {
+  document.addEventListener('docusaurus.routeDidUpdate', function(): void {
     // Reset initialization flag when route changes
     hasInitialized = false;
     retryCount = 0;

@@ -3,7 +3,22 @@
  * This file contains the configuration for all project carousels
  */
 
-const projectCarousels = {
+export interface CarouselSlide {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectCarousel {
+  id: string;
+  label: string;
+  slides: CarouselSlide[];
+}
+
+export interface ProjectCarousels {
+  [key: string]: ProjectCarousel;
+}
+
+const projectCarousels: ProjectCarousels = {
   odyssey: {
     id: 'odyssey-carousel',
     label: 'Odyssey Screenshots',
