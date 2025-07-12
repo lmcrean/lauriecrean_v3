@@ -78,20 +78,22 @@ export const PullRequestFeed: React.FC<PullRequestFeedProps> = ({
   }, [username, api.cleanup]); // Only depend on username and cleanup function
 
   // Show loading state during SSR and initial client load
-  const loadingErrorComponent = (
-    <LoadingErrorStates
-      loading={state.loading}
-      error={state.error}
-      pullRequestsLength={state.pullRequests.length}
-      username={username}
-      className={className}
-      isClient={state.isClient}
-      onRetry={handleRetry}
-    />
-  );
+  const shouldShowLoadingError = !state.isClient || 
+    (state.loading && state.pullRequests.length === 0) || 
+    (state.error && state.pullRequests.length === 0);
 
-  if (loadingErrorComponent) {
-    return loadingErrorComponent;
+  if (shouldShowLoadingError) {
+    return (
+      <LoadingErrorStates
+        loading={state.loading}
+        error={state.error}
+        pullRequestsLength={state.pullRequests.length}
+        username={username}
+        className={className}
+        isClient={state.isClient}
+        onRetry={handleRetry}
+      />
+    );
   }
 
   return (
