@@ -76,6 +76,7 @@ const GitHubBadges: React.FC<GitHubBadgesProps> = ({
 
   return (
     <div className={className}>
+      <span>Github: </span>
       {badgeTypes.map((badgeType) => {
         const config = GITHUB_BADGE_CONFIGS[badgeType];
         

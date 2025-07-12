@@ -1,160 +1,165 @@
-import * as dotenv from 'dotenv';
-import * as path from 'path';
-
-// Load .env file explicitly
-dotenv.config({ path: path.join(__dirname, '..', '.env') });
-
-// Debug environment loading
-console.log('=== Environment Debug ===');
-console.log('Working directory:', process.cwd());
-console.log('__dirname:', __dirname);
-console.log('.env path:', path.join(__dirname, '..', '.env'));
-console.log('GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
-console.log('GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
-if (process.env.GITHUB_TOKEN) {
-  console.log('GITHUB_TOKEN starts with:', process.env.GITHUB_TOKEN.substring(0, 10) + '...');
-}
-console.log('=========================');
-
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import { getPullRequests, getPullRequestDetails } from './github';
-import { ApiResponse, ErrorResponse } from './types';
+import { GitHubService } from './github';
+import { findAvailablePort } from './utils/portUtils';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
-// CORS configuration
-const allowedOrigins = process.env.ALLOWED_ORIGINS 
-  ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'http://localhost:3010', 'http://localhost:3020', 'https://lauriecrean.com', 'https://www.lauriecrean.dev', 'https://lauriecrean-free-38256.web.app'];
-
-// Enhanced CORS configuration to handle Firebase preview URLs
-const corsOptions = {
-  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    // Check exact matches first
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    
-    // Allow Firebase hosting preview URLs (pattern: lauriecrean-free-38256--*.web.app)
-    if (origin.match(/^https:\/\/lauriecrean-free-38256--[a-zA-Z0-9-]+\.web\.app$/)) {
-      console.log(`✅ Allowing Firebase preview URL: ${origin}`);
-      return callback(null, true);
-    }
-    
-    // Allow localhost with any port for development
-    if (origin.match(/^https?:\/\/localhost(:\d+)?$/)) {
-      console.log(`✅ Allowing localhost: ${origin}`);
-      return callback(null, true);
-    }
-    
-    console.log(`❌ CORS blocked origin: ${origin}`);
-    callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true
-};
-
-app.use(cors(corsOptions));
-
-// JSON parsing
+// Middleware
+app.use(cors());
 app.use(express.json());
+
+// Initialize GitHub service
+const githubService = new GitHubService(process.env.GITHUB_TOKEN || '');
+
+// Debug logging for authentication status
+console.log('🔑 GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
+console.log('📏 GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
+  const hasGitHubToken = !!process.env.GITHUB_TOKEN;
+  const tokenLength = process.env.GITHUB_TOKEN?.length || 0;
+  
   res.json({ 
-    status: 'ok', 
+    status: hasGitHubToken ? 'ok' : 'warning',
     timestamp: new Date().toISOString(),
-    service: 'api-github'
+    service: 'api-github',
+    github_token: {
+      present: hasGitHubToken,
+      length: tokenLength,
+      valid_format: hasGitHubToken && (process.env.GITHUB_TOKEN?.startsWith('ghp_') || process.env.GITHUB_TOKEN?.startsWith('github_pat_')),
+      status: hasGitHubToken ? 'configured' : 'missing'
+    }
   });
 });
 
-// Port discovery endpoint
+// Port info endpoint
 app.get('/api/port-info', (req, res) => {
-  const actualPort = process.env.ACTUAL_PORT || process.env.PORT || '3015';
+  const port = parseInt(process.env.PORT || '3000');
+  const mode = process.env.NODE_ENV === 'test' ? 'e2e' : 'manual';
+  
   res.json({
-    port: parseInt(actualPort),
-    mode: process.env.PORT === '3005' ? 'manual' : 'e2e',
+    port,
+    mode,
     timestamp: new Date().toISOString()
   });
 });
 
-// Main pull requests endpoint
-app.get('/api/github/pull-requests', async (req, res) => {
+// Get pull requests for a user - support both path and query parameters
+app.get('/api/github/pull-requests/:username?', async (req, res) => {
   try {
-    const username = (req.query.username as string) || process.env.GITHUB_USERNAME || 'lmcrean';
+    // Support both path parameter (:username) and query parameter (?username=...)
+    const username = req.params.username || req.query.username as string;
     
-    // Parse pagination parameters
-    const page = Math.max(1, Number(req.query.page) || 1);
-    const perPage = Math.min(Math.max(1, Number(req.query.per_page) || 20), 50); // Max 50 per page
-    
-    console.log(`Fetching page ${page} (${perPage} PRs per page) for ${username}`);
-    
-    const result = await getPullRequests(username, page, perPage);
-    
-    const response: ApiResponse = {
-      data: result.pullRequests,
-      meta: {
-        username,
-        count: result.pullRequests.length,
-        pagination: result.pagination
-      }
-    };
-
-    // Cache for 15 minutes
-    res.set('Cache-Control', 'public, max-age=900');
-    res.json(response);
-    
-  } catch (error) {
-    console.error('Error in pull-requests endpoint:', error);
-    
-    const errorResponse: ErrorResponse = {
-      error: 'Failed to fetch pull requests',
-      message: error instanceof Error ? error.message : 'Unknown error occurred'
-    };
-    
-    res.status(500).json(errorResponse);
-  }
-});
-
-// Detailed pull request endpoint
-app.get('/api/github/pull-requests/:owner/:repo/:number', async (req, res) => {
-  try {
-    const { owner, repo, number } = req.params;
-    const pullNumber = parseInt(number, 10);
-    
-    if (isNaN(pullNumber) || pullNumber <= 0) {
-      return res.status(400).json({
-        error: 'Invalid pull request number',
-        message: 'Pull request number must be a positive integer'
+    if (!username) {
+      return res.status(400).json({ 
+        error: 'Username is required',
+        message: 'Please provide username either as path parameter or query parameter' 
       });
     }
     
-    console.log(`Fetching detailed PR #${pullNumber} from ${owner}/${repo}`);
+    const page = parseInt(req.query.page as string) || 1;
+    let perPage = parseInt(req.query.per_page as string) || 10;
     
-    const data = await getPullRequestDetails(owner, repo, pullNumber);
+    // Validate page parameter
+    if (page < 1) {
+      return res.status(400).json({ 
+        error: 'Invalid page parameter',
+        message: 'Page must be a positive integer' 
+      });
+    }
     
-    // Cache for 15 minutes
-    res.set('Cache-Control', 'public, max-age=900');
-    res.json(data);
+    // Validate and limit per_page parameter to prevent rate limiting
+    if (perPage < 1) {
+      return res.status(400).json({ 
+        error: 'Invalid per_page parameter',
+        message: 'per_page must be a positive integer' 
+      });
+    }
     
+    // Cap per_page at 50 to prevent rate limiting and performance issues
+    const maxPerPage = 50;
+    if (perPage > maxPerPage) {
+      perPage = maxPerPage;
+      console.log(`⚠️ per_page parameter ${req.query.per_page} capped at ${maxPerPage} for user ${username}`);
+    }
+    
+    const result = await githubService.getPullRequests(username, page, perPage);
+    res.json(result);
   } catch (error) {
-    console.error('Error in pull-request details endpoint:', error);
-    
-    const errorResponse: ErrorResponse = {
-      error: 'Failed to fetch pull request details',
-      message: error instanceof Error ? error.message : 'Unknown error occurred'
-    };
-    
-    // Return 404 for not found, 500 for other errors
-    const statusCode = error instanceof Error && error.message.includes('Not Found') ? 404 : 500;
-    res.status(statusCode).json(errorResponse);
+    console.error('❌ Error in pull requests endpoint:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch pull requests', 
+      message: error instanceof Error ? error.message : 'Unknown error occurred' 
+    });
   }
 });
 
-// 404 handler
+// Get details for a specific pull request
+app.get('/api/github/pull-requests/:owner/:repo/:pullNumber', async (req, res) => {
+  try {
+    const { owner, repo, pullNumber } = req.params;
+    const prNumber = parseInt(pullNumber);
+    
+    const result = await githubService.getPullRequestDetails(owner, repo, prNumber);
+    res.json(result);
+  } catch (error) {
+    // Check if it's a 404 error (expected during testing)
+    const isNotFound = (error as any).status === 404 || 
+                      (error instanceof Error && error.message.includes('Not Found'));
+    
+    // Check if it's a test case (common test patterns)
+    const isTestCase = req.params.owner === 'invalid-owner' || 
+                      req.params.repo === 'invalid-repo' || 
+                      parseInt(req.params.pullNumber) === 999999;
+    
+    if (isNotFound) {
+      if (isTestCase) {
+        // Clear message for intentional test cases
+        console.log(`🧪 Test case: API endpoint handling 404 (expected): ${req.params.owner}/${req.params.repo}#${req.params.pullNumber}`);
+      } else {
+        // Log simple message for real 404s
+        console.log(`🔍 Pull request not found: ${req.params.owner}/${req.params.repo}#${req.params.pullNumber}`);
+      }
+      
+      res.status(404).json({ 
+        error: 'Not Found', 
+        message: error instanceof Error ? error.message : 'Pull request not found' 
+      });
+    } else {
+      // Log full error details for unexpected errors (only for non-test cases)
+      if (!isTestCase) {
+        console.error('❌ Error in pull request details endpoint:', error);
+      }
+      
+      res.status(500).json({ 
+        error: 'Failed to fetch pull request details', 
+        message: error instanceof Error ? error.message : 'Unknown error occurred' 
+      });
+    }
+  }
+});
+
+// Get current GitHub API rate limit status
+app.get('/api/github/rate-limit', async (req, res) => {
+  try {
+    const result = await githubService.getRateLimit();
+    res.json(result);
+  } catch (error) {
+    console.error('❌ Error in rate limit endpoint:', error);
+    res.status(500).json({ 
+      error: 'Failed to check rate limit', 
+      message: error instanceof Error ? error.message : 'Unknown error occurred' 
+    });
+  }
+});
+
+// 404 handler - must be after all other routes
 app.use('*', (req, res) => {
   res.status(404).json({
     error: 'Not Found',
@@ -162,50 +167,21 @@ app.use('*', (req, res) => {
   });
 });
 
-// Error handler
-app.use((error: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error('Unhandled error:', error);
-  res.status(500).json({
-    error: 'Internal Server Error',
-    message: error.message
-  });
-});
+// Start server
+const PORT = process.env.PORT || 3000;
 
-// For Vercel, export the app
-export default app;
-
-// Start server - handle both production (Cloud Run) and local development
-if (process.env.NODE_ENV === 'production') {
-  // Cloud Run production mode
-  const port = process.env.PORT || 8080;
-  app.listen(port, () => {
-    console.log(`✅ GitHub API server running on port ${port} (production)`);
-    console.log(`🔗 Health check: http://localhost:${port}/health`);
-    console.log(`📡 Pull requests: http://localhost:${port}/api/github/pull-requests`);
+// If running in test environment, use a different port
+if (process.env.NODE_ENV === 'test') {
+  findAvailablePort(3015, 3020).then(port => {
+    app.listen(port, () => {
+      console.log(`🚀 GitHub API server running on port ${port} (test mode)`);
+    });
+  }).catch(error => {
+    console.error('❌ Could not find available port:', error);
+    process.exit(1);
   });
 } else {
-  // Local development mode
-  import('./utils/portUtils').then(async ({ findAvailablePort, getPortConfig }) => {
-    try {
-      const { currentPort } = getPortConfig();
-      const availablePort = await findAvailablePort(currentPort);
-      
-      // Store the actual port being used for other services to discover
-      process.env.ACTUAL_PORT = availablePort.toString();
-      
-      app.listen(availablePort, () => {
-        console.log(`✅ GitHub API server running on port ${availablePort}`);
-        console.log(`🔗 Health check: http://localhost:${availablePort}/health`);
-        console.log(`📡 Pull requests: http://localhost:${availablePort}/api/github/pull-requests`);
-        
-        if (availablePort !== currentPort) {
-          console.log(`🔄 Note: Requested port ${currentPort} was in use, using port ${availablePort} instead`);
-        }
-      });
-      
-    } catch (error) {
-      console.error('❌ Failed to start server:', error);
-      process.exit(1);
-    }
+  app.listen(PORT, () => {
+    console.log(`🚀 GitHub API server running on port ${PORT}`);
   });
 } 

@@ -7,6 +7,7 @@ import {
   PullRequestApiRunner,
   PullRequestApiTestConfig
 } from '../../runners';
+import { DEFAULT_WEB_PORT, DEFAULT_API_PORT, TEST_USERNAME } from '../../runners/utilities/utilities.api';
 
 /**
  * E2E test for Pull Request Feed API integration
@@ -20,14 +21,14 @@ test.describe('Pull Request Feed API Integration - Refactored', () => {
   
   // Configuration
   const config: ServiceManagerConfig = {
-    webPort: 3020,
-    apiPort: 3015,
+    webPort: DEFAULT_WEB_PORT,
+    apiPort: DEFAULT_API_PORT,
     startupWaitTime: 15000,
     logFilePath: 'test-results/pull-request-feed-e2e-logs.json'
   };
 
   const apiTestConfig: PullRequestApiTestConfig = {
-    username: 'lmcrean',
+    username: TEST_USERNAME,
     page: 1,
     perPage: 5,
     timeout: 15000

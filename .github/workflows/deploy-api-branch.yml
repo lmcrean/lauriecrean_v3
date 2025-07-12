@@ -193,7 +193,7 @@ jobs:
             --max-instances=10 \
             --timeout=60s \
             --concurrency=100 \
-            --set-env-vars="NODE_ENV=production"
+            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN_PAT }}"
           
           # Get the service URL
           SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format 'value(status.url)')
