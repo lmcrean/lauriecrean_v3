@@ -1,7 +1,7 @@
 import { APIRequestContext } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
 import { getApiBaseUrl, DetailedPullRequestResponse, ErrorResponse } from '../utilities/utilities.api';
-import { PullRequestDetailApiValidators } from './helpers/api-validators';
+import { PullRequestDetailApiValidators } from './helpers/validators.api';
 
 export interface PullRequestDetailConfig {
   owner: string;

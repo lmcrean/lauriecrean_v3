@@ -1,9 +1,9 @@
 import { Page, expect } from '@playwright/test';
 import { E2ELogger } from '@lauriecrean/observability';
 import path from 'path';
-import { PageSetupHelper } from './helpers/page-setup';
-import { ModalInteractionHelper } from './helpers/modal-interaction';
-import { TestAnalysisHelper, PullRequestDetailTestResult } from './helpers/test-analysis';
+import { PageSetupHelper } from './helpers/page-setup.web';
+import { ModalInteractionHelper } from './helpers/modal-interaction.web';
+import { TestAnalysisHelper, PullRequestDetailTestResult } from './helpers/test-analysis.web';
 
 export interface PullRequestDetailConfig {
   prNumber: number;
@@ -84,4 +84,4 @@ export class PullRequestDetailWebRunner {
 }
 
 // Re-export types from helpers
-export type { PullRequestDetailTestResult } from './helpers/test-analysis';
+export type { PullRequestDetailTestResult } from './helpers/test-analysis.web';
