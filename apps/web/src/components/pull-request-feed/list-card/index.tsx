@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   PullRequestFeedListCardProps,
   PullRequestListData 
@@ -16,9 +16,18 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
   onClick
 }) => {
   const status = getStatusDisplay(pullRequest.state, pullRequest.merged_at);
-  const relativeTime = getRelativeTime(pullRequest.created_at);
   const titleIcon = getTitleIcon(pullRequest.title);
   const languageColor = getLanguageColor(pullRequest.repository.language);
+
+  // Add client-side only time calculation
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Only calculate relative time on client side
+  const relativeTime = isClient ? getRelativeTime(pullRequest.created_at) : 'Loading...';
 
   return (
     <article 
@@ -43,8 +52,9 @@ export const PullRequestFeedListCard: React.FC<PullRequestFeedListCardProps> = (
           <span>{status.emoji}</span>
           <span>{status.text}</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-xs">
-          {relativeTime}
+        <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
+          <i className="fas fa-clock"></i>
+          <span>{relativeTime}</span>
         </div>
       </div>
 
