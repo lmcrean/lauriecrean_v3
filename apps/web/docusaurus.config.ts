@@ -24,6 +24,12 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // Pass environment variables to the client-side
+  customFields: {
+    REACT_APP_API_BASE_URL: process.env.REACT_APP_API_BASE_URL,
+    DOCUSAURUS_API_BASE_URL: process.env.DOCUSAURUS_API_BASE_URL,
+  },
+
   // Add splide scripts directly to the head
   scripts: [
     {
