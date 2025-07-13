@@ -26,8 +26,8 @@ const config: Config = {
 
   // Pass environment variables to the client-side
   customFields: {
-    REACT_APP_API_BASE_URL: process.env.REACT_APP_API_BASE_URL,
-    DOCUSAURUS_API_BASE_URL: process.env.DOCUSAURUS_API_BASE_URL,
+    REACT_APP_API_BASE_URL: process.env.REACT_APP_API_BASE_URL || undefined,
+    DOCUSAURUS_API_BASE_URL: process.env.DOCUSAURUS_API_BASE_URL || undefined,
   },
 
   // Add splide scripts directly to the head
@@ -113,6 +113,14 @@ const config: Config = {
                 '@shared': path.resolve(__dirname, '../../shared'),
               },
             },
+            plugins: [
+              // Inject environment variables directly into the build
+              ...(config.plugins || []),
+              new (require('webpack').DefinePlugin)({
+                'window.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'window.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+              }),
+            ],
           };
         },
       };
