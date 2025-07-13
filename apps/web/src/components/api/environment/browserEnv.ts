@@ -18,12 +18,20 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
   // 2. Try Docusaurus customFields (most reliable for build-time env vars)
   if (typeof window !== 'undefined' && (window as any).docusaurus) {
     const docusaurusConfig = (window as any).docusaurus;
+    console.log(`🔍 Docusaurus object structure:`, docusaurusConfig);
+    
     if (docusaurusConfig && docusaurusConfig.siteConfig && docusaurusConfig.siteConfig.customFields) {
+      console.log(`🔍 CustomFields available:`, docusaurusConfig.siteConfig.customFields);
       const value = docusaurusConfig.siteConfig.customFields[key];
       if (value && value !== 'undefined') {
         console.log(`🌐 Found ${key} in Docusaurus customFields: ${value}`);
         return value;
       }
+    } else {
+      console.log(`🔍 Docusaurus siteConfig or customFields not found`);
+      console.log(`   - docusaurusConfig:`, !!docusaurusConfig);
+      console.log(`   - siteConfig:`, !!docusaurusConfig?.siteConfig);
+      console.log(`   - customFields:`, !!docusaurusConfig?.siteConfig?.customFields);
     }
   }
   
