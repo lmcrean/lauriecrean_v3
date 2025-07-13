@@ -25,5 +25,13 @@ export default defineConfig({
       'react-dom': resolve(__dirname, 'node_modules/react-dom'),
     },
     dedupe: ['react', 'react-dom']
+  },
+  esbuild: {
+    // Skip type checking for faster builds
+    target: 'es2020'
+  },
+  optimizeDeps: {
+    // Include dependencies that need to be pre-bundled
+    include: ['react', 'react-dom', 'axios']
   }
 }); 

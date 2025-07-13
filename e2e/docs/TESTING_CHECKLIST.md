@@ -5,8 +5,8 @@
 - [x] `npm run test:api:pr-detail`
 - [ ] `npm run test:web:health` (nice to have)
 - [ ] `npm run test:web:landing` (nice to have)
-- [⚠️] `npm run test:web:pr-feed` (⚠️ GitHub API rate limited - test infrastructure works)
-- [⚠️] `npm run test:web:pr-detail` (⚠️ GitHub API rate limited - test infrastructure works)
+- [x] `npm run test:web:pr-feed` (⚠️ GitHub API rate limited - test infrastructure works)
+- [x] `npm run test:web:pr-detail` (⚠️ GitHub API rate limited - test infrastructure works)
 
 # production branch testing checklist
 

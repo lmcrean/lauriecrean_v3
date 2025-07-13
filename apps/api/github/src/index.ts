@@ -1,171 +1,39 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import cors from 'cors';
 import { GitHubService } from './github';
 import { findAvailablePort } from './utils/portUtils';
+import { setupMiddleware } from './config/middleware';
+import { setupHealthRoutes } from './routes/health';
+import { setupGitHubRoutes } from './routes/github';
+import { setupValidationRoutes } from './routes/validation';
+import { setup404Handler } from './utils/errorHandler';
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-
 // Initialize GitHub service
 const githubService = new GitHubService(process.env.GITHUB_TOKEN || '');
 
-// Debug logging for authentication status
+// Enhanced debug logging for authentication and environment
+console.log('=== 🔍 ENVIRONMENT DEBUGGING ===');
 console.log('🔑 GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
 console.log('📏 GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
+console.log('🌍 NODE_ENV:', process.env.NODE_ENV);
+console.log('🔌 PORT:', process.env.PORT);
+console.log('=====================================');
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  const hasGitHubToken = !!process.env.GITHUB_TOKEN;
-  const tokenLength = process.env.GITHUB_TOKEN?.length || 0;
-  
-  res.json({ 
-    status: hasGitHubToken ? 'ok' : 'warning',
-    timestamp: new Date().toISOString(),
-    service: 'api-github',
-    github_token: {
-      present: hasGitHubToken,
-      length: tokenLength,
-      valid_format: hasGitHubToken && (process.env.GITHUB_TOKEN?.startsWith('ghp_') || process.env.GITHUB_TOKEN?.startsWith('github_pat_')),
-      status: hasGitHubToken ? 'configured' : 'missing'
-    }
-  });
-});
+// Setup middleware
+setupMiddleware(app);
 
-// Port info endpoint
-app.get('/api/port-info', (req, res) => {
-  const port = parseInt(process.env.PORT || '3000');
-  const mode = process.env.NODE_ENV === 'test' ? 'e2e' : 'manual';
-  
-  res.json({
-    port,
-    mode,
-    timestamp: new Date().toISOString()
-  });
-});
+// Setup route modules
+setupHealthRoutes(app);
+setupGitHubRoutes(app, githubService);
+setupValidationRoutes(app, githubService);
 
-// Get pull requests for a user - support both path and query parameters
-app.get('/api/github/pull-requests/:username?', async (req, res) => {
-  try {
-    // Support both path parameter (:username) and query parameter (?username=...)
-    const username = req.params.username || req.query.username as string;
-    
-    if (!username) {
-      return res.status(400).json({ 
-        error: 'Username is required',
-        message: 'Please provide username either as path parameter or query parameter' 
-      });
-    }
-    
-    const page = parseInt(req.query.page as string) || 1;
-    let perPage = parseInt(req.query.per_page as string) || 10;
-    
-    // Validate page parameter
-    if (page < 1) {
-      return res.status(400).json({ 
-        error: 'Invalid page parameter',
-        message: 'Page must be a positive integer' 
-      });
-    }
-    
-    // Validate and limit per_page parameter to prevent rate limiting
-    if (perPage < 1) {
-      return res.status(400).json({ 
-        error: 'Invalid per_page parameter',
-        message: 'per_page must be a positive integer' 
-      });
-    }
-    
-    // Cap per_page at 50 to prevent rate limiting and performance issues
-    const maxPerPage = 50;
-    if (perPage > maxPerPage) {
-      perPage = maxPerPage;
-      console.log(`⚠️ per_page parameter ${req.query.per_page} capped at ${maxPerPage} for user ${username}`);
-    }
-    
-    const result = await githubService.getPullRequests(username, page, perPage);
-    res.json(result);
-  } catch (error) {
-    console.error('❌ Error in pull requests endpoint:', error);
-    res.status(500).json({ 
-      error: 'Failed to fetch pull requests', 
-      message: error instanceof Error ? error.message : 'Unknown error occurred' 
-    });
-  }
-});
-
-// Get details for a specific pull request
-app.get('/api/github/pull-requests/:owner/:repo/:pullNumber', async (req, res) => {
-  try {
-    const { owner, repo, pullNumber } = req.params;
-    const prNumber = parseInt(pullNumber);
-    
-    const result = await githubService.getPullRequestDetails(owner, repo, prNumber);
-    res.json(result);
-  } catch (error) {
-    // Check if it's a 404 error (expected during testing)
-    const isNotFound = (error as any).status === 404 || 
-                      (error instanceof Error && error.message.includes('Not Found'));
-    
-    // Check if it's a test case (common test patterns)
-    const isTestCase = req.params.owner === 'invalid-owner' || 
-                      req.params.repo === 'invalid-repo' || 
-                      parseInt(req.params.pullNumber) === 999999;
-    
-    if (isNotFound) {
-      if (isTestCase) {
-        // Clear message for intentional test cases
-        console.log(`🧪 Test case: API endpoint handling 404 (expected): ${req.params.owner}/${req.params.repo}#${req.params.pullNumber}`);
-      } else {
-        // Log simple message for real 404s
-        console.log(`🔍 Pull request not found: ${req.params.owner}/${req.params.repo}#${req.params.pullNumber}`);
-      }
-      
-      res.status(404).json({ 
-        error: 'Not Found', 
-        message: error instanceof Error ? error.message : 'Pull request not found' 
-      });
-    } else {
-      // Log full error details for unexpected errors (only for non-test cases)
-      if (!isTestCase) {
-        console.error('❌ Error in pull request details endpoint:', error);
-      }
-      
-      res.status(500).json({ 
-        error: 'Failed to fetch pull request details', 
-        message: error instanceof Error ? error.message : 'Unknown error occurred' 
-      });
-    }
-  }
-});
-
-// Get current GitHub API rate limit status
-app.get('/api/github/rate-limit', async (req, res) => {
-  try {
-    const result = await githubService.getRateLimit();
-    res.json(result);
-  } catch (error) {
-    console.error('❌ Error in rate limit endpoint:', error);
-    res.status(500).json({ 
-      error: 'Failed to check rate limit', 
-      message: error instanceof Error ? error.message : 'Unknown error occurred' 
-    });
-  }
-});
-
-// 404 handler - must be after all other routes
-app.use('*', (req, res) => {
-  res.status(404).json({
-    error: 'Not Found',
-    message: `Route ${req.originalUrl} not found`
-  });
-});
+// Setup error handling (must be last)
+setup404Handler(app);
 
 // Start server
 const PORT = process.env.PORT || 3000;

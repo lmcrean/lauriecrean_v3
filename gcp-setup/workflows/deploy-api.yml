@@ -51,7 +51,7 @@ jobs:
           --cpu-throttling \
           --no-use-http2 \
           --execution-environment gen2 \
-          --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN_PAT }}"
+          --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}"
           
     - name: Get service URL
       id: get-url

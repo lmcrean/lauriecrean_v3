@@ -1,2 +1,4 @@
 .gh-repo-keys.txt
 .gh-actions-debug.log
+.frontend-debug.log
+pull-request-draft.md

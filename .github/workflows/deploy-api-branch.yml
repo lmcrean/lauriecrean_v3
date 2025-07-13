@@ -181,7 +181,40 @@ jobs:
       - name: 🚀 Deploy to Cloud Run
         id: deploy
         run: |
-          # Deploy the service
+          # Validate GitHub token secret before deployment
+          if [ -z "${{ secrets.API_GITHUB_TOKEN }}" ]; then
+            echo "❌ ERROR: API_GITHUB_TOKEN secret is not set!"
+            echo "🔍 Please ensure the API_GITHUB_TOKEN secret is configured in repository settings"
+            exit 1
+          fi
+          
+          # Log token presence (first 4 characters for debugging)
+          GITHUB_TOKEN_VALUE="${{ secrets.API_GITHUB_TOKEN }}"
+          TOKEN_PREFIX=$(echo "$GITHUB_TOKEN_VALUE" | cut -c1-4)
+          TOKEN_LENGTH=${#GITHUB_TOKEN_VALUE}
+          echo "🔑 GitHub Token Debug: prefix='$TOKEN_PREFIX' length=$TOKEN_LENGTH"
+          
+          # Clean up any existing conflicting services to ensure predictable URLs
+          echo "🗑️ Cleaning up any existing conflicting services..."
+          
+          # Delete service and wait for complete removal
+          if gcloud run services describe $SERVICE_NAME --region=us-central1 --quiet > /dev/null 2>&1; then
+            echo "📍 Found existing service, deleting..."
+            gcloud run services delete $SERVICE_NAME --region=us-central1 --quiet
+            
+            # Wait for deletion to complete
+            echo "⏳ Waiting for service deletion to complete..."
+            while gcloud run services describe $SERVICE_NAME --region=us-central1 --quiet > /dev/null 2>&1; do
+              echo "   Still deleting..."
+              sleep 5
+            done
+            echo "✅ Service deletion completed"
+          else
+            echo "📍 No existing service found"
+          fi
+          
+          # Deploy the service with deterministic naming
+          echo "🚀 Deploying service with name: $SERVICE_NAME"
           gcloud run deploy $SERVICE_NAME \
             --image $IMAGE_NAME \
             --platform managed \
@@ -193,13 +226,26 @@ jobs:
             --max-instances=10 \
             --timeout=60s \
             --concurrency=100 \
-            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN_PAT }}"
+            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}"
           
-          # Get the service URL
+          # Get the service URL - should now be predictable
           SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format 'value(status.url)')
           
           echo "🌐 Service deployed at: $SERVICE_URL"
           echo "deployment_url=$SERVICE_URL" >> $GITHUB_OUTPUT
+          
+          # Verify the URL matches expected pattern
+          EXPECTED_URL="https://$SERVICE_NAME.us-central1.run.app"
+          if [ "$SERVICE_URL" = "$EXPECTED_URL" ]; then
+            echo "✅ Service URL matches expected pattern: $EXPECTED_URL"
+          else
+            echo "⚠️ Service URL mismatch: expected '$EXPECTED_URL', got '$SERVICE_URL'"
+            echo "🔍 This indicates Cloud Run is adding hash suffixes - may need frontend adjustment"
+          fi
+          
+          # Verify environment variables were set correctly
+          echo "🔍 Verifying environment variables in deployed service..."
+          gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format="value(spec.template.spec.template.spec.containers[0].env[].name,spec.template.spec.template.spec.containers[0].env[].value)"
         env:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       
@@ -208,22 +254,79 @@ jobs:
           API_URL="${{ steps.deploy.outputs.deployment_url }}"
           echo "🔍 Testing API at: $API_URL"
           
-          # Test health endpoint with retry
+          # Validate URL pattern matches frontend expectations
+          EXPECTED_PATTERN="https://api-github-.*\.a\.run\.app"
+          if [[ "$API_URL" =~ $EXPECTED_PATTERN ]]; then
+            echo "✅ API URL matches expected pattern for frontend discovery"
+          else
+            echo "❌ API URL does not match expected pattern!"
+            echo "🔍 Expected pattern: $EXPECTED_PATTERN"
+            echo "🔍 Actual URL: $API_URL"
+            echo "⚠️ Note: Cloud Run may be adding hash suffixes - this could cause frontend discovery issues"
+          fi
+          
+          # Test health endpoint with retry and validate response
           for i in {1..5}; do
             echo "🏥 Health check attempt $i/5..."
-            if curl -f "$API_URL/health" -m 15; then
-              echo "✅ API is healthy!"
-              break
-            fi
             
-            if [ $i -eq 5 ]; then
-              echo "❌ API health check failed after 5 attempts"
-              exit 1
+            # Get health response
+            HEALTH_RESPONSE=$(curl -s -f "$API_URL/health" -m 15)
+            CURL_EXIT_CODE=$?
+            
+            if [ $CURL_EXIT_CODE -eq 0 ]; then
+              echo "✅ API responded successfully!"
+              echo "📄 Health Response: $HEALTH_RESPONSE"
+              
+              # Parse JSON response and check GitHub token status
+              TOKEN_STATUS=$(echo "$HEALTH_RESPONSE" | jq -r '.github_token.status // "unknown"')
+              TOKEN_PRESENT=$(echo "$HEALTH_RESPONSE" | jq -r '.github_token.present // false')
+              OVERALL_STATUS=$(echo "$HEALTH_RESPONSE" | jq -r '.status // "unknown"')
+              
+              echo "🔍 Overall Status: $OVERALL_STATUS"
+              echo "🔑 Token Present: $TOKEN_PRESENT"
+              echo "📋 Token Status: $TOKEN_STATUS"
+              
+              # Validate GitHub token is properly configured
+              if [ "$TOKEN_STATUS" = "configured" ] && [ "$TOKEN_PRESENT" = "true" ]; then
+                echo "✅ GitHub token is properly configured!"
+                break
+              else
+                echo "❌ GitHub token is not properly configured!"
+                echo "🔍 Expected: TOKEN_STATUS='configured' and TOKEN_PRESENT='true'"
+                echo "🔍 Actual: TOKEN_STATUS='$TOKEN_STATUS' and TOKEN_PRESENT='$TOKEN_PRESENT'"
+                
+                if [ $i -eq 5 ]; then
+                  echo "❌ GitHub token validation failed after 5 attempts"
+                  exit 1
+                fi
+              fi
+            else
+              echo "❌ API health endpoint failed (HTTP error)"
+              
+              if [ $i -eq 5 ]; then
+                echo "❌ API health check failed after 5 attempts"
+                exit 1
+              fi
             fi
             
             echo "⏳ Waiting 10 seconds before retry..."
             sleep 10
           done
+          
+          # Test CORS by making a preflight request
+          echo "🌐 Testing CORS configuration..."
+          CORS_RESPONSE=$(curl -s -X OPTIONS "$API_URL/health" \
+            -H "Origin: https://lauriecrean-free-38256.web.app" \
+            -H "Access-Control-Request-Method: GET" \
+            -H "Access-Control-Request-Headers: Content-Type" \
+            -w "%{http_code}" -o /dev/null)
+          
+          if [ "$CORS_RESPONSE" = "200" ]; then
+            echo "✅ CORS configuration is working correctly!"
+          else
+            echo "⚠️ CORS preflight returned status: $CORS_RESPONSE"
+            echo "🔍 This may indicate CORS issues with the frontend"
+          fi
       
       - name: 📊 Deployment Summary
         run: |

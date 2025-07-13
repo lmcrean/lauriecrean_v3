@@ -24,8 +24,19 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // Pass environment variables to the client-side
+  customFields: {
+    REACT_APP_API_BASE_URL: process.env.REACT_APP_API_BASE_URL || undefined,
+    DOCUSAURUS_API_BASE_URL: process.env.DOCUSAURUS_API_BASE_URL || undefined,
+  },
+
   // Add splide scripts directly to the head
   scripts: [
+    // Runtime configuration (generated during build)
+    {
+      src: '/config.js',
+      async: false, // Load synchronously to ensure APP_CONFIG is available early
+    },
     {
       src: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js',
       async: true,
@@ -107,6 +118,18 @@ const config: Config = {
                 '@shared': path.resolve(__dirname, '../../shared'),
               },
             },
+            plugins: [
+              // Inject environment variables directly into the build
+              ...(config.plugins || []),
+              new (require('webpack').DefinePlugin)({
+                // Make variables available on window object for direct access
+                'window.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'window.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+                // Also make them available as process.env for traditional React apps
+                'process.env.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'process.env.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+              }),
+            ],
           };
         },
       };
