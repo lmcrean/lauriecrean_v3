@@ -9,16 +9,41 @@ dotenv.config();
 
 const app = express();
 
+// CORS configuration - allow Firebase hosting domains and localhost
+const corsOptions = {
+  origin: [
+    'https://lauriecrean-free-38256.web.app',
+    'https://lauriecrean-free-38256.firebaseapp.com',
+    // Allow all Firebase preview domains (branch deployments)
+    /^https:\/\/lauriecrean-free-38256--.*\.web\.app$/,
+    /^https:\/\/lauriecrean-free-38256--.*\.firebaseapp\.com$/,
+    // Allow localhost for development
+    'http://localhost:3000',
+    'http://localhost:3010',
+    'http://localhost:3020',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:3010',
+    'http://127.0.0.1:3020'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Initialize GitHub service
 const githubService = new GitHubService(process.env.GITHUB_TOKEN || '');
 
-// Debug logging for authentication status
+// Enhanced debug logging for authentication and environment
+console.log('=== 🔍 ENVIRONMENT DEBUGGING ===');
 console.log('🔑 GITHUB_TOKEN present:', !!process.env.GITHUB_TOKEN);
 console.log('📏 GITHUB_TOKEN length:', process.env.GITHUB_TOKEN?.length || 0);
+console.log('🌍 NODE_ENV:', process.env.NODE_ENV);
+console.log('🔌 PORT:', process.env.PORT);
+console.log('=====================================');
 
 // Health check endpoint
 app.get('/health', (req, res) => {
