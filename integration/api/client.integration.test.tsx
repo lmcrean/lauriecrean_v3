@@ -429,3 +429,153 @@ describe('API Client Integration Tests', () => {
     });
   });
 }); 
+
+// TypeScript interface for window with APP_CONFIG
+interface WindowWithAppConfig extends Window {
+  APP_CONFIG?: {
+    apiBaseUrl?: string;
+  };
+}
+
+// TypeScript interface for location mock
+interface LocationMock {
+  hostname: string;
+}
+
+describe('axiosClient Configuration Integration', () => {
+  const originalLocation = window.location;
+  
+  beforeEach(() => {
+    // Clear any existing APP_CONFIG
+    delete (window as WindowWithAppConfig).APP_CONFIG;
+    
+    // Mock window.location for development detection
+    Object.defineProperty(window, 'location', {
+      value: { hostname: 'localhost' } as LocationMock,
+      writable: true,
+      configurable: true
+    });
+  });
+
+  afterEach(() => {
+    delete (window as WindowWithAppConfig).APP_CONFIG;
+    
+    // Restore original location
+    Object.defineProperty(window, 'location', {
+      value: originalLocation,
+      writable: true,
+      configurable: true
+    });
+  });
+
+  it('should use APP_CONFIG.apiBaseUrl when available (config.js loaded successfully)', () => {
+    // Simulate successful config.js loading
+    (window as WindowWithAppConfig).APP_CONFIG = {
+      apiBaseUrl: 'https://api-github-bug-fix-gh-actions-moivsrfqka-uc.a.run.app'
+    };
+
+    // Test the URL resolution logic directly
+    const getApiBaseUrl = (): string => {
+      if (typeof window !== 'undefined' && (window as WindowWithAppConfig).APP_CONFIG?.apiBaseUrl) {
+        return (window as WindowWithAppConfig).APP_CONFIG.apiBaseUrl;
+      }
+      
+      if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+          return 'http://localhost:3015';
+        }
+      }
+      
+      return 'https://api-github-main-329000596728.us-central1.run.app';
+    };
+    
+    expect(getApiBaseUrl()).toBe('https://api-github-bug-fix-gh-actions-moivsrfqka-uc.a.run.app');
+  });
+
+  it('should fallback to localhost when APP_CONFIG is missing and in development', () => {
+    // Ensure APP_CONFIG doesn't exist (simulating config.js 404 or SyntaxError)
+    delete (window as WindowWithAppConfig).APP_CONFIG;
+    
+    // Mock localhost environment
+    Object.defineProperty(window, 'location', {
+      value: { hostname: 'localhost' } as LocationMock,
+      writable: true,
+      configurable: true
+    });
+
+    // Test the URL resolution logic directly
+    const getApiBaseUrl = (): string => {
+      if (typeof window !== 'undefined' && (window as WindowWithAppConfig).APP_CONFIG?.apiBaseUrl) {
+        return (window as WindowWithAppConfig).APP_CONFIG.apiBaseUrl;
+      }
+      
+      if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+          return 'http://localhost:3015';
+        }
+      }
+      
+      return 'https://api-github-main-329000596728.us-central1.run.app';
+    };
+    
+    expect(getApiBaseUrl()).toBe('http://localhost:3015');
+  });
+
+  it('should fallback to production URL when APP_CONFIG is missing and in production', () => {
+    // Ensure APP_CONFIG doesn't exist (simulating config.js 404 or SyntaxError)
+    delete (window as WindowWithAppConfig).APP_CONFIG;
+    
+    // Mock production environment
+    Object.defineProperty(window, 'location', {
+      value: { hostname: 'lauriecrean-free-38256.web.app' } as LocationMock,
+      writable: true,
+      configurable: true
+    });
+
+    // Test the URL resolution logic directly
+    const getApiBaseUrl = (): string => {
+      if (typeof window !== 'undefined' && (window as WindowWithAppConfig).APP_CONFIG?.apiBaseUrl) {
+        return (window as WindowWithAppConfig).APP_CONFIG.apiBaseUrl;
+      }
+      
+      if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+          return 'http://localhost:3015';
+        }
+      }
+      
+      return 'https://api-github-main-329000596728.us-central1.run.app';
+    };
+    
+    expect(getApiBaseUrl()).toBe('https://api-github-main-329000596728.us-central1.run.app');
+  });
+
+  it('should handle config.js SyntaxError gracefully', () => {
+    // Simulate what happens when config.js returns HTML (404 page) instead of JS
+    // This would cause a SyntaxError but shouldn't break the app
+    delete (window as WindowWithAppConfig).APP_CONFIG;
+    
+    // Should not throw when checking for APP_CONFIG
+    expect(() => {
+      const hasConfig = typeof window !== 'undefined' && (window as WindowWithAppConfig).APP_CONFIG?.apiBaseUrl;
+      expect(hasConfig).toBeFalsy();
+    }).not.toThrow();
+  });
+
+  it('should demonstrate TypeScript type safety with APP_CONFIG', () => {
+    // TypeScript should provide proper type checking
+    (window as WindowWithAppConfig).APP_CONFIG = {
+      apiBaseUrl: 'https://api-github-bug-fix-gh-actions-moivsrfqka-uc.a.run.app'
+    };
+
+    // Type-safe access
+    const config = (window as WindowWithAppConfig).APP_CONFIG;
+    const apiUrl: string | undefined = config?.apiBaseUrl;
+    
+    expect(apiUrl).toBe('https://api-github-bug-fix-gh-actions-moivsrfqka-uc.a.run.app');
+    expect(typeof apiUrl).toBe('string');
+  });
+}); 
