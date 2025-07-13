@@ -25,57 +25,80 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
   // 2. Try Docusaurus customFields (most reliable for build-time env vars)
   if (typeof window !== 'undefined') {
     // Try multiple ways to access Docusaurus config
-    const docusaurusConfig = (window as any).docusaurus || (window as any).__DOCUSAURUS_CONFIG__;
-    console.log(`🔍 Docusaurus object structure:`, docusaurusConfig);
+    const docusaurusGlobal = (window as any);
     
-    // Enhanced debugging for Docusaurus structure
-    if (docusaurusConfig) {
-      console.log(`🔍 Docusaurus keys:`, Object.keys(docusaurusConfig));
-      
-      // Try accessing via different paths
-      const paths = [
-        'siteConfig.customFields',
-        'customFields',
-        'config.customFields',
-        'siteConfig.config.customFields'
-      ];
-      
-      for (const path of paths) {
-        const pathValue = path.split('.').reduce((obj, key) => obj?.[key], docusaurusConfig);
-        if (pathValue) {
-          console.log(`🔍 Found customFields at path: ${path}`, pathValue);
-          const value = pathValue[key];
-          if (value && value !== 'undefined' && value !== '') {
-            console.log(`🌐 Found ${key} in Docusaurus customFields: ${value}`);
-            return value;
+    // Try different global objects where Docusaurus might store config
+    const possibleConfigSources = [
+      'docusaurus',
+      '__DOCUSAURUS_CONFIG__',
+      'siteConfig',
+      '__DOCUSAURUS_SITE_CONFIG__',
+      'docusaurusConfig'
+    ];
+    
+    console.log(`🔍 Testing Docusaurus config sources...`);
+    
+    for (const sourceName of possibleConfigSources) {
+      const configSource = docusaurusGlobal[sourceName];
+      if (configSource) {
+        console.log(`🔍 Found ${sourceName}:`, configSource);
+        console.log(`🔍 ${sourceName} keys:`, Object.keys(configSource));
+        
+        // Try to access customFields from different paths
+        const possiblePaths = [
+          `${sourceName}.customFields`,
+          `${sourceName}.siteConfig.customFields`,
+          `${sourceName}.config.customFields`,
+          `${sourceName}.siteConfig.config.customFields`
+        ];
+        
+        for (const path of possiblePaths) {
+          const pathValue = path.split('.').reduce((obj, key) => obj?.[key], { [sourceName]: configSource });
+          if (pathValue && pathValue[key]) {
+            console.log(`🔍 Found customFields at path: ${path}`, pathValue);
+            const value = pathValue[key];
+            if (value && value !== 'undefined' && value !== '') {
+              console.log(`🌐 Found ${key} in Docusaurus customFields: ${value}`);
+              return value;
+            }
           }
         }
       }
     }
     
-    if (docusaurusConfig && docusaurusConfig.siteConfig && docusaurusConfig.siteConfig.customFields) {
-      console.log(`🔍 CustomFields available:`, docusaurusConfig.siteConfig.customFields);
-      const value = docusaurusConfig.siteConfig.customFields[key];
-      if (value && value !== 'undefined' && value !== '') {
-        console.log(`🌐 Found ${key} in Docusaurus customFields: ${value}`);
-        return value;
-      }
-    } else {
-      console.log(`🔍 Docusaurus siteConfig or customFields not found`);
-      console.log(`   - docusaurusConfig:`, !!docusaurusConfig);
-      console.log(`   - siteConfig:`, !!docusaurusConfig?.siteConfig);
-      console.log(`   - customFields:`, !!docusaurusConfig?.siteConfig?.customFields);
-    }
+    console.log(`🔍 Docusaurus siteConfig or customFields not found`);
+    console.log(`   - Available global keys:`, Object.keys(docusaurusGlobal).filter(k => k.includes('docusaurus') || k.includes('config')));
   }
   
   // 3. Try webpack DefinePlugin injected variables (common in React builds)
   if (typeof window !== 'undefined') {
     // Check for webpack DefinePlugin variables injected into window
-    const webpackVar = (window as any)[`window.${key}`] || (window as any)[key];
-    if (webpackVar && webpackVar !== 'undefined') {
-      console.log(`🌐 Found ${key} in webpack globals: ${webpackVar}`);
-      return webpackVar;
+    const webpackWindowVar = (window as any)[`window.${key}`];
+    if (webpackWindowVar && webpackWindowVar !== 'undefined') {
+      console.log(`🌐 Found ${key} in webpack window globals: ${webpackWindowVar}`);
+      return webpackWindowVar;
     }
+    
+    // Check for direct window property access
+    const directWindowVar = (window as any)[key];
+    if (directWindowVar && directWindowVar !== 'undefined') {
+      console.log(`🌐 Found ${key} in direct window access: ${directWindowVar}`);
+      return directWindowVar;
+    }
+    
+    // Check for window.env object
+    if ((window as any).env && (window as any).env[key]) {
+      const envVar = (window as any).env[key];
+      if (envVar && envVar !== 'undefined') {
+        console.log(`🌐 Found ${key} in window.env: ${envVar}`);
+        return envVar;
+      }
+    }
+    
+    console.log(`🔍 Webpack DefinePlugin variables not found for ${key}`);
+    console.log(`   - window.${key}:`, (window as any)[`window.${key}`]);
+    console.log(`   - window[${key}]:`, (window as any)[key]);
+    console.log(`   - window.env[${key}]:`, (window as any).env?.[key]);
   }
   
   // 4. Try process.env (webpack DefinePlugin)
