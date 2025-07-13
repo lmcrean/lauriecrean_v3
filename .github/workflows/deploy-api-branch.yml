@@ -194,7 +194,12 @@ jobs:
           TOKEN_LENGTH=${#GITHUB_TOKEN_VALUE}
           echo "🔑 GitHub Token Debug: prefix='$TOKEN_PREFIX' length=$TOKEN_LENGTH"
           
-          # Deploy the service
+          # Clean up any existing conflicting services to ensure predictable URLs
+          echo "🗑️ Cleaning up any existing conflicting services..."
+          gcloud run services delete $SERVICE_NAME --region=us-central1 --quiet || echo "No existing service to delete"
+          
+          # Deploy the service with deterministic naming
+          echo "🚀 Deploying service with name: $SERVICE_NAME"
           gcloud run deploy $SERVICE_NAME \
             --image $IMAGE_NAME \
             --platform managed \
@@ -206,13 +211,26 @@ jobs:
             --max-instances=10 \
             --timeout=60s \
             --concurrency=100 \
-            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}"
+            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}" \
+            --no-traffic \
+            --tag=latest
           
-          # Get the service URL
+          # Route 100% traffic to the new revision
+          gcloud run services update-traffic $SERVICE_NAME --to-latest --region=us-central1
+          
+          # Get the service URL - should now be predictable
           SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format 'value(status.url)')
           
           echo "🌐 Service deployed at: $SERVICE_URL"
           echo "deployment_url=$SERVICE_URL" >> $GITHUB_OUTPUT
+          
+          # Verify the URL matches expected pattern
+          EXPECTED_URL="https://$SERVICE_NAME.us-central1.run.app"
+          if [ "$SERVICE_URL" = "$EXPECTED_URL" ]; then
+            echo "✅ Service URL matches expected pattern: $EXPECTED_URL"
+          else
+            echo "⚠️ Service URL mismatch: expected '$EXPECTED_URL', got '$SERVICE_URL'"
+          fi
           
           # Verify environment variables were set correctly
           echo "🔍 Verifying environment variables in deployed service..."
@@ -224,6 +242,17 @@ jobs:
         run: |
           API_URL="${{ steps.deploy.outputs.deployment_url }}"
           echo "🔍 Testing API at: $API_URL"
+          
+          # Validate URL pattern matches frontend expectations
+          EXPECTED_PATTERN="https://api-github-.*\.us-central1\.run\.app"
+          if [[ "$API_URL" =~ $EXPECTED_PATTERN ]]; then
+            echo "✅ API URL matches expected pattern for frontend discovery"
+          else
+            echo "❌ API URL does not match expected pattern!"
+            echo "🔍 Expected pattern: $EXPECTED_PATTERN"
+            echo "🔍 Actual URL: $API_URL"
+            exit 1
+          fi
           
           # Test health endpoint with retry and validate response
           for i in {1..5}; do
