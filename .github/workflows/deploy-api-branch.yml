@@ -189,8 +189,9 @@ jobs:
           fi
           
           # Log token presence (first 4 characters for debugging)
-          TOKEN_PREFIX=$(echo "${{ secrets.API_GITHUB_TOKEN }}" | cut -c1-4)
-          TOKEN_LENGTH=${#{{ secrets.API_GITHUB_TOKEN }}}
+          GITHUB_TOKEN_VALUE="${{ secrets.API_GITHUB_TOKEN }}"
+          TOKEN_PREFIX=$(echo "$GITHUB_TOKEN_VALUE" | cut -c1-4)
+          TOKEN_LENGTH=${#GITHUB_TOKEN_VALUE}
           echo "🔑 GitHub Token Debug: prefix='$TOKEN_PREFIX' length=$TOKEN_LENGTH"
           
           # Deploy the service
