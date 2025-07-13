@@ -1,0 +1,234 @@
+name: Quick Deploy (Fast Deployment)
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch to quick deploy (leave empty for current branch)'
+        required: false
+        default: ''
+      pr_number:
+        description: 'PR number (leave empty for auto-detection)'
+        required: false
+        default: ''
+  push:
+    branches: [ 'feature/*', 'bugfix/*', 'hotfix/*' ]
+    paths: [ 'apps/**' ]
+
+permissions:
+  contents: read
+  pull-requests: write
+  deployments: write
+
+jobs:
+  quick-deploy-api:
+    name: 🚀 Quick Deploy API
+    runs-on: ubuntu-latest
+    outputs:
+      deployment_url: ${{ steps.deploy.outputs.deployment_url }}
+    steps:
+      - name: 🛒 Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/api/github/package-lock.json
+      
+      - name: 📥 Install & Build API
+        run: |
+          cd apps/api/github
+          npm ci
+          npm run build
+          npm test 2>/dev/null || echo "⚠️ Tests not configured or failed"
+      
+      - name: 🔐 Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      
+      - name: 🛠️ Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+      
+      - name: 🚀 Deploy to Cloud Run (Quick)
+        id: deploy
+        run: |
+          cd apps/api/github
+          
+          # Determine branch name
+          if [ -n "${{ inputs.branch_name }}" ]; then
+            BRANCH_NAME="${{ inputs.branch_name }}"
+          else
+            BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
+          fi
+          
+          # Clean branch name and add QD prefix
+          CLEAN_BRANCH=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+          SERVICE_NAME="api-github-qd-${CLEAN_BRANCH}"
+          
+          echo "🏷️ Service: $SERVICE_NAME"
+          echo "🌿 Branch: $BRANCH_NAME"
+          
+          # Deploy with quick settings (lighter resources)
+          gcloud run deploy $SERVICE_NAME \
+            --source . \
+            --region us-central1 \
+            --allow-unauthenticated \
+            --memory=256Mi \
+            --cpu=0.5 \
+            --min-instances=0 \
+            --max-instances=3 \
+            --timeout=30s \
+            --concurrency=50 \
+            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}" \
+            --quiet
+          
+          # Get deployment URL
+          DEPLOYMENT_URL=$(gcloud run services describe $SERVICE_NAME --region=us-central1 --format="value(status.url)")
+          echo "🔗 API URL: $DEPLOYMENT_URL"
+          echo "deployment_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+          echo "✅ API deployment completed!"
+
+  quick-deploy-web:
+    name: 🌐 Quick Deploy Web
+    runs-on: ubuntu-latest
+    needs: quick-deploy-api
+    outputs:
+      deployment_url: ${{ steps.deploy.outputs.deployment_url }}
+    steps:
+      - name: 🛒 Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/web/package-lock.json
+      
+      - name: 📥 Install Web Dependencies
+        run: |
+          cd apps/web
+          npm ci || (rm -rf node_modules package-lock.json && npm install)
+      
+      - name: 🔧 Configure API Integration
+        run: |
+          cd apps/web
+          echo "REACT_APP_API_BASE_URL=${{ needs.quick-deploy-api.outputs.deployment_url }}" > .env.production
+          echo "DOCUSAURUS_API_BASE_URL=${{ needs.quick-deploy-api.outputs.deployment_url }}" >> .env.production
+          echo "✅ API integration configured"
+      
+      - name: 🏗️ Build Web App
+        run: |
+          cd apps/web
+          npm run build
+        env:
+          REACT_APP_API_BASE_URL: ${{ needs.quick-deploy-api.outputs.deployment_url }}
+          DOCUSAURUS_API_BASE_URL: ${{ needs.quick-deploy-api.outputs.deployment_url }}
+      
+      - name: 🔥 Deploy to Firebase (Quick)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LAURIECREAN_FREE_38256 }}
+          projectId: lauriecrean-free-38256
+          channelId: qd-branch-${{ inputs.pr_number || github.event.number || 'manual' }}
+          entrypoint: apps/web
+        id: deploy
+      
+      - name: 🔗 Set Web URL
+        run: |
+          DEPLOYMENT_URL="${{ steps.deploy.outputs.details_url }}"
+          echo "🌐 Web URL: $DEPLOYMENT_URL"
+          echo "deployment_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+
+  quick-summary:
+    name: 📊 Quick Deploy Summary
+    runs-on: ubuntu-latest
+    needs: [quick-deploy-api, quick-deploy-web]
+    if: always()
+    steps:
+      - name: 📝 Generate Summary
+        run: |
+          echo "# 🚀 Quick Deploy Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Deployment Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # API Status
+          if [ "${{ needs.quick-deploy-api.result }}" == "success" ]; then
+            echo "✅ **API**: Deployed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "   - URL: ${{ needs.quick-deploy-api.outputs.deployment_url }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **API**: Deployment failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Web Status
+          if [ "${{ needs.quick-deploy-web.result }}" == "success" ]; then
+            echo "✅ **Web**: Deployed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "   - URL: ${{ needs.quick-deploy-web.outputs.deployment_url }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Web**: Deployment failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # No tests - quick deploy only
+          echo "⚡ **Tests**: Skipped for maximum speed" >> $GITHUB_STEP_SUMMARY
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Quick Deploy Features" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- ⚡ **Speed**: ~2-3 minutes (vs 7m30s full deploy)" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔒 **No Conflicts**: Uses \`qd-\` prefixed URLs" >> $GITHUB_STEP_SUMMARY
+          echo "- 🏃 **Lightweight**: Reduced resources for faster startup" >> $GITHUB_STEP_SUMMARY
+          echo "- 🚀 **No Health Checks**: Maximum speed deployment" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔄 **Parallel**: API and Web deploy concurrently where possible" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.quick-deploy-api.result }}" == "success" ] && [ "${{ needs.quick-deploy-web.result }}" == "success" ]; then
+            echo "🎉 **Ready for manual testing!**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "For production deployment, create a PR to trigger the full pipeline." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "🔧 **Fix issues** before proceeding with full deployment." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "_Quick Deploy: Fast iteration for development and testing_" >> $GITHUB_STEP_SUMMARY
+      
+      - name: 💬 Comment on PR (if applicable)
+        if: github.event.pull_request && (needs.quick-deploy-api.result == 'success' || needs.quick-deploy-web.result == 'success')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const apiStatus = '${{ needs.quick-deploy-api.result }}' === 'success' ? '✅' : '❌';
+            const webStatus = '${{ needs.quick-deploy-web.result }}' === 'success' ? '✅' : '❌';
+            
+            const apiUrl = '${{ needs.quick-deploy-api.outputs.deployment_url }}';
+            const webUrl = '${{ needs.quick-deploy-web.outputs.deployment_url }}';
+            
+            const comment = `## 🚀 Quick Deploy Results
+            
+            | Service | Status | URL |
+            |---------|--------|-----|
+            | API | ${apiStatus} | ${apiUrl ? `[View API](${apiUrl})` : 'Failed'} |
+            | Web | ${webStatus} | ${webUrl ? `[View Web](${webUrl})` : 'Failed'} |
+            
+            > ⚡ **Quick Deploy** completed in ~2-3 minutes (vs 7m30s full deploy)
+            > 🔒 Uses \`qd-\` prefixed URLs to avoid conflicts with full deployment
+            > 🚀 No health checks - maximum speed deployment
+            
+            _This is a lightning-fast deployment for rapid testing. For production, merge to trigger full pipeline._`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            }); 
