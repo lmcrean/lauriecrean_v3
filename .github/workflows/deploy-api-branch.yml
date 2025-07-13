@@ -211,12 +211,7 @@ jobs:
             --max-instances=10 \
             --timeout=60s \
             --concurrency=100 \
-            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}" \
-            --no-traffic \
-            --tag=latest
-          
-          # Route 100% traffic to the new revision
-          gcloud run services update-traffic $SERVICE_NAME --to-latest --region=us-central1
+            --set-env-vars="NODE_ENV=production,GITHUB_TOKEN=${{ secrets.API_GITHUB_TOKEN }}"
           
           # Get the service URL - should now be predictable
           SERVICE_URL=$(gcloud run services describe $SERVICE_NAME --platform managed --region us-central1 --format 'value(status.url)')
