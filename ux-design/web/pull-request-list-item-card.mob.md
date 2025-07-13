@@ -19,7 +19,7 @@
 │ │ 📝 this will be for greater       │ │
 │ │    sustainability                 │ │
 │ │                                   │ │
-│ │ 📦 lauriecrean_v3                 │ │
+│ │ 📦 developer-portfolio                 │ │
 │ │ 🏷️  TypeScript                    │ │
 │ │                                   │ │
 │ │ #20 ──────────────── 👆 View PR  │ │
@@ -55,7 +55,7 @@
 
 ### **Repository & Language**
 ```
-📦 lauriecrean_v3
+📦 developer-portfolio
 🏷️  TypeScript
 ```
 - **Repository**: Name with folder icon

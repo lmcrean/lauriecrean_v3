@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 interface TypewriterTitleProps {
   text: string;
-  level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
-  id?: string;
   delay?: number;
   speed?: number;
+  level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  id?: string;
 }
 
 /**
@@ -23,24 +23,33 @@ interface TypewriterTitleProps {
  * @param {number} props.speed - Speed of typewriter effect (characters per interval)
  * @returns {JSX.Element} The rendered typewriter title
  */
-const TypewriterTitle: React.FC<TypewriterTitleProps> = ({ 
-  text, 
-  level = 'h2', 
-  className = '', 
-  id,
-  delay = 300, 
-  speed = 100 
+const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
+  text,
+  className = '',
+  delay = 0,
+  speed = 50,
+  level = 'h1',
+  id
 }) => {
   const elementRef = useRef<HTMLHeadingElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [displayText, setDisplayText] = useState<string>('');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [hasStarted, setHasStarted] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
 
   // Create the heading element
   const HeadingTag = level;
 
+  // Set client-side flag
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Only run IntersectionObserver on client side
+  useEffect(() => {
+    if (!isClient) return;
+
     const observer = new IntersectionObserver(
       ([entry]: IntersectionObserverEntry[]) => {
         if (entry.isIntersecting && !hasStarted) {
@@ -66,9 +75,12 @@ const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
         observer.unobserve(elementRef.current);
       }
     };
-  }, [delay, hasStarted]);
+  }, [delay, hasStarted, isClient]);
 
+  // Typewriter effect
   useEffect(() => {
+    if (!isClient) return;
+
     if (hasStarted && currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setDisplayText(text.slice(0, currentIndex + 1));
@@ -77,7 +89,7 @@ const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
 
       return () => clearTimeout(timeout);
     }
-  }, [hasStarted, currentIndex, text, speed]);
+  }, [hasStarted, currentIndex, text, speed, isClient]);
 
   return (
     <HeadingTag
@@ -86,8 +98,8 @@ const TypewriterTitle: React.FC<TypewriterTitleProps> = ({
       className={`typewriter-title ${isVisible ? 'fade-in' : ''} ${className}`}
       data-full-text={text}
     >
-      {displayText}
-      {hasStarted && currentIndex < text.length && (
+      {isClient ? displayText : text}
+      {isClient && hasStarted && currentIndex < text.length && (
         <span className="typewriter-cursor"></span>
       )}
     </HeadingTag>

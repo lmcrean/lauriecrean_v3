@@ -60,10 +60,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <ProjectCarousel projectKey="odyssey" />
 
-<section>
+<div>
 
 <a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
-
 
 <TechBadges values="python,react,tailwindcss,vercel,cloudinary,postgresql,django,aws,heroku,oauth2,jwt,amazonrds" />
 
@@ -71,7 +70,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <GitHubBadges repo="lmcrean/odyssey-api" badges="last-commit,created-at,commit-activity" />
 
-</section>
+</div>
 </section>
 
 </div>
@@ -150,11 +149,11 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TestBadges tests="vitest:33,playwright:12" />
 
-<GitHubBadges repo="lmcrean/lauriecrean_v3" badges="last-commit,created-at,commit-activity" />
+<GitHubBadges repo="lmcrean/developer-portfolio" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
 
-<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean-archive" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,framermotion,vercel" /> 
 
@@ -176,13 +175,11 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,vercel,figma" />
 
-
 <GitHubBadges repo="lmcrean/hoverboard-react" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
 
 <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
-
 
 <TechBadges values="javascript,html,css,githubpages,figma" />
 
