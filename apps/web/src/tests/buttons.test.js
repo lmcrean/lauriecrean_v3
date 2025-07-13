@@ -10,10 +10,10 @@ describe('Button DOM Structure Tests', () => {
   beforeEach(() => {
     // Create a fresh DOM environment for each test
     document.body.innerHTML = `
-      <a href="#"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
-      <a href="#"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>
-      <a href="#"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a>
-      <a href="#"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+      <a href="#" class="code-btn"><i class="fa fa-code"></i> code </a>
+      <a href="#" class="readme-btn"><i class="fa fa-book"></i> readme </a>
+      <a href="#" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a>
+      <a href="#" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
     `;
   });
 

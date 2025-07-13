@@ -95,7 +95,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LAURIECREAN_FREE_38256 }}
           projectId: lauriecrean-free-38256
           channelId: branch-${{ inputs.pr_number }}
-          entrypoint: apps/web
+          entryPoint: apps/web
         id: deploy
       
       - name: 🔗 Set Deployment URL
