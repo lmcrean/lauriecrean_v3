@@ -10,13 +10,13 @@ This page demonstrates the button styling from buttons.css.
 
 ## Button Examples
 
-<a href="https://github.com/lmcrean/example"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
-<a href="https://example.com/readme"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>
-<a href="https://figma.com/design"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a>
-<a href="https://example.com/demo"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/example" class="code-btn"><i class="fa fa-code"></i> code </a>
+<a href="https://example.com/readme" class="readme-btn"><i class="fa fa-book"></i> readme </a>
+<a href="https://figma.com/design" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a>
+<a href="https://example.com/demo" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 ## Button Rows
 
 <div>
-<a href="https://github.com/lmcrean/example"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://example.com/readme"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://figma.com/design"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://example.com/demo"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/example" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://example.com/readme" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://figma.com/design" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a> <a href="https://example.com/demo" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 </div> 
