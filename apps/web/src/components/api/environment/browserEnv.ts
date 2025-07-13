@@ -8,9 +8,12 @@
  * Tries multiple methods to find environment variables in browser context
  */
 export const getBrowserEnv = (key: string, defaultValue?: string): string | undefined => {
+  // Debug logging
+  console.log(`🔍 getBrowserEnv called with key: ${key}, defaultValue: ${defaultValue}`);
+  
   // Try different ways to access environment variables in browser
   
-  // 1. Try window object (if available)
+  // 1. Try window.__ENV__ (if available)
   if (typeof window !== 'undefined' && (window as any).__ENV__) {
     const value = (window as any).__ENV__[key];
     if (value && value !== 'undefined') {
@@ -24,6 +27,31 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
     // Try multiple ways to access Docusaurus config
     const docusaurusConfig = (window as any).docusaurus || (window as any).__DOCUSAURUS_CONFIG__;
     console.log(`🔍 Docusaurus object structure:`, docusaurusConfig);
+    
+    // Enhanced debugging for Docusaurus structure
+    if (docusaurusConfig) {
+      console.log(`🔍 Docusaurus keys:`, Object.keys(docusaurusConfig));
+      
+      // Try accessing via different paths
+      const paths = [
+        'siteConfig.customFields',
+        'customFields',
+        'config.customFields',
+        'siteConfig.config.customFields'
+      ];
+      
+      for (const path of paths) {
+        const pathValue = path.split('.').reduce((obj, key) => obj?.[key], docusaurusConfig);
+        if (pathValue) {
+          console.log(`🔍 Found customFields at path: ${path}`, pathValue);
+          const value = pathValue[key];
+          if (value && value !== 'undefined' && value !== '') {
+            console.log(`🌐 Found ${key} in Docusaurus customFields: ${value}`);
+            return value;
+          }
+        }
+      }
+    }
     
     if (docusaurusConfig && docusaurusConfig.siteConfig && docusaurusConfig.siteConfig.customFields) {
       console.log(`🔍 CustomFields available:`, docusaurusConfig.siteConfig.customFields);
@@ -72,6 +100,6 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
   }
   
   // 6. Fallback to default
-  console.log(`⚠️ Environment variable ${key} not found, using default: ${defaultValue}`);
+  console.log(`⚠️ Environment variable ${key} not found in any location, using default: ${defaultValue}`);
   return defaultValue;
 }; 
