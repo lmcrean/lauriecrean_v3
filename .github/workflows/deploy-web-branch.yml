@@ -63,10 +63,15 @@ jobs:
             exit 1
           fi
           
-          # Create environment file for build
           cd apps/web
+          
+          # Create environment file for build (legacy approach)
           echo "REACT_APP_API_BASE_URL=${{ inputs.api_url }}" > .env.production
           echo "DOCUSAURUS_API_BASE_URL=${{ inputs.api_url }}" >> .env.production
+          
+          # Create dynamic runtime config (new simple approach)
+          echo "window.APP_CONFIG = { apiBaseUrl: '${{ inputs.api_url }}' };" > public/config.js
+          echo "📝 Generated config.js with API URL: ${{ inputs.api_url }}"
           
           echo "✅ API integration configured"
       

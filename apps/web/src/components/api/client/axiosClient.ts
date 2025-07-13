@@ -1,54 +1,43 @@
 /**
  * Axios HTTP client configuration
- * Configures the main HTTP client with interceptors and dynamic base URL
+ * Simple, reliable API client using runtime configuration
  */
 
 import axios from 'axios';
-import { getApiBaseUrl } from '../discovery/urlResolution';
 
 /**
- * For backwards compatibility - will be populated after discovery
- * Use a function to ensure proper detection at runtime
+ * Get API base URL from runtime configuration or fallback
  */
-const getInitialApiUrl = (): string => {
+const getApiBaseUrl = (): string => {
+  // Check for runtime configuration (generated during build)
+  if (typeof window !== 'undefined' && (window as any).APP_CONFIG?.apiBaseUrl) {
+    return (window as any).APP_CONFIG.apiBaseUrl;
+  }
+  
+  // Development fallback
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
     if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
       return 'http://localhost:3015';
     }
   }
+  
+  // Production fallback
   return 'https://api-github-main-329000596728.us-central1.run.app';
 };
 
-export let API_BASE_URL = getInitialApiUrl();
+export const API_BASE_URL = getApiBaseUrl();
 
 /**
- * Create axios instance with dynamic base URL
+ * Create axios instance with static base URL (determined at startup)
  */
 const apiClient = axios.create({
+  baseURL: API_BASE_URL,
   timeout: 30000, // 30 second timeout (increased for GitHub API calls)
   headers: {
     'Content-Type': 'application/json',
   },
 });
-
-/**
- * Request interceptor for dynamic base URL and common headers
- */
-apiClient.interceptors.request.use(
-  async (config) => {
-    // Set dynamic base URL if not already set
-    if (!config.baseURL) {
-      config.baseURL = await getApiBaseUrl();
-    }
-    
-    // You can add common headers, authentication tokens, etc. here
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
 
 /**
  * Response interceptor for handling common response patterns

@@ -1,32 +1,38 @@
 /**
  * Environment detection utilities
- * Determines development mode, test mode, and other environment states
+ * Simple, reliable environment detection
  */
-
-import { getBrowserEnv } from './browserEnv';
 
 /**
  * Manual test mode detection
- * Checks if the app is running in manual test mode
+ * Checks if the app is running in manual test mode via URL or window object
  */
 export const isManualTestMode = (): boolean => {
-  return getBrowserEnv('REACT_APP_TEST_MODE', 'false') === 'true';
-};
-
-/**
- * Development mode detection
- * Determines if the app is running in development mode
- */
-export const isDevelopment = (): boolean => {
-  // Check if we're running on localhost (most reliable for development)
   if (typeof window !== 'undefined') {
-    const hostname = window.location.hostname;
-    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+    // Check URL parameters for test mode
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('test') === 'true') {
+      return true;
+    }
+    
+    // Check for test environment flag
+    if ((window as any).__TEST_MODE__) {
       return true;
     }
   }
   
-  // Check environment variables as secondary
-  const nodeEnv = getBrowserEnv('NODE_ENV', 'production');
-  return nodeEnv === 'development' || nodeEnv === 'dev';
+  return false;
+};
+
+/**
+ * Development mode detection
+ * Determines if the app is running in development mode (localhost)
+ */
+export const isDevelopment = (): boolean => {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+  }
+  
+  return false;
 }; 
