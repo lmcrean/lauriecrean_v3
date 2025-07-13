@@ -5,7 +5,7 @@
 
 /**
  * Clean branch name the same way GitHub Actions does
- * Equivalent to: sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\|-$//g'
+ * Equivalent to: sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-\\|-$//g'
  */
 export const cleanBranchName = (branchName: string): string => {
   return branchName
