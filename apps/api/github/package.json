@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "dev:manual": "cross-env PORT=3005 ts-node src/index.ts",
+    "dev:manual": "cross-env PORT=3015 ts-node src/index.ts",
     "dev:e2e": "cross-env PORT=3015 ts-node src/index.ts",
     "dev:vercel": "vercel dev",
     "build": "tsc",
