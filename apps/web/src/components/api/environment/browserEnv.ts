@@ -42,14 +42,24 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
   
   // 3. Try webpack DefinePlugin injected variables (common in React builds)
   if (typeof window !== 'undefined') {
-    const windowEnv = (window as any)[key];
-    if (windowEnv && windowEnv !== 'undefined') {
-      console.log(`🌐 Found ${key} in window global: ${windowEnv}`);
-      return windowEnv;
+    // Check for webpack DefinePlugin variables injected into window
+    const webpackVar = (window as any)[`window.${key}`] || (window as any)[key];
+    if (webpackVar && webpackVar !== 'undefined') {
+      console.log(`🌐 Found ${key} in webpack globals: ${webpackVar}`);
+      return webpackVar;
     }
   }
   
-  // 4. Try import.meta.env (Vite/modern bundlers)
+  // 4. Try process.env (webpack DefinePlugin)
+  if (typeof process !== 'undefined' && process.env) {
+    const processEnvVar = process.env[key];
+    if (processEnvVar && processEnvVar !== 'undefined') {
+      console.log(`🌐 Found ${key} in process.env: ${processEnvVar}`);
+      return processEnvVar;
+    }
+  }
+
+  // 5. Try import.meta.env (Vite/modern bundlers)
   if (typeof globalThis !== 'undefined' && 'importMeta' in globalThis) {
     const importMeta = (globalThis as any).importMeta;
     if (importMeta && importMeta.env) {
@@ -58,15 +68,6 @@ export const getBrowserEnv = (key: string, defaultValue?: string): string | unde
         console.log(`🌐 Found ${key} in import.meta.env: ${value}`);
         return value;
       }
-    }
-  }
-  
-  // 5. Try process.env only if in Node.js environment
-  if (typeof process !== 'undefined' && process.env) {
-    const value = process.env[key];
-    if (value && value !== 'undefined') {
-      console.log(`🌐 Found ${key} in process.env: ${value}`);
-      return value;
     }
   }
   

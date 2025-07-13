@@ -117,8 +117,12 @@ const config: Config = {
               // Inject environment variables directly into the build
               ...(config.plugins || []),
               new (require('webpack').DefinePlugin)({
+                // Make variables available on window object for direct access
                 'window.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
                 'window.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+                // Also make them available as process.env for traditional React apps
+                'process.env.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'process.env.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
               }),
             ],
           };
