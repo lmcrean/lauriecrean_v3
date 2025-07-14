@@ -9,7 +9,7 @@ interface PullRequestTimelineProps {
 export const PullRequestTimeline: React.FC<PullRequestTimelineProps> = ({ pullRequest }) => {
   return (
     <div>
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Timeline</h2>
+      <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-3">Timeline</h2>
       <div className="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-4">
         <div className="space-y-2">
           <div className="flex justify-between items-center py-1">

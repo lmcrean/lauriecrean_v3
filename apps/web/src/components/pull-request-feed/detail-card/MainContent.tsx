@@ -12,12 +12,21 @@ interface MainContentProps {
 
 export const MainContent: React.FC<MainContentProps> = ({ pullRequest }) => {
   return (
-    <div className="p-4 max-h-[calc(100vh-200px)] overflow-y-auto space-y-6">
-      <PullRequestHeader pullRequest={pullRequest} />
-      <PullRequestDescription pullRequest={pullRequest} />
-      <PullRequestStats pullRequest={pullRequest} />
-      <PullRequestTimeline pullRequest={pullRequest} />
-      <PullRequestActions pullRequest={pullRequest} />
+    <div className="p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* First column - Header and Description */}
+        <div className="space-y-6">
+          <PullRequestHeader pullRequest={pullRequest} />
+          <PullRequestDescription pullRequest={pullRequest} />
+        </div>
+        
+        {/* Second column - Stats, Timeline, and Actions */}
+        <div className="space-y-6">
+          <PullRequestStats pullRequest={pullRequest} />
+          <PullRequestTimeline pullRequest={pullRequest} />
+          <PullRequestActions pullRequest={pullRequest} />
+        </div>
+      </div>
     </div>
   );
 };

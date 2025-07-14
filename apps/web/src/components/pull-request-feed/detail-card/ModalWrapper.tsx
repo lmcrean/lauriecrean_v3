@@ -34,8 +34,8 @@ export const ModalWrapper: React.FC<ModalWrapperProps> = ({
 
   if (!isOpen) return null;
 
-  const backdropClasses = "fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center";
-  const containerClasses = "w-full max-w-full sm:max-w-2xl bg-white dark:bg-gray-800 rounded-t-lg sm:rounded-lg shadow-xl transform transition-all duration-300 ease-out max-h-full overflow-hidden";
+  const backdropClasses = "fixed inset-0 bg-black bg-opacity-20 z-50 flex items-end sm:items-center justify-center";
+  const containerClasses = "w-full max-w-full sm:max-w-6xl bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 rounded-t-lg sm:rounded-lg shadow-xl transform transition-all duration-300 ease-out max-h-full overflow-hidden";
 
   return (
     <div 

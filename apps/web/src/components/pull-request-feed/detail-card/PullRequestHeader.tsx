@@ -29,8 +29,8 @@ export const PullRequestHeader: React.FC<PullRequestHeaderProps> = ({ pullReques
       </div>
 
       <div className="space-y-3">
-        <h1 id="pr-modal-title" className="text-xl font-bold text-gray-900 dark:text-white leading-tight">
-          <span className="text-2xl mr-2">{titleIcon}</span>
+        <h1 id="pr-modal-title" className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+          <span className="text-xl mr-2">{titleIcon}</span>
           {pullRequest?.title || 'Untitled'}
         </h1>
         
