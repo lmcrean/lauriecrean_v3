@@ -29,6 +29,14 @@ const sidebars: SidebarsConfig = {
       }
     },
     {
+      type: 'link',
+      label: 'Agile Pipeline',
+      href: 'https://github.com/users/lmcrean/projects/',
+      customProps: {
+        badge: 'live-yellow'
+      }
+    },
+    {
       type: 'doc',
       id: 'archive',
       label: 'Older Projects',
