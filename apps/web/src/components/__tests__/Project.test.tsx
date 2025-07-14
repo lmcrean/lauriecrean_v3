@@ -3,12 +3,26 @@
  */
 
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 import Project from '../Project';
+import { ProjectData, ProjectVersion, ButtonData, TestResult, GitHubInfo } from '../../data/projects';
 
-// Mock ProjectCarousel component
+// Type declaration for Jest globals (if needed)
+declare global {
+  var jest: any;
+  var describe: any;
+  var it: any;
+  var beforeEach: any;
+  var expect: any;
+}
+
+// Mock ProjectCarousel component with proper typing
 jest.mock('../ProjectCarousel', () => {
-  return function MockProjectCarousel({ projectKey }) {
+  interface MockProjectCarouselProps {
+    projectKey: string;
+  }
+  
+  return function MockProjectCarousel({ projectKey }: MockProjectCarouselProps): JSX.Element {
     return <div data-testid={`mocked-carousel-${projectKey}`}></div>;
   };
 });
@@ -17,8 +31,8 @@ jest.mock('../ProjectCarousel', () => {
 console.error = jest.fn();
 
 describe('Project Component', () => {
-  // Single version project
-  const mockSingleVersionProject = {
+  // Single version project with proper TypeScript typing
+  const mockSingleVersionProject: ProjectData = {
     id: 'test-project',
     name: 'Test Project',
     projectTypes: ['Full-Stack', 'API'],
@@ -27,14 +41,14 @@ describe('Project Component', () => {
     testResults: [
       { framework: 'Playwright', passed: 12, logo: 'playwright' },
       { framework: 'Jest', passed: 5, logo: 'jest' }
-    ],
+    ] as TestResult[],
     commitId: '1a2b3c4',
     githubInfo: {
       repo: 'user/test-project',
       lastCommit: true,
       createdAt: true,
       commitActivity: true
-    },
+    } as GitHubInfo,
     buttons: {
       code: { 
         url: 'https://github.com/user/test-project',
@@ -56,7 +70,7 @@ describe('Project Component', () => {
         icon: 'fa-play',
         text: 'live demo'
       }
-    },
+    } as Record<string, ButtonData>,
     slides: [
       {
         src: '/img/test1.png',
@@ -69,8 +83,8 @@ describe('Project Component', () => {
     ]
   };
   
-  // Multi-version project
-  const mockMultiVersionProject = {
+  // Multi-version project with proper TypeScript typing
+  const mockMultiVersionProject: ProjectData = {
     id: 'test-multi-project',
     name: 'Test Multi Project',
     projectTypes: ['Frontend'],
@@ -81,13 +95,13 @@ describe('Project Component', () => {
         technologies: ['React', 'TypeScript'],
         testResults: [
           { framework: 'Playwright', passed: 15, logo: 'playwright' }
-        ],
+        ] as TestResult[],
         githubInfo: {
           repo: 'user/test-multi-v2',
           lastCommit: true,
           createdAt: true,
           commitActivity: true
-        },
+        } as GitHubInfo,
         buttons: {
           code: { 
             url: 'https://github.com/user/test-multi-v2',
@@ -99,7 +113,7 @@ describe('Project Component', () => {
             icon: 'fa-play',
             text: 'live demo'
           }
-        }
+        } as Record<string, ButtonData>
       },
       {
         version: '1.0',
@@ -110,7 +124,7 @@ describe('Project Component', () => {
           lastCommit: true,
           createdAt: true,
           commitActivity: true
-        },
+        } as GitHubInfo,
         buttons: {
           code: { 
             url: 'https://github.com/user/test-multi-v1',
@@ -122,9 +136,9 @@ describe('Project Component', () => {
             icon: 'fa-book',
             text: 'readme'
           }
-        }
+        } as Record<string, ButtonData>
       }
-    ],
+    ] as ProjectVersion[],
     slides: [
       {
         src: '/img/test-multi1.png',
@@ -133,34 +147,34 @@ describe('Project Component', () => {
     ]
   };
 
-  beforeEach(() => {
+  beforeEach((): void => {
     jest.clearAllMocks();
   });
 
-  it('renders a single version project without crashing', () => {
+  it('renders a single version project without crashing', (): void => {
     render(<Project projectData={mockSingleVersionProject} />);
   });
   
-  it('renders a multi-version project without crashing', () => {
+  it('renders a multi-version project without crashing', (): void => {
     render(<Project projectData={mockMultiVersionProject} />);
   });
 
-  it('renders the project header and type badges', () => {
-    const { getByText, getAllByAltText } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders the project header and type badges', (): void => {
+    const { getByText, getAllByAltText }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
     expect(getByText('Test Project')).toBeTruthy();
     expect(getAllByAltText('Full-Stack').length).toBeGreaterThan(0);
     expect(getAllByAltText('API').length).toBeGreaterThan(0);
   });
 
-  it('renders the project carousel using the ProjectCarousel component', () => {
-    const { getByTestId } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders the project carousel using the ProjectCarousel component', (): void => {
+    const { getByTestId }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
     expect(getByTestId('mocked-carousel-test')).toBeTruthy();
   });
 
-  it('renders all the buttons for a single version project', () => {
-    const { getByText } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders all the buttons for a single version project', (): void => {
+    const { getByText }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
     expect(getByText('code')).toBeTruthy();
     expect(getByText('readme')).toBeTruthy();
@@ -168,36 +182,36 @@ describe('Project Component', () => {
     expect(getByText('live demo')).toBeTruthy();
   });
 
-  it('renders GitHub badges for a single version project', () => {
-    const { container } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders GitHub badges for a single version project', (): void => {
+    const { container }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
-    const githubBadges = container.querySelectorAll('.github-badges img');
+    const githubBadges: NodeListOf<Element> = container.querySelectorAll('.github-badges img');
     expect(githubBadges.length).toBe(3); // Last commit, created at, commit activity
   });
 
-  it('renders technology badges for a single version project', () => {
-    const { getAllByAltText } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders technology badges for a single version project', (): void => {
+    const { getAllByAltText }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
     expect(getAllByAltText('React').length).toBeGreaterThan(0);
     expect(getAllByAltText('Jest').length).toBeGreaterThan(0);
   });
   
-  it('renders test result badges for a single version project', () => {
-    const { getAllByAltText } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders test result badges for a single version project', (): void => {
+    const { getAllByAltText }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
     expect(getAllByAltText('Playwright 12 Passed').length).toBeGreaterThan(0);
     expect(getAllByAltText('Jest 5 Passed').length).toBeGreaterThan(0);
   });
 
-  it('renders the HTML description correctly using dangerouslySetInnerHTML', () => {
-    const { container } = render(<Project projectData={mockSingleVersionProject} />);
+  it('renders the HTML description correctly using dangerouslySetInnerHTML', (): void => {
+    const { container }: RenderResult = render(<Project projectData={mockSingleVersionProject} />);
     
-    const description = container.querySelector('.project-description');
-    expect(description.innerHTML).toContain('<b>HTML</b>');
+    const description: Element | null = container.querySelector('.project-description');
+    expect(description?.innerHTML).toContain('<b>HTML</b>');
   });
 
-  it('renders multiple versions for a multi-version project', () => {
-    const { getByText, getAllByAltText } = render(<Project projectData={mockMultiVersionProject} />);
+  it('renders multiple versions for a multi-version project', (): void => {
+    const { getByText, getAllByAltText }: RenderResult = render(<Project projectData={mockMultiVersionProject} />);
     
     // Check version titles
     expect(getByText('version 2.0')).toBeTruthy();
