@@ -28,7 +28,10 @@ export default defineConfig({
   },
   esbuild: {
     // Skip type checking for faster builds
-    target: 'es2020'
+    target: 'es2020',
+    jsx: 'automatic',
+    jsxFactory: 'React.createElement',
+    jsxFragment: 'React.Fragment'
   },
   optimizeDeps: {
     // Include dependencies that need to be pre-bundled

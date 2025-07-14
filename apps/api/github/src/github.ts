@@ -3,13 +3,16 @@ import { Octokit } from '@octokit/rest';
 import { checkRateLimit } from './utils/rateLimitUtils';
 import { fetchPullRequests } from './pull-requests/list';
 import { fetchPullRequestDetails } from './pull-requests/detail';
+import { HabitTrackerService } from './pull-requests/habit-tracker';
 import { PaginationMeta } from './types';
 
 export class GitHubService {
   private octokit: Octokit;
+  private habitTrackerService: HabitTrackerService;
 
   constructor(apiToken: string) {
     this.octokit = new Octokit({ auth: apiToken });
+    this.habitTrackerService = new HabitTrackerService(this.octokit);
   }
 
   /**
@@ -70,6 +73,32 @@ export class GitHubService {
       };
     } catch (error) {
       console.error('❌ Error checking rate limit:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get habit tracker data for a user's pull requests
+   */
+  async getHabitTrackerData(
+    username: string, 
+    period: 'last-year' | 'last-6-months' | 'last-3-months' = 'last-year'
+  ) {
+    try {
+      console.log(`🔍 Generating habit tracker data for ${username} (${period})`);
+      
+      const habitTrackerData = await this.habitTrackerService.generateHabitTrackerData(username, period);
+      
+      return {
+        data: habitTrackerData,
+        meta: {
+          username,
+          period,
+          generated_at: new Date().toISOString()
+        }
+      };
+    } catch (error) {
+      console.error('❌ Error generating habit tracker data:', error);
       throw error;
     }
   }

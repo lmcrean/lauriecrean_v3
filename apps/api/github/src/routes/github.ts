@@ -114,5 +114,39 @@ export function setupGitHubRoutes(app: express.Application, githubService: GitHu
     }
   });
 
-  console.log('✅ GitHub routes configured: /api/github/pull-requests, /api/github/rate-limit');
+  // Get habit tracker data for a user's pull requests
+  app.get('/api/github/habit-tracker/:username?', async (req, res) => {
+    try {
+      // Support both path parameter (:username) and query parameter (?username=...)
+      const username = req.params.username || req.query.username as string;
+      
+      if (!username) {
+        return res.status(400).json({ 
+          error: 'Username is required',
+          message: 'Please provide username either as path parameter or query parameter' 
+        });
+      }
+      
+      const period = (req.query.period as 'last-year' | 'last-6-months' | 'last-3-months') || 'last-year';
+      
+      // Validate period parameter
+      if (!['last-year', 'last-6-months', 'last-3-months'].includes(period)) {
+        return res.status(400).json({ 
+          error: 'Invalid period parameter',
+          message: 'Period must be one of: last-year, last-6-months, last-3-months' 
+        });
+      }
+      
+      const result = await githubService.getHabitTrackerData(username, period);
+      res.json(result);
+    } catch (error) {
+      console.error('❌ Error in habit tracker endpoint:', error);
+      res.status(500).json({ 
+        error: 'Failed to generate habit tracker data', 
+        message: error instanceof Error ? error.message : 'Unknown error occurred' 
+      });
+    }
+  });
+
+  console.log('✅ GitHub routes configured: /api/github/pull-requests, /api/github/habit-tracker, /api/github/rate-limit');
 } 
