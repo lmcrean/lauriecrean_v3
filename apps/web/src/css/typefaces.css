@@ -1,3 +1,6 @@
+/* Import custom fonts */
+@import url('./typefaces_import.css');
+
 /* Import Google Fonts for fallback */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Montserrat:wght@100..900&family=Roboto+Mono&display=swap');
 
@@ -35,9 +38,23 @@
     font-display: swap;
 }
 
+/* Primary font */
+.banner-title > span, .navbar__title, h1, h2, h3, h4, h5, h6, .sidebar-title, .menu__link, .navbar__link, .navbar__text, .table-of-contents__title, .table-of-contents__link {
+    font-family: 'Funnel Display', 'Alegreya', serif !important;
+}
+
+code {
+    font-family: 'Roboto Mono', monospace !important;
+}
+
+/* Secondary Font */
+* {
+    font-family: 'IBM Plex Serif', 'Roboto Mono', serif, monospace;
+}
+
+
 /* Apply fonts to elements with fallbacks */
 h1, h2, .sidebar-title {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
     color: var(--text-color) !important;
 }
@@ -62,24 +79,7 @@ h2 {
 }
 
 .banner-title span {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-weight: 700;
-}
-
-h3, h4, h5, h6, span, li {
-    font-family: 'GlacialIndifference', 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-p {
-    font-family: 'GlacialIndifference', 'Roboto Mono', monospace !important;
-    font-size: 1rem !important;
-    line-height: 1.5rem !important;
-}
-
-/* Sidebar styling */
-.theme-doc-sidebar-container {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
 }
 
 .theme-doc-sidebar-item-link, 
@@ -92,12 +92,7 @@ p {
     font-weight: 700 !important;
 }
 
-.theme-doc-sidebar-menu {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
-}
-
 .navbar__title {
-    font-family: 'Funnel Display', 'Alegreya', serif !important;
     font-size: 1.5rem !important;
     margin-left: 10px !important;
     font-weight: 500 !important;

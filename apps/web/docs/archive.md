@@ -26,7 +26,7 @@ This page contains some of my earlier projects that showcase my learning journey
 
 <center><b>version 2.0</b></center>
 
-<a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 <div className="github-badges">
 <a href="https://github.com/lmcrean/crocodile-kingdom-mern"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=1C1C1C" alt="Last Commit" /></a>
@@ -47,7 +47,7 @@ This page contains some of my earlier projects that showcase my learning journey
 
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play" ></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank" className="live-demo-btn"><i className="fa fa-play" ></i> Live Demo </a>
 
 <div className="github-badges">
 <a href="https://github.com/lmcrean/crocodile-kingdom"><img src="https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom?color=1C1C1C" alt="Last Commit" /></a>
@@ -71,7 +71,7 @@ This page contains some of my earlier projects that showcase my learning journey
 
 <ProjectCarousel projectKey="retrolympics" />
 
-<a href="https://github.com/lmcrean/retrolympics-rush" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a> 
+<a href="https://github.com/lmcrean/retrolympics-rush" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a> 
 
 <div className="github-badges">
 <a href="https://github.com/lmcrean/retrolympics-rush"><img src="https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush?color=1C1C1C" alt="Last Commit" /></a>
@@ -98,7 +98,7 @@ This page contains some of my earlier projects that showcase my learning journey
 
 <ProjectCarousel projectKey="wealthquest" />
 
-<a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank"><button className="live-demo-btn"> Live Demo </button></a>
+<a href="https://github.com/lmcrean/Wealth-Quest" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank" className="live-demo-btn"> Live Demo </a>
 
 <div className="github-badges">
 <a href="https://github.com/lmcrean/Wealth-Quest"><img src="https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=1C1C1C" alt="Last Commit" /></a>
