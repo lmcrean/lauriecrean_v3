@@ -78,7 +78,7 @@ apps/ai/
 ├── .gitignore                           # Git ignore rules
 ├── .eslintrc.js                         # ESLint configuration
 ├── .prettierrc                          # Prettier configuration
-├── jest.config.js                       # Jest test configuration
+├── jest.config.ts                       # Jest test configuration
 ├── tsconfig.json                        # TypeScript configuration
 ├── package.json                         # Dependencies and scripts
 ├── package-lock.json                    # Locked dependencies
