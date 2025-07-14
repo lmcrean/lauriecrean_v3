@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import SplideInit from '@site/src/components/SplideInit';
+import SplideInit from '../components/SplideInit';
 
 interface RootProps {
   children: React.ReactNode;

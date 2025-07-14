@@ -46,7 +46,7 @@ apps/ai/
 ├── package.json
 ├── tsconfig.json
 ├── .env.example
-└── jest.config.js
+└── jest.config.ts
 ```
 
 ## API Routes

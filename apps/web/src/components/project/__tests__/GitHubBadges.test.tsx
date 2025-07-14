@@ -65,7 +65,7 @@ describe('GitHubBadges', () => {
       <GitHubBadges repo="lmcrean/dottie" badges="last-commit" className="custom-github-badges" />
     );
     
-    expect(container.firstChild?.className).toBe('custom-github-badges');
+    expect((container.firstChild as HTMLElement)?.className).toBe('custom-github-badges');
   });
 
   it('handles custom color', () => {

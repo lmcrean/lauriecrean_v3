@@ -33,6 +33,7 @@ const mockFetch: MockFetch = async (url: string): Promise<MockResponse> => {
     ok: false,
     status: 404,
     statusText: 'Not Found',
+    headers: new Headers(),
   };
 };
 

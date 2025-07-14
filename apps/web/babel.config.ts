@@ -1,4 +1,6 @@
-module.exports = {
+import type { TransformOptions } from '@babel/core';
+
+const config: TransformOptions = {
   presets: [
     [
       '@babel/preset-env',
@@ -11,4 +13,6 @@ module.exports = {
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
-}; 
+};
+
+export default config; 

@@ -6,7 +6,18 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import PullRequestFeedDetailCard from '../pull-request-feed/PullRequestFeedDetailCard';
+import PullRequestFeedDetailCard from '../pull-request-feed/detail-card/index';
+
+// Type declaration for Jest globals
+declare global {
+  var jest: any;
+  var describe: any;
+  var it: any;
+  var test: any;
+  var beforeEach: any;
+  var afterEach: any;
+  var expect: any;
+}
 
 // Mock detailed pull request data
 const mockDetailedPullRequest = {
@@ -262,7 +273,7 @@ describe('PullRequestFeedDetailCard', () => {
     });
 
     it('reloads page when Try Again button is clicked in error state', () => {
-      const mockReload = vi.fn();
+      const mockReload = jest.fn();
       Object.defineProperty(window.location, 'reload', {
         writable: true,
         value: mockReload,
@@ -640,7 +651,7 @@ describe('PullRequestFeedDetailCard', () => {
     it('handles clipboard API failures gracefully', async () => {
       // Mock clipboard to reject
       const originalWriteText = navigator.clipboard.writeText;
-      navigator.clipboard.writeText = vi.fn().mockRejectedValue(new Error('Clipboard failed'));
+      navigator.clipboard.writeText = jest.fn().mockRejectedValue(new Error('Clipboard failed'));
       
       render(
         <PullRequestFeedDetailCard

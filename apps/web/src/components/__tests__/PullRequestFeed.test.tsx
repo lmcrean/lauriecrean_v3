@@ -8,9 +8,20 @@ import '@testing-library/jest-dom';
 import PullRequestFeed from '../pull-request-feed/PullRequestFeed';
 import apiClient from '../api/Core';
 
+// Type declaration for Jest globals
+declare global {
+  var jest: any;
+  var describe: any;
+  var it: any;
+  var test: any;
+  var beforeEach: any;
+  var afterEach: any;
+  var expect: any;
+}
+
 // Mock the API client
 jest.mock('../api/Core');
-const mockedApiClient = apiClient as jest.Mocked<typeof apiClient>;
+const mockedApiClient = apiClient as any;
 
 // Mock child components
 jest.mock('../pull-request-feed/PullRequestFeedListCard', () => ({

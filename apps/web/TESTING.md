@@ -69,4 +69,4 @@ npm run test:all
 
 - The E2E test for the readme-port page is currently skipped due to timeout issues with that specific page.
 - Playwright tests require build and serve commands to be run before testing.
-- Jest is configured to exclude E2E test files in the `jest.config.js` file. 
+- Jest is configured to exclude E2E test files in the `jest.config.ts` file. 
