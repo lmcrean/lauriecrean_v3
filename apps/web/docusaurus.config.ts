@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import * as path from 'path';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -23,8 +24,19 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // Pass environment variables to the client-side
+  customFields: {
+    REACT_APP_API_BASE_URL: process.env.REACT_APP_API_BASE_URL || undefined,
+    DOCUSAURUS_API_BASE_URL: process.env.DOCUSAURUS_API_BASE_URL || undefined,
+  },
+
   // Add splide scripts directly to the head
   scripts: [
+    // Runtime configuration (generated during build)
+    {
+      src: '/config.js',
+      async: false, // Load synchronously to ensure APP_CONFIG is available early
+    },
     {
       src: 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js',
       async: true,
@@ -95,6 +107,35 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    function (context, options) {
+      return {
+        name: 'custom-webpack-config',
+        configureWebpack(config, isServer) {
+          return {
+            resolve: {
+              alias: {
+                '@shared': path.resolve(__dirname, '../../shared'),
+              },
+            },
+            plugins: [
+              // Inject environment variables directly into the build
+              ...(config.plugins || []),
+              new (require('webpack').DefinePlugin)({
+                // Make variables available on window object for direct access
+                'window.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'window.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+                // Also make them available as process.env for traditional React apps
+                'process.env.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+                'process.env.DOCUSAURUS_API_BASE_URL': JSON.stringify(process.env.DOCUSAURUS_API_BASE_URL),
+              }),
+            ],
+          };
+        },
+      };
+    },
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/logo.svg',
@@ -123,19 +164,19 @@ const config: Config = {
       items: [
         {
           href: 'https://github.com/lauriecrean',
-          html: '<i class="fab fa-github fa-lg" title="GitHub"></i> <b>GitHub</b>',
+          html: '<i class="fab fa-github fa-lg" title="GitHub"></i> <b class="navbar__text">GitHub</b>',
           className: 'navbar-icon-item',
           position: 'right',
         },
         {
           href: 'https://www.linkedin.com/in/lcrean/',
-          html: '<i class="fab fa-linkedin fa-lg" title="LinkedIn"></i> <b>LinkedIn</b>',
+          html: '<i class="fab fa-linkedin fa-lg" title="LinkedIn"></i> <b class="navbar__text">LinkedIn</b>',
           className: 'navbar-icon-item',
           position: 'right',
         },
         {
           href: 'mailto:lmcrean@gmail.com',
-          html: '<i class="fas fa-envelope fa-lg" title="Email"></i> <b>Email</b>',
+          html: '<i class="fas fa-envelope fa-lg  " title="Email"></i> <b class="navbar__text">Email</b>',
           className: 'navbar-icon-item',
           position: 'right',
         },

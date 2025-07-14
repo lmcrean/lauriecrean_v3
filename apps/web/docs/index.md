@@ -36,7 +36,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section>
 
-<a href="https://github.com/lmcrean/dottie" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/dottie" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a><a href="https://discord.gg/FRxFFgU4cq" target="_blank"><button className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </button></a>
+<a href="https://github.com/lmcrean/dottie" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/dottie" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a><a href="https://discord.gg/FRxFFgU4cq" target="_blank" className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </a>
 
 <TechBadges values="typescript,express,knex,supertest,azure,sql,azureappservices,azuresql,react,tailwindcss" />
 
@@ -60,10 +60,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <ProjectCarousel projectKey="odyssey" />
 
-<section>
+<div>
 
-<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
-
+<a href="https://github.com/lmcrean/odyssey-api" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <TechBadges values="python,react,tailwindcss,vercel,cloudinary,postgresql,django,aws,heroku,oauth2,jwt,amazonrds" />
 
@@ -71,7 +70,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <GitHubBadges repo="lmcrean/odyssey-api" badges="last-commit,created-at,commit-activity" />
 
-</section>
+</div>
 </section>
 
 </div>
@@ -89,7 +88,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section>
 
-<a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
+<a href="https://github.com/lmcrean/coach-matrix" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <TechBadges values="javascript,python,html,css,postgresql,django,amazonrds,aws,oauth2,jwt,heroku" />
 
@@ -116,7 +115,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <b>version 2.0</b><br/>
 
-<a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/steam-report-mern" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <a href="https://steamreport.lauriecrean.dev" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 <TechBadges values="react,nextjs,tailwindcss,javascript,vite,aws,lambda,dynamodb,express,vercel" />
 
@@ -128,7 +127,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <b>version 1.0</b><br/>
   
-<a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
+<a href="https://github.com/lmcrean/steam-report" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/steam-report" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
 
 <TechBadges values="python,nodejs,heroku,googlesheets" />
 
@@ -144,17 +143,17 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <b>version 2.0</b>
 
-<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://lauriecrean.dev" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 <TechBadges values="docusaurus,typescript" />
 
 <TestBadges tests="vitest:33,playwright:12" />
 
-<GitHubBadges repo="lmcrean/lauriecrean_v3" badges="last-commit,created-at,commit-activity" />
+<GitHubBadges repo="lmcrean/developer-portfolio" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
 
-<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean-archive" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,framermotion,vercel" /> 
 
@@ -172,17 +171,15 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <b>version 2.0</b>
 
-<a href="https://github.com/lmcrean/hoverboard-react" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://hoverboard-react.vercel.app/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
+<a href="https://github.com/lmcrean/hoverboard-react" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://hoverboard-react.vercel.app/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 <TechBadges values="javascript,react,nextjs,tailwindcss,vercel,figma" />
-
 
 <GitHubBadges repo="lmcrean/hoverboard-react" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
 
-<a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="code-btn"><i className="fa fa-code"></i> Code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button className="readme-btn"><i className="fa fa-book"></i> Readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </button></a>
-
+<a href="https://github.com/lmcrean/hoverboard" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/hoverboard" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 <TechBadges values="javascript,html,css,githubpages,figma" />
 

@@ -35,7 +35,7 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <section>
 
-<a href="https://github.com/lmcrean/odyssey-api" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://odyssey.lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/odyssey-api" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a> <a href="https://odyssey.lauriecrean.dev" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-api?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-api?color=blue)](https://github.com/lmcrean/odyssey-api/commits/main)
 
@@ -62,7 +62,7 @@ Developed Social Media application with Auth, messaging and media sharing featur
 
 <section>
 
-<a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://coach-matrix-d2cd1e717f81.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/coach-matrix" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a> <a href="https://coach-matrix-d2cd1e717f81.herokuapp.com/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix) ![Created at](https://img.shields.io/github/created-at/lmcrean/coach-matrix?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/coach-matrix?color=blue)](https://github.com/lmcrean/coach-matrix/commits/main)
 
@@ -87,7 +87,7 @@ Social platform focused on professional development • Custom authentication an
 
 <center><b>version 2.0</b><br/></center>
 
-<a href="https://github.com/lmcrean/steam-report-mern" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank"><button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://steamreport.lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/steam-report-mern" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a> <a href="https://steamreport.lauriecrean.dev" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report-mern?color=blue)](https://github.com/lmcrean/steam-report-mern) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report-mern?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report-mern?color=blue)](https://github.com/lmcrean/steam-report-mern/commits/main)
 
@@ -103,7 +103,7 @@ Social platform focused on professional development • Custom authentication an
 
 <center><b>version 1.0</b><br/></center>
   
-<a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/steam-report" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/steam-report" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/steam-report" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://steam-report-4c5b92c32ae5.herokuapp.com/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report) ![Created at](https://img.shields.io/github/created-at/lmcrean/steam-report?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/steam-report?color=blue)](https://github.com/lmcrean/steam-report/commits/main)
 
@@ -127,7 +127,7 @@ Social platform focused on professional development • Custom authentication an
 
 <center><b>version 2.0</b></center>
 
-<a href="https://github.com/lmcrean/odyssey-v2-amplify-vite" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/odyssey-v2-amplify-vite" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://main.d1l70uc5e2kcii.amplifyapp.com/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 ![Amplify](https://img.shields.io/badge/Amplify-1C1C1C?&logo=amazon&logoColor=white) ![React](https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1C1C1C?&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-1C1C1C?&logo=vite&logoColor=white) ![GraphQL](https://img.shields.io/badge/GraphQL-1C1C1C?&logo=graphql&logoColor=white) ![Cognito](https://img.shields.io/badge/Cognito-1C1C1C?&logo=amazon&logoColor=white) ![S3](https://img.shields.io/badge/S3-1C1C1C?&logo=amazon&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-67_Passed-blue?style=flat-square&logo=vitest&logoColor=white) 
 
@@ -140,7 +140,7 @@ Developed an AWS authentication feature running on Amplify though TDD. Migrated 
 
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/odyssey-v2" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a>
+<a href="https://github.com/lmcrean/odyssey-v2" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2) ![Created at](https://img.shields.io/github/created-at/lmcrean/odyssey-v2?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/odyssey-v2?color=blue)](https://github.com/lmcrean/odyssey-v2/commits/main)
 
@@ -159,7 +159,7 @@ Moved [Odyssey API](https://github.com/lmcrean/odyssey-api) from Python-Cloudina
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool) ![Created at](https://img.shields.io/github/created-at/lmcrean/BudgetTool?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/BudgetTool?color=blue)](https://github.com/lmcrean/BudgetTool/commits/main)
 
 
-<a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <button class="live-demo-btn"><i class="fa fa-play"></i> demo expired </button>
+<a href="https://github.com/lmcrean/BudgetTool" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/BudgetTool" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <button class="live-demo-btn"><i class="fa fa-play"></i> demo expired </button>
 
 Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React. Used a monorepo to manage the frontend and backend • Integrated Github Actions for CI/CD pipeline to manage the deployment process for both Frontend and Backend • Deployed both Frontend and Backend to Azure App Services
 
@@ -171,7 +171,7 @@ Developed a fully tested Authentication tool using ASP.NET, C#, Azure and React.
 
 <img src="/screenshots/antelope.png" alt="antelope" style={{maxHeight: "auto", width: "500px", margin: "auto", display: "flex"}} />
 
-<a href="https://github.com/lmcrean/antelope" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/antelope" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://antelope-frontend-isolate-ea7038a582fe.herokuapp.com/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope) ![Created at](https://img.shields.io/github/created-at/lmcrean/antelope?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/antelope?color=blue)](https://github.com/lmcrean/antelope/commits/main)
 
@@ -185,7 +185,7 @@ Developed full-stack boilerplate with React JSX frontend and Django REST API •
 
 <center><b>version 3.0</b></center>
 
-<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean.dev" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://lauriecrean.dev" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 ![Docusaurus](https://img.shields.io/badge/Docusaurus-1C1C1C?&logo=docusaurus&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-33_Passed-blue?style=flat-square&logo=vitest&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-12_Passed-blue?style=flat-square&logo=playwright&logoColor=white)
 
@@ -200,7 +200,7 @@ Simplified project with Docsify framework for converting markdown to HTML, CSS a
 <hr />
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/lauriecrean" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/lauriecrean" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://lauriecrean-nextjs-dlpcywpcu-lmcreans-projects.vercel.app/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean) ![Created at](https://img.shields.io/github/created-at/lmcrean/lauriecrean?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/lauriecrean?color=blue)](https://github.com/lmcrean/lauriecrean/commits/main)
 
@@ -221,7 +221,7 @@ Dynamic animations with Framer Motion • integrated Vercel deployment pipeline
 
 <center><b>version 2.0</b></center>
 
-<a href="https://github.com/lmcrean/hoverboard-react" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://hoverboard-react.vercel.app/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/hoverboard-react" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://hoverboard-react.vercel.app/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard-react?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard-react?color=blue)](https://github.com/lmcrean/hoverboard-react/commits/main)
 
@@ -231,7 +231,7 @@ Ported HTML CSS to React • Integrated TailwindCSS into workflow for more effic
 
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/hoverboard" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/hoverboard" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank"> <button class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </button></a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/hoverboard" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/hoverboard" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank" class="figma-btn"><i class="fa fa-paint-brush"></i> mockup </a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard) ![Created at](https://img.shields.io/github/created-at/lmcrean/hoverboard?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/hoverboard?color=blue)](https://github.com/lmcrean/hoverboard/commits/main)
 
@@ -250,7 +250,7 @@ Developed Responsive website with HTML and CSS • enhanced for all device sizes
 
 <center><b>version 2.0</b></center>
 
-<a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern) ![Created at](https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom-mern?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom-mern?color=blue)](https://github.com/lmcrean/crocodile-kingdom-mern/commits/main)
 
@@ -260,7 +260,7 @@ Refined gameplay logic to creative word association game with validation • Por
 
 <center><b>version 1.0</b></center>
 
-<a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play" ></i> live demo </button></a>
+<a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank" class="live-demo-btn"><i class="fa fa-play" ></i> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/crocodile-kingdom?color=blue)](https://github.com/lmcrean/crocodile-kingdom) ![Created at](https://img.shields.io/github/created-at/lmcrean/crocodile-kingdom?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/crocodile-kingdom?color=blue)](https://github.com/lmcrean/crocodile-kingdom/commits/main)
 
@@ -279,7 +279,7 @@ Developed Memory game with Javascript • dynamic progress bar to track progress
 
 <img src="/screenshots/retrolympics.png" alt="retrolympicrush" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
-<a href="https://github.com/lmcrean/retrolympics-rush" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank"><button class="live-demo-btn"><i class="fa fa-play"></i> live demo </button></a> 
+<a href="https://github.com/lmcrean/retrolympics-rush" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/retrolympic-rush" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a> <a href="https://lmcrean.github.io/Retrolympics-Rush/" target="_blank" class="live-demo-btn"><i class="fa fa-play"></i> live demo </a> 
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/retrolympics-rush?color=blue)](https://github.com/lmcrean/retrolympics-rush) ![Created at](https://img.shields.io/github/created-at/lmcrean/retrolympics-rush?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/retrolympics-rush?color=blue)](https://github.com/lmcrean/retrolympics-rush/commits/main)
 
@@ -301,7 +301,7 @@ Took role of Scrum Master for team of 7 • Hackathon Project over 5 days • us
 
 <img src="/screenshots/wealthquest.png" alt="wealthquest" style={{maxHeight: "auto", width: "450px", margin: "auto", display: "flex"}} />
 
-<a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="code-btn"><i class="fa fa-code"></i> code </button></a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank"><button class="readme-btn"><i class="fa fa-book"></i> readme </button></a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank"><button class="live-demo-btn"> live demo </button></a>
+<a href="https://github.com/lmcrean/Wealth-Quest" target="_blank" class="code-btn"><i class="fa fa-code"></i> code </a> <a href="https://github.com/lmcrean/Wealth-Quest" target="_blank" class="readme-btn"><i class="fa fa-book"></i> readme </a>  <a href="https://lmcrean.github.io/Wealth-Quest/" target="_blank" class="live-demo-btn"> live demo </a>
 
 [![Last Commit](https://img.shields.io/github/last-commit/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest) ![Created at](https://img.shields.io/github/created-at/lmcrean/Wealth-Quest?color=blue) [![Commit Activity](https://img.shields.io/github/commit-activity/t/lmcrean/Wealth-Quest?color=blue)](https://github.com/lmcrean/Wealth-Quest/commits/main) 
 

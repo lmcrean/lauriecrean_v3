@@ -67,7 +67,7 @@ const RightSection: React.FC = () => {
         </div>
         <div className="mt-1">
           <div 
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic text-yellow-300 font-semibold"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic text-yellow-300 banner-subtitle"
             style={subtitleStyle}
           >
             Back End Software Developer
