@@ -65,6 +65,8 @@
   height: 20px;
   margin-right: 4px;
   margin-bottom: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .project-buttons {
@@ -130,6 +132,8 @@
 .project-type-badge {
   height: 20px;
   border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Responsive layout for project content */
@@ -207,6 +211,8 @@
 /* GitHub badges */
 .github-badges img {
   height: 20px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Technology badges */
@@ -214,6 +220,8 @@
   height: 20px;
   margin-right: 0.25rem;
   margin-bottom: 0.25rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Project description */
@@ -243,6 +251,8 @@
 .tech-badge {
   height: 20px;
   border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Test result badges */
@@ -256,6 +266,8 @@
 .test-badge {
   height: 20px;
   border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* GitHub badges */
@@ -269,6 +281,8 @@
 .github-badge {
   height: 20px;
   border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Project buttons */
@@ -393,6 +407,12 @@
   display: flex;
   justify-content: center;
   gap: 11px;
+}
+
+.header-badges img {
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .github-badges {

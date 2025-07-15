@@ -13,13 +13,13 @@ describe('GitHubBadges', () => {
     // Check last-commit badge (should be wrapped in a link)
     const lastCommitBadge = screen.getByAltText('Last Commit');
     expect(lastCommitBadge.getAttribute('src')).toBe(
-      'https://img.shields.io/github/last-commit/lmcrean/dottie?color=1C1C1C'
+      'https://img.shields.io/github/last-commit/lmcrean/dottie?style=flat-square&color=1C1C1C'
     );
     
     // Check created-at badge (should not be wrapped in a link)
     const createdAtBadge = screen.getByAltText('Created at');
     expect(createdAtBadge.getAttribute('src')).toBe(
-      'https://img.shields.io/github/created-at/lmcrean/dottie?color=1C1C1C'
+      'https://img.shields.io/github/created-at/lmcrean/dottie?style=flat-square&color=1C1C1C'
     );
   });
 
@@ -73,7 +73,7 @@ describe('GitHubBadges', () => {
     
     const badge = screen.getByAltText('Last Commit');
     expect(badge.getAttribute('src')).toBe(
-      'https://img.shields.io/github/last-commit/lmcrean/dottie?color=FF0000'
+      'https://img.shields.io/github/last-commit/lmcrean/dottie?style=flat-square&color=FF0000'
     );
   });
 

@@ -67,7 +67,7 @@ const GitHubBadges: React.FC<GitHubBadgesProps> = ({
   const badgeTypes = badges.split(',').map(badge => badge.trim()).filter(badge => badge);
 
   const generateBadgeUrl = (shieldPath: string): string => {
-    return `https://img.shields.io/github/${shieldPath}/${repo}?color=${color}`;
+    return `https://img.shields.io/github/${shieldPath}/${repo}?style=flat-square&color=${color}`;
   };
 
   const generateLinkUrl = (linkPath: string): string => {

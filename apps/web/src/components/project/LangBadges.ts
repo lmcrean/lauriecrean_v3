@@ -68,7 +68,7 @@ export const generateBadgeUrl = (
     // Fallback for unknown tech
     const fallbackName = techKey.charAt(0).toUpperCase() + techKey.slice(1);
     return {
-      url: `https://img.shields.io/badge/${fallbackName}-${baseColor}?&logo=${techKey.toLowerCase()}&logoColor=${logoColor}`,
+      url: `https://img.shields.io/badge/${fallbackName}-${baseColor}?style=flat-square&logo=${techKey.toLowerCase()}&logoColor=${logoColor}`,
       alt: fallbackName
     };
   }
@@ -77,7 +77,7 @@ export const generateBadgeUrl = (
   const logoColorFinal = tech.logoColor || logoColor;
 
   return {
-    url: `https://img.shields.io/badge/${tech.name}-${color}?&logo=${tech.logo}&logoColor=${logoColorFinal}`,
+    url: `https://img.shields.io/badge/${tech.name}-${color}?style=flat-square&logo=${tech.logo}&logoColor=${logoColorFinal}`,
     alt: tech.name.replace(/_/g, ' ')
   };
 };

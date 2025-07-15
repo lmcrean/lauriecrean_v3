@@ -13,19 +13,19 @@ describe('TechBadges', () => {
     // Check TypeScript badge
     const typescriptBadge = screen.getByAltText('Typescript');
     expect(typescriptBadge.getAttribute('src')).toBe(
-      'https://img.shields.io/badge/Typescript-1C1C1C?&logo=typescript&logoColor=white'
+      'https://img.shields.io/badge/Typescript-1C1C1C?style=flat-square&logo=typescript&logoColor=white'
     );
     
     // Check React badge
     const reactBadge = screen.getByAltText('React');
     expect(reactBadge.getAttribute('src')).toBe(
-      'https://img.shields.io/badge/React-1C1C1C?&logo=react&logoColor=white'
+      'https://img.shields.io/badge/React-1C1C1C?style=flat-square&logo=react&logoColor=white'
     );
     
     // Check Express badge
     const expressBadge = screen.getByAltText('Express');
     expect(expressBadge.getAttribute('src')).toBe(
-      'https://img.shields.io/badge/Express-1C1C1C?&logo=express&logoColor=white'
+      'https://img.shields.io/badge/Express-1C1C1C?style=flat-square&logo=express&logoColor=white'
     );
   });
 
@@ -49,7 +49,7 @@ describe('TechBadges', () => {
     
     const badge = screen.getByAltText('Unknowntech');
     expect(badge.getAttribute('src')).toBe(
-      'https://img.shields.io/badge/Unknowntech-1C1C1C?&logo=unknowntech&logoColor=white'
+      'https://img.shields.io/badge/Unknowntech-1C1C1C?style=flat-square&logo=unknowntech&logoColor=white'
     );
   });
 
@@ -58,7 +58,7 @@ describe('TechBadges', () => {
     
     const badge = screen.getByAltText('Typescript');
     expect(badge.getAttribute('src')).toBe(
-      'https://img.shields.io/badge/Typescript-FF0000?&logo=typescript&logoColor=black'
+      'https://img.shields.io/badge/Typescript-FF0000?style=flat-square&logo=typescript&logoColor=black'
     );
   });
 }); 
