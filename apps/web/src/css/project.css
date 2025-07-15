@@ -29,7 +29,7 @@
 }
 
 .project-type-badge {
-  height: 20px;
+  height: 25px !important;
 }
 
 .project-content {
@@ -62,7 +62,7 @@
 }
 
 .tech-badge, .test-badge, .github-badge {
-  height: 20px;
+  height: 25px !important;
   margin-right: 4px;
   margin-bottom: 4px;
   display: inline-block;
@@ -130,7 +130,7 @@
 }
 
 .project-type-badge {
-  height: 20px;
+  height: 25px !important;
   border-radius: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -210,14 +210,14 @@
 
 /* GitHub badges */
 .github-badges img {
-  height: 20px;
+  height: 25px !important;
   display: inline-block;
   vertical-align: middle;
 }
 
 /* Technology badges */
 .technology-badges img {
-  height: 20px;
+  height: 25px !important;
   margin-right: 0.25rem;
   margin-bottom: 0.25rem;
   display: inline-block;
@@ -249,7 +249,7 @@
 }
 
 .tech-badge {
-  height: 20px;
+  height: 25px !important;
   border-radius: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -264,7 +264,7 @@
 }
 
 .test-badge {
-  height: 20px;
+  height: 25px !important;
   border-radius: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -279,7 +279,7 @@
 }
 
 .github-badge {
-  height: 20px;
+  height: 25px !important;
   border-radius: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -410,7 +410,7 @@
 }
 
 .header-badges img {
-  height: 20px;
+  height: 25px !important;
   display: inline-block;
   vertical-align: middle;
 }
