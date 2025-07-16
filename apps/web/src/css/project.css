@@ -61,7 +61,7 @@
   margin-bottom: 12px;
 }
 
-.tech-badge, .test-badge, .github-badge {
+.tech-badge, .test-badge, .github-badge, .tech-badges img, .test-badges img, .github-badges img {
   height: 22px;
   margin-right: 4px;
   margin-bottom: 4px;
