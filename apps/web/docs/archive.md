@@ -7,6 +7,8 @@ hide_table_of_contents: true
 ---
 
 import ProjectCarousel from '@site/src/components/ProjectCarousel';
+import TechBadges from '@site/src/components/project/TechBadges';
+import GitHubBadges from '@site/src/components/project/GitHubBadges';
 
 <div className="archive-page">
 
@@ -16,7 +18,38 @@ This page contains some of my earlier projects that showcase my learning journey
 
 ***
 
+
+## Hoverboard {#hoverboard}
+
+Fully responsive SAAS website.
+
+<br />
+
+<ProjectCarousel projectKey="hoverboard" />
+
+<b>version 2.0: </b>
+
+<a href="https://github.com/lmcrean/hoverboard-react" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://hoverboard-react.vercel.app/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
+
+**Role: Frontend Developer**
+
+<TechBadges values="javascript,react,nextjs,tailwindcss,vercel,figma" />
+
+<GitHubBadges repo="lmcrean/hoverboard-react" badges="last-commit,created-at,commit-activity" />
+
+<b>version 1.0</b>
+
+<a href="https://github.com/lmcrean/hoverboard" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/hoverboard" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/W7mEdTvxLgNZTvh1ODiuwD/HOVERBOARD?node-id=0-1&t=KLNqBhNcdgTvlq8M-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <a href="https://lmcrean.github.io/Hoverboard/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
+
+**Role: Frontend Developer**
+
+<TechBadges values="javascript,html,css,githubpages,figma" />
+
+<GitHubBadges repo="lmcrean/hoverboard" badges="last-commit,created-at,commit-activity" />
+
 ## Crocodile Kingdom {#crocodile-kingdom}
+
+An interactive game for developing English skills and building connections.
 
 <div className="header-badges">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Frontend" /><img src="https://img.shields.io/badge/LocalStorage-1C1C1C" alt="Frontend" />
@@ -24,7 +57,7 @@ This page contains some of my earlier projects that showcase my learning journey
 
 <ProjectCarousel projectKey="crocodilekingdom" />
 
-<center><b>version 2.0</b></center>
+<b>version 2.0</b>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom-mern" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://crocodilekingdom.lauriecrean.dev/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
@@ -45,7 +78,7 @@ This page contains some of my earlier projects that showcase my learning journey
 <img src="https://img.shields.io/badge/Vitest-53_passed-1C1C1C?&logo=vitest&logoColor=white" alt="Vitest" />
 </div>
 
-<center><b>version 1.0</b></center>
+<b>version 1.0</b>
 
 <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/crocodile-kingdom" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://lmcrean.github.io/Crocodile-Kingdom/" target="_blank" className="live-demo-btn"><i className="fa fa-play" ></i> Live Demo </a>
 
@@ -64,6 +97,8 @@ This page contains some of my earlier projects that showcase my learning journey
 </div> 
 
 ## Retrolympic Rush {#retrolympic-rush}
+
+A sidescrolling game for the 2024 Olympics.
 
 <div className="header-badges">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Retrolympic-Rush" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-1C1C1C" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master-1C1C1C" alt="Hackathon" />
@@ -91,6 +126,8 @@ This page contains some of my earlier projects that showcase my learning journey
 </div>
 
 ## Wealth Quest {#wealth-quest}
+
+A monopoly-style game with an emphasis on financial literacy.
 
 <div className="header-badges">
 <img src="https://img.shields.io/badge/Frontend-1C1C1C" alt="Type" /><img src="https://img.shields.io/github/contributors/lmcrean/Wealth-Quest" alt="Contributors" /><img src="https://img.shields.io/badge/Hackathon-5_Days-1C1C1C" alt="Hackathon" /><img src="https://img.shields.io/badge/Role-scrum_master_&_frontend-1C1C1C" alt="Hackathon" />

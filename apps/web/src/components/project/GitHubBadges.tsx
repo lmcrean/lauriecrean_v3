@@ -9,8 +9,9 @@ interface GitHubBadgeConfig {
 
 interface GitHubBadgesProps {
   repo: string; // Format: "lmcrean/dottie"
-  badges: string; // Format: "last-commit,created-at,commit-activity,issues,issues-closed,issues-pr,issues-pr-closed"
+  badges: string; // Format: "last-commit,created-at,commit-activity,issues,issues-closed,issues-pr,issues-pr-closed,stars,contributors,contributors-anon"
   color?: string;
+  style?: string;
   className?: string;
 }
 
@@ -55,6 +56,24 @@ const GITHUB_BADGE_CONFIGS: Record<string, GitHubBadgeConfig> = {
     alt: 'GitHub Issues or Pull Requests',
     shieldPath: 'issues-pr-closed',
     linkPath: 'pulls'
+  },
+  'stars': {
+    type: 'stars',
+    alt: 'GitHub Stars',
+    shieldPath: 'stars',
+    linkPath: 'stargazers'
+  },
+  'contributors': {
+    type: 'contributors',
+    alt: 'GitHub Contributors',
+    shieldPath: 'contributors',
+    linkPath: 'graphs/contributors'
+  },
+  'contributors-anon': {
+    type: 'contributors-anon',
+    alt: 'GitHub Contributors (Anonymous)',
+    shieldPath: 'contributors-anon',
+    linkPath: 'graphs/contributors'
   }
 };
 
@@ -62,12 +81,13 @@ const GitHubBadges: React.FC<GitHubBadgesProps> = ({
   repo, 
   badges, 
   color = '1C1C1C',
+  style = 'flat',
   className = 'github-badges'
 }) => {
   const badgeTypes = badges.split(',').map(badge => badge.trim()).filter(badge => badge);
 
   const generateBadgeUrl = (shieldPath: string): string => {
-    return `https://img.shields.io/github/${shieldPath}/${repo}?color=${color}`;
+    return `https://img.shields.io/github/${shieldPath}/${repo}?color=${color}&style=${style}`;
   };
 
   const generateLinkUrl = (linkPath: string): string => {

@@ -11,8 +11,7 @@ const tocItems: TOCItem[] = [
   { id: 'odyssey', title: 'Odyssey', level: 2 },
   { id: 'coach-matrix', title: 'Coach Matrix', level: 2 },
   { id: 'steam-report', title: 'Steam Report', level: 2 },
-  { id: 'laurie-crean', title: 'Laurie Crean', level: 2 },
-  { id: 'hoverboard', title: 'Hoverboard', level: 2 },
+  { id: 'laurie-crean', title: 'Developer Portfolio', level: 2 },
 ];
 
 /**
