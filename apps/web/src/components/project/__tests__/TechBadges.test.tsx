@@ -41,7 +41,7 @@ describe('TechBadges', () => {
       <TechBadges values="typescript" className="custom-tech-badges" />
     );
     
-    expect(container.firstChild?.className).toBe('custom-tech-badges');
+    expect((container.firstChild as HTMLElement)?.className).toBe('custom-tech-badges');
   });
 
   it('handles unknown technologies with fallback', () => {

@@ -1,0 +1,42 @@
+name: Issue Triage with Gemini AI
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  triage-issues:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: '.github/scripts/package.json'
+        
+    - name: Install dependencies
+      run: |
+        cd .github/scripts
+        npm install
+        
+    - name: Build TypeScript
+      run: |
+        cd .github/scripts
+        npm run build
+        
+    - name: Run issue triage
+      run: |
+        cd .github/scripts
+        npm run start
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        REPOSITORY_OWNER: ${{ github.repository_owner }}
+        REPOSITORY_NAME: ${{ github.event.repository.name || 'developer-portfolio' }}

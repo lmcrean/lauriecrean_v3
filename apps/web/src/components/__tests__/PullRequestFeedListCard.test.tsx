@@ -5,7 +5,18 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PullRequestFeedListCard from '../pull-request-feed/PullRequestFeedListCard';
+import PullRequestFeedListCard from '../pull-request-feed/list-card/index';
+
+// Type declaration for Jest globals
+declare global {
+  var jest: any;
+  var describe: any;
+  var it: any;
+  var test: any;
+  var beforeEach: any;
+  var afterEach: any;
+  var expect: any;
+}
 
 // Mock data
 const mockPullRequest = {

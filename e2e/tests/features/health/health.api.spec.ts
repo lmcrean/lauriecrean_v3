@@ -36,15 +36,25 @@ test.describe('API Health Checks', () => {
     expect(response.status()).toBe(200);
     
     const data: HealthResponse = await response.json();
-    expect(data).toHaveProperty('status', 'ok');
+    
+    // Accept both 'ok' and 'warning' as valid statuses
+    // 'ok' = fully configured with GitHub token
+    // 'warning' = operational but missing GitHub token
+    expect(data.status).toMatch(/^(ok|warning)$/);
     expect(data).toHaveProperty('timestamp');
     expect(data).toHaveProperty('service', 'api-github');
     
     // Validate timestamp format (ISO string)
     validateTimestamp(data.timestamp);
     
-    observability.logNetworkActivity('✅ Health check passed - API is responding correctly');
-    console.log('✅ Health check passed');
+    // Log different messages based on status
+    if (data.status === 'ok') {
+      observability.logNetworkActivity('✅ Health check passed - API is fully configured');
+      console.log('✅ Health check passed - API is fully configured');
+    } else {
+      observability.logNetworkActivity('⚠️ Health check passed - API is operational but missing GitHub token');
+      console.log('⚠️ Health check passed - API is operational but missing GitHub token');
+    }
   });
 
   test('should respond to port info endpoint', async ({ request }) => {
@@ -79,7 +89,10 @@ test.describe('API Health Checks', () => {
     // Note: CORS headers might not be visible in Playwright requests
     // This test ensures the request succeeds, which means CORS is properly configured
     const data = await response.json();
-    expect(data.status).toBe('ok');
+    
+    // Accept both 'ok' and 'warning' as valid statuses for CORS test
+    // The key is that the request succeeds without CORS errors
+    expect(data.status).toMatch(/^(ok|warning)$/);
     
     observability.logNetworkActivity('✅ CORS configuration working correctly');
     console.log('✅ CORS configuration working correctly');

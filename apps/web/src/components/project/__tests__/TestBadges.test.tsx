@@ -35,7 +35,7 @@ describe('TestBadges', () => {
       <TestBadges tests="vitest:303" className="custom-test-badges" />
     );
     
-    expect(container.firstChild?.className).toBe('custom-test-badges');
+    expect((container.firstChild as HTMLElement)?.className).toBe('custom-test-badges');
   });
 
   it('handles multiple test frameworks', () => {
