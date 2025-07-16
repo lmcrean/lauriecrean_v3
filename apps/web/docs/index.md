@@ -38,7 +38,7 @@ An AI Chatbot that educates users on their menstrual health records.
 
 <TestBadges tests="vitest:303,playwright:40" />
 
-<GitHubBadges repo="lmcrean/dottie" badges="last-commit,created-at,commit-activity,issues,issues-closed,issues-pr,issues-pr-closed" />
+<GitHubBadges repo="lmcrean/dottie" badges="last-commit,created-at,commit-activity,issues,issues-closed,issues-pr,issues-pr-closed,contributors-anon,stars" />
 
 </section>
 
