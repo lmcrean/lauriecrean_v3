@@ -28,13 +28,9 @@ Welcome to my portfolio website! On this page you will find a guide to my select
 
 <ProjectCarousel projectKey="dottie" />
 
-</section>  
+<a href="https://github.com/lmcrean/dottie" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/dottie" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a><a href="https://discord.gg/FRxFFgU4cq" target="_blank" className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </a>
 
 An AI Chatbot that educates users on their menstrual health records.
-
-<section>
-
-<a href="https://github.com/lmcrean/dottie" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/dottie" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://dottie-lmcreans-projects.vercel.app/" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a><a href="https://discord.gg/FRxFFgU4cq" target="_blank" className="discord-btn"><i className="fa fa-brands fa-discord"></i> join discord </a>
 
 **Role: SQL & Express lead, Code Reviewer**
 
@@ -52,16 +48,14 @@ An AI Chatbot that educates users on their menstrual health records.
 
 <TypewriterTitle text="Odyssey" level="h2" className="project-title" id="odyssey" delay={300} speed={100} />
 
-
 <section>
 
 <ProjectCarousel projectKey="odyssey" />
 
-A Social Media Platform for shared goals.
-
 <div>
-
 <a href="https://github.com/lmcrean/odyssey-api" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://odyssey-docs.lauriecrean.dev" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/E9mOo72sSEqIjSplAMipFE/Odyssey?node-id=0-1&t=90jvE8D1JwHqgqVY-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
+
+A Social Media Platform for shared goals.
 
 **Role: Full Stack Developer**
 
@@ -83,11 +77,9 @@ A Social Media Platform for shared goals.
 
 <ProjectCarousel projectKey="coachmatrix" />
 
-A tool for teachers to share expertise and upvote helpful content.
-
-<section>
-
 <a href="https://github.com/lmcrean/coach-matrix" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/coach-matrix" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/jXT4Bi1WXVwYG4daO3Yczi/Coach-Matrix?node-id=1-89&t=J0AI0eKKLWvVg5Lj-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
+
+A tool for teachers to share expertise and upvote helpful content.
 
 **Role: Full Stack Developer**
 
@@ -98,8 +90,6 @@ A tool for teachers to share expertise and upvote helpful content.
 <GitHubBadges repo="lmcrean/coach-matrix" badges="last-commit,created-at,commit-activity, contributors, stars" />
 
 </section>
-</section>
-
 
 
 <TypewriterTitle text="Steam Report" level="h2" className="project-title" id="steam-report" delay={250} speed={110} />
@@ -108,13 +98,10 @@ A tool for teachers to share expertise and upvote helpful content.
 
 <ProjectCarousel projectKey="steamreport" />
 
-A personality test and subject knowledge assessment that leads to personalised career advice.
-
-<section>
-
 <b>version 2.0</b><br/>
-
 <a href="https://github.com/lmcrean/steam-report-mern" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://steamreport-docs.lauriecrean.dev" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <a href="https://www.figma.com/design/r3srLkPpbnMviUOIZeNjk7/Steam-Report?node-id=0-1&t=FBS5ZDxiWmtVBPeq-1" target="_blank" className="figma-btn"><i className="fa fa-brands fa-figma"></i> Figma </a> <a href="https://steamreport.lauriecrean.dev" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
+
+A personality test and subject knowledge assessment that leads to personalised career advice.
 
 **Role: Full Stack Developer**
 
@@ -127,8 +114,9 @@ A personality test and subject knowledge assessment that leads to personalised c
 <hr />
 
 <b>version 1.0</b><br/>
-  
 <a href="https://github.com/lmcrean/steam-report" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://github.com/lmcrean/steam-report" target="_blank" className="readme-btn"><i className="fa fa-book"></i> Readme </a> <button className="live-demo-btn"><i className="fa fa-lock"></i> not currently available </button>
+
+A personality test and subject knowledge assessment that leads to personalised career advice.
 
 **Role: Backend Developer**
 
@@ -137,7 +125,6 @@ A personality test and subject knowledge assessment that leads to personalised c
 <GitHubBadges repo="lmcrean/steam-report" badges="last-commit,created-at,commit-activity" />
 
 </section>
-</section>
 
 
 <TypewriterTitle text="Developer Portfolio" level="h2" className="project-title" id="laurie-crean" delay={350} speed={95} />
@@ -145,7 +132,6 @@ A personality test and subject knowledge assessment that leads to personalised c
 <ProjectCarousel projectKey="lauriecrean" />
 
 <b>version 2.0</b>
-
 <a href="https://github.com/lmcrean/lauriecrean_nextjs" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a> <a href="https://lauriecrean.dev" target="_blank" className="live-demo-btn"><i className="fa fa-play"></i> Live Demo </a>
 
 A portfolio website for a software developer featuring a customised pull request feed.
@@ -159,8 +145,9 @@ A portfolio website for a software developer featuring a customised pull request
 <GitHubBadges repo="lmcrean/developer-portfolio" badges="last-commit,created-at,commit-activity" />
 
 <b>version 1.0</b>
-
 <a href="https://github.com/lmcrean/lauriecrean-archive" target="_blank" className="code-btn"><i className="fa fa-code"></i> Code </a>
+
+A portfolio website for a software developer featuring a customised pull request feed.
 
 **Role: Portfolio Author & Designer**
 
