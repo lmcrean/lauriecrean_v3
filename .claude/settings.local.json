@@ -7,7 +7,13 @@
       "Bash(npm run build:*)",
       "Bash(rm:*)",
       "Bash(npm test)",
-      "Bash(npx vitest run:*)"
+      "Bash(npx vitest run:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run test:web:pr-feed:*)",
+      "Bash(npm run dev:e2e:*)",
+      "Bash(cross-env PORT=3015 npx ts-node src/index.ts)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }
