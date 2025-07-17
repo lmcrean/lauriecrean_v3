@@ -36,7 +36,7 @@ setupValidationRoutes(app, githubService);
 setup404Handler(app);
 
 // Start server
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 8080;
 
 // If running in test environment, use a different port
 if (process.env.NODE_ENV === 'test') {
