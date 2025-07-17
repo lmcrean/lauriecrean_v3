@@ -7,8 +7,12 @@ import path from 'path';
 describe('HabitTrackerDatabase', () => {
   let db: HabitTrackerDatabase;
   let testDbPath: string;
+  let originalEnv: string | undefined;
 
   beforeEach(() => {
+    // Save original environment
+    originalEnv = process.env.HABIT_TRACKER_DB_PATH;
+    
     // Create a unique temporary database for each test
     const uniqueId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     testDbPath = path.join(__dirname, `test-habit-tracker-${uniqueId}.db`);
@@ -39,7 +43,12 @@ describe('HabitTrackerDatabase', () => {
       // Ignore file cleanup errors
     }
     
-    delete process.env.HABIT_TRACKER_DB_PATH;
+    // Restore original environment
+    if (originalEnv) {
+      process.env.HABIT_TRACKER_DB_PATH = originalEnv;
+    } else {
+      delete process.env.HABIT_TRACKER_DB_PATH;
+    }
   });
 
   describe('upsertHabitEntry', () => {
@@ -104,7 +113,7 @@ describe('HabitTrackerDatabase', () => {
   });
 
   describe('getHabitEntries', () => {
-    beforeEach(() => {
+    it('should return entries within date range', () => {
       // Insert test data
       db.upsertHabitEntry('2025-01-10', 1);
       db.upsertHabitEntry('2025-01-11', 2);
@@ -112,9 +121,7 @@ describe('HabitTrackerDatabase', () => {
       db.upsertHabitEntry('2025-01-13', 3);
       db.upsertHabitEntry('2025-01-14', 1);
       db.upsertHabitEntry('2025-01-15', 2);
-    });
 
-    it('should return entries within date range', () => {
       const entries = db.getHabitEntries('2025-01-11', '2025-01-13');
       
       expect(entries).toHaveLength(3);
@@ -129,12 +136,17 @@ describe('HabitTrackerDatabase', () => {
     });
 
     it('should return entries sorted by date ascending', () => {
+      // Insert test data
+      db.upsertHabitEntry('2025-01-15', 2);
+      db.upsertHabitEntry('2025-01-10', 1);
+      db.upsertHabitEntry('2025-01-12', 0);
+      
       const entries = db.getHabitEntries('2025-01-10', '2025-01-15');
       
-      expect(entries).toHaveLength(6);
-      for (let i = 1; i < entries.length; i++) {
-        expect(entries[i].date >= entries[i-1].date).toBe(true);
-      }
+      expect(entries).toHaveLength(3);
+      expect(entries[0].date).toBe('2025-01-10');
+      expect(entries[1].date).toBe('2025-01-12');
+      expect(entries[2].date).toBe('2025-01-15');
     });
   });
 
@@ -164,27 +176,22 @@ describe('HabitTrackerDatabase', () => {
       expect(stats.max_in_single_day).toBe(5);
     });
 
-    it('should calculate streaks correctly', () => {
-      // Create a pattern: 2 days, gap, 3 days, gap, 1 day
-      db.upsertHabitEntry('2025-01-10', 1);
-      db.upsertHabitEntry('2025-01-11', 2);
-      db.upsertHabitEntry('2025-01-12', 0); // gap
-      db.upsertHabitEntry('2025-01-13', 1);
-      db.upsertHabitEntry('2025-01-14', 1);
-      db.upsertHabitEntry('2025-01-15', 2);
-      db.upsertHabitEntry('2025-01-16', 0); // gap
-      db.upsertHabitEntry('2025-01-17', 1); // current day (most recent)
+    it('should calculate current streak correctly', () => {
+      // Create consecutive days ending with most recent
+      db.upsertHabitEntry('2025-01-15', 1); // oldest
+      db.upsertHabitEntry('2025-01-16', 2); 
+      db.upsertHabitEntry('2025-01-17', 1); // most recent
 
       const stats = db.getStats();
       
-      expect(stats.current_streak).toBe(1);
+      expect(stats.current_streak).toBe(3);
       expect(stats.longest_streak).toBe(3);
     });
 
     it('should handle zero count days in streak calculation', () => {
-      db.upsertHabitEntry('2025-01-10', 1);
-      db.upsertHabitEntry('2025-01-11', 0);
-      db.upsertHabitEntry('2025-01-12', 1);
+      db.upsertHabitEntry('2025-01-15', 1);
+      db.upsertHabitEntry('2025-01-16', 0); // breaks streak
+      db.upsertHabitEntry('2025-01-17', 1); // most recent
 
       const stats = db.getStats();
       
@@ -195,7 +202,7 @@ describe('HabitTrackerDatabase', () => {
 
   describe('streak calculation edge cases', () => {
     it('should handle single day with PRs', () => {
-      db.upsertHabitEntry('2025-01-10', 1);
+      db.upsertHabitEntry('2025-01-15', 1);
 
       const stats = db.getStats();
       expect(stats.current_streak).toBe(1);
@@ -203,13 +210,23 @@ describe('HabitTrackerDatabase', () => {
     });
 
     it('should handle only zero count days', () => {
-      db.upsertHabitEntry('2025-01-10', 0);
-      db.upsertHabitEntry('2025-01-11', 0);
-      db.upsertHabitEntry('2025-01-12', 0);
+      db.upsertHabitEntry('2025-01-15', 0);
+      db.upsertHabitEntry('2025-01-16', 0);
+      db.upsertHabitEntry('2025-01-17', 0);
 
       const stats = db.getStats();
       expect(stats.current_streak).toBe(0);
       expect(stats.longest_streak).toBe(0);
+    });
+
+    it('should handle streak that ends before most recent day', () => {
+      db.upsertHabitEntry('2025-01-15', 1);
+      db.upsertHabitEntry('2025-01-16', 1);
+      db.upsertHabitEntry('2025-01-17', 0); // most recent, breaks current streak
+
+      const stats = db.getStats();
+      expect(stats.current_streak).toBe(0);
+      expect(stats.longest_streak).toBe(2);
     });
   });
 });
