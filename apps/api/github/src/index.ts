@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === 'test') {
     process.exit(1);
   });
 } else {
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 GitHub API server running on port ${PORT}`);
   });
 } 
