@@ -13,8 +13,16 @@
       "Bash(npm run dev:e2e:*)",
       "Bash(cross-env PORT=3015 npx ts-node src/index.ts)",
       "Bash(npm run typecheck:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npm ci:*)"
     ],
-    "deny": []
+    "deny": [
+      "Bash(git:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+    ]
   }
 }
