@@ -27,7 +27,7 @@ jobs:
       - name: 📥 Install API Dependencies
         run: |
           cd apps/api/github
-          npm ci
+          npm install
       
       - name: 🔧 Build API
         run: |
