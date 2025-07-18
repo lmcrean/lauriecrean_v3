@@ -1,28 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
       "Bash(npm install:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(npm run build:*)",
+      "Bash(mv:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node:*)",
+      "Bash(cross-env:*)",
+      "Bash(npx cross-env:*)",
       "Bash(rm:*)",
-      "Bash(npm test)",
-      "Bash(npx vitest run:*)",
-      "Bash(npm test:*)",
-      "Bash(npm run test:web:pr-feed:*)",
-      "Bash(npm run dev:e2e:*)",
-      "Bash(cross-env PORT=3015 npx ts-node src/index.ts)",
-      "Bash(npm run typecheck:*)",
-      "Bash(npx tsc:*)",
-      "Bash(npm ci:*)"
+      "Bash(find:*)",
+      "Bash(ls:*)"
     ],
-    "deny": [
-      "Bash(git:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git fetch:*)",
-      "Bash(git merge:*)",
-      "Bash(git rebase:*)",
-    ]
+    "deny": []
   }
 }
