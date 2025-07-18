@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { spawn, ChildProcess } from 'child_process';
-import { HabitTrackerDatabase } from './database';
+import { HabitTrackerSQLiteDatabase } from './database-sqlite';
 import path from 'path';
 
 describe('Habit Tracker E2E', () => {
@@ -38,7 +38,7 @@ describe('Habit Tracker E2E', () => {
 
   it('should create database and perform basic operations', () => {
     // Test database creation and basic operations
-    const db = new HabitTrackerDatabase();
+    const db = new HabitTrackerSQLiteDatabase();
     
     // Insert some test data
     db.upsertHabitEntry('2025-01-15', 3);
@@ -64,7 +64,7 @@ describe('Habit Tracker E2E', () => {
 
   it('should verify habit tracker components work together', () => {
     // Test that all components can work together
-    const db = new HabitTrackerDatabase();
+    const db = new HabitTrackerSQLiteDatabase();
     
     // Simulate some habit data
     const dates = ['2025-01-10', '2025-01-11', '2025-01-12', '2025-01-13', '2025-01-14'];
@@ -79,7 +79,7 @@ describe('Habit Tracker E2E', () => {
     expect(allEntries).toHaveLength(5);
     
     // Verify each entry has the expected structure
-    allEntries.forEach((entry, index) => {
+    allEntries.forEach((entry: any, index: number) => {
       expect(entry.date).toBe(dates[index]);
       expect(entry.pull_request_count).toBe(counts[index]);
       expect(entry.last_updated).toBeDefined();

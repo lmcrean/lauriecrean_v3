@@ -51,7 +51,7 @@ export function setupHealthRoutes(app: express.Application): void {
         type: databaseType,
         status: databaseStatus,
         neon_url_present: hasNeonDbUrl,
-        error: databaseError
+        error: databaseError as string | null
       }
     });
   });
@@ -86,7 +86,7 @@ export function setupHealthRoutes(app: express.Application): void {
         neon_url_present: hasNeonDbUrl,
         expected_db_type: isProduction && hasNeonDbUrl ? 'postgresql' : 'sqlite'
       },
-      error: null
+      error: null as string | null
     };
     
     try {

@@ -9,7 +9,9 @@
       "Bash(npx cross-env:*)",
       "Bash(rm:*)",
       "Bash(find:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { HabitTrackerDatabase } from './database';
+import { HabitTrackerSQLiteDatabase } from './database-sqlite';
 import { PullRequestHabitEntry } from './types';
 import fs from 'fs';
 import path from 'path';
 
-describe('HabitTrackerDatabase', () => {
-  let db: HabitTrackerDatabase;
+describe('HabitTrackerSQLiteDatabase', () => {
+  let db: HabitTrackerSQLiteDatabase;
   let testDbPath: string;
   let originalEnv: string | undefined;
 
@@ -23,7 +23,7 @@ describe('HabitTrackerDatabase', () => {
     }
     
     process.env.HABIT_TRACKER_DB_PATH = testDbPath;
-    db = new HabitTrackerDatabase();
+    db = new HabitTrackerSQLiteDatabase();
   });
 
   afterEach(() => {
