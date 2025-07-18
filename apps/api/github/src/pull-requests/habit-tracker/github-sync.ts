@@ -1,13 +1,13 @@
 import { Octokit } from '@octokit/rest';
 import { RefreshResult, DateRange } from './types';
-import { HabitTrackerDatabase } from './database';
+import { IHabitTrackerDatabase } from './database-interface';
 
 export class GitHubHabitSync {
   private octokit: Octokit;
-  private database: HabitTrackerDatabase;
+  private database: IHabitTrackerDatabase;
   private username: string;
 
-  constructor(octokit: Octokit, database: HabitTrackerDatabase, username: string) {
+  constructor(octokit: Octokit, database: IHabitTrackerDatabase, username: string) {
     this.octokit = octokit;
     this.database = database;
     this.username = username;
@@ -30,7 +30,7 @@ export class GitHubHabitSync {
     let totalPRsFound = 0;
 
     for (const [date, count] of pullRequestsByDate.entries()) {
-      this.database.upsertHabitEntry(date, count);
+      await this.database.upsertEntry(date, count);
       daysUpdated++;
       totalPRsFound += count;
     }
@@ -39,7 +39,7 @@ export class GitHubHabitSync {
     const allDates = this.getAllDatesInRange(startDate, endDate);
     for (const date of allDates) {
       if (!pullRequestsByDate.has(date)) {
-        this.database.upsertHabitEntry(date, 0);
+        await this.database.upsertEntry(date, 0);
         daysUpdated++;
       }
     }

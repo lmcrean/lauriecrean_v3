@@ -1,17 +1,25 @@
 import { Router, Request, Response } from 'express';
 import { Octokit } from '@octokit/rest';
-import { HabitTrackerDatabase } from './database';
+import { createDatabase } from './database-factory';
 import { GitHubHabitSync } from './github-sync';
 import { DateRange } from './types';
+import { IHabitTrackerDatabase } from './database-interface';
 
 export function createHabitTrackerRouter(octokit: Octokit, username: string): Router {
   const router = Router();
-  const database = new HabitTrackerDatabase();
-  const sync = new GitHubHabitSync(octokit, database, username);
+  let database: IHabitTrackerDatabase;
+  let sync: GitHubHabitSync;
+
+  // Initialize database asynchronously
+  const initPromise = createDatabase().then(db => {
+    database = db;
+    sync = new GitHubHabitSync(octokit, database, username);
+  });
 
   // Endpoint to trigger a refresh of pull request data
   router.post('/refresh', async (req: Request, res: Response) => {
     try {
+      await initPromise; // Ensure database is initialized
       const dateRange: DateRange | undefined = req.body.date_range;
       
       // Validate date range if provided
@@ -45,8 +53,9 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
   });
 
   // Endpoint to get habit data for a specific date range
-  router.get('/entries', (req: Request, res: Response) => {
+  router.get('/entries', async (req: Request, res: Response) => {
     try {
+      await initPromise; // Ensure database is initialized
       const { start_date, end_date } = req.query;
 
       // Default to last 30 days if not specified
@@ -60,10 +69,27 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
         });
       }
 
-      const entries = database.getHabitEntries(startDate, endDate);
+      // Get entries for the year of the start date
+      const startYear = new Date(startDate).getFullYear();
+      const endYear = new Date(endDate).getFullYear();
+      
+      let entries: any[] = [];
+      for (let year = startYear; year <= endYear; year++) {
+        const yearEntries = await database.getEntriesByYear(year);
+        entries = entries.concat(yearEntries.filter(entry => 
+          entry.date >= startDate && entry.date <= endDate
+        ));
+      }
+
+      // Convert to the format expected by frontend
+      const formattedEntries = entries.map(entry => ({
+        date: entry.date,
+        pull_request_count: entry.pullRequestCount,
+        last_updated: entry.lastUpdated
+      }));
 
       res.json({
-        entries,
+        entries: formattedEntries,
         date_range: {
           start_date: startDate,
           end_date: endDate
@@ -79,8 +105,9 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
   });
 
   // Endpoint to get a single day's data
-  router.get('/entries/:date', (req: Request, res: Response) => {
+  router.get('/entries/:date', async (req: Request, res: Response) => {
     try {
+      await initPromise; // Ensure database is initialized
       const { date } = req.params;
 
       if (!isValidDate(date)) {
@@ -89,7 +116,7 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
         });
       }
 
-      const entry = database.getHabitEntry(date);
+      const entry = await database.getEntry(date);
 
       if (!entry) {
         return res.status(404).json({
@@ -98,7 +125,12 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
         });
       }
 
-      res.json(entry);
+      // Convert to the format expected by frontend
+      res.json({
+        date: entry.date,
+        pull_request_count: entry.pullRequestCount,
+        last_updated: entry.lastUpdated
+      });
     } catch (error) {
       console.error('Error fetching habit entry:', error);
       res.status(500).json({
@@ -109,10 +141,19 @@ export function createHabitTrackerRouter(octokit: Octokit, username: string): Ro
   });
 
   // Endpoint to get overall statistics
-  router.get('/stats', (req: Request, res: Response) => {
+  router.get('/stats', async (req: Request, res: Response) => {
     try {
-      const stats = database.getStats();
-      res.json(stats);
+      await initPromise; // Ensure database is initialized
+      const stats = await database.getStats();
+      // Convert to the format expected by frontend
+      res.json({
+        total_days: stats.totalDays,
+        total_pull_requests: stats.totalPullRequests,
+        average_per_day: stats.averagePerDay,
+        max_in_single_day: stats.maxInSingleDay,
+        current_streak: stats.currentStreak,
+        longest_streak: stats.longestStreak
+      });
     } catch (error) {
       console.error('Error fetching habit stats:', error);
       res.status(500).json({
