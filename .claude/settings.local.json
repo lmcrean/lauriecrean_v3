@@ -11,7 +11,10 @@
       "Bash(find:*)",
       "Bash(ls:*)",
       "Bash(curl:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:api-github-feat-pull-req-habit-tracker-moivsrfqka-uc.a.run.app)",
+      "Bash(gcloud run services update:*)",
+      "Bash(gcloud init:*)"
     ],
     "deny": []
   }
