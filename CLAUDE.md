@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Documentation Structure
+Comprehensive project documentation is organized in the `/docs` directory:
+
+- **[overview.md](docs/overview.md)** - Project description, implementation status, and architecture
+- **[testing.md](docs/testing.md)** - Complete testing strategy including Playwright configurations
+- **[structure.md](docs/structure.md)** - Codebase organization and directory layout
+- **[development.md](docs/development.md)** - Development commands and workflows
+- **[deployment.md](docs/deployment.md)** - Cloud deployment configuration
+- **[workflows.md](docs/workflows.md)** -- github actions deployment workflow
+
 ## Project Structure
 
 This is a monorepo portfolio project with the following key applications:
