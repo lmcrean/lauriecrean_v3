@@ -1,76 +1,108 @@
 # Testing Strategy ✅ COMPLETED
 
 ## Comprehensive Test Suite
-- **Integration Tests**: API and Web service integration testing
-- **End-to-End Tests**: Complete user workflow testing with Playwright
+- **Unit Tests**: Jest with React Testing Library (apps/web/)
+- **Integration Tests**: Vitest for component integration (integration/)
+- **End-to-End Tests**: Playwright for full system testing (e2e/)
 - **CI/CD Integration**: Automated testing in GitHub Actions
 
-## Integration Tests (`integration-tests/`)
+## Unit Tests (apps/web/)
 
-### API Integration Tests (C# + xUnit)
-- ✅ HTTP endpoint testing with WebApplicationFactory
-- ✅ CORS configuration validation
-- ✅ JSON response structure validation
+### React Component Tests (Jest + React Testing Library)
+- ✅ Pull request feed component testing
+- ✅ Component rendering and user interactions
+- ✅ API service integration testing
+- ✅ Error handling and loading states
+- ✅ Responsive design validation
+
+### API Unit Tests (apps/api/github/)
+- ✅ GitHub API integration testing
+- ✅ Caching mechanism validation
+- ✅ Health endpoint testing
 - ✅ Error handling and status codes
-- ✅ Concurrent request handling
 
-### Web Integration Tests (Angular + Vitest)
-- ✅ Service layer testing with HTTP mocking
-- ✅ Component integration with API services
-- ✅ Error state handling and UI updates
-- ✅ Async operation testing
+## Integration Tests (integration/)
 
-## End-to-End Tests (`e2e/`) ✅ UPDATED
+### Cross-Component Integration (Vitest)
+- ✅ Pull request feed with API service integration
+- ✅ Component state management validation
+- ✅ API response handling and error states
+- ✅ Cross-browser compatibility testing
 
-### Playwright Test Suite with Explicit Configuration Architecture
+## End-to-End Tests (e2e/) ✅ COMPLETED
 
-**Configuration Strategy**: Explicit naming convention for test scope and environment separation to prevent deployment failures and ensure proper test isolation.
+### Playwright Test Suite
 
-### API-Only Test Configurations
-For branch deployments where web apps don't exist:
-- `playwright.config.api.local.ts` - API tests against `http://localhost:5000`
-- `playwright.config.api.production.branch.ts` - API tests for PR branches (requires `API_DEPLOYMENT_URL`)
-- `playwright.config.api.production.main.ts` - API tests for main production (has fallback URL)
+**Testing Strategy**: Comprehensive end-to-end testing covering both API endpoints and full web application workflows.
 
-### Full Web+API Test Configurations
-For complete deployments:
-- `playwright.config.web.local.ts` - Full tests against localhost:4200 (web) + localhost:5000 (API)
-- `playwright.config.web.production.branch.ts` - Full tests for PR branches (requires env vars)
-- `playwright.config.web.production.main.ts` - Full tests for main production (has fallback URLs)
-
-### Corresponding Global Setup Files
-- `global-setup.api.*.ts` - Only validates API service health
-- `global-setup.web.*.ts` - Validates both web and API service health
-
-### Key Benefits
-- **Separation of Concerns**: API tests don't wait for web services that may not exist
-- **Branch Deployment Compatibility**: PR branches can test API-only without web deployment failures
-- **Environment-Specific Timeouts**: Production configs use longer timeouts for network delays
-- **Explicit Dependencies**: Clear naming shows exactly what each config tests
-
-### npm Scripts
-- `test:api:local`, `test:api:branch`, `test:api:main` - API-only testing
-- `test:web:local`, `test:web:branch`, `test:web:main` - Full web+API testing
-
-### Environment Variables for Production E2E Tests
-- `WEB_DEPLOYMENT_URL` or `FIREBASE_HOSTING_URL` - Web app URL (web configs only)
-- `API_DEPLOYMENT_URL` or `CLOUD_RUN_URL` - API service URL (all configs)
+### Test Configurations
+- `playwright.config.ts` - Main configuration for local and production testing
+- Environment-aware URL configuration for different deployment targets
+- Support for both local development and production environments
 
 ### Test Coverage
-- ✅ Complete hello world user flow
-- ✅ API connectivity validation (multiple endpoints: `/`, `/health`, `/api/health`, `/api/health/status`)
-- ✅ Error handling and retry mechanisms
+- ✅ Pull request feed functionality
+- ✅ API health endpoint validation (`/api/health`)
+- ✅ GitHub API integration testing
 - ✅ Cross-browser testing (Chrome, Firefox, Safari)
 - ✅ Mobile device compatibility
 - ✅ Performance and timeout handling
+- ✅ Error handling and retry mechanisms
 - ✅ CORS configuration testing
-- ✅ Concurrent request handling
 - ✅ Frontend-API integration validation
 
+### Environment Variables for Production E2E Tests
+- `WEB_DEPLOYMENT_URL` - Portfolio website URL
+- `API_DEPLOYMENT_URL` - GitHub API service URL
+
+### Key Features Tested
+- Pull request feed component rendering
+- GitHub API data fetching and caching
+- Responsive design across different screen sizes
+- Error states when API is unavailable
+- Loading states during data fetching
+
 ## Testing Commands
-- **All Tests**: `npm run test:all`
-- **Integration Tests**: `npm run test:api` (C# API), `npm run test:web` (Angular)
-- **E2E API Tests**: `npm run test:api:local`, `npm run test:api:branch`, `npm run test:api:main`
-- **E2E Web Tests**: `npm run test:web:local`, `npm run test:web:branch`, `npm run test:web:main`
-- **Legacy E2E**: `cd e2e && npm test` (falls back to web.local config)
-- **Custom Runner**: `node test-runner.js [api|web|e2e|integration|all]`
+
+### Unit Tests
+```bash
+# Web application unit tests
+cd apps/web && npm test
+
+# API unit tests (if implemented)
+cd apps/api/github && npm test
+```
+
+### Integration Tests
+```bash
+# Run all integration tests
+cd integration && npm test
+
+# Run with UI
+cd integration && npm run test:ui
+
+# Run with coverage
+cd integration && npm run test:coverage
+```
+
+### End-to-End Tests
+```bash
+# Run all E2E tests
+cd e2e && npm test
+
+# Run with browser UI
+cd e2e && npm run test:headed
+
+# Test specific components
+cd e2e && npm run test:api:health      # API health checks
+cd e2e && npm run test:web:pr-feed     # Pull request feed
+
+# Start services for E2E testing
+cd e2e && npm run dev:e2e              # Starts both web and API
+```
+
+### Testing Workflow
+1. **Local Development**: Run unit tests during development
+2. **Integration Testing**: Test component interactions before commits
+3. **E2E Testing**: Validate full user workflows before deployment
+4. **CI/CD Pipeline**: Automated testing on pull requests and deployments

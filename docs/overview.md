@@ -1,59 +1,52 @@
 # Project Overview
 
-A B2B competitive intelligence platform built with Angular frontend and C# ASP.NET Core backend, deployed to Google Cloud Platform.
+A full-stack developer portfolio showcasing projects and skills, built with Docusaurus frontend and Node.js Express backend, featuring a GitHub pull request feed system.
 
 ## Implementation Status
 
-### Iteration 1 (i1) - Hello World Foundation ✅ COMPLETED
-**Goal**: Establish basic Angular-to-C# API communication and deployment pipeline
+### Current Features ✅ COMPLETED
 
-#### Backend (apps/api) - C# ASP.NET Core
-- ✅ Project structure with Controllers, Models, Middleware directories
-- ✅ HealthController with `/api/health` (simple string) and `/api/health/status` (structured JSON)
-- ✅ Additional `/health` endpoint for workflow compatibility
-- ✅ CORS configuration for Angular frontend (localhost:4200)
-- ✅ Swagger/OpenAPI documentation
-- ✅ Google Cloud Run deployment configuration (Dockerfile, cloudbuild.yaml)
-- ✅ Environment-specific settings (Development/Production)
-- ✅ Observability package integration with health metrics
+#### Frontend (apps/web) - Docusaurus with React
+- ✅ Docusaurus-based portfolio website with custom React components
+- ✅ Pull request feed component displaying GitHub activity
+- ✅ Tailwind CSS for styling
+- ✅ Splide.js for carousels
+- ✅ Responsive design with mobile optimization
+- ✅ Vercel deployment configuration
+- ✅ TypeScript integration
 
-#### Frontend (apps/web) - Angular 18
-- ✅ Standalone components architecture
-- ✅ ApiService for HTTP communication with backend
-- ✅ HelloWorldComponent displaying API responses
-- ✅ Environment configurations (development/production)
-- ✅ Firebase hosting configuration
-- ✅ Error handling and loading states
+#### Backend (apps/api/github) - Node.js Express
+- ✅ GitHub API integration for pull request data
+- ✅ Caching system for API responses
+- ✅ Health check endpoints
+- ✅ CORS configuration for frontend communication
+- ✅ Environment-specific configuration
+- ✅ Vercel serverless deployment
 
 #### Key Features Implemented
-- Basic API health endpoints returning "Hello World" messages
-- Angular component consuming C# API with structured response
-- Environment-specific API URL configuration
-- Google Cloud deployment ready (Cloud Run + Firebase)
-- CORS properly configured for cross-origin requests
+- GitHub pull request feed with caching
+- Responsive portfolio website
+- Cross-origin API communication
+- Shared TypeScript types across applications
+- Comprehensive testing strategy
+- CI/CD pipeline with GitHub Actions
 
-#### Next Steps (Iteration 2)
-- Authentication system implementation
-- JWT token management
-- Role-based access control for B2B users
+#### Architecture Highlights
+- **Monorepo Structure**: Organized with separate apps for web and API
+- **Shared Types**: Common TypeScript interfaces in `/shared/types/`
+- **Testing Strategy**: Unit, integration, and E2E tests
+- **Deployment**: Web on Vercel, API on Vercel serverless functions
+- **Development Workflow**: Hot reload, TypeScript checking, automated testing
 
-## Docker Configuration ✅ FIXED
-**Issue Resolution**: Fixed Docker build failure due to missing Observability package reference
+## Key Components
 
-**Updated Dockerfile** (`apps/api/Dockerfile`):
-- Build context moved to repository root
-- Properly copies both API project and Observability package
-- Multi-stage build with correct dependency resolution
-- Optimized layer caching for dependencies
+### Pull Request Feed System
+- **API Endpoints**: Fetch and cache GitHub pull request data
+- **React Components**: Display PR information with filtering and pagination
+- **Caching Strategy**: Optimize GitHub API usage and response times
+- **Error Handling**: Graceful degradation when API is unavailable
 
-**Updated GitHub Actions Workflows**:
-- `deploy-api-main.yml` and `deploy-api-branch.yml` updated
-- Docker builds now run from repository root with `-f apps/api/Dockerfile .`
-- Proper context allows access to referenced packages
-
-## Health Endpoints
-- `/` - Simple "API is running" response
-- `/health` - JSON health status for workflows
-- `/api/health` - Controller-based health check
-- `/api/health/status` - Structured health response
-- `/observability/health` - Observability metrics
+### Development Environment
+- **Port Configuration**: Web (3020), API (3015) for E2E compatibility
+- **Environment Variables**: GitHub token and username configuration
+- **Hot Reload**: Both web and API support development server hot reloading

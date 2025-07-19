@@ -2,57 +2,58 @@
 
 ```
 apps/
-├── api/                    # C# ASP.NET Core API
-│   ├── Controllers/        # API controllers
-│   ├── Models/            # Data models
-│   ├── Middleware/        # Custom middleware
-│   ├── Properties/        # Launch settings
-│   └── Dockerfile         # Multi-stage build with package references
-└── web/                   # Angular frontend
-    ├── src/app/
-    │   ├── components/    # Angular components
-    │   ├── services/      # HTTP services
-    │   └── environments/ # Environment configs
-    └── firebase.json      # Firebase hosting
+├── api/
+│   └── github/             # Node.js Express API for GitHub data
+│       ├── src/
+│       │   ├── pull-requests/  # GitHub API integration with caching
+│       │   ├── health/         # Health check endpoints
+│       │   └── index.ts        # Express server configuration
+│       ├── package.json        # API dependencies
+│       └── vercel.json         # Vercel deployment config
+└── web/                    # Docusaurus portfolio website
+    ├── src/
+    │   ├── components/
+    │   │   └── pull-request-feed/  # React components for PR display
+    │   ├── pages/              # Docusaurus pages
+    │   └── css/                # Custom styles and Tailwind
+    ├── docusaurus.config.js    # Docusaurus configuration
+    ├── package.json            # Web dependencies
+    └── vercel.json             # Vercel deployment config
 
-packages/
-└── observability/
-    └── csharp/            # Shared observability package
-        ├── Extensions/    # DI and middleware extensions
-        ├── Models/        # Logging models
-        └── Services/      # Observability services
+shared/
+└── types/
+    └── pull-requests/          # TypeScript interfaces for PR data
+        ├── index.ts            # Main type definitions
+        └── api.ts              # API response types
 
-integration-tests/
-├── api/                   # C# API integration tests
-│   ├── Tests/            # xUnit test classes
-│   ├── Fixtures/         # Test setup and utilities
-│   └── IntegrationTests.csproj
-└── web/                  # Angular integration tests
-    ├── src/              # Vitest test files
-    └── vitest.config.ts  # Test configuration
+integration/                    # Integration tests using Vitest
+├── src/
+│   ├── api/                    # API integration tests
+│   ├── web/                    # Web component integration tests
+│   └── utils/                  # Test utilities and fixtures
+├── vitest.config.ts            # Vitest configuration
+└── package.json                # Integration test dependencies
 
-e2e/                      # Playwright E2E tests
-├── tests/                # Test scenarios
-├── fixtures/             # Test data with environment-aware URLs
-├── utils/                # Test helpers and global setup
-├── playwright.config.api.local.ts           # API-only local tests
-├── playwright.config.api.production.branch.ts  # API-only branch tests
-├── playwright.config.api.production.main.ts    # API-only main tests
-├── playwright.config.web.local.ts           # Full web+API local tests
-├── playwright.config.web.production.branch.ts  # Full web+API branch tests
-├── playwright.config.web.production.main.ts    # Full web+API main tests
-├── global-setup.api.local.ts               # API service health check (local)
-├── global-setup.api.production.branch.ts   # API service health check (branch)
-├── global-setup.api.production.main.ts     # API service health check (main)
-├── global-setup.web.local.ts               # Both services health check (local)
-├── global-setup.web.production.branch.ts   # Both services health check (branch)
-└── global-setup.web.production.main.ts     # Both services health check (main)
+e2e/                           # Playwright E2E tests
+├── tests/
+│   ├── api/                   # API endpoint tests
+│   └── web/                   # Full web application tests
+├── fixtures/                  # Test data and utilities
+├── playwright.config.ts       # Playwright configuration
+└── package.json               # E2E test dependencies
 
-docs/                     # Project documentation
-├── README.md            # Documentation index
-├── overview.md          # Project status and architecture
-├── testing.md           # Testing strategy and configurations
-├── structure.md         # This file - codebase organization
-├── development.md       # Development commands and workflows
-└── deployment.md        # Deployment configuration
+docs/                          # Project documentation
+├── README.md                  # Documentation index
+├── overview.md                # Project status and architecture
+├── testing.md                 # Testing strategy and configurations
+├── structure.md               # This file - codebase organization
+├── development.md             # Development commands and workflows
+├── deployment.md              # Deployment configuration
+└── workflows.md               # GitHub Actions workflow documentation
+
+.github/
+└── workflows/                 # GitHub Actions CI/CD
+    ├── deploy-api.yml         # API deployment workflow
+    ├── deploy-web.yml         # Web deployment workflow
+    └── test-e2e.yml           # E2E testing workflow
 ```

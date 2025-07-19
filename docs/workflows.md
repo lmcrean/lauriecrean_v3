@@ -2,78 +2,115 @@
 
 ## Workflow Architecture
 
-The project uses two distinct deployment patterns with consistent naming conventions that mirror the Playwright test configurations.
+The project uses GitHub Actions for continuous integration and deployment, with separate workflows for different components and environments.
 
-## Naming Convention
+## Current Workflows
 
-All workflows follow the pattern: `{purpose}.production.{environment}.yml`
+### Deployment Workflows
+- **deploy-web.yml**: Deploys the portfolio website to Vercel
+- **deploy-api.yml**: Deploys the GitHub API service to Vercel
 
-- **Purpose**: `test-api`, `test-e2e`, `test-integration`, `deploy-api`, `deploy-web`, `deploy-preview`, `deploy`
-- **Environment**: `branch` (preview deployments) or `main` (production deployments)
+### Testing Workflows
+- **test-e2e.yml**: Runs Playwright end-to-end tests
+- **test-integration.yml**: Runs Vitest integration tests
+- **test-unit.yml**: Runs Jest unit tests
 
-## Branch Workflows (`.production.branch.yml`)
+## Workflow Triggers
 
-**Purpose**: Preview deployments for pull requests and feature branches. Enables the code reviewers to quickly preview a new feature/fix and confirm it works in production. It also identifies specific issues in production through E2E testing.
+### Pull Request Workflows
+**Purpose**: Validate changes before merging to main branch
 
-**Characteristics**:
-- Triggered on pull requests to main
-- Deploy to temporary preview environments
-- Short-lived infrastructure (cleaned up after PR merge/close)
-- Branch-specific URLs with PR identifiers
-- Full integration testing against preview deployments
+**Triggered on**: Pull requests to main branch
 
-**Workflows**:
-- `test-api.production.branch.yml` - API health and integration tests
-- `test-e2e.production.branch.yml` - End-to-end tests against preview
-- `test-integration.production.branch.yml` - Cross-service integration tests
-- `deploy-api.production.branch.yml` - Deploy API to Cloud Run preview
-- `deploy-web.production.branch.yml` - Deploy web to Firebase preview
-- `deploy-preview.production.branch.yml` - Orchestrate full preview deployment
+**Actions**:
+- Run unit tests for web and API components
+- Run integration tests for cross-component validation
+- Run E2E tests against preview deployments
+- Deploy preview environments for manual testing
 
-## Main Workflows (`.production.main.yml`)
+### Main Branch Workflows
+**Purpose**: Deploy to production and validate deployment
 
-**Purpose**: Production deployments for the main branch
+**Triggered on**: Pushes to main branch
 
-**Characteristics**:
-- Triggered on pushes to main branch
-- Deploy to stable production environment
-- Persistent infrastructure
-- Production URLs (stable endpoints)
-- Comprehensive testing and monitoring
+**Actions**:
+- Deploy web application to production Vercel
+- Deploy API service to production Vercel
+- Run comprehensive E2E tests against production
+- Monitor deployment health and performance
 
-**Workflows**:
-- `test-api.production.main.yml` - Production API testing
-- `test-e2e.production.main.yml` - Production end-to-end validation
-- `test-integration.production.main.yml` - Production integration testing
-- `deploy-api.production.main.yml` - Deploy API to production Cloud Run
-- `deploy-web.production.main.yml` - Deploy web to production Firebase
-- `deploy.production.main.yml` - Orchestrate full production deployment
+## Workflow Details
 
-## Testing Integration
+### deploy-web.yml
+```yaml
+name: Deploy Web Application
+triggers: 
+  - push to main
+  - pull_request to main
+steps:
+  - Build Docusaurus site
+  - Deploy to Vercel
+  - Run health checks
+```
 
-Workflow naming aligns with Playwright configurations:
+### deploy-api.yml
+```yaml
+name: Deploy API Service
+triggers:
+  - push to main
+  - pull_request to main
+steps:
+  - Build Node.js TypeScript
+  - Deploy to Vercel Functions
+  - Validate API endpoints
+```
 
-**Branch Testing**:
-- `playwright.config.api.production.branch.ts`
-- `playwright.config.web.production.branch.ts`
-
-**Main Testing**:
-- `playwright.config.api.production.main.ts`
-- `playwright.config.web.production.main.ts`
-
-This consistency ensures clear mapping between deployment environments and their corresponding test configurations.
+### test-e2e.yml
+```yaml
+name: End-to-End Tests
+triggers:
+  - pull_request to main
+  - deployment_status
+steps:
+  - Install Playwright
+  - Run API health tests
+  - Run full web application tests
+  - Generate test reports
+```
 
 ## Environment Variables
 
-Both patterns use environment-specific variables:
+### Required for All Workflows
+```bash
+# GitHub API access
+GITHUB_TOKEN=personal_access_token
+GITHUB_USERNAME=github_username
 
-**Branch Deployments**:
-- `API_DEPLOYMENT_URL` - Branch-specific API URL
-- `WEB_DEPLOYMENT_URL` - Branch-specific web URL
-- `BRANCH_NAME` - Source branch name
+# Deployment URLs for E2E testing
+WEB_DEPLOYMENT_URL=portfolio_website_url
+API_DEPLOYMENT_URL=api_service_url
+
+# Vercel deployment tokens
+VERCEL_TOKEN=vercel_deployment_token
+VERCEL_ORG_ID=vercel_organization_id
+VERCEL_PROJECT_ID=vercel_project_id
+```
+
+### Workflow-Specific Variables
+
+**Pull Request Workflows**:
+- `VERCEL_PREVIEW_URL` - Preview deployment URL
 - `PR_NUMBER` - Pull request identifier
+- `BRANCH_NAME` - Source branch name
 
-**Main Deployments**:
+**Production Workflows**:
+- `PRODUCTION_WEB_URL` - Stable production website URL
 - `PRODUCTION_API_URL` - Stable production API URL
-- `PRODUCTION_WEB_URL` - Stable production web URL
 - `GITHUB_SHA` - Commit hash for release tracking
+
+## Monitoring and Notifications
+
+- **Deployment Status**: Automatic status updates on pull requests
+- **Test Results**: Detailed test reports with screenshots for failures
+- **Performance Metrics**: Core Web Vitals and API response times
+- **Error Alerts**: Notifications for deployment or test failures
